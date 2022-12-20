@@ -1,7 +1,6 @@
 ---
 title: Braindriller
 date: '2021-09-29'
-publushed: true
 author: universato
 code: 
   - repository: "https://github.com/universato/BrainDriller"

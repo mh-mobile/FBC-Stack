@@ -1,7 +1,6 @@
 ---
 title: Tundaa
 date: '2021-07-15'
-publushed: true
 author: tam-03
 code: 
   - repository: "https://github.com/tam-03/tundaa"

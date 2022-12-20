@@ -1,7 +1,6 @@
 ---
 title: SHARECAMP
 date: '2021-07-28'
-publushed: true
 author: SeijiNumata
 code: 
   - repository: "https://github.com/SeijiNumata/sharecamp"
