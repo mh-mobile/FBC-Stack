@@ -22,13 +22,13 @@ const Privacy = () => {
           <Text p={2}>
             Googleアナリティクスに関する説明は、
             <Link href="https://marketingplatform.google.com/about/analytics/terms/jp/">
-              <Box as={'span'} color="external_link">
+              <Box as={'span'} color="externalLink">
                 Googleアナリティクス利用規約
               </Box>
             </Link>
             と
             <Link href="https://policies.google.com/technologies/ads">
-              <Box as={'span'} color="external_link">
+              <Box as={'span'} color="externalLink">
                 Googleプライバシーポリシー
               </Box>
             </Link>
@@ -38,7 +38,7 @@ const Privacy = () => {
           <Text p={2}>
             また、Google による情報収集を無効化したい場合は、Google社が提供する
             <Link href="https://tools.google.com/dlpage/gaoptout">
-              <Box as={'span'} color="external_link">
+              <Box as={'span'} color="externalLink">
                 Google アナリティクス オプトアウト アドオン
               </Box>
             </Link>
