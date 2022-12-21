@@ -1,4 +1,5 @@
 import Layout from '../components/Layout'
+import ExternalLink from '../components/ExternalLink'
 import Head from 'next/head'
 import Link from 'next/link'
 import * as utilStyles from '../styles/utils'
@@ -21,54 +22,28 @@ const Privacy = () => {
 
           <Text p={2}>
             Googleアナリティクスに関する説明は、
-            <Link
-              href="https://marketingplatform.google.com/about/analytics/terms/jp/"
-              legacyBehavior
-            >
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ textDecoration: 'none' }}
-              >
-                <Box as={'span'} color="externalLink">
-                  Googleアナリティクス利用規約
-                </Box>
-              </a>
-            </Link>
+            <ExternalLink href="https://marketingplatform.google.com/about/analytics/terms/jp/">
+              <Box as={'span'} color="externalLink">
+                Googleアナリティクス利用規約
+              </Box>
+            </ExternalLink>
             と
-            <Link
-              href="https://policies.google.com/technologies/ads"
-              legacyBehavior
-            >
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ textDecoration: 'none' }}
-              >
-                <Box as={'span'} color="externalLink">
-                  Googleプライバシーポリシー
-                </Box>
-              </a>
-            </Link>
+            <ExternalLink href="https://policies.google.com/technologies/ads">
+              <Box as={'span'} color="externalLink">
+                Googleプライバシーポリシー
+              </Box>
+            </ExternalLink>
             をご確認ください。
           </Text>
 
           <Text p={2}>
             また、Google による情報収集を無効化したい場合は、Google社が提供する
-            <Link
-              href="https://tools.google.com/dlpage/gaoptout"
-              legacyBehavior
-            >
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ textDecoration: 'none' }}
-              >
-                <Box as={'span'} color="externalLink">
-                  Google アナリティクス オプトアウト アドオン
-                </Box>
-              </a>
-            </Link>
+            <ExternalLink href="https://tools.google.com/dlpage/gaoptout">
+              <Box as={'span'} color="externalLink">
+                Google アナリティクス オプトアウト アドオン
+              </Box>
+            </ExternalLink>
+            からオプトアウトの設定が可能です。
           </Text>
           <Text p={2}>
             ※Cookieとは、利用者がウェブサイトに訪問した際、ブラウザーを通して利用者のコンピューターに一時的にデータを記録する仕組みのことです。Cookieには、利用者の端末に関する情報やサイトへの訪問回数といった情報が記録され、サイトへの訪問者としての利用者の識別として利用されます。

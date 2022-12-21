@@ -15,6 +15,7 @@ import ReactMarkdown from 'react-markdown'
 import ChakraUIRenderer from 'chakra-ui-markdown-renderer'
 import remarkGfm from 'remark-gfm'
 import type { PostData } from '../../types/postData'
+import ExternalLink from '../../components/ExternalLink'
 
 type Props = {
   postData: PostData
@@ -60,40 +61,34 @@ const Post: NextPage<Props> = ({ postData }) => {
             </Box>
             <Text>{postData.author}</Text>
             {postData.code.map(({ repository }) => (
-              <Link href={repository} key={repository} legacyBehavior>
-                <a target="_blank" rel="noopener noreferrer">
-                  <Image
-                    src={`/images/tool/github.png`}
-                    width="30"
-                    height="30"
-                    alt="repository"
-                  />
-                </a>
-              </Link>
+              <ExternalLink href={repository} key={repository}>
+                <Image
+                  src={`/images/tool/github.png`}
+                  width="30"
+                  height="30"
+                  alt="repository"
+                />
+              </ExternalLink>
             ))}
             {postData.blog?.length > 0 && (
-              <Link href={postData.blog} legacyBehavior>
-                <a target="_blank" rel="noopener noreferrer">
-                  <Image
-                    src={`/images/blog.png`}
-                    width="30"
-                    height="30"
-                    alt="blog"
-                  />
-                </a>
-              </Link>
+              <ExternalLink href={postData.blog}>
+                <Image
+                  src={`/images/blog.png`}
+                  width="30"
+                  height="30"
+                  alt="blog"
+                />
+              </ExternalLink>
             )}
             {postData.website?.length > 0 && (
-              <Link href={postData.website} legacyBehavior>
-                <a target="_blank" rel="noopener noreferrer">
-                  <Image
-                    src={`/images/website.png`}
-                    width="30"
-                    height="30"
-                    alt="website"
-                  />
-                </a>
-              </Link>
+              <ExternalLink href={postData.website}>
+                <Image
+                  src={`/images/website.png`}
+                  width="30"
+                  height="30"
+                  alt="website"
+                />
+              </ExternalLink>
             )}
           </HStack>
           <Box pt={2}>
