@@ -27,7 +27,7 @@ const Home: NextPage<Props> = ({ allPostsData }) => {
         <title>{siteTitle}</title>
       </Head>
       <Box sx={utilStyles.headingXl} p={4}>
-        Searvices
+        Services
       </Box>
       <Box sx={utilStyles.contentMd} p={1}>
         <Grid
