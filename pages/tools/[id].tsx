@@ -22,6 +22,7 @@ import type { GetStaticProps, GetStaticPaths } from 'next'
 import type { ToolData } from '../../types/toolData'
 import type { PostData } from '../../types/postData'
 import ServiceListItem from '../../components/ServiceListItem'
+import ExternalLink from '../../components/ExternalLink'
 
 type Props = {
   allPostsData: PostData[]
@@ -79,18 +80,12 @@ const Tool: NextPage<Props> = ({ allPostsData, toolData }) => {
         </Box>
       </Box>
       <HStack justify="center" pb={5}>
-        <Link href={toolData.url} legacyBehavior>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ textDecoration: 'none' }}
-          >
-            <Tag size={'md'} key={'md'} variant="outline" colorScheme="blue">
-              <TagLabel>{toolData.url}</TagLabel>
-              <TagRightIcon as={ExternalLinkIcon} />
-            </Tag>
-          </a>
-        </Link>
+        <ExternalLink href={toolData.url}>
+          <Tag size={'md'} key={'md'} variant="outline" colorScheme="blue">
+            <TagLabel>{toolData.url}</TagLabel>
+            <TagRightIcon as={ExternalLinkIcon} />
+          </Tag>
+        </ExternalLink>
       </HStack>
       <Box sx={utilStyles.contentMd} p={1}>
         <Grid
