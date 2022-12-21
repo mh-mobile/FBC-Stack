@@ -1,7 +1,6 @@
 import { ReactNode } from 'react'
 import { NextPage } from 'next'
 import Link from 'next/link'
-import { Box } from '@chakra-ui/react'
 
 type Props = {
   children: ReactNode

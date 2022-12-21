@@ -1,6 +1,4 @@
 import Layout from '../components/Layout'
-import Image from 'next/image'
-import Link from 'next/link'
 import Head from 'next/head'
 import * as utilStyles from '../styles/utils'
 import { Text, Heading, Box, ListItem, OrderedList } from '@chakra-ui/react'

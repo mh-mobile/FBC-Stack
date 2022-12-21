@@ -1,11 +1,4 @@
-import {
-  useBreakpointValue,
-  HStack,
-  VStack,
-  Box,
-  Text,
-  Button,
-} from '@chakra-ui/react'
+import { useBreakpointValue, HStack, Box } from '@chakra-ui/react'
 import { SearchIcon, QuestionOutlineIcon } from '@chakra-ui/icons'
 import Link from 'next/link'
 
