@@ -6,6 +6,7 @@ import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react'
 import { SearchIcon } from '@chakra-ui/icons'
 import ToolButton from '../../components/ToolButton'
 import { Grid, GridItem, Box } from '@chakra-ui/react'
+import { getToolsNameInPostsData } from '../../lib/posts'
 import { getAllToolsData } from '../../lib/tools'
 import type { GetStaticProps } from 'next'
 import type { ToolData } from '../../types/toolData'
@@ -16,7 +17,14 @@ type Props = {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allToolsData = getAllToolsData()
+  // 実際に使用されているツールのみを抽出する
+  const toolsNameInServices = getToolsNameInPostsData()
+  const allToolsData = getAllToolsData().filter((toolData) => {
+    return (
+      toolsNameInServices.includes(toolData.toolName) ||
+      toolData.alias?.some((name) => toolsNameInServices.includes(name))
+    )
+  })
   return {
     props: {
       allToolsData,
