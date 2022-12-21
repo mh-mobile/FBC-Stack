@@ -9,7 +9,7 @@ blog: https://tsukadaryo.com/football-my-team/
 website: 
 published: true
 stack:
-  - name: frondend
+  - name: frontend
     detail: 
       - name: Vue.js
         version: 3.2.31

@@ -9,7 +9,7 @@ blog: https://knkdic.hatenablog.com/entry/2022/04/20/224617
 website:
 published: true
 stack:
-  - name: frondend
+  - name: frontend
     detail: 
       - name: Ruby
         version: 3.0.1

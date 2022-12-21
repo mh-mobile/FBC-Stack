@@ -9,7 +9,7 @@ blog: https://kasai441.hatenablog.com/entry/2022/08/22/080730
 website:
 published: true
 stack:
-  - name: frondend
+  - name: frontend
     detail: 
       - name: Node.js
         version: 16.14

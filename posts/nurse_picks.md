@@ -9,7 +9,7 @@ blog: https://garammasala29.hatenablog.com/entry/NursePicks
 website: https://www.nursepicks.jp/
 published: true
 stack:
-  - name: frondend
+  - name: frontend
     detail: 
       - name: Vue.js
         version: 3.2.36

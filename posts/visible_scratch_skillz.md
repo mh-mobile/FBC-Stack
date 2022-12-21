@@ -9,7 +9,7 @@ blog:  https://zenn.dev/obregonia1/articles/9f6fae7968c0c0
 website: https://visible-scratch-skillz.net/
 published: true
 stack:
-  - name: frondend
+  - name: frontend
     detail: 
       - name: Vue.js 
         version: 3.1.5

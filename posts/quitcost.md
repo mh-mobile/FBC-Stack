@@ -9,7 +9,7 @@ blog: https://zenn.dev/ikuma/articles/release-quitcost
 website: 
 published: true
 stack:
-  - name: frondend
+  - name: frontend
     detail: 
       - name: Vue.js
         version: 2.6.14

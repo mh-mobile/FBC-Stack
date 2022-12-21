@@ -9,7 +9,7 @@ blog: https://eatplaynap329.hatenablog.jp/entry/2022/09/12/025508
 website: https://www.shadone.net/
 published: true
 stack:
-  - name: frondend
+  - name: frontend
     detail: 
       - name: Vue.js
         version: 2.6.14

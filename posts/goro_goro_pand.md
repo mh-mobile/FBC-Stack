@@ -9,7 +9,7 @@ blog: https://note.com/unstoppa61e/n/nd3cdb84b41ad
 website: https://gorogoropanda.com/
 published: true
 stack:
-  - name: frondend/backend
+  - name: frontend/backend
     detail: 
       - name: React
         version: 17.0.2 

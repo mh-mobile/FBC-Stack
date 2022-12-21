@@ -11,7 +11,7 @@ blog: https://kazumi-learning.tumblr.com/post/698950071100850176/payreco
 website: https://payreco.vercel.app/
 published: true
 stack:
-  - name: frondend
+  - name: frontend
     detail: 
       - name: React
         version: 18.2.0

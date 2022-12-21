@@ -9,7 +9,7 @@ blog: https://audiostakes.hatenablog.com/entry/2022/04/01/084227
 webiste: https://shortype.vercel.app/
 published: true
 stack:
-  - name: frondend
+  - name: frontend
     detail: 
       - name: Chrome拡張
         version: 

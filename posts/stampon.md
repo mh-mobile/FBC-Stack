@@ -9,7 +9,7 @@ blog: https://kaiyu-tech.hatenablog.com/entry/2022/01/07/205825
 website: https://stampon.up.railway.app/
 published: true
 stack:
-  - name: frondend
+  - name: frontend
     detail: 
       - name: Vue.js
         version: 2.6.14

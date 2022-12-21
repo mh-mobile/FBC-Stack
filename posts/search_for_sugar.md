@@ -9,7 +9,7 @@ blog:
 website:
 published: false
 stack:
-  - name: frondend
+  - name: frontend
     detail: 
       - name: Ruby
         version: 2.7.0

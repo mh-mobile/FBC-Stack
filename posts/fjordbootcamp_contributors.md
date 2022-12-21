@@ -9,7 +9,7 @@ blog: https://rosh-1228.hatenablog.com/entry/2022/11/17/212547
 website: https://github.com/rosh-1228/fjord-boot-camp-contributors
 published: true
 stack:
-  - name: frondend
+  - name: frontend
     detail: 
       - name: React
         version: 18.2.0

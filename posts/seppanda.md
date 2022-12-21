@@ -9,7 +9,7 @@ blog: https://note.com/inuzuka_mami/n/ne35c59dec021
 website: https://seppanda.com/
 published: true
 stack:
-  - name: frondend
+  - name: frontend
     detail: 
       - name: React
         version: 17.0.2

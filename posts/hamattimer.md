@@ -9,7 +9,7 @@ blog: https://yocajii.hatenablog.jp/entry/2022/11/17/083539
 website: https://hamattimer.app/
 published: true
 stack:
-  - name: frondend
+  - name: frontend
     detail: 
       - name: React
         version: 18.2.0

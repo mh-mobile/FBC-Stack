@@ -9,7 +9,7 @@ blog: https://paru871.hatenablog.com/entry/buzzcord
 website: https://buzzcord-fjord-jp.herokuapp.com/
 published: true
 stack:
-  - name: frondend
+  - name: frontend
     detail: 
       - name: Slim
         version: 

@@ -9,7 +9,7 @@ blog: https://haruguchi-yuma.hatenablog.com/entry/2022/05/20/094027
 website: 
 published: true
 stack:
-  - name: frondend
+  - name: frontend
     detail: 
       - name: Vue.js
         version: 2.6.14
