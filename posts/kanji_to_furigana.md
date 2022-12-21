@@ -7,7 +7,7 @@ code:
     description: "Frontend"
 blog:
 website:
-published: true
+published: false
 stack:
   - name: frondend
     detail: 
