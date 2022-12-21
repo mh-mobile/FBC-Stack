@@ -9,7 +9,7 @@ blog:
 website: https://my-film-todo.com/
 published: false
 stack:
-  - name: frondend
+  - name: frontend
     detail: 
       - name: React
         version: 18.2.0

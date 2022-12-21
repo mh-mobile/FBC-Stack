@@ -9,7 +9,7 @@ blog: https://masamune-blog.hatenablog.com/entry/release/mapnica
 website: https://www.mapnica.net
 published: true
 stack:
-  - name: frondend
+  - name: frontend
     detail: 
       - name: Ruby
         version: 3.0.2

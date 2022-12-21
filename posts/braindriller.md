@@ -9,7 +9,7 @@ blog:
 website:
 published: false
 stack:
-  - name: frondend
+  - name: frontend
     detail: 
       - name: Vue.js 
         version: 

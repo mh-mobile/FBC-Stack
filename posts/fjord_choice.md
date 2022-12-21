@@ -9,7 +9,7 @@ blog: "https://saki-htr.hatenablog.com/entry/2022/11/18/105223"
 website: "https://fjord-choice.herokuapp.com/"
 published: true
 stack:
-  - name: frondend
+  - name: frontend
     detail: 
       - name: Ruby
         version: 3.1.2

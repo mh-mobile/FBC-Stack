@@ -9,7 +9,7 @@ blog: https://fuga-ch85.hatenablog.com/entry/2021/11/15/120000
 website: 
 published: true
 stack:
-  - name: frondend
+  - name: frontend
     detail: 
       - name: Ruby
         version: 3.0.2

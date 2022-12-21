@@ -9,7 +9,7 @@ blog:
 website:
 published: true
 stack:
-  - name: frondend
+  - name: frontend
     detail: 
       - name: TypeScript
         version: 4.9.3

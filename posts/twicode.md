@@ -9,7 +9,7 @@ blog: https://yana-g.hatenablog.com/entry/2021/12/20/112148
 website: 
 published: true
 stack:
-  - name: frondend
+  - name: frontend
     detail: 
       - name: Ruby
         version: 3.0.2

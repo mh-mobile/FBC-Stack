@@ -9,7 +9,7 @@ blog: https://ud-ike.hatenablog.com/entry/2022/04/26/085335
 website: 
 published: true
 stack:
-  - name: frondend
+  - name: frontend
     detail: 
       - name: Vue.js
         version: 2.6.14
