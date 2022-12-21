@@ -19,7 +19,7 @@ export function getAllPostIds() {
   })
 }
 
-export async function getFBCStackData() {
+export function getFBCStackData() {
   return getPostData('fbc_stack')
 }
 
@@ -66,8 +66,8 @@ export function getPostData(id: string) {
   }
 }
 
-export async function getFilteredPostsData({ toolName, alias }: ToolData) {
-  const postsData = await getSortedPostsData()
+export function getFilteredPostsData({ toolName, alias }: ToolData) {
+  const postsData = getSortedPostsData()
   return postsData.filter(({ stack }) => {
     return stack.some(({ detail }) =>
       detail.some(
@@ -79,7 +79,22 @@ export async function getFilteredPostsData({ toolName, alias }: ToolData) {
   })
 }
 
-export async function getSortedPostsData() {
+export function getToolsNameInPostsData() {
+  const postDatas = getSortedPostsData()
+  const toolsNameSet = postDatas
+    .map(({ stack }) => stack)
+    .flat()
+    .map(({ detail }) => detail)
+    .flat()
+    .map(({ name }) => name)
+    .reduce((accumulator, name) => {
+      accumulator[name] = true
+      return accumulator
+    }, {})
+  return Object.keys(toolsNameSet)
+}
+
+export function getSortedPostsData() {
   const fileNames = fs.readdirSync(postsDirectory)
   const allPostsData = fileNames.map((fileName) => {
     const id = fileName.replace(/\.md$/, '')

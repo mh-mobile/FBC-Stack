@@ -13,7 +13,7 @@ type Props = {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const postData = await getFBCStackData()
+  const postData = getFBCStackData()
   return {
     props: {
       postData,
