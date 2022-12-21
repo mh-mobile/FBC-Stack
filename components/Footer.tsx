@@ -1,22 +1,21 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Box, HStack, VStack } from '@chakra-ui/react'
+import ExternalLink from './ExternalLink'
 
 const Footer = () => {
   return (
     <VStack>
       <HStack justify="center">
         <Box>&copy; 2022 mh-mobile</Box>
-        <Link href="https://github.com/mh-mobile/FBC-Stack" legacyBehavior>
-          <a target="_blank" rel="noopener noreferrer">
-            <Image
-              src={`/images/tool/github.png`}
-              width="20"
-              height="20"
-              alt="repository"
-            />
-          </a>
-        </Link>
+        <ExternalLink href="https://github.com/mh-mobile/FBC-Stack">
+          <Image
+            src={`/images/tool/github.png`}
+            width="20"
+            height="20"
+            alt="repository"
+          />
+        </ExternalLink>
       </HStack>
       <HStack justify="center" spacing={4}>
         <Link href="/terms">
