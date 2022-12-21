@@ -80,15 +80,18 @@ export function getFilteredPostsData({ toolName, alias }: ToolData) {
 }
 
 export function getToolsNameInPostsData() {
-  const toolsNameSet = new Set<string>()
-  getSortedPostsData().forEach((postData) =>
-    postData.stack.forEach((stackTool) =>
-      stackTool.detail.forEach((toolDetail) => {
-        toolsNameSet.add(toolDetail.name)
-      }),
-    ),
-  )
-  return Array.from(toolsNameSet)
+  const postDatas = getSortedPostsData()
+  const toolsNameSet = postDatas
+    .map(({ stack }) => stack)
+    .flat()
+    .map(({ detail }) => detail)
+    .flat()
+    .map(({ name }) => name)
+    .reduce((accumulator, name) => {
+      accumulator[name] = true
+      return accumulator
+    }, {})
+  return Object.keys(toolsNameSet)
 }
 
 export function getSortedPostsData() {
