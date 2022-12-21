@@ -1,14 +1,6 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import Link from 'next/link'
-import {
-  Stack,
-  VStack,
-  HStack,
-  Box,
-  Container,
-  Heading,
-} from '@chakra-ui/react'
+import { Box, Container } from '@chakra-ui/react'
 import Header from './Header'
 import Footer from './Footer'
 import * as utilStyles from '../styles/utils'

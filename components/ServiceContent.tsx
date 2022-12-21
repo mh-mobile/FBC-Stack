@@ -1,11 +1,9 @@
 import Link from 'next/link'
 import type { NextPage } from 'next'
-import * as utilStyles from '../styles/utils'
 import { Grid, GridItem, Text, ListItem, Box } from '@chakra-ui/react'
 import ToolButton from './ToolButton'
 import ReactMarkdown from 'react-markdown'
 import ChakraUIRenderer from 'chakra-ui-markdown-renderer'
-import remarkGfm from 'remark-gfm'
 import type { PostData } from '../types/postData'
 
 type Props = {

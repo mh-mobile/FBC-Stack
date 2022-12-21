@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import { NextPage } from 'next'
-import Link from 'next/link'
 import { useState } from 'react'
 import Image from 'next/image'
 import {
@@ -13,7 +12,6 @@ import {
   Box,
 } from '@chakra-ui/react'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
-import Date from '../../components/Date'
 import Layout, { siteTitle } from '../../components/Layout'
 import * as utilStyles from '../../styles/utils'
 import { getFilteredPostsData } from '../../lib/posts'

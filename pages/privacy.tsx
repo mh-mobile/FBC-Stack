@@ -1,7 +1,6 @@
 import Layout from '../components/Layout'
 import ExternalLink from '../components/ExternalLink'
 import Head from 'next/head'
-import Link from 'next/link'
 import * as utilStyles from '../styles/utils'
 import { Text, Box } from '@chakra-ui/react'
 

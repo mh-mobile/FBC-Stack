@@ -1,8 +1,6 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import { remark } from 'remark'
-import html from 'remark-html'
 import type { ToolData } from '../types/toolData'
 
 const toolsDirectory = path.join(process.cwd(), 'tools')

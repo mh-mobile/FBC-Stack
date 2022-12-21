@@ -4,7 +4,7 @@ import * as utilStyles from '../styles/utils'
 import type { GetStaticProps, NextPage } from 'next'
 import type { PostData } from '../types/postData'
 import { getSortedPostsData } from '../lib/posts'
-import { Heading, Grid, GridItem, Box } from '@chakra-ui/react'
+import { Grid, GridItem, Box } from '@chakra-ui/react'
 import ServiceListItem from '../components/ServiceListItem'
 
 type Props = {

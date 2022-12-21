@@ -1,16 +1,11 @@
 import Layout from '../components/Layout'
-import Link from 'next/link'
 import { NextPage } from 'next'
 import Head from 'next/head'
 import { getFBCStackData } from '../lib/posts'
 import * as utilStyles from '../styles/utils'
-import { Grid, GridItem, Text, ListItem, Box } from '@chakra-ui/react'
-import ToolButton from '../components/ToolButton'
+import { Box } from '@chakra-ui/react'
 import ServiceContent from '../components/ServiceContent'
-import { GetStaticProps, GetStaticPaths } from 'next'
-import ReactMarkdown from 'react-markdown'
-import ChakraUIRenderer from 'chakra-ui-markdown-renderer'
-import remarkGfm from 'remark-gfm'
+import { GetStaticProps } from 'next'
 import type { PostData } from '../types/postData'
 
 type Props = {

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import { Box } from '@chakra-ui/react'
-import noimage from '/images/noimage.png'
 
 type ButtonProps = JSX.IntrinsicElements['a']
 const ToolButton = React.forwardRef<
