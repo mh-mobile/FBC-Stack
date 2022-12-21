@@ -16,8 +16,8 @@ type Props = {
   allToolsData: ToolData[]
 }
 
-export const getStaticProps: GetStaticProps = async () => {
-  // 実際に使用されているツールのみを抽出する
+// 実際に使用されているツールのみを抽出する
+const getAllToolsDataInUse = () => {
   const toolsNameInServices = getToolsNameInPostsData()
   const allToolsData = getAllToolsData().filter((toolData) => {
     return (
@@ -25,6 +25,11 @@ export const getStaticProps: GetStaticProps = async () => {
       toolData.alias?.some((name) => toolsNameInServices.includes(name))
     )
   })
+  return allToolsData
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const allToolsData = getAllToolsDataInUse()
   return {
     props: {
       allToolsData,
