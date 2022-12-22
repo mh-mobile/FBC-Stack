@@ -9,27 +9,57 @@ blog: https://garammasala29.hatenablog.com/entry/NursePicks
 website: https://www.nursepicks.jp/
 published: true
 stack:
-  - name: frontend
+  - name: フロントエンド
     detail: 
       - name: Vue.js
         version: 3.2.36
       - name: Bulma
-        version: 
-  - name: backend
+        version: 0.9.4
+      - name: Slim
+        version: 4.1.0
+
+  - name: バックエンド
     detail:
       - name: Ruby on Rails
         version: 6.1.6
       - name: Ruby
         version: 3.1.0
+
+  - name: Linter/Formatter
+    detail:
+      - name: ESLint
+        version: 8.19.0
+      - name: Prettier
+        version: 2.7.1
+      - name: Rubocop
+        version: 1.14.0
+      - name: Slim-Lint
+        version: 0.22.1
+
+ 
+  - name: テスト
+    detail:
       - name: RSpec
-        version: 5.0
-  - name: database
+        version: 6.0.1
+
+  - name: データベース
     detail:
       - name: PostgreSQL
         version: 5.4
+
+  - name: 認証 
+    detail:
+      - name: OmniAuth
+        version: 
+
   - name: CI/CD
     detail:
       - name: Github Actions
+        version: 
+
+  - name: インフラ
+    detail:
+      - name: heroku
         version: 
 
 ---
