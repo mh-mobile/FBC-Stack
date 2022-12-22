@@ -11,7 +11,7 @@ blog: https://kazumi-learning.tumblr.com/post/698950071100850176/payreco
 website: https://payreco.vercel.app/
 published: true
 stack:
-  - name: frontend
+  - name: フロントエンド
     detail: 
       - name: React
         version: 18.2.0
@@ -21,25 +21,46 @@ stack:
         version: 4.7.4
       - name: Tailwind CSS
         version: 3.1.8
-  - name: backend
+  - name: バックエンド
     detail:
       - name: Ruby
         version: 3.1.2
-      - name: Ruby on Rails
+      - name: Ruby on Rails (APIモード)
         version: 7.0.3.1
-      - name: Rubocop
-        version: 1.35.0
-  - name: infra
+      - name: committee-rails
+        version: 0.6.1
+
+
+  - name: インフラ
     detail:
       - name: Vercel
         version: 
       - name: Flyio
         version:
-  - name: authentication
+      - name: Docker
+        version:
+
+  - name: CI/CD
+    detail:
+      - name: GitHub Actions
+        version: 
+
+  - name: 認証
     detail:
       - name: Firebase Authentication
         version: 
-  - name: test
+
+  - name: Linter/Formatter
+    detail:
+      - name: Rubocop
+        version: 1.35.0
+      - name: ESLint
+        version: 8.22.0
+      - name: Prettier
+        version: 2.7.1
+
+
+  - name: テスト
     detail:
       - name: Jest
         version: 29.0.3
@@ -53,7 +74,7 @@ stack:
       - name: ExchangeRate-API
         version: 
 
-  - name: other
+  - name: API関連ツール
     detail:
       - name: OpenAPI
         version: 
