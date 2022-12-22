@@ -9,7 +9,7 @@ blog:
 website:
 published: true
 stack:
-  - name: frontend
+  - name: フロントエンド
     detail: 
       - name: TypeScript
         version: 4.9.3
@@ -21,15 +21,33 @@ stack:
         version: 18.2.0
       - name: react-markdown
         version: 8.0.4
-  - name: infra
+
+  - name: Linter/Formatter
+    detail:
+      - name: ESLint
+        version: 8.30.0
+      - name: Prettier
+        version: 2.8.1
+
+  - name: テスト
+    detail:
+      - name: Cypress
+        version: 12.2.0
+
+  - name: インフラ
     detail:
       - name: Vercel
         version: 
-      - name: GitHub Actions
-        version: 
+
+  - name: ストレージ
+    detail:
       - name: Github
         version: 
 
+  - name: CI/CD
+    detail:
+      - name: GitHub Actions
+        version: 
 ---
 
 FBC Stackは、FBC(Fjord Boot Camp)の卒業生が作成したサービスの技術スタックデータベースです。
