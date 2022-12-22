@@ -61,7 +61,7 @@ OGP用のURLとGAの設定を環境変数で設定します。
 
 | 環境変数 | 説明 |
 | --- | --- |
-| NEXT_PUBLIC_BASE_URL | Twitterのイベント情報の取得 |
+| NEXT_PUBLIC_BASE_URL | デプロイ先のベースURL (ex: https://example.com) |
 | NEXT_PUBLIC_GA_ID　| Google AnalyticsのトラッキングID |
 
 
