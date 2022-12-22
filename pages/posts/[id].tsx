@@ -1,6 +1,6 @@
 import Layout from '../../components/Layout'
 import ServiceContent from '../../components/ServiceContent'
-import Image from 'next/image'
+import Image from "next/legacy/image";
 import Date from '../../components/Date'
 import Head from 'next/head'
 import type { NextPage } from 'next'

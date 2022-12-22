@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import type { NextPage } from 'next'
 import { Box, HStack } from '@chakra-ui/react'
-import Image from 'next/image'
+import Image from "next/legacy/image";
 import Date from './Date'
 
 type Props = {

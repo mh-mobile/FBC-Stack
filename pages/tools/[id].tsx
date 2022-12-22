@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { NextPage } from 'next'
 import { useState } from 'react'
-import Image from 'next/image'
+import Image from "next/legacy/image";
 import {
   HStack,
   Tag,
