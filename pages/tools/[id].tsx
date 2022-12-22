@@ -65,11 +65,15 @@ const Tool: NextPage<Props> = ({ allPostsData, toolData }) => {
         <HStack justify="center" py={5}>
           <Image
             src={imageSrc}
-            objectFit="contain"
             alt="logo"
             width={50}
             height="55"
             onError={() => setImageSrc('/images/noimage.png')}
+            style={{
+              maxWidth: '100%',
+              height: 'auto',
+              objectFit: 'contain',
+            }}
           />
         </HStack>
         <Box display="flex" justifyContent="center" alignItems="center">

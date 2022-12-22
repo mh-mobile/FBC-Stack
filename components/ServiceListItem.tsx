@@ -23,6 +23,10 @@ const ServiceListItem: NextPage<Props> = ({ id, title, author, date }) => {
               width={25}
               height={25}
               alt=""
+              style={{
+                maxWidth: '100%',
+                height: 'auto',
+              }}
             />
           </Box>
           <Box as={'small'}>{author}</Box>

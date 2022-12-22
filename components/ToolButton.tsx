@@ -36,9 +36,13 @@ const ToolButton = React.forwardRef<
             src={imageSrc}
             width={45}
             height={45}
-            objectFit="contain"
             alt="logo"
             onError={() => setImageSrc(`/images/noimage.png`)}
+            style={{
+              maxWidth: '100%',
+              height: 'auto',
+              objectFit: 'contain',
+            }}
           />
         </Box>
         <Box

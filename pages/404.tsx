@@ -11,7 +11,16 @@ const Custom404 = () => {
       </Head>
       <section>
         <HStack justify="center">
-          <Image src={`/images/404.png`} width="300" height="300" alt="404" />
+          <Image
+            src={`/images/404.png`}
+            width="300"
+            height="300"
+            alt="404"
+            style={{
+              maxWidth: '100%',
+              height: 'auto',
+            }}
+          />
         </HStack>
       </section>
     </Layout>
