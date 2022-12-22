@@ -1,6 +1,6 @@
 import Layout from '../../components/Layout'
 import ServiceContent from '../../components/ServiceContent'
-import Image from "next/legacy/image";
+import Image from 'next/image'
 import Date from '../../components/Date'
 import Head from 'next/head'
 import type { NextPage } from 'next'
@@ -52,6 +52,10 @@ const Post: NextPage<Props> = ({ postData }) => {
                 width={25}
                 height={25}
                 alt=""
+                style={{
+                  maxWidth: '100%',
+                  height: 'auto',
+                }}
               />
             </Box>
             <Text>{postData.author}</Text>
@@ -62,6 +66,10 @@ const Post: NextPage<Props> = ({ postData }) => {
                   width="30"
                   height="30"
                   alt="repository"
+                  style={{
+                    maxWidth: '100%',
+                    height: 'auto',
+                  }}
                 />
               </ExternalLink>
             ))}
@@ -72,6 +80,10 @@ const Post: NextPage<Props> = ({ postData }) => {
                   width="30"
                   height="30"
                   alt="blog"
+                  style={{
+                    maxWidth: '100%',
+                    height: 'auto',
+                  }}
                 />
               </ExternalLink>
             )}
@@ -82,6 +94,10 @@ const Post: NextPage<Props> = ({ postData }) => {
                   width="30"
                   height="30"
                   alt="website"
+                  style={{
+                    maxWidth: '100%',
+                    height: 'auto',
+                  }}
                 />
               </ExternalLink>
             )}

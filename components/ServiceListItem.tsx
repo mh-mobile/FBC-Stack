@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import type { NextPage } from 'next'
 import { Box, HStack } from '@chakra-ui/react'
-import Image from "next/legacy/image";
+import Image from 'next/image'
 import Date from './Date'
 
 type Props = {
@@ -23,6 +23,10 @@ const ServiceListItem: NextPage<Props> = ({ id, title, author, date }) => {
               width={25}
               height={25}
               alt=""
+              style={{
+                maxWidth: '100%',
+                height: 'auto',
+              }}
             />
           </Box>
           <Box as={'small'}>{author}</Box>

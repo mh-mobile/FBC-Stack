@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Image from "next/legacy/image";
+import Image from 'next/image'
 import { Box, HStack, VStack } from '@chakra-ui/react'
 import ExternalLink from './ExternalLink'
 
@@ -14,6 +14,10 @@ const Footer = () => {
             width="20"
             height="20"
             alt="repository"
+            style={{
+              maxWidth: '100%',
+              height: 'auto',
+            }}
           />
         </ExternalLink>
       </HStack>

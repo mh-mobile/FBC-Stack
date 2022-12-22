@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { NextPage } from 'next'
 import { useState } from 'react'
-import Image from "next/legacy/image";
+import Image from 'next/image'
 import {
   HStack,
   Tag,
@@ -65,11 +65,15 @@ const Tool: NextPage<Props> = ({ allPostsData, toolData }) => {
         <HStack justify="center" py={5}>
           <Image
             src={imageSrc}
-            objectFit="contain"
             alt="logo"
             width={50}
             height="55"
             onError={() => setImageSrc('/images/noimage.png')}
+            style={{
+              maxWidth: '100%',
+              height: 'auto',
+              objectFit: 'contain',
+            }}
           />
         </HStack>
         <Box display="flex" justifyContent="center" alignItems="center">

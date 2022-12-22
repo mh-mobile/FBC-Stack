@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from 'next/image'
 import Link from 'next/link'
 import { HStack } from '@chakra-ui/react'
 import HeaderRightMenu from './HeaderRightMenu'
@@ -14,6 +14,10 @@ const Header = () => {
             height={100}
             width={100}
             alt=""
+            style={{
+              maxWidth: '100%',
+              height: 'auto',
+            }}
           />
         </Link>
         <HeaderRightMenu />
