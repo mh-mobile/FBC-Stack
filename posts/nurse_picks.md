@@ -57,7 +57,7 @@ stack:
       - name: Github Actions
         version: 
 
-  - name: CI/CD
+  - name: インフラ
     detail:
       - name: heroku
         version: 
