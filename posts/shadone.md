@@ -9,20 +9,49 @@ blog: https://eatplaynap329.hatenablog.jp/entry/2022/09/12/025508
 website: https://www.shadone.net/
 published: true
 stack:
-  - name: frontend
+  - name: フロントエンド
     detail: 
       - name: Vue.js
         version: 2.6.14
       - name: Tailwind CSS
-        version: 
-  - name: backend
+        version: 3.1.6
+      - name: Slim
+        version: 4.1.0
+      - name: Ruby
+        version: 3.0.3
+
+  - name: バックエンド
     detail:
       - name: Ruby on Rails
         version: 6.1.5.1
       - name: Ruby
         version: 3.0.3
-      - name: RSpec 
-        version: 1.0
+
+  - name: Linter/Formatter
+    detail:
+      - name: ESLint
+        version: 8.15.0
+      - name: Prettier
+        version: 2.6.2
+      - name: Rubocop
+        version: 1.28.2
+      - name: Slim-Lint
+        version: 0.22.1
+
+  - name: テスト
+    detail:
+      - name: RSpec
+        version: 5.1.2
+
+  - name: データベース
+    detail:
+      - name: PostgreSQL
+        version: 
+
+  - name: 外部連携
+    detail:
+      - name: YouTube
+        version: 
 
 ---
 
