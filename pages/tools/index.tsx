@@ -18,11 +18,15 @@ type Props = {
 
 // 実際に使用されているツールのみを抽出する
 const getAllToolsDataInUse = () => {
-  const toolsNameInServices = getToolsNameInPostsData()
+  const toolsNameInServices = getToolsNameInPostsData().map((name) =>
+    name.toLowerCase(),
+  )
   const allToolsData = getAllToolsData().filter((toolData) => {
     return (
-      toolsNameInServices.includes(toolData.toolName) ||
-      toolData.alias?.some((name) => toolsNameInServices.includes(name))
+      toolsNameInServices.includes(toolData.toolName.toLowerCase()) ||
+      toolData.alias?.some((name) =>
+        toolsNameInServices.includes(name.toLowerCase()),
+      )
     )
   })
   return allToolsData
