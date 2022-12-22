@@ -1,5 +1,5 @@
 ---
-title: DuetCode
+title: Duet Code
 date: '2022-12-22'
 author: daiki0381
 code: 
