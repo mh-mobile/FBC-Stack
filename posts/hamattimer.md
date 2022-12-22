@@ -51,6 +51,12 @@ stack:
       - name: GitHub REST API
         version: 
 
+  - name: CI/CD
+    detail:
+      - name: GitHub Actions
+        version: 
+
+
 ---
 
 はまったいまーは、ハマった時に時間を浪費してしまう問題を解決したいプログラミング学習者のための、タイマー付きメモアプリです。
