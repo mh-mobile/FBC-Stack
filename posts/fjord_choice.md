@@ -9,38 +9,53 @@ blog: "https://saki-htr.hatenablog.com/entry/2022/11/18/105223"
 website: "https://fjord-choice.herokuapp.com/"
 published: true
 stack:
-  - name: frontend
+  - name: フロントエンド
     detail: 
       - name: Ruby
         version: 3.1.2
       - name: Slim
-        version: 
+        version: 4.1.0
       - name: Bulma
-        version: 
-      - name: ESLint
-        version: "8.20"
-  - name: backend
+        version: 0.9.3
+
+  - name: バックエンド
     detail:
-      - name: Ruby on Rails
-        version: 7.0.4
       - name: Ruby
         version: 3.1.2
-      - name: RSpec
-        version: "5.0"
+      - name: Ruby on Rails
+        version: 7.0.4
+
+  - name: Linter/Formatter
+    detail:
+      - name: slim_lint
+        version: 0.22.1
+      - name: ESLint
+        version: "8.20"
       - name: Rubocop
         version: 1.36.0
-  - name: database
+
+  - name: テスト
+    detail:
+      - name: RSpec
+        version: "5.0"
+
+  - name: データベース
     detail:
       - name: PostgreSQL
         version: 5.4
-  - name: authentication
+
+  - name: 認証
     detail:
       - name: GitHub OAuth Apps
         version: 
-  - name: infra
+
+  - name: インフラ
     detail:
       - name: Heroku
         version: 
+
+  - name: CI/CD
+    detail:
       - name: Github Actions
         version: 
 
