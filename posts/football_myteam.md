@@ -66,6 +66,9 @@ stack:
         version: 
       - name: Docker
         version: 
+      - name: Docker Compose
+        version: 
+
 
   - name: API連携
     detail:
