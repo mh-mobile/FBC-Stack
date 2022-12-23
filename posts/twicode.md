@@ -9,38 +9,57 @@ blog: https://yana-g.hatenablog.com/entry/2021/12/20/112148
 website: 
 published: true
 stack:
-  - name: frontend
+  - name: フロントエンド
     detail: 
       - name: Ruby
         version: 3.0.2
-      - name: Vue.js
-        version: 3
       - name: Slim
-        version: 
+        version: 4.1.0
       - name: JavaScript
         version:
  
-  - name: backend
+  - name: バックエンド
     detail: 
       - name: Ruby
         version: 3.0.2
       - name: Ruby on Rails
         version: 6.1.4
 
+  - name: Linter/Formatter
+    detail:
+      - name: ESLint
+        version: 7.32.0
+      - name: Prettier
+        version: 2.4.0
+      - name: Rubocop
+        version: 1.22.1
+  
+  - name: ビルドツール
+    detail:
+      - name: Webpack
+        version: 4.46.0
+
+  - name: テスト
+    detail:
+      - name: RSpec
+        version: 5.0.2
+
   - name: API連携
     detail:
       - name: Twitter API
         version: 
  
-  - name: infra
+  - name: インフラ
     detail:
       - name: Heroku
-        version: 
-      - name: GitHub Actions
         version: 
       - name: Amazon S3
         version: 
 
+  - name: CI/CD
+    detail:
+      - name: GitHub Actions
+        version: 
 ---
 
 TwiCodeは、Twitterでちょっとしたソースコードを共有したい人のためのソースコード画像作成サービスです。
