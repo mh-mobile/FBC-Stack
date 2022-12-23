@@ -9,7 +9,7 @@ blog: https://piiizaki.hatenablog.com/entry/2022/04/06/120000
 webiste: 
 published: true
 stack:
-  - name: frontend
+  - name: フロントエンド
     detail: 
       - name: Vue.js
         version: 2.6.14 
@@ -18,18 +18,47 @@ stack:
       - name: JavaScript
         version: 
       - name: Slim
-        version: 
-  - name: backend
+        version: 4.1.0
+
+  - name: バックエンド
     detail:
       - name: Ruby on Rails
         version: 6.1.4
       - name: Ruby
         version: 3.1.0
-  - name: infra
+
+  - name: Linter/Formatter
+    detail: 
+      - name: Rubocop
+        version: 1.25.1
+      - name: ESLint
+        version: 7.23.0
+      - name: Slim-Lint
+        version: 0.22.1
+
+  - name: テスト
+    detail: 
+      - name: minitest
+        version: 5.15.0
+
+  - name: 認証
+    detail: 
+      - name: devise
+        version: 4.8.1
+
+  - name: データベース
+    detail:
+      - name: PostgreSQL
+        version: 
+
+  - name: CI/CD
+    detail:
+      - name: GitHub Actions
+        version: 
+
+  - name: インフラ
     detail:
       - name: Heroku
-        version: 
-      - name: GitHub Actions
         version: 
 
 ---
