@@ -9,31 +9,54 @@ blog: https://ud-ike.hatenablog.com/entry/2022/04/26/085335
 website: 
 published: true
 stack:
-  - name: frontend
+  - name: フロントエンド
     detail: 
       - name: Vue.js
         version: 2.6.14
       - name: Bulma
-        version: 
+        version: 0.9.3
       - name: JavaScript
         version: 
       - name: Slim
-        version: 
+        version: 4.1.0
       - name: Ruby
         version: 3.0.2
-  - name: backend
+
+  - name: バックエンド
     detail:
       - name: Ruby on Rails
         version: 6.1.5
       - name: Ruby
         version: 3.0.2
+
+  - name: Linter/Formatter
+    detail:
+      - name: Rubocop
+        version: 1.26.0
+      - name: Prettier
+        version: 2.6.0
+
+  - name: テスト
+    detail:
       - name: RSpec
-        version: 
-  - name: database
+        version: 4.0.2
+
+  - name: 認証
+    detail:
+      - name: Devise
+        version: 4.8.1
+
+  - name: データベース
     detail:
       - name: PostgreSQL
         version: 14.1
-  - name: infra
+
+  - name: CI/CD
+    detail:
+      - name: GitHub Actions
+        version: 
+
+  - name: インフラ
     detail:
       - name: Heroku
         version: 
