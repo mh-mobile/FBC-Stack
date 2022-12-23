@@ -9,40 +9,51 @@ blog: https://new-lamp.hatenablog.com/entry/2020/12/15/222126
 website:
 published: true
 stack:
-  - name: frontend
+  - name: フロントエンド
     detail:
       - name: Ruby
-        version: 
+        version: 2.7.0
       - name: Slim
-        version: 
+        version: 4.1.0
       - name: JavaScript
         version:
       - name: Vue.js
-        version:
+        version: 2.6.12
       - name: Bootstrap
-        version:
-      - name: ESLint
-        version:
-      - name: Slim-lint
-        version:
+        version: 5.0.0
 
-  - name: backend
+  - name: バックエンド
     detail:
       - name: Ruby
-        version: 
+        version: 2.7.0
       - name: Ruby on Rails
-        version: 
-      - name: RSpec
-        version:
-      - name: Rubocop
-        version:
+        version: 6.0.3.4
 
-  - name: database
+  - name: Linter/Formatter
+    detail:
+      - name: ESLint
+        version: 7.12.1
+      - name: Slim-lint
+        version: 0.20.2
+      - name: Rubocop
+        version: 1.3.0
+
+  - name: テスト
+    detail:
+      - name: RSpec
+        version: 4.0.1
+
+  - name: ビルドツール
+    detail: 
+      - name: Webpack
+        version: 4.41.2
+
+  - name: データベース
     detail:
       - name: PostgreSQL
         version: 
 
-  - name: infra
+  - name: インフラ
     detail:
       - name: Heroku
         version: 
