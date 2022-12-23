@@ -9,30 +9,52 @@ blog: https://knkdic.hatenablog.com/entry/2022/04/20/224617
 website:
 published: true
 stack:
-  - name: frontend
+  - name: フロントエンド
     detail: 
       - name: Ruby
         version: 3.0.1
       - name: JavaScript
         version: 
       - name: Slim
-        version: 
-  - name: backend
+        version: 4.1.0
+
+  - name: バックエンド
     detail:
-      - name: Ruby on Rails
-        version: 6.1.4
       - name: Ruby
         version: 3.0.1
-  - name: database
+      - name: Ruby on Rails
+        version: 6.1.4
+
+  - name: Linter/Formatter
+    detail:
+      - name: Rubocop
+        version: 1.23.0
+
+  - name: テスト
+    detail:
+      - name: RSpec
+        version: 5.0.2
+
+  - name: ビルドツール
+    detail:
+      - name: Webpack
+        version: 4.46.0
+
+  - name: データベース
     detail:
       - name: PostgreSQL
         version: 
-  - name: infra
+        
+  - name: CI/CD
+    detail:
+      - name: GitHub Actions
+        version: 
+ 
+  - name: インフラ
     detail:
       - name: Heroku
         version: 
-      - name: GitHub Actions
-        version: 
+
   - name: API連携
     detail:
       - name: API-football
