@@ -29,6 +29,11 @@ stack:
       - name: Ruby 
         version: 3.0.3
 
+  - name: 自作Gem
+    detail:
+      - name: JpLocalGov
+        version: 0.3.1
+ 
   - name: Linter/Formatter
     detail:
       - name: Rubocop
