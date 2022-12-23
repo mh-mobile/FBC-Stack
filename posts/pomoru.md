@@ -9,15 +9,29 @@ blog: https://kawase-k.hatenablog.com/entry/2022/04/18/083000
 website: https://github.com/kotakawase/pomoru#%E3%83%9D%E3%83%A2%E3%82%8B---
 published: true
 stack:
-  - name: frontend
+  - name: フロントエンド
     detail:
       - name: Discordrb
         version: 3.4.0
-  - name: backend
-    detail:
       - name: Ruby
         version: 3.1.0
-  - name: infra
+
+  - name: テスト
+    detail:
+      - name: minitest
+        version: 5.15.0
+
+  - name: Linter/Formatter
+    detail:
+      - name: Rubocop
+        version: 1.29.1
+
+  - name: CI/CD
+    detail:
+      - name: GitHub Actions
+        version: 
+
+  - name: インフラ
     detail:
       - name: Docker
         version: 
