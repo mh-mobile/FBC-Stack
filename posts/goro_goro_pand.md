@@ -9,19 +9,34 @@ blog: https://note.com/unstoppa61e/n/nd3cdb84b41ad
 website: https://gorogoropanda.com/
 published: true
 stack:
-  - name: frontend/backend
+  - name: フロントエンド
     detail: 
-      - name: React
-        version: 17.0.2 
       - name: TypeScript
         version: 4.5.5
-      - name: Next.js
-        version: 12.1.0
       - name: Tailwind CSS
         version: 3.0.18
+      - name: React
+        version: 17.0.2 
+      - name: Next.js
+        version: 12.1.0
+
+  - name: Linter/Formatter
+    detail:
+      - name: ESLint
+        version: 
+      - name: Prettier
+        version:
+      - name: husky
+        version:
+
+  - name: テスト
+    detail:
       - name: Cypress
         version: 9.5.1
-  - name: infra
+      - name: Cypress Testing Library
+        version: 8.0.2
+
+  - name: インフラ
     detail:
       - name: Vercel
         version: 
