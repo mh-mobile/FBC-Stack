@@ -9,23 +9,74 @@ blog: https://fuga-ch85.hatenablog.com/entry/2021/11/15/120000
 website: 
 published: true
 stack:
-  - name: frontend
+  - name: フロントエンド
     detail: 
       - name: Ruby
         version: 3.0.2
+      - name: Slim
+        version: 4.1.0
       - name: Vue.js
-        version: 3
-  - name: backend
+        version: 3.2.11
+      - name: Bulma
+        version: 0.9.4
+
+  - name: バックエンド
     detail: 
       - name: Ruby
         version: 3.0.2
       - name: Ruby on Rails
         version: 6.1.4
-  - name: infra
+
+  - name: ミドルウェア
+    detail:
+      - name: nginx
+        version:
+      - name: Puma
+        version:
+
+  - name: 環境構築
+    detail:
+      - name: Docker
+        version:
+      - name: Docker Compose
+        version:
+
+  - name: Linter/Formatter
+    detail:
+      - name: ESLint
+        version: 7.32.0
+      - name: Rubocop
+        version: 1.30.1
+      - name: Slim-Lint
+        version: 0.22.1
+
+  - name: テスト
+    detail:
+      - name: RSpec
+        version: 5.1.2
+
+  - name: データベース
+    detail:
+      - name: PostgreSQL
+        version:
+
+  - name: デプロイツール
+    detail:
+      - name: Capistrano
+        version:
+
+  - name: CI/CD
+    detail:
+      - name: GitHub Actions
+        version:
+
+  - name: AWS
     detail:
       - name: Amazon EC2 
         version: 
       - name: Amazon RDS
+        version: 
+      - name: Amazon Route 53
         version: 
       - name: AWS Certificate Manager
         version: 
