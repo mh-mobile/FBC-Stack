@@ -62,6 +62,8 @@ stack:
     detail:
       - name: Docker
         version: 
+      - name: Docker Compose
+        version: 
       - name: Lefthook
         version:
       - name: OpenAPI
