@@ -9,31 +9,58 @@ blog: https://masamune-blog.hatenablog.com/entry/release/mapnica
 website: https://www.mapnica.net
 published: true
 stack:
-  - name: frontend
+  - name: フロントエンド
     detail: 
       - name: Ruby
         version: 3.0.2
       - name: Vue.js
-        version: 3
+        version: 3.2.23
       - name: Slim
-        version: 
+        version: 4.1.0
       - name: JavaScript
         version:
  
-  - name: backend
+  - name: バックエンド
     detail: 
       - name: Ruby
         version: 3.0.2
       - name: Ruby on Rails
         version: 6.1.4
+
+  - name: Linter/Formatter
+    detail: 
+      - name: Rubocop
+        version: 1.23.0
+      - name: ESLint
+        version: 8.3.0
+      - name: Prettier
+        version: 2.5.1
+      - name: Slim-Lint
+        version: 0.22.1
+
+  - name: ビルドツール
+    detail:
+      - name: Webpack
+        version: 4.46.0
+
+  - name: テスト 
+    detail:
       - name: RSpec
+        version: 5.0.2
+
+  - name: CI/CD
+    detail:
+      - name: GitHub Actions
         version: 
- 
-  - name: infra
+
+  - name: インフラ
     detail:
       - name: Heroku
         version: 
-      - name: GitHub Actions
+
+  - name: API連携
+    detail:
+      - name: Google Maps
         version: 
 
 ---
