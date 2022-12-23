@@ -11,7 +11,7 @@ blog: https://mh-mobile.hatenablog.com/entry/2021/07/06/085442
 website: https://eventfollow.app
 published: true
 stack:
-  - name: Frontend
+  - name: フロントエンド
     detail:
       - name: Vue.js
         version: 2.6.12
@@ -19,33 +19,69 @@ stack:
         version: 
       - name: Nuxt.js
         version: 2.14.7
-      - name: Jest
-        version: 26.6.2
-  - name: backend
+
+  - name: バックエンド
     detail:
-      - name: Ruby on Rails
+      - name: Ruby on Rails (APIモード)
         version: 6.1.3.1
       - name: Ruby
         version: 3.0.0
-  - name: database
+
+  - name: アプリケーションサーバ
+    detail:
+      - name: Puma
+        version: 5.2.2
+
+  - name: Linter/Formatter
+    detail:
+      - name: ESLint
+        version: 7.28.0
+      - name: Prettier
+        version: 2.2.1
+      - name: Rubocop
+        version: 1.11.0
+
+  - name: テスト
+    detail:
+      - name: Storybook
+        version: 
+      - name: Jest
+        version: 26.6.2
+      - name: RSpec
+        version: 5.0.0 
+
+  - name: データベース
     detail:
       - name: PostgreSQL
         version: 5.4
-  - name: Authentication
+
+  - name: 認証
     detail:
       - name: Firebase Authentication
         version: 
-  - name: infra
+
+  - name: キャッシュサーバ
+    detail:
+      - name: Redis
+        version: 
+
+  - name: CI/CD
+    detail:
+      - name: GitHub Actions
+        version: 
+
+  - name: インフラ
     detail:
       - name: Heroku
         version: 
-      - name: Redis
-        version: 
       - name: GitHub
         version: 
-      - name: GitHub Actions
-        version: 
+
+  - name: 環境構築
+    detail:
       - name: Docker
+        version: 
+      - name: Docker Compose
         version: 
 
   - name: API連携
@@ -56,18 +92,25 @@ stack:
         version:
       - name: Doorkeeper API
         version:
-  - name: other
+    
+  - name: API関連ツール
     detail:
-      - name: Slack 
-        version: 
       - name: OpenAPI 
         version: 
-      - name: Storybook
-        version: 
+      - name: committee-rails 
+        version: 0.5.1
+
+  - name: モニタリングツール
+    detail:
       - name: Sentry
         version: 
       - name: Skylight
         version: 5.0.0
+
+  - name: モバイルアプリ
+    detail:
+      - name: Flutter
+        version: 2.0.1
 
 ---
 
