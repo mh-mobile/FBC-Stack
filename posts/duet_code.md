@@ -44,6 +44,7 @@ stack:
         version: 
       - name: Flyio
         version:
+
   - name: テスト
     detail:
       - name: committee-rails
@@ -66,6 +67,9 @@ stack:
         version: 
       - name: Lefthook
         version:
+
+  - name: API関連ツール
+    detail:
       - name: OpenAPI
         version: 3.0.3
       - name: OpenAPI Generator
