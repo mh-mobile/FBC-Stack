@@ -5,8 +5,8 @@ author: mh-mobile
 code: 
   - repository: "https://github.com/mh-mobile/FBC-Stack"
     description: ""
-blog:
-website:
+blog: https://mh-mobile.hatenablog.com/entry/2022/12/25/164756
+website: https://fbc-stack.vercel.app
 published: true
 stack:
   - name: フロントエンド
