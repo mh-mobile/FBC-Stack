@@ -68,7 +68,7 @@ OGP用のURLとGAの設定を環境変数で設定します。
 
 # Author
 
-* [Github](https://github.com/mh-mobile)
+* [GitHub](https://github.com/mh-mobile)
 * [Qiita](https://qiita.com/mh_mobiler)
 * [Zenn](https://zenn.dev/mh)
 * [Twitter](https://twitter.com/mh_mobiler)
