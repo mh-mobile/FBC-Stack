@@ -68,6 +68,8 @@ stack:
         version: 5.1.2
       - name: Cypress
         version: 10.3.1
+      - name: React Testing Library
+        version: 13.4.0
 
   - name: API連携
     detail:
