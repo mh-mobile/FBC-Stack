@@ -48,6 +48,11 @@ stack:
       - name: PostgreSQL
         version: 
 
+  - name: インフラ
+    detail:
+      - name: Heroku
+        version: 
+
   - name: 外部連携
     detail:
       - name: YouTube
