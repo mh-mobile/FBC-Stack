@@ -1,34 +1,65 @@
 ---
 title: SoundLinks 
-date: '2020-06-30'
+date: '2021-12-06'
 author: koheitakahashi
 code: 
-  - repository: "https://github.com/koheitakahashi/sound_links"
+  - repository: https://github.com/koheitakahashi/sound_links
     description: ""
-blog:
+blog: https://docs.koheitakahashi.com/entry/2021/12/06/070000
 website:
-published: false
+published: true
 stack:
-  - name: frontend
+  - name: フロントエンド
     detail:
-      - name: Ruby
-        version: 3.0
       - name: Vue.js
         version: 3.0.7
       - name: TypeScript
         version: 4.2.3
       - name: Node.js
         version: 14.3
-  - name: backend
+
+  - name: バックエンド
     detail:
       - name: Ruby
-        version: 3.0
-      - name: Ruby on Rails
+        version: 3.0.3
+      - name: Ruby on Rails (APIモード)
         version: 6.1
-  - name: database
+
+  - name: Linter/Formatter
+    detail:
+      - name: ESLint
+        version: 6.8.0
+      - name: Prettier
+        version: 2.5.1
+      - name: Rubocop
+        version: 1.23.0
+
+  - name: テスト
+    detail:
+      - name: Cypress
+        version: 3.8.3
+      - name: Jest
+        version: 24.9.0
+      - name: RSpec
+        version: 3.10.1
+
+  - name: データベース
     detail:
       - name: PostgreSQL
         version: 13.2
+
+  - name: ミドルウェア
+    detail:
+      - name: nginx
+        version: 
+
+  - name: 環境構築
+    detail:
+      - name: Docker
+        version: 
+      - name: Docker Compose
+        version: 
+
   - name: API連携
     detail:
       - name: Apple Music API
@@ -38,11 +69,13 @@ stack:
       - name: KKBOX API
         version: 
 
-
-  - name: infra
+  - name: CI/CD
     detail:
       - name: CircleCI
         version:
+
+  - name: AWS
+    detail:
       - name: Amazon Route 53
         version: 
       - name: Amazon ECR
@@ -51,7 +84,6 @@ stack:
         version: 
       - name: ALB
         version: 
-
 
 ---
 
