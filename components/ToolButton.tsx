@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
-import { Box } from '@chakra-ui/react'
+import { Box, VStack } from '@chakra-ui/react'
 
 type ButtonProps = JSX.IntrinsicElements['a']
 const ToolButton = React.forwardRef<
@@ -17,7 +17,7 @@ const ToolButton = React.forwardRef<
       ref={ref}
       style={{ textDecoration: 'none' }}
     >
-      <Box
+      <VStack
         key="{id}"
         style={{
           borderRadius: '5px',
@@ -25,22 +25,25 @@ const ToolButton = React.forwardRef<
           paddingTop: '20px',
           paddingBottom: '20px',
           backgroundColor: '#f7fafc',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
         }}
       >
-        <Box style={{ marginBottom: 5 }}>
+        <Box
+          height={45}
+          width={45}
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            position: 'relative',
+          }}
+        >
           <Image
             src={imageSrc}
-            width={45}
-            height={45}
             alt="logo"
+            fill
             onError={() => setImageSrc(`/images/noimage.png`)}
             style={{
-              maxWidth: '100%',
-              height: 'auto',
               objectFit: 'contain',
             }}
           />
@@ -51,20 +54,18 @@ const ToolButton = React.forwardRef<
         >
           {name}
         </Box>
-        {
-          <Box
-            bg="gray.200"
-            mt={2}
-            p={1}
-            width="80%"
-            display={display}
-            justifyContent="center"
-            rounded="base"
-          >
-            {version}
-          </Box>
-        }
-      </Box>
+        <Box
+          bg="gray.200"
+          mt={2}
+          p={1}
+          width="80%"
+          display={display}
+          justifyContent="center"
+          rounded="base"
+        >
+          {version}
+        </Box>
+      </VStack>
     </a>
   )
 })
