@@ -62,7 +62,11 @@ const ToolButton = React.forwardRef<
             />
           </Box>
           <Box
-            style={{ wordBreak: 'break-word', padding: '0 20px' }}
+            style={{
+              wordBreak: 'break-word',
+              padding: '5px 20px 0',
+              textAlign: 'center',
+            }}
             color="lightText"
           >
             {name}
