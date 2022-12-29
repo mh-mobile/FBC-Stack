@@ -1,6 +1,4 @@
-import { chromium } from 'playwright-core'
-import awsChromium from 'chrome-aws-lambda'
-
+import playwright from 'playwright-core'
 import { getAllPostIds } from '../../../lib/posts'
 
 // ref. https://swet.dena.com/entry/2018/04/26/152326
@@ -28,9 +26,8 @@ async function scrollToBottom(page, viewportHeight) {
 }
 
 async function captureStack(url: string) {
-  const browser = await chromium.launch({
+  const browser = await playwright.chromium.launch({
     headless: true,
-    executablePath: await awsChromium.executablePath,
   })
   const page = await browser.newPage()
   await page.goto(url, { waitUntil: 'networkidle', timeout: 30000 })
