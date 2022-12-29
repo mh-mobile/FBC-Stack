@@ -1,4 +1,4 @@
-import playwright from 'playwright-core'
+import * as playwright from 'playwright-aws-lambda'
 import { getAllPostIds } from '../../../lib/posts'
 
 // ref. https://swet.dena.com/entry/2018/04/26/152326
@@ -26,7 +26,7 @@ async function scrollToBottom(page, viewportHeight) {
 }
 
 async function captureStack(url: string) {
-  const browser = await playwright.chromium.launch({
+  const browser = await playwright.launchChromium({
     headless: true,
   })
   const page = await browser.newPage()
