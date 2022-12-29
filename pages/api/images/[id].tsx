@@ -16,12 +16,12 @@ async function captureStack(url: string) {
     timeout: 5000,
   })
 
-  // 技術スタックのセレクターの領域を計算
-  const clip = await page.evaluate((s) => {
-    const el = document.querySelector(s)
-    const { width, height, top: y, left: x } = el.getBoundingClientRect()
-    return { width, height, x, y }
-  }, '#stack')
+  // // 技術スタックのセレクターの領域を計算
+  // const clip = await page.evaluate((s) => {
+  //   const el = document.querySelector(s)
+  //   const { width, height, top: y, left: x } = el.getBoundingClientRect()
+  //   return { width, height, x, y }
+  // }, '#stack')
 
   // 画面外の遅延ローディングの画像をキャプチャするために、
   // 画面下部にスクロールした上でキャプチャする。
@@ -35,7 +35,8 @@ async function captureStack(url: string) {
   })
 
   await page.waitForTimeout(1000)
-  const buffer = await page.screenshot({ clip })
+  var stackElement = await page.$('#stack')
+  const buffer = await stackElement.screenshot()
   browser.close()
   return buffer
 }
