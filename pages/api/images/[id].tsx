@@ -5,12 +5,15 @@ import { getAllPostIds } from '../../../lib/posts'
 
 async function captureStack(url: string) {
   const browser = await puppeteer.launch({
-    args: chromium.args,
+    args: ['--lang=ja'],
     executablePath: await chromium.executablePath,
     headless: chromium.headless,
   })
 
   const page = await browser.newPage()
+  await page.setExtraHTTPHeaders({
+    'Accept-Language': 'ja-JP',
+  })
   await page.goto(url, {
     waitUntil: 'networkidle0',
     timeout: 30000,
