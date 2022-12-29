@@ -33,7 +33,7 @@ const ServiceContent: NextPage<Props> = ({ postData }) => {
           {postData.markdownContent}
         </ReactMarkdown>
       </Box>
-      <Box py={5}>
+      <Box py={5} id="stack">
         {postData.stack.map(({ name, detail }) => (
           <Box key="{name}" p={5} mb={5} border="1px solid #eee">
             <Box>
