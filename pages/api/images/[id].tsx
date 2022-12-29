@@ -4,8 +4,9 @@ import puppeteer from 'puppeteer-core'
 import { getAllPostIds } from '../../../lib/posts'
 
 async function captureStack(url: string) {
+  let args = [...chromium.args, '--lang=ja']
   const browser = await puppeteer.launch({
-    args: ['--lang=ja'],
+    args: args,
     executablePath: await chromium.executablePath,
     headless: chromium.headless,
   })
