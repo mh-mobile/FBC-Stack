@@ -22,6 +22,7 @@
     "gray-matter": "^4.0.3",
     "next": "latest",
     "playwright-aws-lambda": "^0.9.0",
+    "playwright-core": "^1.29.1",
     "puppeteer-autoscroll-down": "^1.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
