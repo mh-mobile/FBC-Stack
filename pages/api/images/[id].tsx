@@ -13,7 +13,7 @@ async function captureStack(url: string) {
   const page = await browser.newPage()
   await page.goto(url, {
     waitUntil: 'networkidle0',
-    timeout: 5000,
+    timeout: 30000,
   })
 
   // // 技術スタックのセレクターの領域を計算
