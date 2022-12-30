@@ -19,8 +19,8 @@ async function captureStack(url: string) {
     'Accept-Language': 'ja-JP',
   })
   await page.goto(url, {
-    waitUntil: 'networkidle0',
-    timeout: 30000,
+    waitUntil: 'networkidle2',
+    timeout: 1000,
   })
 
   // // 技術スタックのセレクターの領域を計算
@@ -37,11 +37,10 @@ async function captureStack(url: string) {
   })
   const lastPosition = await scrollPageToBottom(page, {
     size: 400,
-    delay: 250,
     stepsLimit: 50,
   })
 
-  await page.waitForTimeout(1000)
+  await page.waitForTimeout(100)
   var stackElement = await page.$('#stack')
   const buffer = await stackElement.screenshot()
   browser.close()
