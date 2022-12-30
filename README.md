@@ -15,6 +15,7 @@ FBC Stackは、FBC(Fjord Boot Camp)の卒業生が作成したサービスの技
 
 [こちらを参照](https://fbc-stack.vercel.app/about)
 
+<img src="https://fbc-stack.vercel.app/api/images/fbc_stack" width="600"/>
 
 
 # 使い方
