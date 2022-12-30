@@ -6,7 +6,7 @@ type ButtonProps = JSX.IntrinsicElements['a']
 const ToolButton = React.forwardRef<
   HTMLAnchorElement,
   ButtonProps & { id: string; name: string; version: string }
->(function ToolButton({ onClick, href, id, name, version }, ref) {
+>(function ToolButton({ onClick, href, target, id, name, version }, ref) {
   const display = version ? 'flex' : 'none'
   const [imageSrc, setImageSrc] = useState(`/images/tool/${id}.png`)
 
@@ -15,7 +15,9 @@ const ToolButton = React.forwardRef<
       href={href}
       onClick={onClick}
       ref={ref}
+      target={target}
       style={{ textDecoration: 'none' }}
+      rel="noreferrer"
     >
       <Box
         key="{id}"
