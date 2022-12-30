@@ -1,12 +1,64 @@
+import { Grid, GridItem, Box } from '@chakra-ui/react'
 import chromium from 'chrome-aws-lambda'
+import { NextPage } from 'next'
+import Link from 'next/link'
 import { scrollPageToBottom } from 'puppeteer-autoscroll-down'
 import puppeteer from 'puppeteer-core'
-import { getAllPostIds } from '../../../lib/posts'
+import ToolButton from '../../../components/ToolButton'
+import { getAllPostIds, getPostData } from '../../../lib/posts'
+import { PostData } from '../../../types/postData'
+import ReactDOM from 'react-dom/server'
 
-async function captureStack(url: string) {
-  await chromium.font(
-    'https://raw.githack.com/minoryorg/Noto-Sans-CJK-JP/master/fonts/NotoSansCJKjp-Regular.ttf',
+type Props = {
+  postData: PostData
+}
+
+const ServiceStack: NextPage<Props> = ({ postData }) => {
+  return (
+    <Box py={5} id="stack">
+      {postData.stack.map(({ name, detail }) => (
+        <Box key="{name}" p={5} mb={5} border="1px solid #eee">
+          <Box>
+            <b>
+              {name} ({detail.length})
+            </b>
+          </Box>
+          <Box pt={2}>
+            <Grid
+              templateColumns={{
+                base: 'repeat(2, 1fr)',
+                md: 'repeat(4, 1fr)',
+              }}
+              gap={{ base: 3, md: 6 }}
+            >
+              {detail.map(({ name, version }) => (
+                <GridItem w="100%" key={name}>
+                  <Link
+                    href={`/tools/${postData.toolPathInfo[name]}`}
+                    passHref
+                    legacyBehavior
+                    key="{name}"
+                  >
+                    <ToolButton
+                      name={name}
+                      id={postData.toolPathInfo[name]}
+                      version={version}
+                    />
+                  </Link>
+                </GridItem>
+              ))}
+            </Grid>
+          </Box>
+        </Box>
+      ))}
+    </Box>
   )
+}
+
+async function captureStack(postData: PostData) {
+  // await chromium.font(
+  //   'https://raw.githack.com/minoryorg/Noto-Sans-CJK-JP/master/fonts/NotoSansCJKjp-Regular.ttf',
+  // )
 
   const browser = await puppeteer.launch({
     args: chromium.args.concat('--lang=ja'),
@@ -18,17 +70,13 @@ async function captureStack(url: string) {
   await page.setExtraHTTPHeaders({
     'Accept-Language': 'ja-JP',
   })
-  await page.goto(url, {
-    waitUntil: 'networkidle2',
-    timeout: 30000,
-  })
 
-  // // 技術スタックのセレクターの領域を計算
-  // const clip = await page.evaluate((s) => {
-  //   const el = document.querySelector(s)
-  //   const { width, height, top: y, left: x } = el.getBoundingClientRect()
-  //   return { width, height, x, y }
-  // }, '#stack')
+  const props = { postData }
+  const markup = ReactDOM.renderToStaticMarkup(<ServiceStack {...props} />)
+  const html = `<!doctype html>${markup}`
+
+  // HTMLをセットして、ページの読み込み完了を待つ
+  await page.setContent(html, { waitUntil: 'networkidle2' })
 
   // 画面外の遅延ローディングの画像をキャプチャするために、
   // 画面下部にスクロールした上でキャプチャする。
@@ -56,9 +104,8 @@ export default async function handler(req, res) {
     return
   }
 
-  const baseURL = process.env.NEXT_PUBLIC_BASE_URL
-  const capturedURL = `${baseURL}/posts/${id}`
-  const buffer = await captureStack(capturedURL)
+  const postData = getPostData(id as string) as PostData
+  const buffer = await captureStack(postData)
 
   res.setHeader('Content-Type', 'image/png')
   res.setHeader(
