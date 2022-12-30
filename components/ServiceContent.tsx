@@ -34,41 +34,43 @@ const ServiceContent: NextPage<Props> = ({ postData }) => {
         </ReactMarkdown>
       </Box>
       <Box py={5}>
-        {postData.stack.map(({ name, detail }) => (
-          <Box key="{name}" p={5} mb={5} border="1px solid #eee">
-            <Box>
-              <b>
-                {name} ({detail.length})
-              </b>
+        <Box id="stack">
+          {postData.stack.map(({ name, detail }) => (
+            <Box key="{name}" p={5} mb={5} border="1px solid #eee">
+              <Box>
+                <b>
+                  {name} ({detail.length})
+                </b>
+              </Box>
+              <Box pt={2}>
+                <Grid
+                  templateColumns={{
+                    base: 'repeat(2, 1fr)',
+                    md: 'repeat(4, 1fr)',
+                  }}
+                  gap={{ base: 3, md: 6 }}
+                >
+                  {detail.map(({ name, version }) => (
+                    <GridItem w="100%" key={name}>
+                      <Link
+                        href={`/tools/${postData.toolPathInfo[name]}`}
+                        passHref
+                        legacyBehavior
+                        key="{name}"
+                      >
+                        <ToolButton
+                          name={name}
+                          id={postData.toolPathInfo[name]}
+                          version={version}
+                        />
+                      </Link>
+                    </GridItem>
+                  ))}
+                </Grid>
+              </Box>
             </Box>
-            <Box pt={2}>
-              <Grid
-                templateColumns={{
-                  base: 'repeat(2, 1fr)',
-                  md: 'repeat(4, 1fr)',
-                }}
-                gap={{ base: 3, md: 6 }}
-              >
-                {detail.map(({ name, version }) => (
-                  <GridItem w="100%" key={name}>
-                    <Link
-                      href={`/tools/${postData.toolPathInfo[name]}`}
-                      passHref
-                      legacyBehavior
-                      key="{name}"
-                    >
-                      <ToolButton
-                        name={name}
-                        id={postData.toolPathInfo[name]}
-                        version={version}
-                      />
-                    </Link>
-                  </GridItem>
-                ))}
-              </Grid>
-            </Box>
-          </Box>
-        ))}
+          ))}
+        </Box>
       </Box>
     </Box>
   )
