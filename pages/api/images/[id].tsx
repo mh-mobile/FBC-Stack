@@ -23,13 +23,6 @@ async function captureStack(url: string) {
     timeout: 30000,
   })
 
-  // // 技術スタックのセレクターの領域を計算
-  // const clip = await page.evaluate((s) => {
-  //   const el = document.querySelector(s)
-  //   const { width, height, top: y, left: x } = el.getBoundingClientRect()
-  //   return { width, height, x, y }
-  // }, '#stack')
-
   // 画面外の遅延ローディングの画像をキャプチャするために、
   // 画面下部にスクロールした上でキャプチャする。
   await page.evaluate((_) => {
