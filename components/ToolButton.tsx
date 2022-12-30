@@ -21,49 +21,68 @@ const ToolButton = React.forwardRef<
         key="{id}"
         style={{
           borderRadius: '5px',
-          minHeight: '120px',
+          height: '100%',
           paddingTop: '20px',
           paddingBottom: '20px',
           backgroundColor: '#f7fafc',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'center',
+          justifyContent: 'space-between',
           alignItems: 'center',
         }}
       >
-        <Box style={{ marginBottom: 5 }}>
-          <Image
-            src={imageSrc}
-            width={45}
+        <Box
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            position: 'relative',
+          }}
+        >
+          <Box
             height={45}
-            alt="logo"
-            onError={() => setImageSrc(`/images/noimage.png`)}
+            width={45}
             style={{
-              maxWidth: '100%',
-              height: 'auto',
-              objectFit: 'contain',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              position: 'relative',
             }}
-          />
+          >
+            <Image
+              src={imageSrc}
+              alt="logo"
+              fill
+              onError={() => setImageSrc(`/images/noimage.png`)}
+              style={{
+                objectFit: 'contain',
+              }}
+            />
+          </Box>
+          <Box
+            style={{
+              wordBreak: 'break-word',
+              padding: '5px 20px 0',
+              textAlign: 'center',
+            }}
+            color="lightText"
+          >
+            {name}
+          </Box>
         </Box>
         <Box
-          style={{ wordBreak: 'break-word', padding: '0 20px' }}
-          color="lightText"
+          bg="gray.200"
+          mt={2}
+          p={1}
+          width="80%"
+          display={display}
+          justifyContent="center"
+          rounded="base"
         >
-          {name}
+          {version}
         </Box>
-        {
-          <Box
-            bg="gray.200"
-            mt={2}
-            p={1}
-            width="80%"
-            display={display}
-            justifyContent="center"
-            rounded="base"
-          >
-            {version}
-          </Box>
-        }
       </Box>
     </a>
   )
