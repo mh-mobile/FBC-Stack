@@ -20,7 +20,7 @@ async function captureStack(url: string) {
   })
   await page.goto(url, {
     waitUntil: 'networkidle2',
-    timeout: 1000,
+    timeout: 30000,
   })
 
   // // 技術スタックのセレクターの領域を計算
