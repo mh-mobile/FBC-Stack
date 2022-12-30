@@ -4,9 +4,12 @@ import puppeteer from 'puppeteer-core'
 import { getAllPostIds } from '../../../lib/posts'
 
 async function captureStack(url: string) {
-  let args = [...chromium.args, '--lang=ja']
+  await chromium.font(
+    'https://raw.githack.com/minoryorg/Noto-Sans-CJK-JP/master/fonts/NotoSansCJKjp-Regular.ttf',
+  )
+
   const browser = await puppeteer.launch({
-    args: args,
+    args: chromium.args.concat('--lang=ja'),
     executablePath: await chromium.executablePath,
     headless: chromium.headless,
   })
