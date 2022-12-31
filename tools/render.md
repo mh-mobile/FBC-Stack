@@ -1,6 +1,6 @@
 ---
-toolName: Render.com
+toolName: Render
 alias:
-  - render
-url: https://render.com
+  - Render.com
+url: https://render.com/
 ---
