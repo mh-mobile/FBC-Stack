@@ -8,5 +8,6 @@ module.exports = {
   },
   "docs": {
     "autodocs": "tag"
-  }
+  },
+  staticDirs: [{ from: '../public', to: '/' }]
 };
