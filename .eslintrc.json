@@ -4,9 +4,7 @@
     "prettier",
     "plugin:storybook/recommended"
   ],
-  "plugins": [
-    "unused-imports"
-  ],
+  "plugins": ["unused-imports"],
   "rules": {
     "unused-imports/no-unused-imports": "error"
   }
