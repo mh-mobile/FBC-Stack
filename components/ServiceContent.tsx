@@ -22,7 +22,7 @@ const ServiceContent: NextPage<Props> = ({ postData }) => {
               </Text>
             ),
             a: ({ href, children }) => (
-              <Link color="teal.500" href={href}>
+              <Link color="teal.500" href={href ?? ''}>
                 {children}
               </Link>
             ),
@@ -53,14 +53,14 @@ const ServiceContent: NextPage<Props> = ({ postData }) => {
                   {detail.map(({ name, version }) => (
                     <GridItem w="100%" key={name}>
                       <Link
-                        href={`/tools/${postData.toolPathInfo[name]}`}
+                        href={`/tools/${postData.toolPathInfo![name]}`}
                         passHref
                         legacyBehavior
                         key="{name}"
                       >
                         <ToolButton
                           name={name}
-                          id={postData.toolPathInfo[name]}
+                          id={postData.toolPathInfo![name]}
                           version={version}
                         />
                       </Link>

@@ -1,14 +1,14 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import Layout, { siteTitle } from '../../components/Layout'
-import { useState } from 'react'
+import { SetStateAction, useState } from 'react'
 import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react'
 import { SearchIcon } from '@chakra-ui/icons'
 import ToolButton from '../../components/ToolButton'
 import { Grid, GridItem, Box } from '@chakra-ui/react'
 import { getToolsNameInPostsData } from '../../lib/posts'
 import { getAllToolsData } from '../../lib/tools'
-import type { GetStaticProps } from 'next'
+import type { GetStaticProps, NextPage } from 'next'
 import type { ToolData } from '../../types/toolData'
 import * as utilStyles from '../../styles/utils'
 
@@ -41,11 +41,13 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
-const Tools = ({ allToolsData }) => {
+const Tools: NextPage<Props> = ({ allToolsData }) => {
   const [items, setItems] = useState(allToolsData)
   const [filter, setFilter] = useState('')
 
-  const handleFilterChange = (event) => {
+  const handleFilterChange = (event: {
+    target: { value: SetStateAction<string> }
+  }) => {
     setFilter(event.target.value)
   }
 

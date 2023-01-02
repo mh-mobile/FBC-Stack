@@ -39,8 +39,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const toolData = await getToolData(params.id as string)
+export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
+  const toolData = await getToolData(params?.id as string)
   const allPostsData = await getFilteredPostsData(toolData)
 
   return {
