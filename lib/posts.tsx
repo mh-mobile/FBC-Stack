@@ -33,18 +33,21 @@ function createToolPathInfo(postData: PostData) {
   const toolNames = getToolsName(postData)
   const allToolsData = getAllToolsData()
 
-  const pathInfo = toolNames.reduce((accum, current) => {
-    for (let { toolID, toolName, alias } of allToolsData) {
-      if (
-        toolName?.toLowerCase() === current.toLowerCase() ||
-        alias?.some((name) => name.toLowerCase() === current.toLowerCase())
-      ) {
-        accum[current] = toolID
-        break
+  const pathInfo = toolNames.reduce(
+    (accum: { [key: string]: string }, current) => {
+      for (let { toolID, toolName, alias } of allToolsData) {
+        if (
+          toolName?.toLowerCase() === current.toLowerCase() ||
+          alias?.some((name) => name.toLowerCase() === current.toLowerCase())
+        ) {
+          accum[current] = toolID
+          break
+        }
       }
-    }
-    return accum
-  }, {})
+      return accum
+    },
+    {},
+  )
 
   return pathInfo
 }
@@ -55,14 +58,13 @@ export function getPostData(id: string) {
 
   const matterResult = matter(fileContents)
   const markdownContent = matterResult.content
-  const toolNames = getToolsName(matterResult.data as PostData)
   const toolPathInfo = createToolPathInfo(matterResult.data as PostData)
 
   return {
+    ...(matterResult.data as PostData),
     id,
     markdownContent,
     toolPathInfo,
-    ...(matterResult.data as PostData),
   }
 }
 
@@ -87,7 +89,7 @@ export function getToolsNameInPostsData() {
     .map(({ detail }) => detail)
     .flat()
     .map(({ name }) => name)
-    .reduce((accumulator, name) => {
+    .reduce((accumulator: { [key: string]: boolean }, name) => {
       accumulator[name] = true
       return accumulator
     }, {})

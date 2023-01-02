@@ -15,6 +15,6 @@ export type PostData = {
   published: boolean
   code: GitHubRepository[]
   stack: Stack
-  toolPathInfo?: [string: string]
+  toolPathInfo?: { [key: string]: string }
   markdownContent: string
 }

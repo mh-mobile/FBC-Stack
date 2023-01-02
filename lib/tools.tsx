@@ -22,9 +22,9 @@ export function getToolData(id: string) {
   const markdownContent = matterResult.content
 
   const data = {
+    ...(matterResult.data as ToolData),
     toolID: id,
     markdownContent,
-    ...(matterResult.data as ToolData),
   }
 
   return data

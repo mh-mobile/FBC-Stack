@@ -73,7 +73,7 @@ const Post: NextPage<Props> = ({ postData }) => {
                 />
               </ExternalLink>
             ))}
-            {postData.blog?.length > 0 && (
+            {postData.blog && postData.blog.length > 0 && (
               <ExternalLink href={postData.blog}>
                 <Image
                   src={`/images/blog.png`}
@@ -87,7 +87,7 @@ const Post: NextPage<Props> = ({ postData }) => {
                 />
               </ExternalLink>
             )}
-            {postData.website?.length > 0 && (
+            {postData.website && postData.website.length > 0 && (
               <ExternalLink href={postData.website}>
                 <Image
                   src={`/images/website.png`}
