@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import { Box } from '@chakra-ui/react'
+import { getBlurDataURL } from '../lib/image'
 
 type ButtonProps = JSX.IntrinsicElements['a']
 const ToolButton = React.forwardRef<
@@ -37,6 +38,8 @@ const ToolButton = React.forwardRef<
             width={45}
             height={45}
             alt="logo"
+            placeholder="blur"
+            blurDataURL={getBlurDataURL()}
             onError={() => setImageSrc(`/images/noimage.png`)}
             style={{
               maxWidth: '100%',

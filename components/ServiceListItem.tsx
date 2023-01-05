@@ -3,6 +3,7 @@ import type { NextPage } from 'next'
 import { Box, HStack } from '@chakra-ui/react'
 import Image from 'next/image'
 import Date from './Date'
+import { getBlurDataURL } from '../lib/image'
 
 type Props = {
   id: string
@@ -22,6 +23,8 @@ const ServiceListItem: NextPage<Props> = ({ id, title, author, date }) => {
               src={`https://github.com/${author}.png`}
               width={25}
               height={25}
+              placeholder="blur"
+              blurDataURL={getBlurDataURL()}
               alt=""
               style={{
                 maxWidth: '100%',

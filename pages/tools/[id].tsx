@@ -21,6 +21,7 @@ import type { ToolData } from '../../types/toolData'
 import type { PostData } from '../../types/postData'
 import ServiceListItem from '../../components/ServiceListItem'
 import ExternalLink from '../../components/ExternalLink'
+import { getBlurDataURL } from '../../lib/image'
 
 type Props = {
   allPostsData: PostData[]
@@ -68,6 +69,8 @@ const Tool: NextPage<Props> = ({ allPostsData, toolData }) => {
             alt="logo"
             width={50}
             height="55"
+            placeholder="blur"
+            blurDataURL={getBlurDataURL()}
             onError={() => setImageSrc('/images/noimage.png')}
             style={{
               maxWidth: '100%',
