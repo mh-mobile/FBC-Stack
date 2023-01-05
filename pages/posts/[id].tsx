@@ -11,6 +11,7 @@ import { Text, Box } from '@chakra-ui/react'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import type { PostData } from '../../types/postData'
 import ExternalLink from '../../components/ExternalLink'
+import { getBlurDataURL } from '../../lib/image'
 
 type Props = {
   postData: PostData
@@ -52,6 +53,8 @@ const Post: NextPage<Props> = ({ postData }) => {
                 width={25}
                 height={25}
                 alt=""
+                placeholder="blur"
+                blurDataURL={getBlurDataURL()}
                 style={{
                   maxWidth: '100%',
                   height: 'auto',
