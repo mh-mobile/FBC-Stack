@@ -28,8 +28,6 @@ stack:
         version: 3.2.2
       - name: Ruby on Rails
         version: 7.0.6
-      - name: PostgreSQL
-        version: 
 
   - name: テスト
     detail:
