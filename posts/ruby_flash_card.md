@@ -84,7 +84,7 @@ stack:
 
   - name: ウェブアセンブリ
     detail:
-      - name: ruby-wasm
+      - name: ruby.wasm
         version: ""
 
   - name: データベース
