@@ -28,8 +28,6 @@ stack:
         version: 7.0.5
       - name: Puma
         version: "~> 5.0"
-      - name: Firebase ID Token
-        version: "~> 3.0.0"
 
   - name: インフラ
     detail:
