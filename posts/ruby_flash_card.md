@@ -31,7 +31,7 @@ stack:
         version: 1.4.0
       - name: react-toastify
         version: 9.1.3
-      - name: "@uiw/react-textarea-code-editor"
+      - name: "react-textarea-code-editor"
         version: 2.1.7
       - name: react-hotkeys-hook
         version: 4.4.1
