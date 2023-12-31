@@ -53,7 +53,7 @@ stack:
     detail:
       - name: Docker
         version: 23.0.5
-      - name: docker-compose
+      - name: Docker Compose
         version: 2.17.3
 
 ---
