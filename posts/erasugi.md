@@ -15,6 +15,9 @@ stack:
         version:
       - name: Tailwind CSS
         version:
+      - name: Konva.js
+        version:
+
   - name: バックエンド
     detail:
       - name: Ruby
@@ -45,6 +48,9 @@ stack:
     detail:
       - name: Render
         version:
+      - name: Supabase
+        version:
+
 
 ---
 
