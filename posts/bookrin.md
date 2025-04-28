@@ -33,6 +33,12 @@ stack:
     detail:
       - name: Minitest
 
+  - name: Linter/Formatter
+    detail:
+      - name: RuboCop
+      - name: ESLint
+      - name: Prettier
+
   - name: 認証
     detail:
       - name: OAuth2
