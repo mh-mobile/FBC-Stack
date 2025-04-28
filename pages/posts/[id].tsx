@@ -63,18 +63,35 @@ const Post: NextPage<Props> = ({ postData }) => {
             </Box>
             <Text>{postData.author}</Text>
             {postData.code.map(({ repository }) => (
-              <ExternalLink href={repository} key={repository}>
-                <Image
-                  src={`/images/tool/github.png`}
-                  width="30"
-                  height="30"
-                  alt="repository"
-                  style={{
-                    maxWidth: '100%',
-                    height: 'auto',
-                  }}
-                />
-              </ExternalLink>
+              <>
+                <ExternalLink href={repository} key={repository}>
+                  <Image
+                    src={`/images/tool/github.png`}
+                    width="30"
+                    height="30"
+                    alt="repository"
+                    style={{
+                      maxWidth: '100%',
+                      height: 'auto',
+                    }}
+                  />
+                </ExternalLink>
+                <ExternalLink
+                  href={repository.replace('github.com', 'deepwiki.com')}
+                  key={repository + '-deepwiki'}
+                >
+                  <Image
+                    src={`/images/deepwiki.png`}
+                    width="30"
+                    height="30"
+                    alt="deepwiki"
+                    style={{
+                      maxWidth: '100%',
+                      height: 'auto',
+                    }}
+                  />
+                </ExternalLink>
+              </>
             ))}
             {postData.blog && postData.blog.length > 0 && (
               <ExternalLink href={postData.blog}>
