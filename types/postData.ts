@@ -12,6 +12,7 @@ export type PostData = {
   author: string
   website?: string
   blog?: string
+  deepwiki?: string // Added deepwiki field
   published: boolean
   code: GitHubRepository[]
   stack: Stack
