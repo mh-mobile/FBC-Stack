@@ -2,11 +2,11 @@
 title: 'Rubyフラッシュカード'
 date: '2023-09-26'
 author: toke04
-code: 
-  - repository: "https://github.com/toke04/Ruby-Flash-Card"
-    description: "『Rubyフラッシュカード』は、Rubyのメソッドをフラッシュカード形式で出題し、覚えたかどうかを確認するサービスです。"
-blog: "https://toke.hatenablog.com/entry/2023/09/26/183251"
-website: "https://ruby-flash-card.fly.dev/"
+code:
+  - repository: 'https://github.com/toke04/Ruby-Flash-Card'
+    description: '『Rubyフラッシュカード』は、Rubyのメソッドをフラッシュカード形式で出題し、覚えたかどうかを確認するサービスです。'
+blog: 'https://toke.hatenablog.com/entry/2023/09/26/183251'
+website: ''
 published: true
 stack:
   - name: フロントエンド
@@ -31,7 +31,7 @@ stack:
         version: 1.4.0
       - name: react-toastify
         version: 9.1.3
-      - name: "react-textarea-code-editor"
+      - name: 'react-textarea-code-editor'
         version: 2.1.7
       - name: react-hotkeys-hook
         version: 4.4.1
@@ -39,7 +39,7 @@ stack:
         version: 1.29.0
 
   - name: バックエンド
-    detail: 
+    detail:
       - name: Ruby
         version: 3.2.0
       - name: Rails
@@ -85,26 +85,24 @@ stack:
   - name: ウェブアセンブリ
     detail:
       - name: ruby.wasm
-        version: ""
+        version: ''
 
   - name: データベース
     detail:
       - name: PostgreSQL
-        version: ""
+        version: ''
 
   - name: CI/CD
     detail:
       - name: GitHub Actions
-        version: ""
+        version: ''
 
   - name: インフラ
     detail:
       - name: Fly.io
-        version: ""
+        version: ''
       - name: Docker
-        version: ""
-
+        version: ''
 ---
 
-『Rubyフラッシュカード』というサービスは、覚えているとRuby on Rails 等で効率良く処理が書けるRubyのメソッドを、フラッシュカード形式で出題し、覚えていたなかったものを再度フラッシュカードで覚えたか確認する事と、すでに覚えていたものを忘れていないか確認することができるサービスです。公式サイトの内容をその場で確認し、オンラインエディターで試しながら自分の言葉でメモすることで、効率良く覚えることができます。
-
+『Ruby フラッシュカード』というサービスは、覚えていると Ruby on Rails 等で効率良く処理が書ける Ruby のメソッドを、フラッシュカード形式で出題し、覚えていたなかったものを再度フラッシュカードで覚えたか確認する事と、すでに覚えていたものを忘れていないか確認することができるサービスです。公式サイトの内容をその場で確認し、オンラインエディターで試しながら自分の言葉でメモすることで、効率良く覚えることができます。

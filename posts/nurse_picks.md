@@ -2,15 +2,15 @@
 title: 'NursePicks'
 date: '2022-11-17'
 author: garammasala29
-code: 
-  - repository: "https://github.com/garammasala29/NursePicks"
-    description: ""
+code:
+  - repository: 'https://github.com/garammasala29/NursePicks'
+    description: ''
 blog: https://garammasala29.hatenablog.com/entry/NursePicks
-website: https://www.nursepicks.jp/
+website:
 published: true
 stack:
   - name: フロントエンド
-    detail: 
+    detail:
       - name: Vue.js
         version: 3.2.36
       - name: Bulma
@@ -36,7 +36,6 @@ stack:
       - name: Slim-Lint
         version: 0.22.1
 
- 
   - name: テスト
     detail:
       - name: RSpec
@@ -47,21 +46,20 @@ stack:
       - name: PostgreSQL
         version: 5.4
 
-  - name: 認証 
+  - name: 認証
     detail:
       - name: OmniAuth
-        version: 
+        version:
 
   - name: CI/CD
     detail:
       - name: Github Actions
-        version: 
+        version:
 
   - name: インフラ
     detail:
       - name: heroku
-        version: 
-
+        version:
 ---
 
-NursePicksはWeb上にある看護記事を投稿・閲覧できる看護師向けのサービスです
+NursePicks は Web 上にある看護記事を投稿・閲覧できる看護師向けのサービスです

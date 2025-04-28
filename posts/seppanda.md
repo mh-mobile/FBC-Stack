@@ -2,15 +2,15 @@
 title: 'seppanda'
 date: '2022-03-20'
 author: mami-inuzuka
-code: 
-  - repository: "https://github.com/mami-inuzuka/seppanda"
-    description: ""
+code:
+  - repository: 'https://github.com/mami-inuzuka/seppanda'
+    description: ''
 blog: https://note.com/inuzuka_mami/n/ne35c59dec021
-website: https://seppanda.com/
+website:
 published: true
 stack:
   - name: フロントエンド
-    detail: 
+    detail:
       - name: React
         version: 17.0.2
       - name: TypeScript
@@ -35,7 +35,7 @@ stack:
         version: 2.5.1
       - name: husky
         version: 7.0.4
- 
+
   - name: テスト
     detail:
       - name: RSpec
@@ -44,12 +44,12 @@ stack:
         version: 12.1.2
       - name: Jest
         version: 27.4.6
- 
+
   - name: データベース
     detail:
       - name: PostgreSQL
-        version: 
- 
+        version:
+
   - name: ミドルウェア
     detail:
       - name: Redis
@@ -58,7 +58,7 @@ stack:
   - name: 認証
     detail:
       - name: Firebase Authentication
-        version: 
+        version:
 
   - name: CI/CD
     detail:
@@ -68,11 +68,10 @@ stack:
   - name: インフラ
     detail:
       - name: Heroku
-        version: 
+        version:
       - name: GitHub
-        version: 
-
+        version:
 ---
 
-seppandaは「割り勘したいけどどちらかが一旦支払っておく」というシーンが多いカップルにおすすめの割り勘計算アプリです。
+seppanda は「割り勘したいけどどちらかが一旦支払っておく」というシーンが多いカップルにおすすめの割り勘計算アプリです。
 支払った側がその金額をメモしておくだけで最終的にどちらがいくらお金を渡せばいいのかを常に確認することができます。

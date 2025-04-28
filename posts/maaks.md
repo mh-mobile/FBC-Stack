@@ -2,17 +2,17 @@
 title: 'MAAKS'
 date: '2024-01-07'
 author: YukiWatanabe824
-code: 
-  - repository: "https://github.com/YukiWatanabe824/MAAKS"
-    description: "MAAKS(マークス)は、サイクリング中の事故を減らための道路上の自転車事故やトラブルを共有するサービスです。"
+code:
+  - repository: 'https://github.com/YukiWatanabe824/MAAKS'
+    description: 'MAAKS(マークス)は、サイクリング中の事故を減らための道路上の自転車事故やトラブルを共有するサービスです。'
 blog: https://yukiwatanabe.hatenablog.com/entry/maaks_launch
-website: "https://maaks.jp/"
+website: ''
 published: true
 stack:
   - name: フロントエンド
     detail:
       - name: HotWire
-        version: 
+        version:
       - name: turbo-rails
         version: 1.4.0
       - name: stimulus-rails
@@ -21,7 +21,7 @@ stack:
       - name: daisyUI
 
   - name: バックエンド
-    detail: 
+    detail:
       - name: Ruby
         version: 3.2.2
       - name: Ruby on Rails
@@ -69,7 +69,6 @@ stack:
   - name: 外部サービス
     detail:
       - name: MapBox GL JS
-
 ---
 
-MAAKSはサイクリング中の事故を減らすための道路上の自転車事故やトラブルを共有するサービスです。ユーザーは地図上で他のユーザーが投稿した事故の情報やレポートを確認することができ、サイクリングルート設定時・走行時の危険予測が可能です。属コミュニティ化していた「危ないスポットの情報」をコミュニティの枠を超えて確認できるようになることで、より安全で楽しいライドに役立ちます。
+MAAKS はサイクリング中の事故を減らすための道路上の自転車事故やトラブルを共有するサービスです。ユーザーは地図上で他のユーザーが投稿した事故の情報やレポートを確認することができ、サイクリングルート設定時・走行時の危険予測が可能です。属コミュニティ化していた「危ないスポットの情報」をコミュニティの枠を超えて確認できるようになることで、より安全で楽しいライドに役立ちます。

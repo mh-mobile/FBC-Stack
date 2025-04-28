@@ -2,27 +2,27 @@
 title: 'Employmate'
 date: '2023-07-14'
 author: maeda-m
-code: 
-  - repository: "https://github.com/maeda-m/employmate"
-    description: "病気やケガで退職した後、働く意思がある60歳未満の方向けの、雇用保険の失業等給付（基本手当）がいつ頃になるかがわかるWebサービスです。"
-blog: "https://www.maeda-m.com/2023/07/14/released-employmate.html"
-website: "https://employmate.jp/"
+code:
+  - repository: 'https://github.com/maeda-m/employmate'
+    description: '病気やケガで退職した後、働く意思がある60歳未満の方向けの、雇用保険の失業等給付（基本手当）がいつ頃になるかがわかるWebサービスです。'
+blog: 'https://www.maeda-m.com/2023/07/14/released-employmate.html'
+website: ''
 published: true
 stack:
   - name: フロントエンド
-    detail: 
+    detail:
       - name: HTML
-        version: ""
+        version: ''
       - name: CSS
-        version: ""
+        version: ''
       - name: JavaScript
-        version: ""
+        version: ''
       - name: ViewComponent
-        version: ""
+        version: ''
       - name: Stimulus
-        version: ""
+        version: ''
       - name: Turbo
-        version: ""
+        version: ''
 
   - name: バックエンド
     detail:
@@ -34,40 +34,39 @@ stack:
   - name: テスト
     detail:
       - name: RSpec
-        version: "~> 6.0.0"
+        version: '~> 6.0.0'
       - name: Capybara
-        version: ""
+        version: ''
       - name: Playwright
-        version: "1.38.0"
+        version: '1.38.0'
 
   - name: Linter/Formatter
     detail:
       - name: ESLint
-        version: "8.38.0"
+        version: '8.38.0'
       - name: Prettier
-        version: "2.8.7"
+        version: '2.8.7'
       - name: Rubocop
-        version: ""
+        version: ''
       - name: Stylelint
-        version: "15.5.0"
+        version: '15.5.0'
 
   - name: データベース
     detail:
       - name: PostgreSQL
-        version: ""
+        version: ''
 
   - name: 認証
-    detail: 
+    detail:
       - name: Google OpenID Connect
-        version: ""
+        version: ''
 
   - name: インフラ
     detail:
       - name: Puma
-        version: ""
-      - name: Docker  
-        version: ""
-
+        version: ''
+      - name: Docker
+        version: ''
 ---
 
-病気やケガで退職した後、働く意思がある60歳未満の方向けの、雇用保険の失業等給付（基本手当）がいつ頃になるかがわかるWebサービスです。
+病気やケガで退職した後、働く意思がある 60 歳未満の方向けの、雇用保険の失業等給付（基本手当）がいつ頃になるかがわかる Web サービスです。

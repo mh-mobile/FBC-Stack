@@ -2,11 +2,11 @@
 title: 'ワクチンプラン'
 date: '2022-05-14'
 author: haruna-tsujita
-code: 
-  - repository: "https://github.com/haruna-tsujita/vaccination-plan"
-    description: ""
+code:
+  - repository: 'https://github.com/haruna-tsujita/vaccination-plan'
+    description: ''
 blog: https://napple29.hatenablog.com/entry/2022/09/06/083747
-website: https://www.vaccination-plan.com/
+website:
 published: true
 stack:
   - name: フロントエンド
@@ -35,7 +35,7 @@ stack:
   - name: メール配信
     detail:
       - name: Postmark
-        version: 
+        version:
 
   - name: Linter/Formatter
     detail:
@@ -45,27 +45,26 @@ stack:
         version: 0.22.1
       - name: ESLint
         version: 7.32.0
- 
+
   - name: テスト
     detail:
       - name: minitest
         version: 5.15.0
- 
+
   - name: データベース
     detail:
       - name: PostgreSQL
-        version: 
+        version:
 
   - name: CI/CD
     detail:
       - name: GitHub Actions
-        version: 
+        version:
 
   - name: インフラ
     detail:
       - name: Heroku
-        version: 
-
+        version:
 ---
 
 このサービスは乳幼児期のお子さんを育てている保護者を対象とした、予防接種の予定管理サービスです。 子どもの予防接種の計画を立てるのが大変という問題を解決したく、このサービスを考えました。
