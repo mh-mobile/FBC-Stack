@@ -6,7 +6,7 @@ code:
   - repository: 'https://github.com/yocchan-git/zero-steps'
     description: 'ゼロ高等学院の生徒向けの目標共有サービスです。 目標を決め、タスクに分けることで交流しながら目標を達成していけるアプリになります。また、ログインにはDiscordアカウントが必要ですのでご注意ください。'
 blog: 'https://yocchan-eng.hatenablog.com/entry/zero-steps'
-website: 'https://zero-steps.onrender.com/'
+website:
 published: true
 stack:
   - name: フロントエンド

@@ -2,15 +2,15 @@
 title: 'StamPon'
 date: '2021-11-24'
 author: kaiyu-tech
-code: 
-  - repository: "https://github.com/kaiyu-tech/stampon"
-    description: ""
+code:
+  - repository: 'https://github.com/kaiyu-tech/stampon'
+    description: ''
 blog: https://kaiyu-tech.hatenablog.com/entry/2022/01/07/205825
-website: https://stampon.up.railway.app/
+website:
 published: true
 stack:
   - name: フロントエンド
-    detail: 
+    detail:
       - name: Vue.js
         version: 2.6.14
       - name: Vuetify
@@ -21,14 +21,14 @@ stack:
         version: 3.0.2
 
   - name: バックエンド
-    detail: 
+    detail:
       - name: Ruby
         version: 3.0.2
       - name: Ruby on Rails
         version: 6.1.4.1
 
   - name: アプリケーションサーバ
-    detail: 
+    detail:
       - name: Puma
         version: 5.5.2
 
@@ -54,20 +54,19 @@ stack:
         version:
 
   - name: データベース
-    detail: 
+    detail:
       - name: PostgreSQL
         version: 13.4
 
   - name: インフラ
     detail:
       - name: Railway
-        version: 
+        version:
 
   - name: CI/CD
     detail:
       - name: GitHub Actions
-        version: 
-
+        version:
 ---
 
-すたんぽんは、Discordの発言をブックマークするサービスです。 ブックマークしたい発言に「気になる」か「👀」スタンプを押すことで自動登録します。 Web上に自分のブックマーク管理サイトを持ち、絞り込み検索や削除することが出来ます。
+すたんぽんは、Discord の発言をブックマークするサービスです。 ブックマークしたい発言に「気になる」か「👀」スタンプを押すことで自動登録します。 Web 上に自分のブックマーク管理サイトを持ち、絞り込み検索や削除することが出来ます。

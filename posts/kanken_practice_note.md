@@ -10,7 +10,7 @@ website: https://kanken-practice-b5ve7zdnrq-an.a.run.app/
 published: true
 stack:
   - name: フロントエンド
-    detail: 
+    detail:
       - name: React
         version: 18.2.0
       - name: Node.js
@@ -43,7 +43,7 @@ stack:
   - name: CI/CD
     detail:
       - name: GitHub Actions
-        version: 
+        version:
 
   - name: Linter/Formatter
     detail:
@@ -69,6 +69,6 @@ stack:
         version: 11.5
       - name: WSL
         version: 2
- 
 ---
-漢検練習帳は漢検準1級/1級合格を目指す人向けの学習アプリです。 4択クイズ形式で学習できます。
+
+漢検練習帳は漢検準 1 級/1 級合格を目指す人向けの学習アプリです。 4 択クイズ形式で学習できます。

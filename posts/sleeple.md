@@ -2,15 +2,15 @@
 title: 'Sleeple'
 date: '2022-12-31'
 author: masanarih0ri
-code: 
-  - repository: "https://github.com/masanarih0ri/sleeple"
-    description: ""
+code:
+  - repository: 'https://github.com/masanarih0ri/sleeple'
+    description: ''
 blog: https://masanarih0ri.hatenablog.com/entry/2022/12/31/172124
-website: https://sleeple.app/
+website:
 published: true
 stack:
   - name: フロントエンド
-    detail: 
+    detail:
       - name: Ruby
         version: 3.1.2
       - name: Slim
@@ -32,7 +32,7 @@ stack:
     detail:
       - name: Rubocop
         version: 1.24.1
- 
+
   - name: テスト
     detail:
       - name: RSpec
@@ -51,13 +51,12 @@ stack:
   - name: CI/CD
     detail:
       - name: Github Actions
-        version: 
+        version:
 
   - name: インフラ
     detail:
       - name: Render.com
-        version: 
-
+        version:
 ---
 
-sleepleは、良い睡眠の習慣を身につけるための行動チェックツールです。 朝すっきり起きて、良い1日を過ごしたいと思っている方が取り組むべき行動を実践できているかを記録し、可視化することができます。
+sleeple は、良い睡眠の習慣を身につけるための行動チェックツールです。 朝すっきり起きて、良い 1 日を過ごしたいと思っている方が取り組むべき行動を実践できているかを記録し、可視化することができます。

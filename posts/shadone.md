@@ -2,15 +2,15 @@
 title: 'Shadone'
 date: '2022-08-03'
 author: eatplaynap
-code: 
-  - repository: "https://github.com/eatplaynap/shadone"
-    description: ""
+code:
+  - repository: 'https://github.com/eatplaynap/shadone'
+    description: ''
 blog: https://eatplaynap329.hatenablog.jp/entry/2022/09/12/025508
-website: https://www.shadone.net/
+website:
 published: true
 stack:
   - name: フロントエンド
-    detail: 
+    detail:
       - name: Vue.js
         version: 2.6.14
       - name: Tailwind CSS
@@ -46,18 +46,17 @@ stack:
   - name: データベース
     detail:
       - name: PostgreSQL
-        version: 
+        version:
 
   - name: インフラ
     detail:
       - name: Heroku
-        version: 
+        version:
 
   - name: 外部連携
     detail:
       - name: YouTube
-        version: 
-
+        version:
 ---
 
 Shadone is a web app for language learners who want to do shadowing exercise with YouTube videos.

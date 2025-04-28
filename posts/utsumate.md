@@ -2,21 +2,21 @@
 title: 'うつメイト'
 date: '2022-08-31'
 author: naomichi-h
-code: 
-  - repository: "https://github.com/naomichi-h/utsumate"
-    description: ""
+code:
+  - repository: 'https://github.com/naomichi-h/utsumate'
+    description: ''
 blog: https://naomichi-h.hatenablog.com/entry/2022/10/16/153122
-website: https://utsumate.net/
+website:
 published: true
 stack:
   - name: フロントエンド
-    detail: 
+    detail:
       - name: JavaScript
-        version: 
+        version:
       - name: Slim
         version: 4.1.0
       - name: Bulma
-        version: 
+        version:
 
   - name: バックエンド
     detail:
@@ -54,14 +54,14 @@ stack:
   - name: ミドルウェア
     detail:
       - name: nginx
-        version: 
+        version:
       - name: puma
-        version: 
+        version:
 
   - name: CI/CD
     detail:
       - name: GitHub Actions
-        version: 
+        version:
 
   - name: デプロイツール
     detail:
@@ -71,16 +71,15 @@ stack:
   - name: AWS
     detail:
       - name: Amazon VPC
-        version: 
+        version:
       - name: Amazon EC2
-        version: 
+        version:
       - name: Amazon RDS
-        version: 
+        version:
       - name: AWS Certificate Manager
-        version: 
+        version:
       - name: ALB
-        version: 
-
+        version:
 ---
 
 うつメイトは、うつ病の治療に大切な、「うつ病の人の客観的な行動記録」を作成するためのアプリです。

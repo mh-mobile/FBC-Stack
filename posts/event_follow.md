@@ -2,13 +2,13 @@
 title: EventFollow
 date: '2021-06-07'
 author: mh-mobile
-code: 
-  - repository: "https://github.com/mh-mobile/event_follow"
-    description: "front/backend"
-  - repository: "https://github.com/mh-mobile/event_follow_mobile"
-    description: "mobile"
+code:
+  - repository: 'https://github.com/mh-mobile/event_follow'
+    description: 'front/backend'
+  - repository: 'https://github.com/mh-mobile/event_follow_mobile'
+    description: 'mobile'
 blog: https://mh-mobile.hatenablog.com/entry/2021/07/06/085442
-website: https://eventfollow.app
+website:
 published: true
 stack:
   - name: フロントエンド
@@ -16,7 +16,7 @@ stack:
       - name: Vue.js
         version: 2.6.12
       - name: TypeScript
-        version: 
+        version:
       - name: Nuxt.js
         version: 2.14.7
 
@@ -44,11 +44,11 @@ stack:
   - name: テスト
     detail:
       - name: Storybook
-        version: 
+        version:
       - name: Jest
         version: 26.6.2
       - name: RSpec
-        version: 5.0.0 
+        version: 5.0.0
 
   - name: データベース
     detail:
@@ -58,31 +58,31 @@ stack:
   - name: 認証
     detail:
       - name: Firebase Authentication
-        version: 
+        version:
 
   - name: キャッシュサーバ
     detail:
       - name: Redis
-        version: 
+        version:
 
   - name: CI/CD
     detail:
       - name: GitHub Actions
-        version: 
+        version:
 
   - name: インフラ
     detail:
       - name: Heroku
-        version: 
+        version:
       - name: GitHub
-        version: 
+        version:
 
   - name: 環境構築
     detail:
       - name: Docker
-        version: 
+        version:
       - name: Docker Compose
-        version: 
+        version:
 
   - name: API連携
     detail:
@@ -92,18 +92,18 @@ stack:
         version:
       - name: Doorkeeper API
         version:
-    
+
   - name: API関連ツール
     detail:
-      - name: OpenAPI 
-        version: 
-      - name: committee-rails 
+      - name: OpenAPI
+        version:
+      - name: committee-rails
         version: 0.5.1
 
   - name: モニタリングツール
     detail:
       - name: Sentry
-        version: 
+        version:
       - name: Skylight
         version: 5.0.0
 
@@ -111,9 +111,6 @@ stack:
     detail:
       - name: Flutter
         version: 2.0.1
-
 ---
 
-イベントフォローは、自分の興味の方向に近い技術イベントを見逃してしまう問題を解決したい、技術イベント発見サービスです。ユーザーは Twitterの友達がシェアしたDoorkeeper、connpassのイベントを発見することができ、キーワードで検索することとは違い、検索せずに自分の興味の方向に近いイベントを発見できることが特徴です。
-
-
+イベントフォローは、自分の興味の方向に近い技術イベントを見逃してしまう問題を解決したい、技術イベント発見サービスです。ユーザーは Twitter の友達がシェアした Doorkeeper、connpass のイベントを発見することができ、キーワードで検索することとは違い、検索せずに自分の興味の方向に近いイベントを発見できることが特徴です。

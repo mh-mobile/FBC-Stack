@@ -2,15 +2,15 @@
 title: 'Tasting Note'
 date: '2023-07-03'
 author: yuma-matsui
-code: 
-  - repository: "https://github.com/yuma-matsui/tasting_note"
-    description: "J.S.Aソムリエ呼称資格認定試験の2次試験対策用のテイスティング記録サービス。"
-blog: "https://qiita.com/yuma_matzui/items/cc3f5fbd8e0d6319a3d4"
-website: "https://tasting-note.com/"
+code:
+  - repository: 'https://github.com/yuma-matsui/tasting_note'
+    description: 'J.S.Aソムリエ呼称資格認定試験の2次試験対策用のテイスティング記録サービス。'
+blog: 'https://qiita.com/yuma_matzui/items/cc3f5fbd8e0d6319a3d4'
+website: ''
 published: true
 stack:
   - name: フロントエンド
-    detail: 
+    detail:
       - name: React
         version: 18.2.0
       - name: TypeScript
@@ -28,26 +28,26 @@ stack:
       - name: Terraform
         version: 1.4.6
       - name: S3
-        version: ""
+        version: ''
       - name: CloudFront
-        version: ""
+        version: ''
       - name: Route53
-        version: ""
+        version: ''
       - name: ACM
-        version: ""
+        version: ''
       - name: ECR
-        version: ""
+        version: ''
       - name: ECS
-        version: ""
+        version: ''
       - name: ALB
-        version: ""
+        version: ''
       - name: RDS
-        version: ""
+        version: ''
 
   - name: CI/CD
     detail:
       - name: GitHub Actions
-        version: ""
+        version: ''
 
   - name: 開発環境
     detail:
@@ -55,6 +55,6 @@ stack:
         version: 23.0.5
       - name: Docker Compose
         version: 2.17.3
-
 ---
-Tasting NoteはJ.S.Aソムリエ呼称資格認定試験の2次試験である、テイスティング試験対策用のテイスティング記録サービスです。 テイスティングの模擬試験を手軽に行うことができます。
+
+Tasting Note は J.S.A ソムリエ呼称資格認定試験の 2 次試験である、テイスティング試験対策用のテイスティング記録サービスです。 テイスティングの模擬試験を手軽に行うことができます。

@@ -2,15 +2,15 @@
 title: 'Mapnica'
 date: '2021-12-07'
 author: masamune17
-code: 
-  - repository: "https://github.com/masamune17/mapnica"
-    description: ""
+code:
+  - repository: 'https://github.com/masamune17/mapnica'
+    description: ''
 blog: https://masamune-blog.hatenablog.com/entry/release/mapnica
-website: https://www.mapnica.net
+website:
 published: true
 stack:
   - name: フロントエンド
-    detail: 
+    detail:
       - name: Ruby
         version: 3.0.2
       - name: Vue.js
@@ -19,16 +19,16 @@ stack:
         version: 4.1.0
       - name: JavaScript
         version:
- 
+
   - name: バックエンド
-    detail: 
+    detail:
       - name: Ruby
         version: 3.0.2
       - name: Ruby on Rails
         version: 6.1.4
 
   - name: Linter/Formatter
-    detail: 
+    detail:
       - name: Rubocop
         version: 1.23.0
       - name: ESLint
@@ -43,7 +43,7 @@ stack:
       - name: Webpack
         version: 4.46.0
 
-  - name: テスト 
+  - name: テスト
     detail:
       - name: RSpec
         version: 5.0.2
@@ -51,20 +51,18 @@ stack:
   - name: CI/CD
     detail:
       - name: GitHub Actions
-        version: 
+        version:
 
   - name: インフラ
     detail:
       - name: Heroku
-        version: 
+        version:
 
   - name: API連携
     detail:
       - name: Google Maps
-        version: 
-
+        version:
 ---
 
-Mapnicaは歴史の出来事を地図上に表示するサービスです。
+Mapnica は歴史の出来事を地図上に表示するサービスです。
 年代やキーワードでの検索が可能で、検索した出来事が地図上に表示されます。
-
