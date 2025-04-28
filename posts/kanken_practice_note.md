@@ -6,7 +6,7 @@ code:
   - repository: https://github.com/kei-kmj/kanken_practice_note
     description:
 blog: https://kei-kmj.hatenablog.com/entry/2023/03/08/154247
-website:
+website: https://kanken-practice-b5ve7zdnrq-an.a.run.app/
 published: true
 stack:
   - name: フロントエンド
