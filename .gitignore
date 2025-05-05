@@ -17,6 +17,7 @@
 
 # misc
 .DS_Store
+public/posts
 
 # debug
 npm-debug.log*
