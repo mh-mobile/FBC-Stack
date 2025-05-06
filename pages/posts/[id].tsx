@@ -4,14 +4,28 @@ import Image from 'next/image'
 import Date from '../../components/Date'
 import Head from 'next/head'
 import type { NextPage } from 'next'
-import { VStack, HStack } from '@chakra-ui/react'
 import { getAllPostIds, getPostData } from '../../lib/posts'
 import * as utilStyles from '../../styles/utils'
-import { Text, Box } from '@chakra-ui/react'
+import {
+  HStack,
+  Box,
+  Text,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  Button,
+  useDisclosure,
+  VStack,
+} from '@chakra-ui/react'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import type { PostData } from '../../types/postData'
 import ExternalLink from '../../components/ExternalLink'
 import { getBlurDataURL } from '../../lib/image'
+import { useState } from 'react'
 
 type Props = {
   postData: PostData
@@ -121,6 +135,7 @@ const Post: NextPage<Props> = ({ postData }) => {
                 />
               </ExternalLink>
             )}
+            <AudioSummaryModal postId={postData.id} title={postData.title} />
           </HStack>
           <Box pt={2}>
             <ServiceContent postData={postData} />
@@ -128,6 +143,102 @@ const Post: NextPage<Props> = ({ postData }) => {
         </VStack>
       </article>
     </Layout>
+  )
+}
+
+const AudioSummaryModal = ({
+  postId,
+  title,
+}: {
+  postId: string
+  title: string
+}) => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [audioExists, setAudioExists] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
+
+  const audioUrl = `https://pub-43e7ac942c624b64bc0adcef98aeffcf.r2.dev/${postId}.m4a`
+
+  const handleClick = async () => {
+    setIsLoading(true)
+
+    try {
+      const response = await fetch(`/api/check-audio?postId=${postId}`)
+      const data = await response.json()
+      setAudioExists(data.exists)
+    } catch (error) {
+      setAudioExists(false)
+    } finally {
+      setIsLoading(false)
+      onOpen()
+    }
+  }
+
+  return (
+    <>
+      <Box
+        as="span"
+        onClick={handleClick}
+        cursor="pointer"
+        _hover={{ opacity: 0.8 }}
+        title="音声概要を聞く"
+      >
+        <Image
+          src="/images/audio_summary.png"
+          width="30"
+          height="30"
+          alt="音声概要"
+          style={{
+            maxWidth: '100%',
+            height: 'auto',
+          }}
+        />
+      </Box>
+
+      <Modal isOpen={isOpen} onClose={onClose} size="md">
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>「{title}」の音声概要</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            {isLoading ? (
+              <Text>音声ファイルを確認中...</Text>
+            ) : !audioExists ? (
+              <Text>
+                申し訳ありませんが、この投稿の音声概要は現在利用できません。
+              </Text>
+            ) : (
+              <>
+                <Text mb={4}>
+                  NotebookLMで生成した音声概要をお聴きください。このサービスの特徴や使用技術についての要約が含まれています。
+                </Text>
+                <Box
+                  as="audio"
+                  controls
+                  w="100%"
+                  onPlay={() => setIsPlaying(true)}
+                  onPause={() => setIsPlaying(false)}
+                  onError={() => setAudioExists(false)}
+                  src={audioUrl}
+                  mb={4}
+                />
+                {/* {isPlaying && (
+                  <Text fontSize="sm" color="gray.600">
+                    音声を再生中...
+                  </Text>
+                )} */}
+              </>
+            )}
+          </ModalBody>
+          <ModalFooter>
+            <Button colorScheme="blue" mr={3} onClick={onClose}>
+              閉じる
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    </>
   )
 }
 
