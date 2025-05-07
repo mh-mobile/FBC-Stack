@@ -16,7 +16,6 @@ import {
   ModalHeader,
   ModalFooter,
   ModalBody,
-  ModalCloseButton,
   Button,
   useDisclosure,
   VStack,
