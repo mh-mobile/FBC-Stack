@@ -196,12 +196,25 @@ const AudioSummaryModal = ({
         />
       </Box>
 
-      <Modal isOpen={isOpen} onClose={onClose} size="md">
+      <Modal
+        isOpen={isOpen}
+        onClose={onClose}
+        size={{ base: 'sm', md: 'md' }}
+        isCentered
+      >
         <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>「{title}」の音声概要</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
+        <ModalContent
+          mx={{ base: '4', md: 'auto' }}
+          width={{ base: 'auto', md: 'md' }}
+        >
+          <ModalHeader
+            fontSize={{ base: 'md', md: 'lg' }}
+            px={{ base: 3, md: 6 }}
+            py={{ base: 2, md: 4 }}
+          >
+            <Text noOfLines={1}>「{title}」の音声概要</Text>
+          </ModalHeader>
+          <ModalBody px={{ base: 3, md: 6 }} py={{ base: 2, md: 4 }}>
             {isLoading ? (
               <Text>音声ファイルを確認中...</Text>
             ) : !audioExists ? (
@@ -210,7 +223,7 @@ const AudioSummaryModal = ({
               </Text>
             ) : (
               <>
-                <Text mb={4}>
+                <Text mb={4} fontSize={{ base: 'sm', md: 'md' }}>
                   NotebookLMで生成した音声概要をお聴きください。このサービスの特徴や使用技術についての要約が含まれています。
                 </Text>
                 <Box
@@ -222,17 +235,25 @@ const AudioSummaryModal = ({
                   onError={() => setAudioExists(false)}
                   src={audioUrl}
                   mb={4}
+                  sx={{
+                    // Custom styling for audio controls to fit mobile screens
+                    '&::-webkit-media-controls-panel': {
+                      backgroundColor: 'gray.100',
+                    },
+                    '&::-webkit-media-controls': {
+                      width: '100%',
+                    },
+                  }}
                 />
-                {/* {isPlaying && (
-                  <Text fontSize="sm" color="gray.600">
-                    音声を再生中...
-                  </Text>
-                )} */}
               </>
             )}
           </ModalBody>
-          <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
+          <ModalFooter px={{ base: 3, md: 6 }} py={{ base: 2, md: 3 }}>
+            <Button
+              colorScheme="blue"
+              size={{ base: 'sm', md: 'md' }}
+              onClick={onClose}
+            >
               閉じる
             </Button>
           </ModalFooter>

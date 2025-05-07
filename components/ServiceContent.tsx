@@ -16,17 +16,56 @@ const ServiceContent: NextPage<Props> = ({ postData }) => {
       <Box>
         <ReactMarkdown
           components={ChakraUIRenderer({
-            p: ({ children }) => (
-              <Text fontSize="ml" mb={4}>
+            li: ({ children, ordered, ...props }) => (
+              <ListItem
+                mb={2}
+                pl={2}
+                style={{
+                  position: 'relative',
+                  paddingLeft: '1.5em',
+                  display: 'block',
+                  wordBreak: 'break-all',
+                  overflowWrap: 'break-word',
+                  width: '100%',
+                }}
+                _before={{
+                  content: '"\u2022"',
+                  position: 'absolute',
+                  left: 0,
+                  top: '0',
+                }}
+                {...props}
+              >
                 {children}
-              </Text>
+              </ListItem>
             ),
+
             a: ({ href, children }) => (
-              <Link color="teal.500" href={href ?? ''}>
+              <Link
+                color="teal.500"
+                href={href ?? ''}
+                style={{
+                  wordBreak: 'break-all',
+                  overflowWrap: 'break-word',
+                  display: 'inline',
+                }}
+              >
                 {children}
               </Link>
             ),
-            li: ({ children }) => <ListItem fontSize="ml">{children}</ListItem>,
+
+            p: ({ children }) => (
+              <Text
+                mb={4}
+                sx={{
+                  wordBreak: 'break-word',
+                  overflowWrap: 'break-word',
+                  width: '100%',
+                }}
+              >
+                {children}
+              </Text>
+            ),
           })}
           linkTarget="_blank"
         >
