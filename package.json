@@ -1,10 +1,10 @@
 {
   "private": true,
   "scripts": {
-    "predev": "rm -rf public/posts && mkdir -p public/posts && cp -R posts/*.md public/posts",
-    "prebuild": "rm -rf public/posts && mkdir -p public/posts && cp -R posts/*.md public/posts",
+    "prebuild": "node scripts/check-audio-files.js && node scripts/podcast-xml-generator.js && rm -rf public/posts && mkdir -p public/posts && cp -R posts/*.md public/posts",
+    "predev": "node scripts/check-audio-files.js && node scripts/podcast-xml-generator.js && rm -rf public/posts && mkdir -p public/posts && cp -R posts/*.md public/posts",
     "build": "next build",
-    "dev": "npm run predev && next dev --experimental-https",
+    "dev": "next dev --experimental-https",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json}'",
