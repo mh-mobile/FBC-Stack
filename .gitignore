@@ -34,3 +34,7 @@ yarn-error.log*
 cypress/videos/
 
 certificates
+
+# Generated podcast files
+public/podcast.xml
+public/audio-posts.json
