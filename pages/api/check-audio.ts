@@ -12,7 +12,7 @@ export default async function handler(
 
   try {
     const response = await fetch(
-      `https://pub-43e7ac942c624b64bc0adcef98aeffcf.r2.dev/${postId}.m4a`,
+      `https://fbc-stack-storage.com/${postId}.m4a`,
       {
         method: 'HEAD',
       },
