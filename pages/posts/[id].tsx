@@ -157,7 +157,7 @@ const AudioSummaryModal = ({
   const [audioExists, setAudioExists] = useState(true)
   const [isLoading, setIsLoading] = useState(false)
 
-  const audioUrl = `https://pub-43e7ac942c624b64bc0adcef98aeffcf.r2.dev/${postId}.m4a`
+  const audioUrl = `https://fbc-stack-storage.com/${postId}.m4a`
 
   const handleClick = async () => {
     setIsLoading(true)
