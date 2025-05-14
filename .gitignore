@@ -38,3 +38,4 @@ certificates
 # Generated podcast files
 public/podcast.xml
 public/audio-posts.json
+podcast_data/

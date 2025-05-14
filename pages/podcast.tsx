@@ -258,8 +258,10 @@ const PodcastPage: NextPage<Props> = ({ initialAudioPosts }) => {
                     borderWidth="1px"
                     borderRadius="lg"
                     bg="gray.50"
+                    _hover={{ bg: 'gray.100' }}
+                    cursor="pointer"
                   >
-                    <Link href={`/posts/${id}`}>
+                    <Link href={`/podcast/${id}`}>
                       <Flex direction={{ base: 'column', md: 'row' }} gap={4}>
                         <Box
                           position="relative"
