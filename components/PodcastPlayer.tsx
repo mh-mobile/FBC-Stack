@@ -231,9 +231,8 @@ const PodcastPlayer: React.FC<Props> = ({
                   key={index}
                   as="button"
                   py={2}
-                  px={2}
-                  mx={-2}
-                  w="calc(100% + 16px)"
+                  px={3}
+                  w="100%"
                   textAlign="left"
                   onClick={() => handleChapterClick(chapter.startTime)}
                   transition="background-color 0.2s"
@@ -245,12 +244,12 @@ const PodcastPlayer: React.FC<Props> = ({
                     bg: 'gray.100',
                   }}
                 >
-                  <HStack>
-                    <Text fontSize="sm" color="gray.600" fontFamily="monospace">
-                      ({chapter.timestamp})
+                  <HStack spacing={3} align="flex-start">
+                    <Text fontSize="sm" color="gray.600" fontFamily="monospace" flexShrink={0}>
+                      {chapter.timestamp}
                     </Text>
-                    <Text fontSize="sm">
-                      • {chapter.title}
+                    <Text fontSize="sm" flexGrow={1}>
+                      {chapter.title}
                     </Text>
                   </HStack>
                 </Box>
