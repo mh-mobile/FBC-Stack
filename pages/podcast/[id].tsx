@@ -1,4 +1,4 @@
-import { GetServerSideProps, NextPage } from 'next'
+import { GetStaticProps, GetStaticPaths, NextPage } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import fs from 'fs'
@@ -24,7 +24,48 @@ type Props = {
   podcastData: PodcastData
 }
 
-export const getServerSideProps: GetServerSideProps<Props> = async ({ params }) => {
+export const getStaticPaths: GetStaticPaths = async () => {
+  // audio-posts.jsonからすべてのポッドキャストIDを取得
+  const audioPostsPath = path.join(process.cwd(), 'public', 'audio-posts.json')
+  let audioPosts = []
+  
+  if (fs.existsSync(audioPostsPath)) {
+    const audioPostsContent = fs.readFileSync(audioPostsPath, 'utf8')
+    audioPosts = JSON.parse(audioPostsContent)
+  }
+  
+  // すべてのポッドキャストIDからパスを生成
+  const paths = audioPosts.map((post: any) => ({
+    params: { id: post.id }
+  }))
+  
+  // podcast_dataディレクトリからも追加のIDを取得
+  const podcastDataDir = path.join(process.cwd(), 'podcast_data')
+  if (fs.existsSync(podcastDataDir)) {
+    const podcastDataFiles = fs.readdirSync(podcastDataDir)
+    
+    // .jsonファイルのみを処理
+    podcastDataFiles
+      .filter(file => file.endsWith('.json'))
+      .forEach(file => {
+        const id = file.replace(/\.json$/, '')
+        
+        // 既存のパスに含まれていない場合のみ追加
+        if (!paths.some(path => path.params.id === id)) {
+          paths.push({ params: { id } })
+        }
+      })
+  }
+  
+  console.log('Generated paths:', paths)
+  
+  return {
+    paths,
+    fallback: 'blocking' // 新しいポッドキャストが追加された場合にビルド時に生成されなかったパスもサポート
+  }
+}
+
+export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const postId = params?.id as string
   
   try {
@@ -39,6 +80,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({ params }) 
         props: {
           podcastData,
         },
+        revalidate: 86400, // 24時間（1日）ごとに再生成
       }
     }
     
@@ -59,6 +101,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({ params }) 
           author: postData.author,
           audioUrl: `https://pub-43e7ac942c624b64bc0adcef98aeffcf.r2.dev/${postId}.m4a`,
           duration: 600, // デフォルト値
+          summary: postData.description?.slice(0, 150) || "", // 説明文から短いサマリーを生成
           showNotes: [],
           chapters: [
             { timestamp: '0:00', title: postData.title, startTime: 0 }
@@ -69,6 +112,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({ params }) 
           props: {
             podcastData,
           },
+          revalidate: 86400, // 24時間（1日）ごとに再生成
         }
       }
     }
@@ -76,11 +120,13 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({ params }) 
     // データが見つからない場合は404
     return {
       notFound: true,
+      revalidate: 86400, // 24時間（1日）後に再試行
     }
   } catch (error) {
     console.error('Error loading podcast data:', error)
     return {
       notFound: true,
+      revalidate: 86400, // 24時間（1日）後に再試行
     }
   }
 }
@@ -137,8 +183,10 @@ const PodcastDetail: NextPage<Props> = ({ podcastData }) => {
             title={podcastData.title}
             showNotes={podcastData.showNotes}
             chapters={podcastData.chapters}
+            summary={podcastData.summary}
           />
-        </VStack>
+          
+          </VStack>
       </Container>
     </Layout>
   )

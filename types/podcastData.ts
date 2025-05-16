@@ -16,6 +16,7 @@ export type PodcastData = {
   author: string;
   audioUrl: string;
   duration: number; // seconds
+  summary?: string; // 1-3行の音声概要
   showNotes: ShowNote[];
   chapters: Chapter[];
   transcriptUrl?: string;
