@@ -17,52 +17,19 @@ import {
   MenuItem,
 } from '@chakra-ui/react'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
+import {
+  MdReplay10,
+  MdForward10,
+  MdPlayArrow,
+  MdPause,
+  MdVolumeUp,
+  MdMoreVert,
+} from 'react-icons/md'
 import { Chapter, ShowNote } from '../types/podcastData'
 
-// Chakra UIにPlayIcon/PauseIconがない場合のカスタム実装
-const PlayIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M8 5v14l11-7z" />
-  </svg>
-)
-
-const PauseIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M6 5h4v14H6V5zm8 0h4v14h-4V5z" />
-  </svg>
-)
-
-// より明確な10秒巻き戻しアイコン  
-const Backward10Icon = () => (
-  <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
-    <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" strokeWidth="2"/>
-    <text x="16" y="16" fontSize="12" fill="currentColor" textAnchor="middle" fontWeight="bold" dominantBaseline="middle">10</text>
-    <path d="M13 10v6h6" fill="none" stroke="currentColor" strokeWidth="2"/>
-    <path d="M19 16c0 1.65-1.35 3-3 3s-3-1.35-3-3 1.35-3 3-3" fill="none" stroke="currentColor" strokeWidth="2"/>
-  </svg>
-)
-
-// より明確な10秒早送りアイコン
-const Forward10Icon = () => (
-  <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
-    <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" strokeWidth="2"/>
-    <text x="16" y="16" fontSize="12" fill="currentColor" textAnchor="middle" fontWeight="bold" dominantBaseline="middle">10</text>
-    <path d="M19 10v6h-6" fill="none" stroke="currentColor" strokeWidth="2"/>
-    <path d="M13 16c0-1.65 1.35-3 3-3s3 1.35 3 3-1.35 3-3 3" fill="none" stroke="currentColor" strokeWidth="2"/>
-  </svg>
-)
-
-const VolumeIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
-  </svg>
-)
-
-const MenuIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M6 12c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zm6 0c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zm6 0c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2z"/>
-  </svg>
-)
+// Material Design Iconsを使用
+const VolumeIcon = () => <MdVolumeUp />
+const MenuIcon = () => <MdMoreVert />
 
 type Props = {
   audioUrl: string
@@ -81,7 +48,9 @@ const PodcastPlayer: React.FC<Props> = ({
   const [isPlaying, setIsPlaying] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
-  const [selectedTab, setSelectedTab] = useState<'showNotes' | 'chapters'>('showNotes')
+  const [selectedTab, setSelectedTab] = useState<'showNotes' | 'chapters'>(
+    'showNotes',
+  )
   const [playbackRate, setPlaybackRate] = useState(1)
   const [volume, setVolume] = useState(1)
   const [showVolumeSlider, setShowVolumeSlider] = useState(false)
@@ -113,6 +82,33 @@ const PodcastPlayer: React.FC<Props> = ({
       audio.removeEventListener('ended', updatePlayStatus)
     }
   }, [])
+
+  useEffect(() => {
+    if (showVolumeSlider) {
+      const handleClickOutside = (event: MouseEvent) => {
+        const target = event.target as Node
+        const volumeButton = document.querySelector('[aria-label="音量"]')
+        const volumeSlider = document.querySelector(
+          '[data-volume-slider="true"]',
+        )
+
+        if (
+          volumeButton &&
+          !volumeButton.contains(target) &&
+          volumeSlider &&
+          !volumeSlider.contains(target)
+        ) {
+          setShowVolumeSlider(false)
+        }
+      }
+
+      document.addEventListener('mousedown', handleClickOutside)
+
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside)
+      }
+    }
+  }, [showVolumeSlider])
 
   const togglePlayPause = () => {
     const audio = audioRef.current
@@ -183,19 +179,14 @@ const PodcastPlayer: React.FC<Props> = ({
   return (
     <VStack spacing={4} align="stretch" w="100%">
       <audio ref={audioRef} src={audioUrl} />
-      
+
       {/* Player Controls */}
-      <Box
-        bg="#F7FAFC"
-        borderRadius="lg"
-        p={4}
-        boxShadow="sm"
-      >
+      <Box bg="#F7FAFC" borderRadius="lg" p={4} boxShadow="sm">
         <HStack spacing={4} align="center">
           {/* 10秒巻き戻し */}
           <IconButton
             aria-label="10秒巻き戻し"
-            icon={<Backward10Icon />}
+            icon={<MdReplay10 size="24px" />}
             onClick={skipBackward}
             size="md"
             variant="ghost"
@@ -203,11 +194,13 @@ const PodcastPlayer: React.FC<Props> = ({
             _hover={{ bg: 'gray.100' }}
             p={0}
           />
-          
+
           {/* 再生・一時停止ボタン */}
           <IconButton
             aria-label={isPlaying ? '一時停止' : '再生'}
-            icon={isPlaying ? <PauseIcon /> : <PlayIcon />}
+            icon={
+              isPlaying ? <MdPause size="24px" /> : <MdPlayArrow size="24px" />
+            }
             onClick={togglePlayPause}
             size="lg"
             bg="#3182CE"
@@ -217,11 +210,11 @@ const PodcastPlayer: React.FC<Props> = ({
             minW="48px"
             h="48px"
           />
-          
+
           {/* 10秒早送り */}
           <IconButton
             aria-label="10秒早送り"
-            icon={<Forward10Icon />}
+            icon={<MdForward10 size="24px" />}
             onClick={skipForward}
             size="md"
             variant="ghost"
@@ -229,13 +222,13 @@ const PodcastPlayer: React.FC<Props> = ({
             _hover={{ bg: 'gray.100' }}
             p={0}
           />
-          
+
           {/* 進捗バーとタイム表示 */}
           <HStack spacing={2} flex={1}>
             <Text fontSize="sm" color="gray.600" minW="45px">
               {formatTime(currentTime)}
             </Text>
-            
+
             <Slider
               value={currentTime}
               max={duration || 100}
@@ -248,12 +241,12 @@ const PodcastPlayer: React.FC<Props> = ({
               </SliderTrack>
               <SliderThumb boxSize={3} bg="#3182CE" />
             </Slider>
-            
+
             <Text fontSize="sm" color="gray.600" minW="45px">
               {formatTime(duration)}
             </Text>
           </HStack>
-          
+
           {/* 音量 */}
           <Box position="relative">
             <IconButton
@@ -276,6 +269,7 @@ const PodcastPlayer: React.FC<Props> = ({
                 borderRadius="md"
                 boxShadow="md"
                 minWidth="120px"
+                data-volume-slider="true"
               >
                 <Slider
                   value={volume}
@@ -293,7 +287,7 @@ const PodcastPlayer: React.FC<Props> = ({
               </Box>
             )}
           </Box>
-          
+
           {/* メニュー（再生速度） */}
           <Menu>
             <MenuButton
@@ -367,17 +361,17 @@ const PodcastPlayer: React.FC<Props> = ({
         </Box>
 
         {/* コンテンツエリア */}
-        <Box 
-          bg="white"
-          p={4}
-        >
+        <Box bg="white" p={4}>
           {selectedTab === 'showNotes' ? (
             <VStack align="stretch" spacing={2}>
               {showNotes.map((note, index) => (
                 <Box key={index}>
                   {note.url ? (
                     <Link href={note.url} isExternal>
-                      <HStack justify="space-between" _hover={{ color: '#3182CE' }}>
+                      <HStack
+                        justify="space-between"
+                        _hover={{ color: '#3182CE' }}
+                      >
                         <Text>• {note.title}</Text>
                         <ExternalLinkIcon w={4} h={4} color="gray.500" />
                       </HStack>
@@ -409,7 +403,12 @@ const PodcastPlayer: React.FC<Props> = ({
                   }}
                 >
                   <HStack spacing={3} align="flex-start">
-                    <Text fontSize="sm" color="gray.600" fontFamily="monospace" flexShrink={0}>
+                    <Text
+                      fontSize="sm"
+                      color="gray.600"
+                      fontFamily="monospace"
+                      flexShrink={0}
+                    >
                       {chapter.timestamp}
                     </Text>
                     <Text fontSize="sm" flexGrow={1}>
