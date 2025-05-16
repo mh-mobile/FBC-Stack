@@ -36,6 +36,7 @@ type Props = {
   title: string
   showNotes: ShowNote[]
   chapters: Chapter[]
+  summary?: string
 }
 
 const PodcastPlayer: React.FC<Props> = ({
@@ -43,6 +44,7 @@ const PodcastPlayer: React.FC<Props> = ({
   title,
   showNotes,
   chapters,
+  summary,
 }) => {
   const audioRef = useRef<HTMLAudioElement>(null)
   const [isPlaying, setIsPlaying] = useState(false)
@@ -492,6 +494,13 @@ const PodcastPlayer: React.FC<Props> = ({
           </HStack>
         </Box>
       </Box>
+
+      {/* Summary text - between player and tabs */}
+      {summary && (
+        <Text fontSize="md" color="gray.700" mt={2} mb={2} lineHeight="1.6">
+          {summary}
+        </Text>
+      )}
 
       {/* Show Notes and Chapters */}
       <Box>
