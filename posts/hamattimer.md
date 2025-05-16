@@ -1,27 +1,27 @@
 ---
 title: 'はまったいまー'
 date: '2022-10-18'
-author: yocajii
-code: 
-  - repository: "https://github.com/yocajii/hamattimer"
-    description: ""
+author: yocaji
+code:
+  - repository: 'https://github.com/yocajii/hamattimer'
+    description: ''
 blog: https://yocajii.hatenablog.jp/entry/2022/11/17/083539
 website: https://hamattimer.app/
 published: true
 stack:
   - name: フロントエンド
-    detail: 
+    detail:
       - name: React
         version: 18.2.0
       - name: Next.js
         version: 12.2.5
       - name: JavaScript
-        version: 
+        version:
 
   - name: インフラ
     detail:
       - name: Vercel
-        version: 
+        version:
 
   - name: Linter/Formatter
     detail:
@@ -45,18 +45,16 @@ stack:
   - name: API連携
     detail:
       - name: Cloudinary API
-        version: 
+        version:
       - name: GitHub OAuth Apps
-        version: 
+        version:
       - name: GitHub REST API
-        version: 
+        version:
 
   - name: CI/CD
     detail:
       - name: GitHub Actions
-        version: 
-
-
+        version:
 ---
 
 はまったいまーは、ハマった時に時間を浪費してしまう問題を解決したいプログラミング学習者のための、タイマー付きメモアプリです。

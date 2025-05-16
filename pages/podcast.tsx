@@ -37,6 +37,7 @@ type AudioPost = {
   date: string
   author: string
   description: string
+  summary?: string // サマリーフィールドを追加（オプショナル）
 }
 
 type Props = {
@@ -44,13 +45,45 @@ type Props = {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const filePath = path.join(process.cwd(), 'public', 'audio-posts.json')
-
+  // podcast_dataディレクトリからJSONファイルを読み込む
+  const podcastDataDir = path.join(process.cwd(), 'podcast_data')
   let initialAudioPosts: AudioPost[] = []
 
-  if (fs.existsSync(filePath)) {
-    const fileContents = fs.readFileSync(filePath, 'utf8')
-    initialAudioPosts = JSON.parse(fileContents)
+  if (fs.existsSync(podcastDataDir)) {
+    const files = fs
+      .readdirSync(podcastDataDir)
+      .filter((file) => file.endsWith('.json'))
+
+    // 各ポッドキャストデータを読み込む
+    for (const file of files) {
+      try {
+        const filePath = path.join(podcastDataDir, file)
+        const content = fs.readFileSync(filePath, 'utf8')
+        const data = JSON.parse(content)
+
+        initialAudioPosts.push({
+          id: data.id,
+          title: data.title,
+          date: data.date,
+          author: data.author,
+          description: data.description || '',
+          summary: data.summary || '',
+        })
+      } catch (error) {
+        console.error(`Error reading podcast data from ${file}:`, error)
+      }
+    }
+
+    // 日付順にソート
+    initialAudioPosts = initialAudioPosts.sort((a, b) => {
+      // date-fnsのparseISOとisValidを使って厳密に日付をパース
+      const { parseISO, isValid } = require('date-fns')
+      const dateA = parseISO(a.date)
+      const dateB = parseISO(b.date)
+      const timeA = isValid(dateA) ? dateA.getTime() : 0
+      const timeB = isValid(dateB) ? dateB.getTime() : 0
+      return timeB - timeA
+    })
   }
 
   return {
@@ -89,7 +122,8 @@ const PodcastPage: NextPage<Props> = ({ initialAudioPosts }) => {
     const filtered = audioPosts.filter(
       (post) =>
         post.title.toLowerCase().includes(filter.toLowerCase()) ||
-        post.author.toLowerCase().includes(filter.toLowerCase()),
+        post.author.toLowerCase().includes(filter.toLowerCase()) ||
+        (post.summary?.toLowerCase() || '').includes(filter.toLowerCase()),
     )
 
     setFilteredPosts(filtered)
@@ -251,69 +285,72 @@ const PodcastPage: NextPage<Props> = ({ initialAudioPosts }) => {
               </Box>
             ) : (
               <VStack spacing={4} align="stretch">
-                {filteredPosts.map(({ id, title, date, author }) => (
-                  <Box
-                    key={id}
-                    p={4}
-                    borderWidth="1px"
-                    borderRadius="lg"
-                    bg="gray.50"
-                    _hover={{ bg: 'gray.100' }}
-                    cursor="pointer"
-                  >
-                    <Link href={`/podcast/${id}`}>
-                      <Flex direction={{ base: 'column', md: 'row' }} gap={4}>
-                        <Box
-                          position="relative"
-                          minWidth={{ base: '100%', md: '120px' }}
-                          height={{ base: '80px', md: '80px' }}
-                          borderRadius="md"
-                          overflow="hidden"
+                {filteredPosts.map(
+                  ({ id, title, date, author, description, summary }) => (
+                    <Box
+                      key={id}
+                      p={4}
+                      borderWidth="1px"
+                      borderRadius="lg"
+                      bg="gray.50"
+                      _hover={{ bg: 'gray.100' }}
+                      cursor="pointer"
+                    >
+                      <Link href={`/podcast/${id}`}>
+                        <Flex
+                          direction={{ base: 'column', md: 'row' }}
+                          gap={{ base: 2, md: 3 }}
                         >
-                          <Image
-                            src="/images/fbcstack_ogp.png"
-                            alt={title}
-                            fill
-                            style={{ objectFit: 'cover' }}
-                            sizes="(max-width: 768px) 100vw, 120px"
-                            placeholder="blur"
-                            blurDataURL={getBlurDataURL()}
-                          />
-                        </Box>
+                          <Box
+                            position="relative"
+                            minWidth={{ base: '60px', md: '80px' }}
+                            maxWidth={{ base: '60px', md: '80px' }}
+                            height={{ base: '60px', md: '80px' }}
+                            borderRadius="full"
+                            overflow="hidden"
+                            mx={{ base: 'auto', md: '0' }}
+                            mb={{ base: 3, md: 0 }}
+                          >
+                            <Image
+                              src={`https://github.com/${author}.png`}
+                              alt={`${author}のアイコン`}
+                              fill
+                              style={{ objectFit: 'cover' }}
+                              sizes="(max-width: 768px) 100vw, 120px"
+                              placeholder="blur"
+                              blurDataURL={getBlurDataURL()}
+                            />
+                          </Box>
 
-                        <Box flex="1">
-                          <Heading as="h3" size="md" mb={2}>
-                            {title}
-                          </Heading>
+                          <Box flex="1">
+                            <Heading as="h3" size="md" mb={2}>
+                              {title}
+                            </Heading>
 
-                          <HStack spacing={3} mb={2}>
-                            <Box
-                              rounded="full"
-                              overflow="hidden"
-                              width="25px"
-                              height="25px"
-                              position="relative"
+                            <Text fontSize="sm" mb={2}>
+                              by {author}
+                            </Text>
+
+                            {/* エピソードの概要を表示 */}
+                            <Text
+                              fontSize="sm"
+                              color="gray.700"
+                              mb={2}
+                              noOfLines={2}
+                              title={summary || description}
                             >
-                              <Image
-                                src={`https://github.com/${author}.png`}
-                                alt={author}
-                                fill
-                                style={{ objectFit: 'cover' }}
-                                placeholder="blur"
-                                blurDataURL={getBlurDataURL()}
-                              />
-                            </Box>
-                            <Text fontSize="sm">{author}</Text>
-                          </HStack>
+                              {summary || description}
+                            </Text>
 
-                          <Text fontSize="sm" color="gray.500">
-                            公開日: <Date dateString={date} />
-                          </Text>
-                        </Box>
-                      </Flex>
-                    </Link>
-                  </Box>
-                ))}
+                            <Text fontSize="sm" color="gray.500">
+                              公開日: <Date dateString={date} />
+                            </Text>
+                          </Box>
+                        </Flex>
+                      </Link>
+                    </Box>
+                  ),
+                )}
               </VStack>
             )}
           </VStack>
