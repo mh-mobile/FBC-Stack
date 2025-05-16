@@ -25,39 +25,24 @@ type Props = {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  // audio-posts.jsonからすべてのポッドキャストIDを取得
-  const audioPostsPath = path.join(process.cwd(), 'public', 'audio-posts.json')
-  let audioPosts = []
-
-  if (fs.existsSync(audioPostsPath)) {
-    const audioPostsContent = fs.readFileSync(audioPostsPath, 'utf8')
-    audioPosts = JSON.parse(audioPostsContent)
-  }
-
-  // すべてのポッドキャストIDからパスを生成
-  const paths = audioPosts.map((post: any) => ({
-    params: { id: post.id },
-  }))
-
-  // podcast_dataディレクトリからも追加のIDを取得
+  // podcast_dataディレクトリからすべてのポッドキャストIDを取得
   const podcastDataDir = path.join(process.cwd(), 'podcast_data')
+  const paths = []
+
   if (fs.existsSync(podcastDataDir)) {
     const podcastDataFiles = fs.readdirSync(podcastDataDir)
 
-    // .jsonファイルのみを処理
-    podcastDataFiles
-      .filter((file) => file.endsWith('.json'))
-      .forEach((file) => {
-        const id = file.replace(/\.json$/, '')
-
-        // 既存のパスに含まれていない場合のみ追加
-        if (!paths.some((path) => path.params.id === id)) {
-          paths.push({ params: { id } })
-        }
-      })
+    // .jsonファイルのみを処理してパスを生成
+    paths.push(
+      ...podcastDataFiles
+        .filter((file) => file.endsWith('.json'))
+        .map((file) => ({
+          params: { id: file.replace(/\.json$/, '') },
+        }))
+    )
   }
 
-  console.log('Generated paths:', paths)
+  console.log(`Generated ${paths.length} podcast paths`)
 
   return {
     paths,
@@ -85,43 +70,6 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
           podcastData,
         },
         revalidate: 86400, // 24時間（1日）ごとに再生成
-      }
-    }
-
-    // ポッドキャストデータがない場合は、既存の音声投稿データから生成
-    const audioPostsPath = path.join(
-      process.cwd(),
-      'public',
-      'audio-posts.json',
-    )
-
-    if (fs.existsSync(audioPostsPath)) {
-      const audioPostsContent = fs.readFileSync(audioPostsPath, 'utf8')
-      const audioPosts = JSON.parse(audioPostsContent)
-
-      const postData = audioPosts.find((post: any) => post.id === postId)
-
-      if (postData) {
-        const podcastData: PodcastData = {
-          id: postId,
-          title: postData.title,
-          date: postData.date,
-          author: postData.author,
-          audioUrl: `https://pub-43e7ac942c624b64bc0adcef98aeffcf.r2.dev/${postId}.m4a`,
-          duration: 600, // デフォルト値
-          summary: postData.description?.slice(0, 150) || '', // 説明文から短いサマリーを生成
-          showNotes: [],
-          chapters: [
-            { timestamp: '0:00', title: postData.title, startTime: 0 },
-          ],
-        }
-
-        return {
-          props: {
-            podcastData,
-          },
-          revalidate: 86400, // 24時間（1日）ごとに再生成
-        }
       }
     }
 

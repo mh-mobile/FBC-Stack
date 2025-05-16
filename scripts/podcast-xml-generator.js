@@ -4,7 +4,7 @@ const fs = require('fs')
 const path = require('path')
 
 // Configuration
-const INPUT_FILE = path.join(process.cwd(), 'public', 'audio-posts.json')
+const PODCAST_DATA_DIR = path.join(process.cwd(), 'podcast_data')
 const OUTPUT_FILE = path.join(process.cwd(), 'public', 'podcast.xml')
 const BASE_URL =
   process.env.NEXT_PUBLIC_BASE_URL || 'https://fbc-stack.vercel.app'
@@ -25,38 +25,63 @@ function escapeXml(unsafe) {
 
 // Main function
 function main() {
-  console.log(`Generating podcast XML from ${INPUT_FILE}...`)
+  console.log(`Generating podcast XML from ${PODCAST_DATA_DIR}...`)
 
-  // Ensure input file exists
-  if (!fs.existsSync(INPUT_FILE)) {
-    console.error(`Input file not found: ${INPUT_FILE}`)
-    console.error('Please run check-audio-files.js first')
+  // Ensure podcast data directory exists
+  if (!fs.existsSync(PODCAST_DATA_DIR)) {
+    console.error(`Podcast data directory not found: ${PODCAST_DATA_DIR}`)
     process.exit(1)
   }
 
   try {
-    // Read audio posts data
-    const audioPosts = JSON.parse(fs.readFileSync(INPUT_FILE, 'utf8'))
-    console.log(`Found ${audioPosts.length} posts with audio files`)
+    // Read podcast data files
+    const podcastFiles = fs.readdirSync(PODCAST_DATA_DIR)
+      .filter(file => file.endsWith('.json'))
+    
+    console.log(`Found ${podcastFiles.length} podcast data files`)
+    
+    if (podcastFiles.length === 0) {
+      console.error('No podcast data files found')
+      process.exit(1)
+    }
+
+    const podcastData = []
+    
+    // 各ポッドキャストデータを読み込む
+    for (const file of podcastFiles) {
+      try {
+        const filePath = path.join(PODCAST_DATA_DIR, file)
+        const content = fs.readFileSync(filePath, 'utf8')
+        const data = JSON.parse(content)
+        
+        podcastData.push(data)
+      } catch (error) {
+        console.error(`Error reading podcast data from ${file}:`, error)
+      }
+    }
+    
+    // 日付順にソート（新しい順）
+    podcastData.sort((a, b) => new Date(b.date) - new Date(a.date))
 
     // Generate podcast XML
-    const items = audioPosts
-      .map((post) => {
-        const pubDate = new Date(post.date).toUTCString()
+    const items = podcastData
+      .map((podcast) => {
+        const pubDate = new Date(podcast.date).toUTCString()
         // すべてのテキストフィールドをエスケープ
-        const safeTitle = escapeXml(post.title)
-        const safeDescription = escapeXml(post.description)
-        const safeAuthor = escapeXml(post.author)
+        const safeTitle = escapeXml(podcast.title)
+        const safeDescription = escapeXml(podcast.summary || podcast.description || '')
+        const safeAuthor = escapeXml(podcast.author)
+        const duration = podcast.duration || 600 // デフォルト値
 
         return `    <item>
     <title>${safeTitle}</title>
     <description>${safeDescription}</description>
     <pubDate>${pubDate}</pubDate>
-    <enclosure url="${AUDIO_BASE_URL}/${post.id}.m4a" type="audio/x-m4a" length="1024000"/>
-    <guid isPermaLink="false">${post.id}</guid>
-    <itunes:duration>10:00</itunes:duration>
+    <enclosure url="${AUDIO_BASE_URL}/${podcast.id}.m4a" type="audio/x-m4a" length="1024000"/>
+    <guid isPermaLink="false">${podcast.id}</guid>
+    <itunes:duration>${Math.floor(duration / 60)}:${(duration % 60).toString().padStart(2, '0')}</itunes:duration>
     <itunes:author>${safeAuthor}</itunes:author>
-    <link>${BASE_URL}/posts/${post.id}</link>
+    <link>${BASE_URL}/podcast/${podcast.id}</link>
   </item>`
       })
       .join('\n')
@@ -93,7 +118,7 @@ ${items}
     // Write XML file
     fs.writeFileSync(OUTPUT_FILE, podcastXml)
     console.log(
-      `Generated podcast XML feed with ${audioPosts.length} episodes at: ${OUTPUT_FILE}`,
+      `Generated podcast XML feed with ${podcastData.length} episodes at: ${OUTPUT_FILE}`,
     )
 
     // 明示的にプロセスを終了
