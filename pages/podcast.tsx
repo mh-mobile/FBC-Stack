@@ -284,17 +284,18 @@ const PodcastPage: NextPage<Props> = ({ initialAudioPosts }) => {
                 <Text>検索条件に一致する音声概要はありません。</Text>
               </Box>
             ) : (
-              <VStack spacing={4} align="stretch">
+              <VStack spacing={6} align="stretch">
                 {filteredPosts.map(
                   ({ id, title, date, author, description, summary }) => (
                     <Box
                       key={id}
-                      p={4}
+                      p={5}
                       borderWidth="1px"
                       borderRadius="lg"
                       bg="gray.50"
                       _hover={{ bg: 'gray.100' }}
                       cursor="pointer"
+                      mb={3}
                     >
                       <Link href={`/podcast/${id}`}>
                         <Flex
@@ -331,13 +332,14 @@ const PodcastPage: NextPage<Props> = ({ initialAudioPosts }) => {
                               by {author}
                             </Text>
 
-                            {/* エピソードの概要を表示 */}
+                            {/* エピソードの概要を表示 - 全文表示 */}
                             <Text
-                              fontSize="sm"
+                              fontSize={{ base: "md", md: "sm" }}
                               color="gray.700"
-                              mb={2}
-                              noOfLines={2}
+                              mb={3}
                               title={summary || description}
+                              whiteSpace="pre-wrap"
+                              lineHeight="1.6"
                             >
                               {summary || description}
                             </Text>
