@@ -1,0 +1,145 @@
+{
+  "id": "duet_code",
+  "title": "Duet Code",
+  "date": "2022-12-22",
+  "author": "daiki0381",
+  "audioUrl": "https://fbc-stack-storage.com/duet_code.m4a",
+  "duration": 454,
+  "summary": "無料で相互コードレビューを可能にするサービス「Duet Code」。GitHub API 連携で PR レビューを自動化し、Next.js + Rails のモダンスタックやスキーマ駆動開発の実践を語る。",
+  "showNotes": [
+    {
+      "title": "GitHub: daiki0381/duet-code",
+      "url": "https://github.com/daiki0381/duet-code"
+    },
+    {
+      "title": "発表ブログ記事",
+      "url": "https://daiki0381.hatenablog.com/entry/2022/12/21/021555"
+    },
+    {
+      "title": "React",
+      "url": "https://react.dev/"
+    },
+    {
+      "title": "Next.js",
+      "url": "https://nextjs.org/"
+    },
+    {
+      "title": "TypeScript",
+      "url": "https://www.typescriptlang.org/"
+    },
+    {
+      "title": "Tailwind CSS",
+      "url": "https://tailwindcss.com/"
+    },
+    {
+      "title": "MUI (Material UI)",
+      "url": "https://mui.com/"
+    },
+    {
+      "title": "Ruby on Rails (API mode)",
+      "url": "https://rubyonrails.org/"
+    },
+    {
+      "title": "Fly.io",
+      "url": "https://fly.io/"
+    },
+    {
+      "title": "Vercel",
+      "url": "https://vercel.com/"
+    },
+    {
+      "title": "Firebase Authentication",
+      "url": "https://firebase.google.com/docs/auth"
+    },
+    {
+      "title": "OpenAPI Specification",
+      "url": "https://swagger.io/specification/"
+    },
+    {
+      "title": "RSpec",
+      "url": "https://rspec.info/"
+    },
+    {
+      "title": "Cypress",
+      "url": "https://www.cypress.io/"
+    },
+    {
+      "title": "GitHub Actions",
+      "url": "https://github.com/features/actions"
+    },
+    {
+      "title": "Docker",
+      "url": "https://www.docker.com/"
+    },
+    {
+      "title": "無料で相互コードレビューを実現するコミュニティモデル"
+    },
+    {
+      "title": "GitHub APIによる自動コラボレーター追加"
+    },
+    {
+      "title": "Firebase AuthのJWT検証の難しさ"
+    },
+    {
+      "title": "モニタリング強化検討"
+    }
+  ],
+  "chapters": [
+    {
+      "timestamp": "0:00",
+      "title": "イントロ & Duet Code 概要",
+      "startTime": 0
+    },
+    {
+      "timestamp": "0:30",
+      "title": "開発者の課題: コードレビュー機会不足",
+      "startTime": 30
+    },
+    {
+      "timestamp": "1:05",
+      "title": "無料＆相互レビューというコンセプト",
+      "startTime": 65
+    },
+    {
+      "timestamp": "1:45",
+      "title": "ワークフロー: GitHubログイン〜PR投稿",
+      "startTime": 105
+    },
+    {
+      "timestamp": "2:35",
+      "title": "GitHub API自動連携とUX",
+      "startTime": 155
+    },
+    {
+      "timestamp": "3:05",
+      "title": "技術スタック概要 (Next.js/Rails)",
+      "startTime": 185
+    },
+    {
+      "timestamp": "3:45",
+      "title": "インフラ構成: Fly.io & Vercel",
+      "startTime": 225
+    },
+    {
+      "timestamp": "4:25",
+      "title": "スキーマ駆動開発 (OpenAPI)",
+      "startTime": 265
+    },
+    {
+      "timestamp": "5:05",
+      "title": "Firebase Auth & JWT認証の課題",
+      "startTime": 305
+    },
+    {
+      "timestamp": "5:55",
+      "title": "学び・クラウド移行構想",
+      "startTime": 355
+    },
+    {
+      "timestamp": "6:45",
+      "title": "まとめ & リスナーへの問い",
+      "startTime": 405
+    }
+  ],
+  "transcriptUrl": "/whisper_json/whisper_duet_code.json"
+}

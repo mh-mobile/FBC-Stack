@@ -1,0 +1,76 @@
+{
+  "id": "hamattimer",
+  "title": "ハマったいま",
+  "date": "2022-07-07",
+  "author": "yocaji",
+  "audioUrl": "https://fbc-stack-storage.com/hamattimer.m4a",
+  "duration": 456.32,
+  "showNotes": [
+    {
+      "title": "ハマったいま - プログラミング学習時間管理ツール",
+      "url": "https://hamattimer.app"
+    },
+    {
+      "title": "GitHub - ハマったいまのリポジトリ",
+      "url": "https://github.com/komagata/hamattimer"
+    },
+    {
+      "title": "フィヨルドブートキャンプ",
+      "url": "https://bootcamp.fjord.jp/"
+    },
+    {
+      "title": "Markdownプレビュー",
+      "url": null
+    },
+    {
+      "title": "GitHub Gist - コード共有サービス",
+      "url": "https://gist.github.com/"
+    },
+    {
+      "title": "ポモドーロテクニック",
+      "url": "https://ja.wikipedia.org/wiki/%E3%83%9D%E3%83%A2%E3%83%89%E3%83%BC%E3%83%AD%E3%83%BB%E3%83%86%E3%82%AF%E3%83%8B%E3%83%83%E3%82%AF"
+    }
+  ],
+  "chapters": [
+    {
+      "timestamp": "0:00",
+      "title": "プログラミング学習でハマる瞬間",
+      "startTime": 0
+    },
+    {
+      "timestamp": "0:56",
+      "title": "ハマったいまの機能",
+      "startTime": 56
+    },
+    {
+      "timestamp": "2:30",
+      "title": "タイマーとメモ機能",
+      "startTime": 150
+    },
+    {
+      "timestamp": "3:17",
+      "title": "開発の背景と課題認識",
+      "startTime": 197
+    },
+    {
+      "timestamp": "4:37",
+      "title": "アイディアの検証とプロトタイプ",
+      "startTime": 277
+    },
+    {
+      "timestamp": "5:11",
+      "title": "開発プロセスとフィードバック",
+      "startTime": 311
+    },
+    {
+      "timestamp": "6:10",
+      "title": "学習効率と問題解決",
+      "startTime": 370
+    },
+    {
+      "timestamp": "6:36",
+      "title": "今後の展望",
+      "startTime": 396
+    }
+  ]
+}

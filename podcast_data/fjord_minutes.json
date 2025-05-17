@@ -1,0 +1,91 @@
+{
+  "id": "fjord_minutes",
+  "title": "Fjord Minutes",
+  "date": "2025-05-01",
+  "author": "Kassy0220",
+  "audioUrl": "https://fbc-stack-storage.com/fjord_minutes.m4a",
+  "duration": 642,
+  "summary": "Fjord Boot Camp のミーティング運営を支援する議事録・出席管理ツール「Fjord Minutes」が解決した課題、実装された主機能、採用技術スタック、開発プロセスで得られた学びを解説します。",
+  "showNotes": [
+    {
+      "title": "Ruby on Rails",
+      "url": "https://rubyonrails.org/"
+    },
+    {
+      "title": "Hotwire",
+      "url": "https://hotwired.dev/"
+    },
+    {
+      "title": "React",
+      "url": "https://react.dev/"
+    },
+    {
+      "title": "Action Cable",
+      "url": "https://guides.rubyonrails.org/action_cable_overview.html"
+    },
+    {
+      "title": "Yjs (共同編集ライブラリ)",
+      "url": "https://yjs.dev/"
+    },
+    {
+      "title": "GitHub Wiki",
+      "url": "https://docs.github.com/ja/communities/documenting-your-project-with-wikis/about-wikis"
+    },
+    {
+      "title": "Discord",
+      "url": "https://discord.com/"
+    },
+    {
+      "title": "フィヨルドブートキャンプ (FBC)",
+      "url": "https://bootcamp.fjord.jp/"
+    }
+  ],
+  "chapters": [
+    {
+      "timestamp": "0:00",
+      "title": "イントロダクション",
+      "startTime": 0
+    },
+    {
+      "timestamp": "1:00",
+      "title": "FBC が抱えていた 2 つの課題",
+      "startTime": 60
+    },
+    {
+      "timestamp": "2:05",
+      "title": "Fjord Minutes の主な機能",
+      "startTime": 125
+    },
+    {
+      "timestamp": "3:15",
+      "title": "運用フローと自動化の流れ",
+      "startTime": 195
+    },
+    {
+      "timestamp": "4:25",
+      "title": "採用した技術スタック",
+      "startTime": 265
+    },
+    {
+      "timestamp": "5:45",
+      "title": "リアルタイム更新機能の試行錯誤",
+      "startTime": 345
+    },
+    {
+      "timestamp": "7:05",
+      "title": "開発プロセスとユーザーとの対話",
+      "startTime": 425
+    },
+    {
+      "timestamp": "8:30",
+      "title": "学び・テストと改善サイクル",
+      "startTime": 510
+    },
+    {
+      "timestamp": "9:55",
+      "title": "まとめとリスナーへの問いかけ",
+      "startTime": 595
+    }
+  ],
+  "transcriptUrl": "/whisper_json/whisper_fjord_minutes.json"
+}

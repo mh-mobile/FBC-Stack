@@ -1,0 +1,103 @@
+{
+  "id": "pixpick",
+  "title": "PixPick",
+  "date": "2025-01-31",
+  "author": "unikounio",
+  "audioUrl": "https://fbc-stack-storage.com/pixpick.m4a",
+  "duration": 519,
+  "summary": "写真をみんなで評価してベストショットを決めるアプリ「PixPick」。コンテスト形式と点数評価、Google Photos APIからS3への転換など開発舞台裏を語る。",
+  "showNotes": [
+    {
+      "title": "PixPick 公式サイト",
+      "url": "https://pixpick.jp/"
+    },
+    {
+      "title": "GitHub: unikounio/PixPick",
+      "url": "https://github.com/unikounio/PixPick"
+    },
+    {
+      "title": "開発者ブログ記事",
+      "url": "https://unikounio.hatenablog.com/entry/2025/01/30/091233"
+    },
+    {
+      "title": "Hotwire (Turbo/Stimulus)",
+      "url": "https://hotwire.dev/"
+    },
+    {
+      "title": "Ruby on Rails",
+      "url": "https://rubyonrails.org/"
+    },
+    {
+      "title": "Amazon S3",
+      "url": "https://aws.amazon.com/s3/"
+    },
+    {
+      "title": "招待リンクで参加できるコンテスト形式"
+    },
+    {
+      "title": "点数評価とランキング自動集計"
+    },
+    {
+      "title": "Google Photos API 変更による技術方針転換"
+    },
+    {
+      "title": "Amazon S3 へのストレージ移行"
+    },
+    {
+      "title": "HEIC 画像ブラウザ変換対応"
+    }
+  ],
+  "chapters": [
+    {
+      "timestamp": "0:00",
+      "title": "写真選びの課題紹介",
+      "startTime": 0
+    },
+    {
+      "timestamp": "0:35",
+      "title": "PixPick 概要とコンテスト形式",
+      "startTime": 35
+    },
+    {
+      "timestamp": "1:15",
+      "title": "招待リンク & Google ログイン",
+      "startTime": 75
+    },
+    {
+      "timestamp": "2:00",
+      "title": "点数評価とランキング",
+      "startTime": 120
+    },
+    {
+      "timestamp": "2:45",
+      "title": "開発動機: 家族写真の選定",
+      "startTime": 165
+    },
+    {
+      "timestamp": "3:20",
+      "title": "便利機能: サムネイル & 読み込み中評価",
+      "startTime": 200
+    },
+    {
+      "timestamp": "4:05",
+      "title": "技術移行: Google API → S3",
+      "startTime": 245
+    },
+    {
+      "timestamp": "4:55",
+      "title": "HEIC 対応と新技術習得",
+      "startTime": 295
+    },
+    {
+      "timestamp": "6:15",
+      "title": "今後の改善: 非同期化 & 無限スクロール",
+      "startTime": 375
+    },
+    {
+      "timestamp": "7:30",
+      "title": "まとめと問いかけ",
+      "startTime": 450
+    }
+  ],
+  "transcriptUrl": "/whisper_json/whisper_pixpick.json"
+}
