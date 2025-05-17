@@ -1,0 +1,92 @@
+{
+  "id": "circlecast",
+  "title": "CIRCLECAST",
+  "date": "2024-07-08",
+  "author": "futa4095",
+  "audioUrl": "https://fbc-stack-storage.com/circlecast.m4a",
+  "duration": 274,
+  "summary": "招待制グループでエピソードを共有できるサービス「CIRCLECAST」と、Rails+Hotwire による開発ストーリーを紹介。",
+  "showNotes": [
+    {
+      "title": "CIRCLECAST 公式サイト",
+      "url": "https://circlecast.net"
+    },
+    {
+      "title": "GitHub: futa4095/circlecast",
+      "url": "https://github.com/futa4095/circlecast"
+    },
+    {
+      "title": "リリースブログ記事",
+      "url": "https://futa4095.hatenablog.com/entry/2024/07/08/085928"
+    },
+    {
+      "title": "Hotwire (Turbo/Stimulus)",
+      "url": "https://hotwire.dev/"
+    },
+    {
+      "title": "Ruby on Rails",
+      "url": "https://rubyonrails.org/"
+    },
+    {
+      "title": "Tailwind CSS",
+      "url": "https://tailwindcss.com/"
+    },
+    {
+      "title": "Fly.io",
+      "url": "https://fly.io/"
+    },
+    {
+      "title": "招待制グループでのプライベート配信モデル"
+    },
+    {
+      "title": "Hotwire への全面移行"
+    },
+    {
+      "title": "UI 改善"
+    },
+    {
+      "title": "Active Storage と GCS による音声ファイル管理"
+    },
+    {
+      "title": "RSpec による自動テスト"
+    }
+  ],
+  "chapters": [
+    {
+      "timestamp": "0:00",
+      "title": "イントロ & Circlecast 概要",
+      "startTime": 0
+    },
+    {
+      "timestamp": "0:24",
+      "title": "招待制グループのニーズ",
+      "startTime": 24
+    },
+    {
+      "timestamp": "1:06",
+      "title": "開発背景とモチベーション",
+      "startTime": 66
+    },
+    {
+      "timestamp": "1:32",
+      "title": "技術選定: Rails & Hotwire",
+      "startTime": 92
+    },
+    {
+      "timestamp": "2:15",
+      "title": "UI/UX のこだわりポイント",
+      "startTime": 135
+    },
+    {
+      "timestamp": "2:46",
+      "title": "今後のチャレンジと展望",
+      "startTime": 166
+    },
+    {
+      "timestamp": "3:15",
+      "title": "まとめ & コールトゥアクション",
+      "startTime": 195
+    }
+  ],
+  "transcriptUrl": "/whisper_json/whisper_circlecast.json"
+}

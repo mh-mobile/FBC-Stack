@@ -1,0 +1,94 @@
+{
+  "id": "gohan_summit",
+  "title": "ごはんサミット",
+  "date": "2024-12-12",
+  "author": "motohiro-mm",
+  "audioUrl": "https://fbc-stack-storage.com/gohan_summit.m4a",
+  "duration": 367,
+  "summary": "家族で献立を相談・共有できるアプリ「ごはんサミット」。日付ごとの会議室、Hotwire によるリアルタイム更新、今後の買い物リスト機能計画などを語ります。",
+  "showNotes": [
+    {
+      "title": "ごはんサミット 公式サイト",
+      "url": "https://gohansummit.com"
+    },
+    {
+      "title": "GitHub: motohiro-mm/GohanSummit",
+      "url": "https://github.com/motohiro-mm/GohanSummit"
+    },
+    {
+      "title": "開発者ブログ記事",
+      "url": "https://motohiro-mm.hatenablog.com/entry/2024/12/12/084505"
+    },
+    {
+      "title": "Hotwire (Turbo/Stimulus)",
+      "url": "https://hotwire.dev/"
+    },
+    {
+      "title": "Ruby on Rails",
+      "url": "https://rubyonrails.org/"
+    },
+    {
+      "title": "家族の献立相談と共有を一つのアプリで完結"
+    },
+    {
+      "title": "日付ごとの会議室 & 月週日ビューで振り返りやすい献立表"
+    },
+    {
+      "title": "Hotwire + ActionCable/TurboStreams によるリアルタイム更新"
+    },
+    {
+      "title": "URL招待 & 動物アイコンで手軽に参加"
+    },
+    {
+      "title": "買い物リスト & プッシュ通知など今後の機能計画"
+    }
+  ],
+  "chapters": [
+    {
+      "timestamp": "0:00",
+      "title": "イントロ & ごはんサミット概要",
+      "startTime": 0
+    },
+    {
+      "timestamp": "1:00",
+      "title": "献立相談と共有を一元化する狙い",
+      "startTime": 60
+    },
+    {
+      "timestamp": "1:18",
+      "title": "日付ごとの会議室のメリット",
+      "startTime": 78
+    },
+    {
+      "timestamp": "1:29",
+      "title": "月/週/日ビュー切替で見やすさ向上",
+      "startTime": 89
+    },
+    {
+      "timestamp": "2:17",
+      "title": "Hotwire でリアルタイム反映",
+      "startTime": 137
+    },
+    {
+      "timestamp": "2:54",
+      "title": "URL招待と動物アイコンの設計",
+      "startTime": 174
+    },
+    {
+      "timestamp": "3:17",
+      "title": "開発者の実体験と家族フィードバック",
+      "startTime": 197
+    },
+    {
+      "timestamp": "4:30",
+      "title": "プッシュ通知・買い物リストなど今後の展望",
+      "startTime": 270
+    },
+    {
+      "timestamp": "4:53",
+      "title": "Rails バージョンアップ計画とまとめ",
+      "startTime": 293
+    }
+  ],
+  "transcriptUrl": "/whisper_json/whisper_gohan_summit.json"
+}
