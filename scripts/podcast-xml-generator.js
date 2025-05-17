@@ -7,8 +7,8 @@ const PODCAST_DATA_DIR = path.join(process.cwd(), 'podcast_data')
 const OUTPUT_FILE = path.join(process.cwd(), 'public', 'podcast.xml')
 const BASE_URL =
   process.env.NEXT_PUBLIC_BASE_URL || 'https://fbc-stack.vercel.app'
-const AUDIO_BASE_URL = 'https://fbc-stack-storage.com'
-const PODCAST_IMAGE_URL = `${BASE_URL}/images/fbcstack_ogp.png`
+const STORAGE_BASE_URL = 'https://fbc-stack-storage.com'
+const PODCAST_IMAGE_URL = `${STORAGE_BASE_URL}/fbcstack_podcast.jpg`
 
 // XMLでの特殊文字をエスケープする関数
 function escapeXml(unsafe) {
@@ -117,7 +117,7 @@ async function main() {
 
     // Generate podcast XML items with accurate file sizes
     const itemPromises = podcastData.map(async (podcast) => {
-      const audioUrl = `${AUDIO_BASE_URL}/${podcast.id}.m4a`
+      const audioUrl = `${STORAGE_BASE_URL}/${podcast.id}.m4a`
       const fileSize = await getFileSize(audioUrl)
       const pubDate = getFormattedDate(podcast.date)
 
@@ -156,7 +156,6 @@ async function main() {
       if (podcast.chapters && podcast.chapters.length > 0) {
         contentEncoded += '<h3>チャプター</h3><ul>'
         podcast.chapters.forEach((chapter) => {
-          // タイムスタンプは太字で、タイトルはプレーンテキスト（ハイフンなし）
           contentEncoded += `<li><strong>${
             chapter.timestamp
           }</strong> ${escapeXml(chapter.title)}</li>`
@@ -224,14 +223,14 @@ ${podcast.chapters
 
     // チャンネル情報のセットアップ
     const safeDescription = escapeXml(
-      'フィヨルドブートキャンプ卒業生が作成した各サービスの技術スタックに関する音声概要。各サービスの使用技術と実装特徴の解説です。',
+      'フィヨルドブートキャンプ卒業生が作成した各サービスの技術スタックに関する音声概要をポッドキャストとして配信しています。各エピソードはNotebookLMで生成され、使用している技術や実装の特徴について簡潔に解説しています。',
     )
 
     const channelInfo = {
       title: 'FBC Stack: みんなのポッドキャスト',
       description: safeDescription,
       author: 'FBC Stack',
-      email: 'example@example.com', // 実際のメールアドレスに変更してください
+      email: 'mh.mobiler@gmail.com',
       language: 'ja-jp',
       copyright: `Copyright ${new Date().getFullYear()} FBC Stack`,
       lastBuildDate: new Date().toUTCString(),
