@@ -1,0 +1,119 @@
+{
+  "id": "cotomemory",
+  "title": "Cotomemory",
+  "date": "2023-11-27",
+  "author": "siroemk",
+  "audioUrl": "https://fbc-stack-storage.com/cotomemory.m4a",
+  "duration": 428,
+  "summary": "こどもの名言を手早く記録・共有できるサービス「Cotomemory」。シンプル入力、家族招待機能、Rails 7 + Hotwire による開発経緯を掘り下げます。",
+  "showNotes": [
+    {
+      "title": "Cotomemory 公式サイト",
+      "url": "https://cotomemory.com/"
+    },
+    {
+      "title": "GitHub: siroemk/cotomemory",
+      "url": "https://github.com/siroemk/cotomemory"
+    },
+    {
+      "title": "開発者ブログ記事",
+      "url": "https://siroemk.hatenablog.com/entry/2023/11/27/085906"
+    },
+    {
+      "title": "Hotwire (Turbo/Stimulus)",
+      "url": "https://hotwire.dev/"
+    },
+    {
+      "title": "Ruby on Rails",
+      "url": "https://rubyonrails.org/"
+    },
+    {
+      "title": "Tailwind CSS",
+      "url": "https://tailwindcss.com/"
+    },
+    {
+      "title": "PostgreSQL",
+      "url": "https://www.postgresql.org/"
+    },
+    {
+      "title": "Amazon S3",
+      "url": "https://aws.amazon.com/s3/"
+    },
+    {
+      "title": "GitHub Actions",
+      "url": "https://github.com/features/actions"
+    },
+    {
+      "title": "Fly.io",
+      "url": "https://fly.io/"
+    },
+    {
+      "title": "シンプル入力で名言を瞬時に記録"
+    },
+    {
+      "title": "家族招待で共有・コメント"
+    },
+    {
+      "title": "Rails 7 + Hotwire 採用"
+    },
+    {
+      "title": "GitHub Actions & Fly.io による CI/CD・デプロイ"
+    },
+    {
+      "title": "Amazon S3 への画像保存"
+    }
+  ],
+  "chapters": [
+    {
+      "timestamp": "0:00",
+      "title": "イントロ & Cotomemory 概要",
+      "startTime": 0
+    },
+    {
+      "timestamp": "0:40",
+      "title": "シンプル入力で名言を記録",
+      "startTime": 47
+    },
+    {
+      "timestamp": "1:31",
+      "title": "家族招待・コメント機能",
+      "startTime": 91
+    },
+    {
+      "timestamp": "1:43",
+      "title": "スプレッドシートからの着想",
+      "startTime": 103
+    },
+    {
+      "timestamp": "3:07",
+      "title": "Rails 7 + Hotwire 技術選定",
+      "startTime": 187
+    },
+    {
+      "timestamp": "3:48",
+      "title": "技術スタック: Tailwind / Postgres / S3",
+      "startTime": 228
+    },
+    {
+      "timestamp": "4:11",
+      "title": "CI/CD: GitHub Actions & Fly.io",
+      "startTime": 251
+    },
+    {
+      "timestamp": "4:35",
+      "title": "個人開発のタスク管理と苦労",
+      "startTime": 275
+    },
+    {
+      "timestamp": "5:04",
+      "title": "学びと英語ドキュメント克服",
+      "startTime": 304
+    },
+    {
+      "timestamp": "6:09",
+      "title": "まとめ & リスナーへの問い",
+      "startTime": 369
+    }
+  ],
+  "transcriptUrl": "/whisper_json/whisper_cotomemory.json"
+}
