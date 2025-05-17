@@ -265,7 +265,7 @@ const PodcastPage: NextPage<Props> = ({ initialAudioPosts }) => {
                   <SearchIcon color="gray.300" />
                 </InputLeftElement>
                 <Input
-                  placeholder="プロジェクトまたは作成者を検索"
+                  placeholder="サービスまたは作成者を検索"
                   value={filter}
                   onChange={(e) => setFilter(e.target.value)}
                 />
@@ -334,7 +334,7 @@ const PodcastPage: NextPage<Props> = ({ initialAudioPosts }) => {
 
                             {/* エピソードの概要を表示 - 全文表示 */}
                             <Text
-                              fontSize={{ base: "md", md: "sm" }}
+                              fontSize={{ base: 'md', md: 'sm' }}
                               color="gray.700"
                               mb={3}
                               title={summary || description}
