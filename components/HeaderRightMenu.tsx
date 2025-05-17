@@ -14,7 +14,7 @@ const HeaderRightMenu = () => {
         <Link href="/podcast">
           <Box width="30px" height="30px">
             <Image
-              src="/images/audio_summary.png"
+              src="/images/podcast.png"
               width={30}
               height={30}
               alt="みんなのポッドキャスト"
