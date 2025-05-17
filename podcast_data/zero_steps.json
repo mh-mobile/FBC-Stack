@@ -1,0 +1,121 @@
+{
+  "id": "zero_steps",
+  "title": "Zero Steps",
+  "date": "2024-04-24",
+  "author": "yocchan-git",
+  "audioUrl": "http://fbc-stack-storage.com/zero_steps.m4a",
+  "duration": 452,
+  "summary": "通信制高校の生徒同士が“目標”と“タスク”を共有し、Discord連携で励まし合えるサービス「Zero Steps」の機能と開発ストーリーを紹介します。",
+  "showNotes": [
+    {
+      "title": "GitHub Repository",
+      "url": "https://github.com/yocchan-git/zero-steps"
+    },
+    {
+      "title": "開発者ブログ記事",
+      "url": "https://yocchan-eng.hatenablog.com/entry/zero-steps"
+    },
+    {
+      "title": "Ruby on Rails",
+      "url": "https://rubyonrails.org/"
+    },
+    {
+      "title": "Hotwire",
+      "url": "https://hotwired.dev/"
+    },
+    {
+      "title": "Bootstrap",
+      "url": "https://getbootstrap.com/"
+    },
+    {
+      "title": "Discord",
+      "url": "https://discord.com/"
+    },
+    {
+      "title": "Figma",
+      "url": "https://figma.com/"
+    },
+    {
+      "title": "PostgreSQL",
+      "url": "https://www.postgresql.org/"
+    },
+    {
+      "title": "Render",
+      "url": "https://render.com/"
+    },
+    {
+      "title": "GitHub Actions",
+      "url": "https://github.com/features/actions"
+    },
+    {
+      "title": "目標・タスク管理機能"
+    },
+    {
+      "title": "コメント／メンション／通知機能"
+    },
+    {
+      "title": "プライバシー設定の注意点"
+    },
+    {
+      "title": "Hotwireでの編集フロー"
+    }
+  ],
+  "chapters": [
+    {
+      "timestamp": "0:00",
+      "title": "イントロダクション",
+      "startTime": 0
+    },
+    {
+      "timestamp": "0:40",
+      "title": "目的と背景：通信制高校の課題",
+      "startTime": 40
+    },
+    {
+      "timestamp": "1:20",
+      "title": "目標・タスク管理機能",
+      "startTime": 80
+    },
+    {
+      "timestamp": "2:00",
+      "title": "Discordログインとコミュニティ連携",
+      "startTime": 120
+    },
+    {
+      "timestamp": "2:40",
+      "title": "コメント／メンション／通知機能",
+      "startTime": 160
+    },
+    {
+      "timestamp": "3:20",
+      "title": "プライバシー設定の注意点",
+      "startTime": 200
+    },
+    {
+      "timestamp": "4:00",
+      "title": "開発動機とストーリー",
+      "startTime": 240
+    },
+    {
+      "timestamp": "4:50",
+      "title": "設計フェーズとHotwire採用",
+      "startTime": 290
+    },
+    {
+      "timestamp": "5:40",
+      "title": "技術スタック詳細",
+      "startTime": 340
+    },
+    {
+      "timestamp": "6:20",
+      "title": "Hotwireと非同期処理",
+      "startTime": 380
+    },
+    {
+      "timestamp": "7:00",
+      "title": "学び・コミュニティの支援とまとめ",
+      "startTime": 420
+    }
+  ],
+  "transcriptUrl": "/whisper_json/whisper_zero_steps.json"
+}

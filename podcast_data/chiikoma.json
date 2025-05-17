@@ -1,0 +1,79 @@
+{
+  "id": "chiikoma",
+  "title": "chiikoma",
+  "date": "2022-03-02",
+  "author": "taka61",
+  "audioUrl": "https://fbc-stack-storage.com/chiikoma.m4a",
+  "duration": 362,
+  "summary": "“自分のための小さな困りごと”をリスト化し、日替わり提案と優先順位付けでセルフケアを促すアプリ「ちいこま」の概要、機能、技術スタック、そして開発者の学びを紹介します。",
+  "showNotes": [
+    {
+      "title": "ちいこま"
+    },
+    {
+      "title": "セルフケア"
+    },
+    {
+      "title": "日替わり"
+    },
+    {
+      "title": "Rails",
+      "url": "https://rubyonrails.org/"
+    },
+    {
+      "title": "JavaScript",
+      "url": "https://developer.mozilla.org/docs/Web/JavaScript"
+    },
+    {
+      "title": "PostgreSQL",
+      "url": "https://www.postgresql.org/"
+    },
+    {
+      "title": "Heroku",
+      "url": "https://www.heroku.com/"
+    },
+    {
+      "title": "GitHub Actions",
+      "url": "https://github.com/features/actions"
+    },
+    {
+      "title": "優先順位"
+    },
+    {
+      "title": "自己管理"
+    }
+  ],
+  "chapters": [
+    {
+      "timestamp": "0:00",
+      "title": "イントロダクション",
+      "startTime": 0
+    },
+    {
+      "timestamp": "1:10",
+      "title": "ちいこまのコンセプト",
+      "startTime": 70
+    },
+    {
+      "timestamp": "2:30",
+      "title": "主要機能（日替わり提案・優先順位）",
+      "startTime": 150
+    },
+    {
+      "timestamp": "3:50",
+      "title": "技術スタックとインフラ",
+      "startTime": 230
+    },
+    {
+      "timestamp": "5:00",
+      "title": "開発プロセスと学び",
+      "startTime": 300
+    },
+    {
+      "timestamp": "6:00",
+      "title": "まとめとセルフケアの問いかけ",
+      "startTime": 360
+    }
+  ],
+  "transcriptUrl": "/whisper_json/whisper_chiikoma.json"
+}
