@@ -53,7 +53,7 @@ const PodcastPlayer: React.FC<Props> = ({
     'showNotes',
   )
   const [playbackRate, setPlaybackRate] = useState(1)
-  const [volume, setVolume] = useState(1)
+  const [volume, setVolume] = useState(0.7)
   const [showVolumeSlider, setShowVolumeSlider] = useState(false)
 
   useEffect(() => {
@@ -67,10 +67,15 @@ const PodcastPlayer: React.FC<Props> = ({
       }
     }
     const updatePlayStatus = () => setIsPlaying(!audio.paused)
+    // 音量の同期を追加
+    const updateVolume = () => setVolume(audio.volume)
 
     // メタデータ読み込み時の処理を明示的に定義
     const handleLoadedMetadata = () => {
       updateDuration()
+      // 音量を明示的に設定
+      audio.volume = volume
+      updateVolume()
     }
 
     audio.addEventListener('timeupdate', updateTime)
@@ -79,6 +84,8 @@ const PodcastPlayer: React.FC<Props> = ({
     audio.addEventListener('play', updatePlayStatus)
     audio.addEventListener('pause', updatePlayStatus)
     audio.addEventListener('ended', updatePlayStatus)
+    // 音量変更イベントを追加
+    audio.addEventListener('volumechange', updateVolume)
 
     // 初期ロード時に明示的に音声をロード
     if (audio.readyState === 0) {
@@ -86,6 +93,8 @@ const PodcastPlayer: React.FC<Props> = ({
     } else if (audio.readyState >= 2) {
       // すでに十分なデータがロードされている場合は期間を設定
       updateDuration()
+      // 音量を同期
+      updateVolume()
     }
 
     return () => {
@@ -95,8 +104,9 @@ const PodcastPlayer: React.FC<Props> = ({
       audio.removeEventListener('play', updatePlayStatus)
       audio.removeEventListener('pause', updatePlayStatus)
       audio.removeEventListener('ended', updatePlayStatus)
+      audio.removeEventListener('volumechange', updateVolume)
     }
-  }, [audioUrl])
+  }, [audioUrl, volume])
 
   useEffect(() => {
     if (showVolumeSlider) {
@@ -193,7 +203,7 @@ const PodcastPlayer: React.FC<Props> = ({
 
   return (
     <VStack spacing={4} align="stretch" w="100%">
-      <audio ref={audioRef} src={audioUrl} />
+      <audio ref={audioRef} src={audioUrl} volume={volume} />
 
       {/* Player Controls */}
       <Box bg="#F7FAFC" borderRadius="lg" p={{ base: 3, md: 4 }} boxShadow="sm">
