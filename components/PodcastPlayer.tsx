@@ -19,8 +19,8 @@ import { ExternalLinkIcon } from '@chakra-ui/icons'
 import {
   MdReplay10,
   MdForward10,
-  MdPlayArrow,
   MdPause,
+  MdPlayArrow,
   MdVolumeUp,
   MdMoreVert,
 } from 'react-icons/md'
@@ -205,11 +205,12 @@ const PodcastPlayer: React.FC<Props> = ({
               {/* 10秒巻き戻し */}
               <IconButton
                 aria-label="10秒巻き戻し"
-                icon={<MdReplay10 size="24px" />}
+                icon={<MdReplay10 />}
+                fontSize="24px"
+                color="#3182CE"
                 onClick={skipBackward}
                 size="md"
                 variant="ghost"
-                color="#3182CE"
                 _hover={{ bg: 'gray.100' }}
                 p={0}
               />
@@ -217,13 +218,8 @@ const PodcastPlayer: React.FC<Props> = ({
               {/* 再生・一時停止ボタン */}
               <IconButton
                 aria-label={isPlaying ? '一時停止' : '再生'}
-                icon={
-                  isPlaying ? (
-                    <MdPause size="24px" />
-                  ) : (
-                    <MdPlayArrow size="24px" />
-                  )
-                }
+                icon={isPlaying ? <MdPause /> : <MdPlayArrow />}
+                fontSize="32px"
                 onClick={togglePlayPause}
                 size="lg"
                 bg="#3182CE"
@@ -237,11 +233,12 @@ const PodcastPlayer: React.FC<Props> = ({
               {/* 10秒早送り */}
               <IconButton
                 aria-label="10秒早送り"
-                icon={<MdForward10 size="24px" />}
+                icon={<MdForward10 />}
+                fontSize="24px"
+                color="#3182CE"
                 onClick={skipForward}
                 size="md"
                 variant="ghost"
-                color="#3182CE"
                 _hover={{ bg: 'gray.100' }}
                 p={0}
               />
@@ -366,11 +363,12 @@ const PodcastPlayer: React.FC<Props> = ({
             {/* 10秒巻き戻し */}
             <IconButton
               aria-label="10秒巻き戻し"
-              icon={<MdReplay10 size="24px" />}
+              icon={<MdReplay10 />}
+              fontSize="24px"
+              color="#3182CE"
               onClick={skipBackward}
               size="md"
               variant="ghost"
-              color="#3182CE"
               _hover={{ bg: 'gray.100' }}
               p={0}
             />
@@ -378,13 +376,8 @@ const PodcastPlayer: React.FC<Props> = ({
             {/* 再生・一時停止ボタン */}
             <IconButton
               aria-label={isPlaying ? '一時停止' : '再生'}
-              icon={
-                isPlaying ? (
-                  <MdPause size="24px" />
-                ) : (
-                  <MdPlayArrow size="24px" />
-                )
-              }
+              icon={isPlaying ? <MdPause /> : <MdPlayArrow />}
+              fontSize="32px"
               onClick={togglePlayPause}
               size="lg"
               bg="#3182CE"
@@ -398,11 +391,12 @@ const PodcastPlayer: React.FC<Props> = ({
             {/* 10秒早送り */}
             <IconButton
               aria-label="10秒早送り"
-              icon={<MdForward10 size="24px" />}
+              icon={<MdForward10 />}
+              fontSize="24px"
+              color="#3182CE"
               onClick={skipForward}
               size="md"
               variant="ghost"
-              color="#3182CE"
               _hover={{ bg: 'gray.100' }}
               p={0}
             />
