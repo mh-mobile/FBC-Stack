@@ -169,7 +169,7 @@ const PodcastPage: NextPage<Props> = ({ initialAudioPosts }) => {
     return (
       <Layout>
         <Head>
-          <title>みんなのポッドキャスト | {siteTitle}</title>
+          <title>{`みんなのポッドキャスト | ${siteTitle}`}</title>
         </Head>
         <Box as="section" py={8} textAlign="center">
           <Container maxW="3xl">
@@ -186,7 +186,7 @@ const PodcastPage: NextPage<Props> = ({ initialAudioPosts }) => {
   return (
     <Layout>
       <Head>
-        <title>みんなのポッドキャスト | {siteTitle}</title>
+        <title>{`みんなのポッドキャスト | ${siteTitle}`}</title>
         <meta
           name="description"
           content="フィヨルドブートキャンプ卒業生が作成した各サービスの技術スタックに関する音声概要ポッドキャスト"

@@ -62,7 +62,7 @@ const Tools: NextPage<Props> = ({ allToolsData }) => {
   return (
     <Layout>
       <Head>
-        <title>{siteTitle}</title>
+        <title>{`${siteTitle}`}</title>
       </Head>
       <Box sx={utilStyles.headingXl} py={4}>
         Tools
