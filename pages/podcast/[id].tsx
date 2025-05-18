@@ -84,9 +84,7 @@ const PodcastDetail: NextPage<Props> = ({ podcastData }) => {
   return (
     <Layout>
       <Head>
-        <title>
-          {podcastData.title} | {siteTitle}
-        </title>
+        <title>{`${podcastData.title} | ${siteTitle}`}</title>
       </Head>
 
       <Container maxW="3xl" py={8}>
