@@ -146,11 +146,10 @@ function main() {
 
       contentEncoded += ']]>'
 
-      // ポッドキャスト名前空間を使用したチャプターマーカー（一時的に無効化）
-      let podcastChapters = '' // 一時的に空文字列にする
-      let pscChapters = '' // 一時的に空文字列にする
+      // ポッドキャスト名前空間を使用したチャプターマーカー（PodcastIndex形式）
+      let podcastChapters = ''
+      let pscChapters = ''
 
-      /* Apple Podcastでの互換性確認のため一時的にコメントアウト
       if (podcast.chapters && podcast.chapters.length > 0) {
         // PodcastIndex形式のチャプター
         podcast.chapters.forEach((chapter) => {
@@ -174,7 +173,6 @@ ${podcast.chapters
   .join('\n')}
       </psc:chapters>`
       }
-      */
 
       return `    <item>
       <title>${safeTitle}</title>
@@ -196,7 +194,7 @@ ${podcast.chapters
       <itunes:summary>${safeDescription}</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:image href="${PODCAST_IMAGE_URL}"/>
+      <itunes:image href="${PODCAST_IMAGE_URL}"/>${podcastChapters}${pscChapters}
       <content:encoded>${contentEncoded}</content:encoded>
     </item>`
     })
