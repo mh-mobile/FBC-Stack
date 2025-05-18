@@ -90,5 +90,6 @@
       "startTime": 293
     }
   ],
-  "transcriptUrl": "/whisper_json/whisper_gohan_summit.json"
+  "transcriptUrl": "/whisper_json/whisper_gohan_summit.json",
+  "fileSize": 5104049
 }

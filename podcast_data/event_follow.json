@@ -92,5 +92,6 @@
       "startTime": 383
     }
   ],
-  "transcriptUrl": "/whisper_json/whisper_event_follow.json"
+  "transcriptUrl": "/whisper_json/whisper_event_follow.json",
+  "fileSize": 6416679
 }

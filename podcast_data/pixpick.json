@@ -99,5 +99,6 @@
       "startTime": 449
     }
   ],
-  "transcriptUrl": "/whisper_json/whisper_pixpick.json"
+  "transcriptUrl": "/whisper_json/whisper_pixpick.json",
+  "fileSize": 7288813
 }

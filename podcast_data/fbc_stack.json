@@ -110,5 +110,6 @@
       "startTime": 420
     }
   ],
-  "transcriptUrl": "/whisper_json/whisper_fbc_stack.json"
+  "transcriptUrl": "/whisper_json/whisper_fbc_stack.json",
+  "fileSize": 7474517
 }

@@ -104,5 +104,6 @@
       "startTime": 370
     }
   ],
-  "transcriptUrl": "/whisper_json/whisper_giftreat.json"
+  "transcriptUrl": "/whisper_json/whisper_giftreat.json",
+  "fileSize": 6158902
 }

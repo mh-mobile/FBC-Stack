@@ -84,5 +84,6 @@
       "startTime": 338
     }
   ],
-  "transcriptUrl": "/whisper_json/whisper_bookrin.json"
+  "transcriptUrl": "/whisper_json/whisper_bookrin.json",
+  "fileSize": 6537121
 }

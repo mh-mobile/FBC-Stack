@@ -121,5 +121,6 @@
       "startTime": 544
     }
   ],
-  "transcriptUrl": "/whisper_json/whisper_fjord_minutes.json"
+  "transcriptUrl": "/whisper_json/whisper_fjord_minutes.json",
+  "fileSize": 2097152
 }

@@ -116,5 +116,6 @@
       "startTime": 325
     }
   ],
-  "transcriptUrl": "/whisper_json/whisper_erasugi.json"
+  "transcriptUrl": "/whisper_json/whisper_erasugi.json",
+  "fileSize": 5402559
 }

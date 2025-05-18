@@ -87,5 +87,6 @@
       "startTime": 448
     }
   ],
-  "transcriptUrl": "/whisper_json/whisper_nijikai_go.json"
+  "transcriptUrl": "/whisper_json/whisper_nijikai_go.json",
+  "fileSize": 7799947
 }
