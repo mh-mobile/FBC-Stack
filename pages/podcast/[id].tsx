@@ -33,11 +33,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
     )
   }
 
-  console.log(`Generated ${paths.length} podcast paths`)
+  console.log(`[Build] Generated ${paths.length} podcast paths`)
 
   return {
     paths,
-    fallback: 'blocking', // 新しいポッドキャストが追加された場合にビルド時に生成されなかったパスもサポート
+    fallback: false, // ビルド時に生成されたパスのみを提供し、それ以外は404を返す
   }
 }
 
@@ -60,20 +60,20 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
         props: {
           podcastData,
         },
-        revalidate: 86400, // 24時間（1日）ごとに再生成
+        // 静的生成のみを使用し、再検証は行わない
       }
     }
 
     // データが見つからない場合は404
     return {
       notFound: true,
-      revalidate: 86400, // 24時間（1日）後に再試行
+      // 静的生成のみを使用し、再検証は行わない
     }
   } catch (error) {
     console.error('Error loading podcast data:', error)
     return {
       notFound: true,
-      revalidate: 86400, // 24時間（1日）後に再試行
+      // 静的生成のみを使用し、再検証は行わない
     }
   }
 }
