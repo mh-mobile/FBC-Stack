@@ -107,59 +107,54 @@
       "startTime": 0
     },
     {
-      "timestamp": "0:30",
-      "title": "リポジトリと参考資料",
-      "startTime": 30
-    },
-    {
-      "timestamp": "1:05",
+      "timestamp": "0:55",
       "title": "外貨対応給与計算のニーズ",
-      "startTime": 65
+      "startTime": 55
     },
     {
-      "timestamp": "1:45",
+      "timestamp": "1:22",
       "title": "開発者の背景と動機",
-      "startTime": 105
+      "startTime": 82
     },
     {
-      "timestamp": "2:20",
+      "timestamp": "2:01",
       "title": "ユーザーフロー & Googleログオン",
-      "startTime": 140
+      "startTime": 121
     },
     {
-      "timestamp": "2:50",
+      "timestamp": "2:16",
       "title": "シフト入力方式の選択肢",
-      "startTime": 170
+      "startTime": 136
     },
     {
-      "timestamp": "3:20",
+      "timestamp": "2:38",
       "title": "リアルタイム為替換算",
-      "startTime": 200
+      "startTime": 158
     },
     {
-      "timestamp": "4:00",
+      "timestamp": "2:48",
       "title": "フロント&バック技術スタック",
-      "startTime": 240
+      "startTime": 168
     },
     {
-      "timestamp": "4:40",
+      "timestamp": "3:24",
       "title": "OpenAPI & Orval による自動生成",
-      "startTime": 280
+      "startTime": 204
     },
     {
-      "timestamp": "5:15",
+      "timestamp": "4:17",
       "title": "Firebase Auth と JWT 検証",
-      "startTime": 315
+      "startTime": 257
     },
     {
-      "timestamp": "6:20",
+      "timestamp": "5:34",
       "title": "学びと技術的成長",
-      "startTime": 380
+      "startTime": 334
     },
     {
-      "timestamp": "7:00",
+      "timestamp": "6:36",
       "title": "まとめ & リスナーへの問い",
-      "startTime": 420
+      "startTime": 397
     }
   ],
   "transcriptUrl": "/whisper_json/whisper_payreco.json"

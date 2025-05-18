@@ -57,34 +57,34 @@
       "startTime": 0
     },
     {
-      "timestamp": "0:45",
+      "timestamp": "0:27",
       "title": "二次会の課題とツール概要",
-      "startTime": 45
+      "startTime": 27
     },
     {
-      "timestamp": "1:45",
+      "timestamp": "1:07",
       "title": "使い方と主要機能",
-      "startTime": 105
+      "startTime": 67
     },
     {
-      "timestamp": "2:50",
+      "timestamp": "2:25",
       "title": "技術スタックと選択理由",
-      "startTime": 170
+      "startTime": 145
     },
     {
-      "timestamp": "4:10",
+      "timestamp": "4:08",
       "title": "無料運用のコスト最適化",
-      "startTime": 250
+      "startTime": 248
     },
     {
-      "timestamp": "6:10",
+      "timestamp": "5:27",
       "title": "データ削除と自動処理",
-      "startTime": 370
+      "startTime": 327
     },
     {
-      "timestamp": "7:40",
+      "timestamp": "7:28",
       "title": "今後のロードマップと考察",
-      "startTime": 460
+      "startTime": 448
     }
   ],
   "transcriptUrl": "/whisper_json/whisper_nijikai_go.json"

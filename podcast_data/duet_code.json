@@ -96,49 +96,49 @@
       "startTime": 30
     },
     {
-      "timestamp": "1:05",
+      "timestamp": "1:07",
       "title": "無料＆相互レビューというコンセプト",
-      "startTime": 65
+      "startTime": 67
     },
     {
-      "timestamp": "1:45",
+      "timestamp": "1:48",
       "title": "ワークフロー: GitHubログイン〜PR投稿",
-      "startTime": 105
+      "startTime": 108
     },
     {
-      "timestamp": "2:35",
+      "timestamp": "2:28",
       "title": "GitHub API自動連携とUX",
-      "startTime": 155
+      "startTime": 148
     },
     {
-      "timestamp": "3:05",
+      "timestamp": "2:54",
       "title": "技術スタック概要 (Next.js/Rails)",
-      "startTime": 185
+      "startTime": 174
     },
     {
-      "timestamp": "3:45",
+      "timestamp": "3:12",
       "title": "インフラ構成: Fly.io & Vercel",
-      "startTime": 225
+      "startTime": 192
     },
     {
-      "timestamp": "4:25",
+      "timestamp": "4:09",
       "title": "スキーマ駆動開発 (OpenAPI)",
-      "startTime": 265
+      "startTime": 249
     },
     {
-      "timestamp": "5:05",
+      "timestamp": "4:50",
       "title": "Firebase Auth & JWT認証の課題",
-      "startTime": 305
+      "startTime": 290
     },
     {
-      "timestamp": "5:55",
+      "timestamp": "5:27",
       "title": "学び・クラウド移行構想",
-      "startTime": 355
+      "startTime": 327
     },
     {
-      "timestamp": "6:45",
+      "timestamp": "6:25",
       "title": "まとめ & リスナーへの問い",
-      "startTime": 405
+      "startTime": 385
     }
   ],
   "transcriptUrl": "/whisper_json/whisper_duet_code.json"
