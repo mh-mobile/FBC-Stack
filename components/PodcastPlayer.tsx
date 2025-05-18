@@ -10,7 +10,6 @@ import {
   SliderFilledTrack,
   SliderThumb,
   IconButton,
-  useColorModeValue,
   Menu,
   MenuButton,
   MenuList,
@@ -57,33 +56,47 @@ const PodcastPlayer: React.FC<Props> = ({
   const [volume, setVolume] = useState(1)
   const [showVolumeSlider, setShowVolumeSlider] = useState(false)
 
-  const bgColor = useColorModeValue('white', 'gray.800')
-  const borderColor = useColorModeValue('gray.200', 'gray.600')
-
   useEffect(() => {
     const audio = audioRef.current
     if (!audio) return
 
     const updateTime = () => setCurrentTime(audio.currentTime)
-    const updateDuration = () => setDuration(audio.duration)
+    const updateDuration = () => {
+      if (audio.duration && !isNaN(audio.duration)) {
+        setDuration(audio.duration)
+      }
+    }
     const updatePlayStatus = () => setIsPlaying(!audio.paused)
 
+    // メタデータ読み込み時の処理を明示的に定義
+    const handleLoadedMetadata = () => {
+      updateDuration()
+    }
+
     audio.addEventListener('timeupdate', updateTime)
-    audio.addEventListener('loadedmetadata', updateDuration)
+    audio.addEventListener('loadedmetadata', handleLoadedMetadata)
     audio.addEventListener('durationchange', updateDuration)
     audio.addEventListener('play', updatePlayStatus)
     audio.addEventListener('pause', updatePlayStatus)
     audio.addEventListener('ended', updatePlayStatus)
 
+    // 初期ロード時に明示的に音声をロード
+    if (audio.readyState === 0) {
+      audio.load()
+    } else if (audio.readyState >= 2) {
+      // すでに十分なデータがロードされている場合は期間を設定
+      updateDuration()
+    }
+
     return () => {
       audio.removeEventListener('timeupdate', updateTime)
-      audio.removeEventListener('loadedmetadata', updateDuration)
+      audio.removeEventListener('loadedmetadata', handleLoadedMetadata)
       audio.removeEventListener('durationchange', updateDuration)
       audio.removeEventListener('play', updatePlayStatus)
       audio.removeEventListener('pause', updatePlayStatus)
       audio.removeEventListener('ended', updatePlayStatus)
     }
-  }, [])
+  }, [audioUrl])
 
   useEffect(() => {
     if (showVolumeSlider) {
