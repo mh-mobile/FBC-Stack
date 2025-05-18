@@ -112,5 +112,6 @@
       "startTime": 210
     }
   ],
-  "transcriptUrl": "/whisper_json/whisper_circlecast.json"
+  "transcriptUrl": "/whisper_json/whisper_circlecast.json",
+  "fileSize": 3809833
 }

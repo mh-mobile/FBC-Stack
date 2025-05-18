@@ -1,6 +1,5 @@
 const fs = require('fs')
 const path = require('path')
-const https = require('https')
 
 // Configuration
 const PODCAST_DATA_DIR = path.join(process.cwd(), 'podcast_data')
@@ -20,23 +19,6 @@ function escapeXml(unsafe) {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&apos;')
-}
-
-// ファイルサイズを取得する関数（非同期）
-async function getFileSize(url) {
-  return new Promise((resolve) => {
-    const req = https.request(url, { method: 'HEAD' }, (res) => {
-      const contentLength = res.headers['content-length'] || '0'
-      resolve(parseInt(contentLength, 10))
-    })
-
-    req.on('error', () => {
-      // エラーの場合はデフォルト値を返す
-      resolve(2097152) // 2MBのデフォルト値
-    })
-
-    req.end()
-  })
 }
 
 // フォーマットされた日付を取得
@@ -75,7 +57,7 @@ function parseTimestampToSeconds(timestamp) {
 }
 
 // Main function
-async function main() {
+function main() {
   console.log(`Generating podcast XML from ${PODCAST_DATA_DIR}...`)
 
   // Ensure podcast data directory exists
@@ -115,10 +97,10 @@ async function main() {
     // 日付順にソート（新しい順）
     podcastData.sort((a, b) => new Date(b.date) - new Date(a.date))
 
-    // Generate podcast XML items with accurate file sizes
-    const itemPromises = podcastData.map(async (podcast) => {
+    const items = podcastData.map((podcast) => {
       const audioUrl = `${STORAGE_BASE_URL}/${podcast.id}.m4a`
-      const fileSize = await getFileSize(audioUrl)
+      const duration = podcast.duration || 600
+      const fileSize = podcast.fileSize
       const pubDate = getFormattedDate(podcast.date)
 
       // すべてのテキストフィールドをエスケープ
@@ -129,7 +111,6 @@ async function main() {
           `${podcast.title}の技術スタックに関する音声概要`,
       )
       const safeAuthor = escapeXml(podcast.author)
-      const duration = podcast.duration || 600 // デフォルト値
 
       // Show NotesとChaptersをエピソード詳細に含める
       let contentEncoded = `<![CDATA[<p>${safeDescription}</p>`
@@ -218,9 +199,6 @@ ${podcast.chapters
     </item>`
     })
 
-    // すべてのアイテムを待機
-    const items = await Promise.all(itemPromises)
-
     // チャンネル情報のセットアップ
     const safeDescription = escapeXml(
       'フィヨルドブートキャンプ卒業生が作成した各サービスの技術スタックに関する音声概要をポッドキャストとして配信しています。各エピソードはNotebookLMで生成され、使用している技術や実装の特徴について簡潔に解説しています。',
@@ -306,7 +284,9 @@ ${items.join('\n')}
 }
 
 // Execute main function
-main().catch((error) => {
+try {
+  main()
+} catch (error) {
   console.error('Fatal error:', error)
   process.exit(1)
-})
+}

@@ -123,5 +123,6 @@
       "startTime": 375
     }
   ],
-  "transcriptUrl": "/whisper_json/whisper_quitcost.json"
+  "transcriptUrl": "/whisper_json/whisper_quitcost.json",
+  "fileSize": 5878444
 }

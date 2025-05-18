@@ -107,5 +107,6 @@
       "startTime": 427
     }
   ],
-  "transcriptUrl": "/whisper_json/whisper_zero_steps.json"
+  "transcriptUrl": "/whisper_json/whisper_zero_steps.json",
+  "fileSize": 6223842
 }

@@ -75,5 +75,6 @@
       "startTime": 283
     }
   ],
-  "transcriptUrl": "/whisper_json/whisper_chiikoma.json"
+  "transcriptUrl": "/whisper_json/whisper_chiikoma.json",
+  "fileSize": 5062229
 }

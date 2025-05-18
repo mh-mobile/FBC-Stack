@@ -141,5 +141,6 @@
       "startTime": 385
     }
   ],
-  "transcriptUrl": "/whisper_json/whisper_duet_code.json"
+  "transcriptUrl": "/whisper_json/whisper_duet_code.json",
+  "fileSize": 6312289
 }

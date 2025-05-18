@@ -101,5 +101,6 @@
       "startTime": 389
     }
   ],
-  "transcriptUrl": "/whisper_json/whisper_hamattimer.json"
+  "transcriptUrl": "/whisper_json/whisper_hamattimer.json",
+  "fileSize": 6424820
 }
