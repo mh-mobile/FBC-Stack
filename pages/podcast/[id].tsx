@@ -3,16 +3,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import fs from 'fs'
 import path from 'path'
-import {
-  Box,
-  Container,
-  Heading,
-  Text,
-  VStack,
-  HStack,
-  Button,
-} from '@chakra-ui/react'
-import { ArrowBackIcon } from '@chakra-ui/icons'
+import { Box, Container, Heading, Text, VStack, HStack } from '@chakra-ui/react'
 import Layout, { siteTitle } from '../../components/Layout'
 import PodcastPlayer from '../../components/PodcastPlayer'
 import Date from '../../components/Date'
@@ -38,7 +29,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
         .filter((file) => file.endsWith('.json'))
         .map((file) => ({
           params: { id: file.replace(/\.json$/, '') },
-        }))
+        })),
     )
   }
 
