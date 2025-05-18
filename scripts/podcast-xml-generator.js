@@ -213,7 +213,6 @@ ${podcast.chapters
       copyright: `Copyright ${new Date().getFullYear()} FBC Stack`,
       lastBuildDate: new Date().toUTCString(),
       mainCategory: 'Technology',
-      subCategory: 'Software Development',
     }
 
     // RSSフィードの生成
@@ -247,9 +246,7 @@ ${podcast.chapters
     </itunes:owner>
     <itunes:image href="${PODCAST_IMAGE_URL}"/>
     <itunes:summary>${channelInfo.description}</itunes:summary>
-    <itunes:category text="${channelInfo.mainCategory}">
-      <itunes:category text="${channelInfo.subCategory}"/>
-    </itunes:category>
+    <itunes:category text="${channelInfo.mainCategory}"/>
     <itunes:explicit>no</itunes:explicit>
     <itunes:type>episodic</itunes:type>
     
