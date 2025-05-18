@@ -59,29 +59,29 @@
       "startTime": 0
     },
     {
-      "timestamp": "1:20",
+      "timestamp": "1:01",
       "title": "BookRInが解決する課題",
-      "startTime": 80
+      "startTime": 61
     },
     {
-      "timestamp": "2:40",
+      "timestamp": "1:41",
       "title": "コア機能：共同編集とテンプレート",
-      "startTime": 160
+      "startTime": 101
     },
     {
-      "timestamp": "3:50",
+      "timestamp": "3:24",
       "title": "技術スタックとアーキテクチャ",
-      "startTime": 230
+      "startTime": 204
     },
     {
-      "timestamp": "5:05",
+      "timestamp": "4:12",
       "title": "デプロイと開発の苦労話",
-      "startTime": 305
+      "startTime": 252
     },
     {
-      "timestamp": "6:35",
+      "timestamp": "5:38",
       "title": "今後のロードマップと考察",
-      "startTime": 395
+      "startTime": 338
     }
   ],
   "transcriptUrl": "/whisper_json/whisper_bookrin.json"

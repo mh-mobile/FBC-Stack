@@ -5,86 +5,120 @@
   "author": "Kassy0220",
   "audioUrl": "https://fbc-stack-storage.com/fjord_minutes.m4a",
   "duration": 642,
-  "summary": "Fjord Boot Camp のミーティング運営を支援する議事録・出席管理ツール「Fjord Minutes」が解決した課題、実装された主機能、採用技術スタック、開発プロセスで得られた学びを解説します。",
+  "summary": "FBC のチーム開発ミーティングを支援するツール「Fjord Minutes」。議事録ひな形の自動生成、GitHub Wiki 連携、出席管理、リアルタイム更新など実践的な機能と学びを語る。",
   "showNotes": [
+    {
+      "title": "Fjord Minutes 公式サイト",
+      "url": "https://fjord-minutes.com/"
+    },
+    {
+      "title": "GitHub: Kassy0220/fjord-minutes",
+      "url": "https://github.com/Kassy0220/fjord-minutes"
+    },
+    {
+      "title": "開発者ブログ記事",
+      "url": "https://cassy0220.hatenablog.com/entry/2025/05/01/071233"
+    },
+    {
+      "title": "Hotwire (Turbo/Stimulus)",
+      "url": "https://hotwire.dev/"
+    },
     {
       "title": "Ruby on Rails",
       "url": "https://rubyonrails.org/"
     },
     {
-      "title": "Hotwire",
-      "url": "https://hotwired.dev/"
+      "title": "Tailwind CSS",
+      "url": "https://tailwindcss.com/"
     },
     {
       "title": "React",
       "url": "https://react.dev/"
     },
     {
-      "title": "Action Cable",
+      "title": "ActionCable (Rails)",
       "url": "https://guides.rubyonrails.org/action_cable_overview.html"
     },
     {
-      "title": "Yjs (共同編集ライブラリ)",
-      "url": "https://yjs.dev/"
+      "title": "RSpec",
+      "url": "https://rspec.info/"
     },
     {
-      "title": "GitHub Wiki",
-      "url": "https://docs.github.com/ja/communities/documenting-your-project-with-wikis/about-wikis"
+      "title": "議事録ひな形の自動生成"
     },
     {
-      "title": "Discord",
-      "url": "https://discord.com/"
+      "title": "GitHub Wiki 連携でワンクリック反映"
     },
     {
-      "title": "フィヨルドブートキャンプ (FBC)",
-      "url": "https://bootcamp.fjord.jp/"
+      "title": "出席管理: 昼/夜/欠席のセルフ登録"
+    },
+    {
+      "title": "ActionCable + React によるリアルタイム更新"
+    },
+    {
+      "title": "RSpec テストで仕様変更に強く"
     }
   ],
   "chapters": [
     {
       "timestamp": "0:00",
-      "title": "イントロダクション",
+      "title": "イントロ & Fjord Minutes 概要",
       "startTime": 0
     },
     {
-      "timestamp": "1:00",
-      "title": "FBC が抱えていた 2 つの課題",
-      "startTime": 60
+      "timestamp": "0:59",
+      "title": "課題: 議事録と出席管理の手間",
+      "startTime": 59
     },
     {
       "timestamp": "2:05",
-      "title": "Fjord Minutes の主な機能",
+      "title": "自動ひな形生成機能",
       "startTime": 125
     },
     {
-      "timestamp": "3:15",
-      "title": "運用フローと自動化の流れ",
-      "startTime": 195
+      "timestamp": "2:13",
+      "title": "GitHub Wiki 連携",
+      "startTime": 133
     },
     {
-      "timestamp": "4:25",
-      "title": "採用した技術スタック",
-      "startTime": 265
+      "timestamp": "2:25",
+      "title": "出席登録 & 管理画面",
+      "startTime": 145
     },
     {
-      "timestamp": "5:45",
-      "title": "リアルタイム更新機能の試行錯誤",
-      "startTime": 345
+      "timestamp": "2:49",
+      "title": "深夜自動生成 & Discord通知ワークフロー",
+      "startTime": 169
     },
     {
-      "timestamp": "7:05",
-      "title": "開発プロセスとユーザーとの対話",
-      "startTime": 425
+      "timestamp": "3:47",
+      "title": "技術スタック: Rails / Hotwire / React",
+      "startTime": 227
     },
     {
-      "timestamp": "8:30",
-      "title": "学び・テストと改善サイクル",
-      "startTime": 510
+      "timestamp": "4:15",
+      "title": "リアルタイム更新の落とし所",
+      "startTime": 255
     },
     {
-      "timestamp": "9:55",
-      "title": "まとめとリスナーへの問いかけ",
-      "startTime": 595
+      "timestamp": "5:30",
+      "title": "アジャイル開発とフィードバックループ",
+      "startTime": 330
+    },
+    {
+      "timestamp": "6:16",
+      "title": "状態管理の試行錯誤",
+      "startTime": 376
+    },
+    {
+      "timestamp": "8:14",
+      "title": "RSpec テストの効用",
+      "startTime": 494
+    },
+    {
+      "timestamp": "9:04",
+      "title": "まとめ & 問いかけ",
+      "startTime": 544
     }
   ],
   "transcriptUrl": "/whisper_json/whisper_fjord_minutes.json"

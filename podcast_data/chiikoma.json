@@ -50,29 +50,29 @@
       "startTime": 0
     },
     {
-      "timestamp": "1:10",
+      "timestamp": "0:49",
       "title": "ちいこまのコンセプト",
-      "startTime": 70
+      "startTime": 49
     },
     {
-      "timestamp": "2:30",
+      "timestamp": "1:57",
       "title": "主要機能（日替わり提案・優先順位）",
-      "startTime": 150
+      "startTime": 117
     },
     {
-      "timestamp": "3:50",
+      "timestamp": "3:09",
       "title": "技術スタックとインフラ",
-      "startTime": 230
+      "startTime": 189
     },
     {
-      "timestamp": "5:00",
+      "timestamp": "4:01",
       "title": "開発プロセスと学び",
-      "startTime": 300
+      "startTime": 241
     },
     {
-      "timestamp": "6:00",
+      "timestamp": "4:43",
       "title": "まとめとセルフケアの問いかけ",
-      "startTime": 360
+      "startTime": 283
     }
   ],
   "transcriptUrl": "/whisper_json/whisper_chiikoma.json"

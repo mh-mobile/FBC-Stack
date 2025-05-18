@@ -78,49 +78,49 @@
       "startTime": 0
     },
     {
-      "timestamp": "0:25",
+      "timestamp": "0:29",
       "title": "quitcost 概要とターゲットユーザー",
-      "startTime": 25
+      "startTime": 29
     },
     {
-      "timestamp": "1:05",
+      "timestamp": "0:56",
       "title": "負担コスト3本柱：国保・年金・住民税",
-      "startTime": 65
+      "startTime": 56
     },
     {
-      "timestamp": "2:00",
+      "timestamp": "1:22",
       "title": "ユーザー入力とUIの工夫",
-      "startTime": 120
+      "startTime": 82
     },
     {
-      "timestamp": "2:50",
+      "timestamp": "2:37",
       "title": "計算ロジックと前提条件",
-      "startTime": 170
+      "startTime": 157
     },
     {
-      "timestamp": "3:35",
+      "timestamp": "3:06",
       "title": "開発者の退職体験が動機",
-      "startTime": 215
+      "startTime": 186
     },
     {
-      "timestamp": "4:20",
+      "timestamp": "3:46",
       "title": "データソースと JpLocalGov Gem",
-      "startTime": 260
+      "startTime": 226
     },
     {
-      "timestamp": "5:05",
+      "timestamp": "4:33",
       "title": "定期更新・自動化と保守課題",
-      "startTime": 305
+      "startTime": 273
     },
     {
-      "timestamp": "5:45",
+      "timestamp": "4:55",
       "title": "行政手続き可視化の意義",
-      "startTime": 345
+      "startTime": 295
     },
     {
-      "timestamp": "6:25",
-      "title": "まとめと今後の展望",
-      "startTime": 385
+      "timestamp": "6:15",
+      "title": "問いかけ",
+      "startTime": 375
     }
   ],
   "transcriptUrl": "/whisper_json/whisper_quitcost.json"

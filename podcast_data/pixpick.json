@@ -59,44 +59,44 @@
       "startTime": 35
     },
     {
-      "timestamp": "1:15",
+      "timestamp": "1:22",
       "title": "招待リンク & Google ログイン",
-      "startTime": 75
+      "startTime": 82
     },
     {
-      "timestamp": "2:00",
+      "timestamp": "1:46",
       "title": "点数評価とランキング",
-      "startTime": 120
+      "startTime": 106
     },
     {
-      "timestamp": "2:45",
+      "timestamp": "2:29",
       "title": "開発動機: 家族写真の選定",
-      "startTime": 165
+      "startTime": 149
     },
     {
-      "timestamp": "3:20",
+      "timestamp": "3:09",
       "title": "便利機能: サムネイル & 読み込み中評価",
-      "startTime": 200
+      "startTime": 189
     },
     {
-      "timestamp": "4:05",
+      "timestamp": "4:00",
       "title": "技術移行: Google API → S3",
-      "startTime": 245
+      "startTime": 240
     },
     {
-      "timestamp": "4:55",
+      "timestamp": "5:44",
       "title": "HEIC 対応と新技術習得",
-      "startTime": 295
+      "startTime": 344
     },
     {
-      "timestamp": "6:15",
+      "timestamp": "6:45",
       "title": "今後の改善: 非同期化 & 無限スクロール",
-      "startTime": 375
+      "startTime": 405
     },
     {
-      "timestamp": "7:30",
+      "timestamp": "7:29",
       "title": "まとめと問いかけ",
-      "startTime": 450
+      "startTime": 449
     }
   ],
   "transcriptUrl": "/whisper_json/whisper_pixpick.json"

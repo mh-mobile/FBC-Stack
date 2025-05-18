@@ -1,58 +1,113 @@
 {
   "id": "fbc_stack",
   "title": "FBC Stack",
-  "date": "2022-12-31",
+  "date": "2022-12-25",
   "author": "mh-mobile",
-  "audioUrl": "https://pub-43e7ac942c624b64bc0adcef98aeffcf.r2.dev/fbc_stack.m4a",
-  "duration": 420,
-  "summary": "このポッドキャストでは、FBC Stackサービスの開発背景と技術構成について解説しています。フィヨルドブートキャンプ卒業生のサービス技術スタック情報を集約し、共有するためのプラットフォームとして開発された経緯と、Next.js、Chakra UI、TypeScriptを活用した実装アプローチを紹介しています。",
+  "audioUrl": "https://fbc-stack-storage.com/fbc_stack.m4a",
+  "duration": 535,
+  "summary": "FBC卒業生サービスの技術スタックを横断検索できるデータベース「FBC Stack」。情報散在課題を解決する仕組みや、Next.js + Chakra UI 構成、今後のバージョン管理機能などを語る。",
   "showNotes": [
     {
-      "title": "Next.js",
-      "url": "https://nextjs.org/"
+      "title": "FBC Stack 公式サイト",
+      "url": "https://fbc-stack.vercel.app"
     },
     {
-      "title": "Chakra UI",
-      "url": "https://chakra-ui.com/"
+      "title": "GitHub: mh-mobile/FBC-Stack",
+      "url": "https://github.com/mh-mobile/FBC-Stack"
+    },
+    {
+      "title": "開発記事 (Hatena Blog)",
+      "url": "https://mh-mobile.hatenablog.com/entry/2022/12/25/164756"
+    },
+    {
+      "title": "Next.js",
+      "url": "https://nuxtjs.org/"
+    },
+    {
+      "title": "React",
+      "url": "https://react.dev/"
     },
     {
       "title": "TypeScript",
       "url": "https://www.typescriptlang.org/"
     },
     {
-      "title": "フィヨルドブートキャンプ",
-      "url": "https://bootcamp.fjord.jp/"
+      "title": "Chakra UI",
+      "url": "https://chakra-ui.com/"
     },
     {
-      "title": "AWS Cloudflare R2",
-      "url": "https://www.cloudflare.com/products/r2/"
+      "title": "Vercel",
+      "url": "https://vercel.com/"
+    },
+    {
+      "title": "GitHub Actions",
+      "url": "https://github.com/features/actions"
+    },
+    {
+      "title": "Cypress",
+      "url": "https://www.cypress.io/"
+    },
+    {
+      "title": "情報点在問題を解決する技術スタックDB"
+    },
+    {
+      "title": "「みんなのツール」で逆引き検索"
+    },
+    {
+      "title": "Markdown + YAML Front Matter でデータ管理"
+    },
+    {
+      "title": "Next.js + Chakra UI + TypeScript フロント"
+    },
+    {
+      "title": "Vercel SSG & GitHub Actions + Cypress CI/CD"
     }
   ],
   "chapters": [
     {
       "timestamp": "0:00",
-      "title": "イントロダクション",
+      "title": "イントロ & FBC Stack とは",
       "startTime": 0
     },
     {
-      "timestamp": "1:30",
-      "title": "FBC Stackの開発背景",
-      "startTime": 90
+      "timestamp": "1:20",
+      "title": "開発動機: 情報の散在課題",
+      "startTime": 80
     },
     {
-      "timestamp": "3:45",
-      "title": "技術スタックの選定理由",
-      "startTime": 225
+      "timestamp": "2:36",
+      "title": "サービス一覧 & みんなのツール機能",
+      "startTime": 156
     },
     {
-      "timestamp": "5:20",
-      "title": "Next.jsとChakra UIの活用方法",
-      "startTime": 320
+      "timestamp": "3:25",
+      "title": "技術構成: Next.js / Chakra UI / YAML",
+      "startTime": 205
     },
     {
-      "timestamp": "6:30",
-      "title": "まとめと今後の展望",
-      "startTime": 390
+      "timestamp": "4:18",
+      "title": "インフラ: Vercel・GitHub Actions・Cypress",
+      "startTime": 258
+    },
+    {
+      "timestamp": "4:30",
+      "title": "技術選定の理由",
+      "startTime": 270
+    },
+    {
+      "timestamp": "5:06",
+      "title": "開発を通した学び",
+      "startTime": 306
+    },
+    {
+      "timestamp": "6:44",
+      "title": "FBC Stackの活用",
+      "startTime": 306
+    },
+    {
+      "timestamp": "8:00",
+      "title": "展望: バージョン管理 & タグ付け",
+      "startTime": 420
     }
   ],
   "transcriptUrl": "/whisper_json/whisper_fbc_stack.json"

@@ -3,7 +3,7 @@ title: 'はまったいまー'
 date: '2022-10-18'
 author: yocaji
 code:
-  - repository: 'https://github.com/yocajii/hamattimer'
+  - repository: 'https://github.com/yocaji/hamattimer'
     description: ''
 blog: https://yocajii.hatenablog.jp/entry/2022/11/17/083539
 website: https://hamattimer.app/
