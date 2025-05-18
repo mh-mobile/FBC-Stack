@@ -203,7 +203,7 @@ const PodcastPlayer: React.FC<Props> = ({
 
   return (
     <VStack spacing={4} align="stretch" w="100%">
-      <audio ref={audioRef} src={audioUrl} volume={volume} />
+      <audio ref={audioRef} src={audioUrl} />
 
       {/* Player Controls */}
       <Box bg="#F7FAFC" borderRadius="lg" p={{ base: 3, md: 4 }} boxShadow="sm">
