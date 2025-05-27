@@ -1,0 +1,89 @@
+{
+  "id": "bookrin",
+  "title": "BookRIn",
+  "date": "2025-04-14",
+  "author": "masyuko0222",
+  "audioUrl": "https://fbc-stack-storage.com/bookrin.m4a",
+  "duration": 474,
+  "summary": "このポッドキャストでは、輪読会の記録をリアルタイム共同編集できる「BookRIn」の概要、解決する課題、主要機能、採用技術、そして今後の展望について解説しています。",
+  "showNotes": [
+    {
+      "title": "フィヨルドブートキャンプ",
+      "url": "https://bootcamp.fjord.jp/"
+    },
+    {
+      "title": "Ruby on Rails",
+      "url": "https://rubyonrails.org/"
+    },
+    {
+      "title": "React",
+      "url": "https://react.dev/"
+    },
+    {
+      "title": "Hotwire",
+      "url": "https://hotwired.dev/"
+    },
+    {
+      "title": "Tiptap",
+      "url": "https://tiptap.dev/"
+    },
+    {
+      "title": "Yjs",
+      "url": "https://yjs.dev/"
+    },
+    {
+      "title": "Fly.io",
+      "url": "https://fly.io/"
+    },
+    {
+      "title": "GitHub Actions",
+      "url": "https://github.com/features/actions"
+    },
+    {
+      "title": "リアルタイム共同編集"
+    },
+    {
+      "title": "テンプレート機能"
+    },
+    {
+      "title": "検索機能"
+    },
+    {
+      "title": "Discordログイン必須"
+    }
+  ],
+  "chapters": [
+    {
+      "timestamp": "0:00",
+      "title": "イントロダクション",
+      "startTime": 0
+    },
+    {
+      "timestamp": "1:01",
+      "title": "BookRInが解決する課題",
+      "startTime": 61
+    },
+    {
+      "timestamp": "1:41",
+      "title": "コア機能：共同編集とテンプレート",
+      "startTime": 101
+    },
+    {
+      "timestamp": "3:24",
+      "title": "技術スタックとアーキテクチャ",
+      "startTime": 204
+    },
+    {
+      "timestamp": "4:12",
+      "title": "デプロイと開発の苦労話",
+      "startTime": 252
+    },
+    {
+      "timestamp": "5:38",
+      "title": "今後のロードマップと考察",
+      "startTime": 338
+    }
+  ],
+  "transcriptUrl": "/whisper_json/whisper_bookrin.json",
+  "fileSize": 6537121
+}
