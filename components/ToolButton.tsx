@@ -8,7 +8,6 @@ const ToolButton = React.forwardRef<
   HTMLAnchorElement,
   ButtonProps & { id: string; name: string; version: string }
 >(function ToolButton({ onClick, href, id, name, version }, ref) {
-  const display = version ? 'flex' : 'none'
   const [imageSrc, setImageSrc] = useState(`/images/tool/${id}.png`)
 
   return (
@@ -21,10 +20,9 @@ const ToolButton = React.forwardRef<
       <Box
         key="{id}"
         style={{
-          borderRadius: '5px',
+          borderRadius: '8px',
           minHeight: '120px',
-          paddingTop: '20px',
-          paddingBottom: '20px',
+          padding: '20px 10px',
           backgroundColor: '#f7fafc',
           display: 'flex',
           flexDirection: 'column',
@@ -32,41 +30,52 @@ const ToolButton = React.forwardRef<
           alignItems: 'center',
         }}
       >
-        <Box style={{ marginBottom: 5 }}>
+        <Box
+          height={45}
+          width={45}
+          style={{
+            position: 'relative',
+            marginBottom: '12px',
+          }}
+        >
           <Image
             src={imageSrc}
-            width={45}
-            height={45}
             alt="logo"
             placeholder="blur"
             blurDataURL={getBlurDataURL()}
+            fill
             onError={() => setImageSrc(`/images/noimage.png`)}
             style={{
-              maxWidth: '100%',
-              height: 'auto',
               objectFit: 'contain',
             }}
           />
         </Box>
         <Box
-          style={{ wordBreak: 'break-word', padding: '0 20px' }}
+          style={{
+            wordBreak: 'break-word',
+            padding: '5px 20px 0',
+            textAlign: 'center',
+            fontSize: '14px',
+            lineHeight: '1.4',
+          }}
           color="lightText"
         >
           {name}
         </Box>
-        {
+        {version && (
           <Box
             bg="gray.200"
             mt={2}
             p={1}
             width="80%"
-            display={display}
+            display="flex"
             justifyContent="center"
             rounded="base"
+            fontSize="12px"
           >
             {version}
           </Box>
-        }
+        )}
       </Box>
     </a>
   )
