@@ -18,7 +18,6 @@ const ToolButton = React.forwardRef<
       style={{ textDecoration: 'none' }}
     >
       <Box
-        key="{id}"
         style={{
           borderRadius: '8px',
           minHeight: '120px',

@@ -86,13 +86,13 @@ const Tools: NextPage<Props> = ({ allToolsData }) => {
           gap={{ base: 3, md: 6 }}
         >
           {filteredItems.map(({ toolID, toolName }) => (
-            <GridItem w="100%" key={toolID}>
-              <Link
-                href={`/tools/${toolID}`}
-                passHref
-                legacyBehavior
-                key="{toolID}"
-              >
+              <GridItem w="100%" key={toolID}>
+                <Link
+                  href={`/tools/${toolID}`}
+                  passHref
+                  legacyBehavior
+                  key={toolID}
+                >
                 <ToolButton name={toolName} id={toolID} version="" />
               </Link>
             </GridItem>

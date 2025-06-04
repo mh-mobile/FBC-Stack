@@ -75,7 +75,7 @@ const ServiceContent: NextPage<Props> = ({ postData }) => {
       <Box py={5}>
         <Box id="stack">
           {postData.stack.map(({ name, detail }) => (
-            <Box key="{name}" p={5} mb={5} border="1px solid #eee">
+            <Box key={name} p={5} mb={5} border="1px solid #eee">
               <Box>
                 <b>
                   {name} ({detail.length})
@@ -95,7 +95,7 @@ const ServiceContent: NextPage<Props> = ({ postData }) => {
                         href={`/tools/${postData.toolPathInfo![name]}`}
                         passHref
                         legacyBehavior
-                        key="{name}"
+                        key={name}
                       >
                         <ToolButton
                           name={name}
