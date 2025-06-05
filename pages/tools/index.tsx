@@ -91,7 +91,6 @@ const Tools: NextPage<Props> = ({ allToolsData }) => {
                   href={`/tools/${toolID}`}
                   passHref
                   legacyBehavior
-                  key={toolID}
                 >
                 <ToolButton name={toolName} id={toolID} version="" />
               </Link>
