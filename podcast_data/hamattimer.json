@@ -1,0 +1,106 @@
+{
+  "id": "hamattimer",
+  "title": "はまったいまー",
+  "date": "2022-10-18",
+  "author": "yocaji",
+  "audioUrl": "https://fbc-stack-storage.com/hamattimer.m4a",
+  "duration": 456,
+  "summary": "プログラミング学習で“ハマる”時間を管理し、試行錯誤をメモで可視化するタイマー付ツール「はまったいまー」。タイムボックスと記録の組み合わせ、GitHub Gist 共有、プロトタイプから改善を重ねた開発ストーリーを紹介。",
+  "showNotes": [
+    {
+      "title": "はまったいまー (Webサイト)",
+      "url": "https://hamattimer.app/"
+    },
+    {
+      "title": "GitHub: yocaji/hamattimer",
+      "url": "https://github.com/yocaji/hamattimer"
+    },
+    {
+      "title": "開発ブログ記事",
+      "url": "https://yocajii.hatenablog.jp/entry/2022/11/17/083539"
+    },
+    {
+      "title": "React",
+      "url": "https://react.dev/"
+    },
+    {
+      "title": "Next.js",
+      "url": "https://nextjs.org/"
+    },
+    {
+      "title": "Vercel",
+      "url": "https://vercel.com/"
+    },
+    {
+      "title": "Cloudinary",
+      "url": "https://cloudinary.com/"
+    },
+    {
+      "title": "GitHub Actions",
+      "url": "https://github.com/features/actions"
+    },
+    {
+      "title": "Playwright",
+      "url": "https://playwright.dev/"
+    },
+    {
+      "title": "タイマーで時間を区切り思考をリセット"
+    },
+    {
+      "title": "メモで試行錯誤を記録・整理"
+    },
+    {
+      "title": "Markdown & 画像ペースト対応メモ"
+    },
+    {
+      "title": "GitHub Gist へエクスポート共有"
+    },
+    {
+      "title": "プロトタイプとユーザーフィードバック循環"
+    }
+  ],
+  "chapters": [
+    {
+      "timestamp": "0:00",
+      "title": "イントロ & ハマる問題意識",
+      "startTime": 0
+    },
+    {
+      "timestamp": "0:56",
+      "title": "タイマー機能: 時間管理",
+      "startTime": 56
+    },
+    {
+      "timestamp": "2:00",
+      "title": "メモ機能: Markdown & 画像",
+      "startTime": 120
+    },
+    {
+      "timestamp": "2:52",
+      "title": "GitHub Gist 共有",
+      "startTime": 172
+    },
+    {
+      "timestamp": "3:26",
+      "title": "開発背景: Fjord Bootcamp 体験",
+      "startTime": 206
+    },
+    {
+      "timestamp": "4:06",
+      "title": "課題の特定と設計方針",
+      "startTime": 246
+    },
+    {
+      "timestamp": "4:36",
+      "title": "プロトタイプ & フィードバック",
+      "startTime": 276
+    },
+    {
+      "timestamp": "6:29",
+      "title": "まとめと問いかけ",
+      "startTime": 389
+    }
+  ],
+  "transcriptUrl": "/whisper_json/whisper_hamattimer.json",
+  "fileSize": 6424820
+}

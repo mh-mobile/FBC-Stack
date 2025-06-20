@@ -1,0 +1,103 @@
+{
+  "id": "watermarkme",
+  "title": "Watermark Me",
+  "date": "2023-01-31",
+  "author": "niikz",
+  "audioUrl": "https://fbc-stack-storage.com/watermarkme.m4a",
+  "duration": 393,
+  "summary": "画像にアカウント名の透かしを付け、そのままツイートできるサービス「Watermark Me」。Twitter API 連携、画像を保存しない設計、学習プロジェクトとしての学びを語ります。",
+  "showNotes": [
+    {
+      "title": "Watermark Me サイト",
+      "url": "https://watermarkme.fly.dev/"
+    },
+    {
+      "title": "GitHub: niikz/watermarkme",
+      "url": "https://github.com/niikz/watermarkme"
+    },
+    {
+      "title": "開発ブログ記事",
+      "url": "https://niikz.hateblo.jp/entry/20230131/1675137600"
+    },
+    {
+      "title": "Ruby on Rails",
+      "url": "https://rubyonrails.org/"
+    },
+    {
+      "title": "Vue.js",
+      "url": "https://vuejs.org/"
+    },
+    {
+      "title": "Tailwind CSS",
+      "url": "https://tailwindcss.com/"
+    },
+    {
+      "title": "daisyUI",
+      "url": "https://daisyui.com/"
+    },
+    {
+      "title": "Slim (テンプレートエンジン)",
+      "url": "https://slim-template.github.io/"
+    },
+    {
+      "title": "Fly.io",
+      "url": "https://fly.io/"
+    },
+    {
+      "title": "Twitter 連携で透かし付き画像を即ツイート"
+    },
+    {
+      "title": "加工後の画像を DB に保存しない設計"
+    },
+    {
+      "title": "フォームオブジェクトパターン採用"
+    },
+    {
+      "title": "Twitter API 仕様理解の苦労"
+    }
+  ],
+  "chapters": [
+    {
+      "timestamp": "0:00",
+      "title": "イントロ & WatermarkMe 概要",
+      "startTime": 0
+    },
+    {
+      "timestamp": "1:30",
+      "title": "開発動機と課題感",
+      "startTime": 90
+    },
+    {
+      "timestamp": "2:06",
+      "title": "ユーザーフロー: ログイン〜投稿",
+      "startTime": 126
+    },
+    {
+      "timestamp": "2:17",
+      "title": "DB 保存しない設計と利点",
+      "startTime": 137
+    },
+    {
+      "timestamp": "3:56",
+      "title": "技術スタック詳細",
+      "startTime": 236
+    },
+    {
+      "timestamp": "4:40",
+      "title": "Twitter API 連携の苦労",
+      "startTime": 280
+    },
+    {
+      "timestamp": "5:08",
+      "title": "学習プロセスとFjord Bootcamp",
+      "startTime": 308
+    },
+    {
+      "timestamp": "6:28",
+      "title": "まとめ & 次の展望",
+      "startTime": 328
+    }
+  ],
+  "transcriptUrl": "/whisper_json/whisper_watermarkme.json",
+  "fileSize": 5499141
+}

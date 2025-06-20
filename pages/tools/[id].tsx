@@ -60,7 +60,7 @@ const Tool: NextPage<Props> = ({ allPostsData, toolData }) => {
   return (
     <Layout>
       <Head>
-        <title>{siteTitle}</title>
+        <title>{`${siteTitle}`}</title>
       </Head>
       <Box sx={utilStyles.headingXl}>
         <HStack justify="center" py={5}>

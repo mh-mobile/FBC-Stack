@@ -1,0 +1,128 @@
+{
+  "id": "quitcost",
+  "title": "quitcost",
+  "date": "2022-04-05",
+  "author": "IkumaTadokoro",
+  "audioUrl": "https://fbc-stack-storage.com/quitcost.m4a",
+  "duration": 418,
+  "summary": "無職期間に発生する『国保・年金・住民税』の目安を瞬時に試算できるウェブサービス「quitcost」。開発者自身の退職経験を起点に、計算ロジックの妥当性と行政データの自動更新の課題を語ります。",
+  "showNotes": [
+    {
+      "title": "GitHub Repository",
+      "url": "https://github.com/IkumaTadokoro/quitcost"
+    },
+    {
+      "title": "開発者ブログ記事",
+      "url": "https://zenn.dev/ikuma/articles/release-quitcost"
+    },
+    {
+      "title": "Ruby on Rails",
+      "url": "https://rubyonrails.org/"
+    },
+    {
+      "title": "Vue.js",
+      "url": "https://vuejs.org/"
+    },
+    {
+      "title": "Tailwind CSS",
+      "url": "https://tailwindcss.com/"
+    },
+    {
+      "title": "Slim",
+      "url": "https://slim-template.github.io/"
+    },
+    {
+      "title": "JpLocalGov (rubygem)",
+      "url": "https://rubygems.org/gems/jp_local_gov"
+    },
+    {
+      "title": "Ruby",
+      "url": "https://www.ruby-lang.org/"
+    },
+    {
+      "title": "Heroku",
+      "url": "https://www.heroku.com/"
+    },
+    {
+      "title": "Docker",
+      "url": "https://www.docker.com/"
+    },
+    {
+      "title": "Docker Compose",
+      "url": "https://docs.docker.com/compose/"
+    },
+    {
+      "title": "GitHub Actions",
+      "url": "https://github.com/features/actions"
+    },
+    {
+      "title": "国保・年金・住民税の計算の難しさ"
+    },
+    {
+      "title": "手軽さを優先したUI設計"
+    },
+    {
+      "title": "精度と割り切り：目安としての試算"
+    },
+    {
+      "title": "開発者自身の体験が動機"
+    },
+    {
+      "title": "行政手続き可視化への意義"
+    }
+  ],
+  "chapters": [
+    {
+      "timestamp": "0:00",
+      "title": "イントロダクション",
+      "startTime": 0
+    },
+    {
+      "timestamp": "0:29",
+      "title": "quitcost 概要とターゲットユーザー",
+      "startTime": 29
+    },
+    {
+      "timestamp": "0:56",
+      "title": "負担コスト3本柱：国保・年金・住民税",
+      "startTime": 56
+    },
+    {
+      "timestamp": "1:22",
+      "title": "ユーザー入力とUIの工夫",
+      "startTime": 82
+    },
+    {
+      "timestamp": "2:37",
+      "title": "計算ロジックと前提条件",
+      "startTime": 157
+    },
+    {
+      "timestamp": "3:06",
+      "title": "開発者の退職体験が動機",
+      "startTime": 186
+    },
+    {
+      "timestamp": "3:46",
+      "title": "データソースと JpLocalGov Gem",
+      "startTime": 226
+    },
+    {
+      "timestamp": "4:33",
+      "title": "定期更新・自動化と保守課題",
+      "startTime": 273
+    },
+    {
+      "timestamp": "4:55",
+      "title": "行政手続き可視化の意義",
+      "startTime": 295
+    },
+    {
+      "timestamp": "6:15",
+      "title": "問いかけ",
+      "startTime": 375
+    }
+  ],
+  "transcriptUrl": "/whisper_json/whisper_quitcost.json",
+  "fileSize": 5878444
+}

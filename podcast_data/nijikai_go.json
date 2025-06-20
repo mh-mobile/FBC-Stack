@@ -1,0 +1,92 @@
+{
+  "id": "nijikai_go",
+  "title": "2次会GO!",
+  "date": "2025-04-13",
+  "author": "djkazunoko",
+  "audioUrl": "https://fbc-stack-storage.com/nijikai_go.m4a",
+  "duration": 562,
+  "summary": "テックイベント終了後の“二次会”をスムーズに開催できるようにするツール「2次会GO!」の概要、GitHubログインを用いた簡単なグループページ作成、Hotwire＋Railsを選択した理由、Fly.io無料枠でのコスト最適化術、毎日データを自動削除する大胆な運用方針などを語ります。",
+  "showNotes": [
+    {
+      "title": "GitHub"
+    },
+    {
+      "title": "Ruby on Rails",
+      "url": "https://rubyonrails.org/"
+    },
+    {
+      "title": "Hotwire",
+      "url": "https://hotwired.dev/"
+    },
+    {
+      "title": "Tailwind CSS",
+      "url": "https://tailwindcss.com/"
+    },
+    {
+      "title": "PostgreSQL",
+      "url": "https://www.postgresql.org/"
+    },
+    {
+      "title": "Fly.io",
+      "url": "https://fly.io/"
+    },
+    {
+      "title": "GitHub Actions",
+      "url": "https://github.com/features/actions"
+    },
+    {
+      "title": "リアルタイムコメント機能"
+    },
+    {
+      "title": "コスト削減の工夫"
+    },
+    {
+      "title": "深夜データ自動削除"
+    },
+    {
+      "title": "テックイベント二次会"
+    },
+    {
+      "title": "ニッチな課題解決"
+    }
+  ],
+  "chapters": [
+    {
+      "timestamp": "0:00",
+      "title": "イントロダクション",
+      "startTime": 0
+    },
+    {
+      "timestamp": "0:27",
+      "title": "二次会の課題とツール概要",
+      "startTime": 27
+    },
+    {
+      "timestamp": "1:07",
+      "title": "使い方と主要機能",
+      "startTime": 67
+    },
+    {
+      "timestamp": "2:25",
+      "title": "技術スタックと選択理由",
+      "startTime": 145
+    },
+    {
+      "timestamp": "4:08",
+      "title": "無料運用のコスト最適化",
+      "startTime": 248
+    },
+    {
+      "timestamp": "5:27",
+      "title": "データ削除と自動処理",
+      "startTime": 327
+    },
+    {
+      "timestamp": "7:28",
+      "title": "今後のロードマップと考察",
+      "startTime": 448
+    }
+  ],
+  "transcriptUrl": "/whisper_json/whisper_nijikai_go.json",
+  "fileSize": 7799947
+}
