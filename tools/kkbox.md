@@ -1,6 +1,6 @@
 ---
 toolName: KKBOX
-alias: 
+alias:
   - KKBOX API
 url: https://www.kkbox.com/jp/ja
 ---

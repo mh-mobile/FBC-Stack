@@ -1,5 +1,6 @@
 ---
 toolName: Hotwire
-alias: 
+alias:
+  - HotWire
 url: https://hotwired.dev/
 ---
