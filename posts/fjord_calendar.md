@@ -1,7 +1,7 @@
 ---
 title: 'Fjord Calendar'
 date: '2025-05-31'
-author: hagi
+author: hagiya0121
 code:
   - repository: 'https://github.com/hagiya0121/fjord-calendar'
     description: ''
