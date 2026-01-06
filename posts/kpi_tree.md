@@ -8,6 +8,7 @@ code:
 blog: "https://peno022.hatenablog.com/entry/kpi-tree-maker"
 website: "https://kpi-tree.com/"
 published: true
+hasAudio: true
 stack:
   - name: 言語
     detail: 

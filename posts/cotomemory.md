@@ -8,6 +8,7 @@ code:
 blog: "https://siroemk.hatenablog.com/entry/2023/11/27/085906"
 website: "https://cotomemory.com/"
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

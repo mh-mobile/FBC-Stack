@@ -8,6 +8,7 @@ code:
 blog: https://enrichmylife.hatenablog.jp/entry/2023/03/03/073000
 website: https://kyudo-training-log.com/
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail: 

@@ -8,6 +8,7 @@ code:
 blog:
 website: https://my-film-todo.com/
 published: false
+hasAudio: false
 stack:
   - name: frontend
     detail: 

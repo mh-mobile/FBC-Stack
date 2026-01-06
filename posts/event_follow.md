@@ -10,6 +10,7 @@ code:
 blog: https://mh-mobile.hatenablog.com/entry/2021/07/06/085442
 website:
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

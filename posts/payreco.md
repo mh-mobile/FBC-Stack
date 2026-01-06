@@ -10,6 +10,7 @@ code:
 blog: https://kazumi-learning.tumblr.com/post/698950071100850176/payreco
 website: https://payreco.vercel.app/
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail: 

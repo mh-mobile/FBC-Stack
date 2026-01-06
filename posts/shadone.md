@@ -8,6 +8,7 @@ code:
 blog: https://eatplaynap329.hatenablog.jp/entry/2022/09/12/025508
 website:
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

@@ -8,6 +8,7 @@ code:
 blog: https://maimux2x.hatenablog.com/entry/2023/05/10/081029
 website:
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

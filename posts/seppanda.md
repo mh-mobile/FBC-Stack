@@ -8,6 +8,7 @@ code:
 blog: https://note.com/inuzuka_mami/n/ne35c59dec021
 website:
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

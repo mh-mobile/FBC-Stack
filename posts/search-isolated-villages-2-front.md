@@ -8,6 +8,7 @@ code:
 blog: https://note.com/otomo6sm/n/n04f8e6b74ddc
 website: https://search-isolated-villages.com/
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

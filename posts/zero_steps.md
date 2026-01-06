@@ -8,6 +8,7 @@ code:
 blog: 'https://yocchan-eng.hatenablog.com/entry/zero-steps'
 website:
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

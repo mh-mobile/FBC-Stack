@@ -8,6 +8,7 @@ code:
 blog: 'https://ham-cap.hatenablog.com/entry/2025/03/26/124514'
 website: 'https://eigo-de-do-you-note.fly.dev/'
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

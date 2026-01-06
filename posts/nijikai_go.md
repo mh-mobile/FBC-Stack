@@ -8,6 +8,7 @@ code:
 blog: 'https://ama-tech.hatenablog.com/nijikai-go-release'
 website: 'https://nijikai-go.fly.dev/'
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

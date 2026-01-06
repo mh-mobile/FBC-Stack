@@ -8,6 +8,7 @@ code:
 blog: https://blog.otomi.world/released-srive/
 website: https://srive.app/
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド/バックエンド
     detail: 

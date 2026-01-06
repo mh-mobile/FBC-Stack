@@ -8,6 +8,7 @@ code:
 blog: 'https://futa4095.hatenablog.com/entry/2024/07/08/085928'
 website: 'https://circlecast.net/'
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

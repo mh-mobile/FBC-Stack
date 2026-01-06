@@ -8,6 +8,7 @@ code:
 blog: https://kimhour.hatenablog.com/
 website:
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

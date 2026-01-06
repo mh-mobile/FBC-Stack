@@ -8,6 +8,7 @@ code:
 blog: 'https://www.maeda-m.com/2023/07/14/released-employmate.html'
 website: ''
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

@@ -8,6 +8,7 @@ code:
 blog: https://yukiwatanabe.hatenablog.com/entry/maaks_launch
 website: ''
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

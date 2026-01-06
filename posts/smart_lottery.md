@@ -8,6 +8,7 @@ code:
 blog: "https://odentakashi.github.io/2023/10/01/post6.html"
 website: "https://smartlottery.fly.dev/welcome"
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

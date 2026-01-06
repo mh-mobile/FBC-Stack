@@ -8,6 +8,7 @@ code:
 blog: https://lef237.hatenablog.com/entry/2023/04/16/112002
 website: https://quotelist.fly.dev/
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

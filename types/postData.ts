@@ -14,6 +14,7 @@ export type PostData = {
   blog?: string
   deepwiki?: string // Added deepwiki field
   published: boolean
+  hasAudio: boolean
   code: GitHubRepository[]
   stack: Stack
   toolPathInfo?: { [key: string]: string }

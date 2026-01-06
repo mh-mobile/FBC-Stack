@@ -8,6 +8,7 @@ code:
 blog: https://niikz.hateblo.jp/entry/20230131/1675137600
 website: https://watermarkme.fly.dev/
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail: 

@@ -8,6 +8,7 @@ code:
 blog: "https://shirotamaki.hatenablog.com/entry/release-blog"
 website: "https://www.outdoor-heart-sutra.com/"
 published: true
+hasAudio: false
 stack:
   - name: バックエンド
     detail: 

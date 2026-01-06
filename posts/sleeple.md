@@ -8,6 +8,7 @@ code:
 blog: https://masanarih0ri.hatenablog.com/entry/2022/12/31/172124
 website:
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

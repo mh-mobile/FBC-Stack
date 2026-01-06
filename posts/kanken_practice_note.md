@@ -8,6 +8,7 @@ code:
 blog: https://kei-kmj.hatenablog.com/entry/2023/03/08/154247
 website: https://kanken-practice-b5ve7zdnrq-an.a.run.app/
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

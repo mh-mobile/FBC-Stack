@@ -8,6 +8,7 @@ code:
 blog: 'https://qiita.com/yuma_matzui/items/cc3f5fbd8e0d6319a3d4'
 website: ''
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

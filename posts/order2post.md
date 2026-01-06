@@ -8,6 +8,7 @@ code:
 blog: "https://rira100000000.hatenablog.com/entry/2023/12/21/075821"
 website: "https://order2post.fun/"
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

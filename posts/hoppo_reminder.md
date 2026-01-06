@@ -8,6 +8,7 @@ code:
 blog: 'https://hiroblogdesu.hatenablog.com/entry/2025/12/14/085324'
 website: 'https://hopporeminder.fly.dev/'
 published: true
+hasAudio: false
 stack:
   - name: フロントエンド
     detail:

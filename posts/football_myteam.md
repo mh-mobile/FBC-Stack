@@ -8,6 +8,7 @@ code:
 blog: https://tsukadaryo.com/football-my-team/
 website: 
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail: 

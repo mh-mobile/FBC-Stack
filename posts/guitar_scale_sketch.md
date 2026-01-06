@@ -8,6 +8,7 @@ code:
 blog: "https://sadanora.hatenablog.com/entry/2023/10/31/090000"
 website: "https://guitar-scale-sketch.com/"
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

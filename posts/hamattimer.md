@@ -8,6 +8,7 @@ code:
 blog: https://yocajii.hatenablog.jp/entry/2022/11/17/083539
 website: https://hamattimer.app/
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail: 

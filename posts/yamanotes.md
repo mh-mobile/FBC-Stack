@@ -8,6 +8,7 @@ code:
 blog: 'https://suzuka-hk.hatenablog.com/'
 website: 'https://www.yamanotes.com/'
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

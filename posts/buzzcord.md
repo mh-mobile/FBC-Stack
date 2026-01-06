@@ -8,6 +8,7 @@ code:
 blog: https://paru871.hatenablog.com/entry/buzzcord
 website: https://buzzcord-fjord-jp.herokuapp.com/
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail: 

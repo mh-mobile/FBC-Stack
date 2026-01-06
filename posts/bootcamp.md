@@ -8,6 +8,7 @@ code:
 blog: 
 website: 
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail: 

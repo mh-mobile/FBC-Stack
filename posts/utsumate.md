@@ -8,6 +8,7 @@ code:
 blog: https://naomichi-h.hatenablog.com/entry/2022/10/16/153122
 website:
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

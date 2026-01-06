@@ -8,6 +8,7 @@ code:
 blog: 'https://susu-blog.hatenablog.com/entry/2025/08/19/134706'
 website: 'https://www.yoyakuhub.jp/'
 published: true
+hasAudio: false
 stack:
   - name: フロントエンド
     detail:

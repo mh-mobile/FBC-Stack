@@ -8,6 +8,7 @@ code:
 blog: https://daiki0381.hatenablog.com/entry/2022/12/21/021555
 website:
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

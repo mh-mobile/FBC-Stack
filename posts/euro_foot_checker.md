@@ -8,6 +8,7 @@ code:
 blog: https://knkdic.hatenablog.com/entry/2022/04/20/224617
 website:
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail: 

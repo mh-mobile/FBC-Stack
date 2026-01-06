@@ -8,6 +8,7 @@ code:
 blog: https://kasai441.hatenablog.com/entry/2022/08/22/080730 
 website:
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail: 

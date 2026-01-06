@@ -8,6 +8,7 @@ code:
 blog: https://zenn.dev/recky/articles/tsundoku_release_notes
 website: https://tsundoku.tech/
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

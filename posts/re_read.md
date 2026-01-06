@@ -8,6 +8,7 @@ code:
 blog: https://haruguchi-yuma.hatenablog.com/entry/2022/05/20/094027
 website: 
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail: 
