@@ -8,6 +8,7 @@ code:
 blog: https://audiostakes.hatenablog.com/entry/2022/04/01/084227
 webiste: https://shortype.vercel.app/
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail: 

@@ -7,6 +7,7 @@ code:
     description: ''
 blog: 'https://riq0h.jp/2025/07/11/163822/'
 published: true
+hasAudio: false
 stack:
   - name: フロントエンド
     detail:

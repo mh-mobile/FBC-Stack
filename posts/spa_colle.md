@@ -8,6 +8,7 @@ code:
 blog: 'https://judeee-blog.hatenablog.com/entry/2025/06/13/083000'
 website: 'https://spa-colle.com/'
 published: true
+hasAudio: false
 stack:
   - name: フロントエンド
     detail:

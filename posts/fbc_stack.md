@@ -8,6 +8,7 @@ code:
 blog: https://mh-mobile.hatenablog.com/entry/2022/12/25/164756
 website: https://fbc-stack.vercel.app
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail: 

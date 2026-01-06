@@ -8,6 +8,7 @@ code:
 blog: https://ud-ike.hatenablog.com/entry/2022/04/26/085335
 website: 
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail: 

@@ -8,6 +8,7 @@ code:
 blog: https://fuga-ch85.hatenablog.com/entry/2021/11/15/120000
 website: 
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail: 

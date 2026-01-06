@@ -8,6 +8,7 @@ code:
 blog: 
 website:
 published: false
+hasAudio: false
 stack:
   - name: frontend
     detail: 

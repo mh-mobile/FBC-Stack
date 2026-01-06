@@ -8,6 +8,7 @@ code:
 blog: https://kawase-k.hatenablog.com/entry/2022/04/18/083000
 website: https://github.com/kotakawase/pomoru#%E3%83%9D%E3%83%A2%E3%82%8B---
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

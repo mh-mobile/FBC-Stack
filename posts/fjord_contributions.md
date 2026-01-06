@@ -8,6 +8,7 @@ code:
 blog: 'https://ymmtd0x0b.hatenablog.com/entry/2024/10/10/140036'
 website: 'https://fjordcontributions.onrender.com/'
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

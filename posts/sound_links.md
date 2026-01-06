@@ -8,6 +8,7 @@ code:
 blog: https://docs.koheitakahashi.com/entry/2021/12/06/070000
 website:
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

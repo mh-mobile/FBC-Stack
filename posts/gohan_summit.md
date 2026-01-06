@@ -8,6 +8,7 @@ code:
 blog: https://motohiro-mm.hatenablog.com/entry/2024/12/12/084505
 website: https://gohansummit.com
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

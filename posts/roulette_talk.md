@@ -8,6 +8,7 @@ code:
 blog: https://siso255.hatenablog.com/entry/2024/02/05/080342
 website: https://roulette-talk.com/
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

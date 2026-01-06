@@ -8,6 +8,7 @@ code:
 blog: https://garammasala29.hatenablog.com/entry/NursePicks
 website:
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

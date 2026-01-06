@@ -8,6 +8,7 @@ code:
 blog: https://nicole2525.hatenablog.com/entry/2024/11/13/090018
 website: https://memo-recall.fly.dev/
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

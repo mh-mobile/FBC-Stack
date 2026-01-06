@@ -8,6 +8,7 @@ code:
 blog: 'https://suzuba.hatenablog.com/entry/2025/04/02/141204'
 website: 'https://giftreat.jp/'
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

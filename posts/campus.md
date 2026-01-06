@@ -8,6 +8,7 @@ code:
 blog: 'https://sugiwe.hatenablog.jp/entry/campus'
 website: 'https://campus.bz/'
 published: true
+hasAudio: false
 stack:
   - name: フロントエンド
     detail:

@@ -8,6 +8,7 @@ code:
 blog: https://shucream-p.hatenablog.com/entry/2024/02/19/080023
 website: https://dowasure-note.com/
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

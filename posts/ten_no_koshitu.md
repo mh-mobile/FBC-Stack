@@ -8,6 +8,7 @@ code:
 blog: https://new-lamp.hatenablog.com/entry/2020/12/15/222126
 website:
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

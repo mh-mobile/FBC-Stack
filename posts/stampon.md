@@ -8,6 +8,7 @@ code:
 blog: https://kaiyu-tech.hatenablog.com/entry/2022/01/07/205825
 website:
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

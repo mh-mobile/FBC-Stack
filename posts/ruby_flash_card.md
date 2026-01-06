@@ -8,6 +8,7 @@ code:
 blog: 'https://toke.hatenablog.com/entry/2023/09/26/183251'
 website: ''
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

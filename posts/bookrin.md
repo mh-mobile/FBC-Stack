@@ -8,6 +8,7 @@ code:
 blog: 'https://masyuko0222.hatenablog.com/entry/2025/04/14/200347'
 website: 'https://bookrin.fly.dev/'
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

@@ -8,6 +8,7 @@ code:
 blog: https://note.com/unstoppa61e/n/nd3cdb84b41ad
 website: https://gorogoropanda.com/
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail: 

@@ -8,6 +8,7 @@ code:
 blog: https://napple29.hatenablog.com/entry/2022/09/06/083747
 website:
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

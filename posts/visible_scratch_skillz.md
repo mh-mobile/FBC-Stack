@@ -8,6 +8,7 @@ code:
 blog: https://zenn.dev/obregonia1/articles/9f6fae7968c0c0
 website:
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

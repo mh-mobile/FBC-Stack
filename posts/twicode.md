@@ -8,6 +8,7 @@ code:
 blog: https://yana-g.hatenablog.com/entry/2021/12/20/112148
 website: 
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail: 

@@ -134,7 +134,9 @@ const Post: NextPage<Props> = ({ postData }) => {
                 />
               </ExternalLink>
             )}
-            <AudioSummaryModal postId={postData.id} title={postData.title} />
+            {postData.hasAudio && (
+              <AudioSummaryModal postId={postData.id} title={postData.title} />
+            )}
           </HStack>
           <Box pt={2}>
             <ServiceContent postData={postData} />

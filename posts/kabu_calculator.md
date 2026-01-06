@@ -8,6 +8,7 @@ code:
 blog: https://ichikawaaa.hatenablog.com/entry/release-kabucalculator
 website:
 published: true
+hasAudio: true
 stack:
   - name: ウェブサーバ
     detail:

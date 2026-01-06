@@ -8,6 +8,7 @@ code:
 blog: https://masamune-blog.hatenablog.com/entry/release/mapnica
 website:
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

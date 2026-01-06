@@ -8,6 +8,7 @@ code:
 blog: 'https://hagi0121.hatenablog.com/entry/2025/05/31/131946'
 website: 'https://fjord-calendar.jp/'
 published: true
+hasAudio: false
 stack:
   - name: フロントエンド
     detail:

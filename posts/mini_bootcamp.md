@@ -8,6 +8,7 @@ code:
 blog: https://gozasoro.hatenablog.com/entry/2022/06/05/081217
 website:
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

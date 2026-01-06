@@ -8,6 +8,7 @@ code:
 blog: 'https://keiz1213.hatenablog.com/entry/2023/10/26/085739'
 website: ''
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

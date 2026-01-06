@@ -8,6 +8,7 @@ code:
 blog: https://unikounio.hatenablog.com/entry/2025/01/30/091233
 website: https://pixpick.jp/
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

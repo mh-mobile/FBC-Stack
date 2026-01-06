@@ -8,6 +8,7 @@ code:
 blog: 'https://monyatto.hatenablog.com/entry/2024/07/29/091402'
 website: 'https://erasugi.onrender.com'
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

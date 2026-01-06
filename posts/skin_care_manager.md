@@ -8,6 +8,7 @@ code:
 blog: "https://aya-kyan.hatenablog.com/entry/2023/08/29/090847"
 website: "https://skinmate.fly.dev/"
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail: 

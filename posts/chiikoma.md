@@ -8,6 +8,7 @@ code:
 blog: https://piiizaki.hatenablog.com/entry/2022/04/06/120000
 webiste: 
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail: 

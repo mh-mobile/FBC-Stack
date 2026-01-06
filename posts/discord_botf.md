@@ -8,6 +8,7 @@ code:
 blog: https://mssp160.netlify.app/2021-07/d1/
 website: https://discord-bot-fjord.herokuapp.com/
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

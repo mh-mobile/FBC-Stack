@@ -8,6 +8,7 @@ code:
 blog: "https://fuwagorilla.hatenablog.com/entry/2023/07/10/085902"
 website: "https://credits-spot.vercel.app/"
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail: 

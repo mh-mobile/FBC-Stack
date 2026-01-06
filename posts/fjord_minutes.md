@@ -8,6 +8,7 @@ code:
 blog: 'https://cassy0220.hatenablog.com/entry/2025/05/01/071233'
 website: 'https://fjord-minutes.com/'
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail:

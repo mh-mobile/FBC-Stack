@@ -8,6 +8,7 @@ code:
 blog: 'https://aim2bpg.hatenablog.com/entry/2025/11/25/083000'
 website: 'https://aim2bpg.github.io/rubree'
 published: true
+hasAudio: false
 stack:
   - name: フロントエンド
     detail:

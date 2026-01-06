@@ -8,6 +8,7 @@ code:
 blog: "https://tomonar78242114.hatenablog.com/entry/2023/07/31/084630"
 website: "https://silver-calendar.com/"
 published: true
+hasAudio: true
 stack:
   - name: フロントエンド
     detail: 
