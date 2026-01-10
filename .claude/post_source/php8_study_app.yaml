@@ -1,0 +1,15 @@
+service:
+  name: PHP8技術者認定初級試験スタディ 
+  description: >
+    PHP8技術者認定初級試験スタディはPHP8技術者認定初級試験を受験する人に向けた、学習サポートアプリです。  
+links:
+  repository:
+    url: https://github.com/php8-study/php8-study-app
+  site:
+    url: https://php-study.jp/
+  blog:
+    url: https://zenn.dev/sekito/articles/31c94dec1cc9a3
+author:
+  name: sekito1107
+
+
