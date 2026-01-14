@@ -1,6 +1,6 @@
 ---
 title: 'PHP8技術者認定初級試験スタディ'
-date: '2026-01-07'
+date: '2026-01-13'
 author: sekito1107
 code:
   - repository: 'https://github.com/php8-study/php8-study-app'
