@@ -4,10 +4,10 @@
     "node": ">=24.0.0"
   },
   "scripts": {
-    "predev": "rm -rf public/posts && mkdir -p public/posts && cp -R posts/*.md public/posts",
-    "prebuild": "rm -rf public/posts && mkdir -p public/posts && cp -R posts/*.md public/posts",
+    "prebuild": "node scripts/check-audio-files.js && node scripts/podcast-xml-generator.js && rm -rf public/posts && mkdir -p public/posts && cp -R posts/*.md public/posts",
+    "predev": "node scripts/check-audio-files.js && node scripts/podcast-xml-generator.js && rm -rf public/posts && mkdir -p public/posts && cp -R posts/*.md public/posts",
     "build": "next build",
-    "dev": "npm run predev && next dev --experimental-https",
+    "dev": "next dev --experimental-https",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json}'",
@@ -33,6 +33,7 @@
     "puppeteer-core": "^6.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-icons": "^4.10.1",
     "react-markdown": "^8.0.4",
     "remark": "^14.0.2",
     "remark-gfm": "^3.0.1",
