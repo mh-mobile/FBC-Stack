@@ -13,7 +13,7 @@ stack:
   - name: フロントエンド
     detail:
       - name: Next.js
-        version: 16.1.2
+        version: 15
       - name: React
         version: 19.2.3
       - name: TypeScript
