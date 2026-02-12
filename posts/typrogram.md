@@ -13,23 +13,22 @@ stack:
   - name: フロントエンド
     detail:
       - name: Next.js
-        version: 15
+        version: 15.2.4
       - name: React
-        version: 19.2.3
+        version: 19.0.0
       - name: TypeScript
+        version: 5
       - name: Tailwind CSS
         version: 4
       - name: shadcn/ui
-      - name: Radix UI
-      - name: Framer Motion
+      - name: pnpm
 
   - name: バックエンド
     detail:
       - name: Ruby
         version: 3.4.2
       - name: Ruby on Rails
-        version: 8.1.2
-      - name: Puma
+        version: 8.1.1
 
   - name: データベース
     detail:
@@ -38,27 +37,30 @@ stack:
 
   - name: 認証
     detail:
-      - name: Auth.js (NextAuth)
+      - name: Auth.js
+        version: 5
       - name: JWT
 
   - name: テスト
     detail:
       - name: RSpec
+        version: 8.0.2
       - name: Jest
-      - name: Testing Library
+        version: 29.7.0
 
   - name: Linter/Formatter
     detail:
       - name: RuboCop
+        version: 1.81.7
       - name: ESLint
+        version: 9
       - name: Prettier
-      - name: Brakeman
+        version: 3.5.3
 
   - name: インフラ
     detail:
       - name: Vercel
       - name: Fly.io
-      - name: Docker
 
   - name: CI/CD
     detail:
