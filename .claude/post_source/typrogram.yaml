@@ -1,0 +1,15 @@
+service:
+  name: Typrogram
+  description: >
+    Free typing game for programmers. You can import any GitHub repository and practice typing through real code.
+links:
+  repository:
+    url: https://github.com/Shrimprin/typrogram
+  site:
+    url: https://typrogram.com/
+  blog:
+    url: https://kuroneko88.hatenablog.com/entry/typrogram
+author:
+  name: Shrimprin
+
+
