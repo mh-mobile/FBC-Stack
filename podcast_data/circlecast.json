@@ -1,0 +1,117 @@
+{
+  "id": "circlecast",
+  "title": "CIRCLECAST",
+  "date": "2024-07-08",
+  "author": "futa4095",
+  "audioUrl": "https://fbc-stack-storage.com/circlecast.m4a",
+  "duration": 274,
+  "summary": "招待制グループでポッドキャストを共有できる Rails + Hotwire 製サービス「CIRCLECAST」。Hotwire への転換やインフラ選定など開発者の学びを掘り下げます。",
+  "showNotes": [
+    {
+      "title": "CIRCLECAST 公式サイト",
+      "url": "https://circlecast.net/"
+    },
+    {
+      "title": "GitHub: futa4095/circlecast",
+      "url": "https://github.com/futa4095/circlecast"
+    },
+    {
+      "title": "開発者ブログ記事",
+      "url": "https://futa4095.hatenablog.com/entry/2024/07/08/085928"
+    },
+    {
+      "title": "Hotwire (Turbo/Stimulus)",
+      "url": "https://hotwire.dev/"
+    },
+    {
+      "title": "Ruby on Rails",
+      "url": "https://rubyonrails.org/"
+    },
+    {
+      "title": "Tailwind CSS",
+      "url": "https://tailwindcss.com/"
+    },
+    {
+      "title": "Alpine.js",
+      "url": "https://alpinejs.dev/"
+    },
+    {
+      "title": "Active Storage",
+      "url": "https://guides.rubyonrails.org/active_storage_overview.html"
+    },
+    {
+      "title": "Devise",
+      "url": "https://github.com/heartcombo/devise"
+    },
+    {
+      "title": "Fly.io",
+      "url": "https://fly.io/"
+    },
+    {
+      "title": "Google Cloud Storage",
+      "url": "https://cloud.google.com/storage"
+    },
+    {
+      "title": "RSpec",
+      "url": "https://rspec.info/"
+    },
+    {
+      "title": "GitHub Actions",
+      "url": "https://github.com/features/actions"
+    },
+    {
+      "title": "招待制グループでのプライベート配信モデル"
+    },
+    {
+      "title": "Hotwire への全面移行"
+    },
+    {
+      "title": "Active Storage と GCS による音声ファイル管理"
+    },
+    {
+      "title": "RSpec による自動テスト"
+    },
+    {
+      "title": "技術選定と挑戦のバランス"
+    }
+  ],
+  "chapters": [
+    {
+      "timestamp": "0:00",
+      "title": "イントロ & CIRCLECAST 概要",
+      "startTime": 0
+    },
+    {
+      "timestamp": "0:30",
+      "title": "招待制グループのニーズ",
+      "startTime": 30
+    },
+    {
+      "timestamp": "1:06",
+      "title": "開発背景とモチベーション",
+      "startTime": 66
+    },
+    {
+      "timestamp": "1:39",
+      "title": "Hotwire への全面移行",
+      "startTime": 99
+    },
+    {
+      "timestamp": "2:24",
+      "title": "技術スタック詳細",
+      "startTime": 144
+    },
+    {
+      "timestamp": "2:48",
+      "title": "インフラ構成 & 学び",
+      "startTime": 168
+    },
+    {
+      "timestamp": "3:30",
+      "title": "まとめ & 技術選定の問い",
+      "startTime": 210
+    }
+  ],
+  "transcriptUrl": "/whisper_json/whisper_circlecast.json",
+  "fileSize": 3809833
+}

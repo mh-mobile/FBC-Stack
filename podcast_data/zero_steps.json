@@ -1,0 +1,112 @@
+{
+  "id": "zero_steps",
+  "title": "Zero Steps",
+  "date": "2024-04-24",
+  "author": "yocchan-git",
+  "audioUrl": "https://fbc-stack-storage.com/zero_steps.m4a",
+  "duration": 452,
+  "summary": "ゼロ高生が開発した目標共有サービス「Zero Steps」。Discord ログインを活用した限定コミュニティで、目標をタスクに分解し励まし合いながら達成を目指す仕組みと、Rails + Hotwire 開発の学びを語る。",
+  "showNotes": [
+    {
+      "title": "GitHub: yocchan-git/zero-steps",
+      "url": "https://github.com/yocchan-git/zero-steps"
+    },
+    {
+      "title": "開発ブログ記事",
+      "url": "https://yocchan-eng.hatenablog.com/entry/zero-steps"
+    },
+    {
+      "title": "Ruby on Rails",
+      "url": "https://rubyonrails.org/"
+    },
+    {
+      "title": "Hotwire (Turbo/Stimulus)",
+      "url": "https://hotwire.dev/"
+    },
+    {
+      "title": "Bootstrap",
+      "url": "https://getbootstrap.com/"
+    },
+    {
+      "title": "PostgreSQL",
+      "url": "https://www.postgresql.org/"
+    },
+    {
+      "title": "Render",
+      "url": "https://render.com/"
+    },
+    {
+      "title": "GitHub Actions",
+      "url": "https://github.com/features/actions"
+    },
+    {
+      "title": "目標をタスクに分解して共有・進捗管理"
+    },
+    {
+      "title": "Discordログインと限定コミュニティ"
+    },
+    {
+      "title": "コメント・メンション通知 (Discord連携)"
+    },
+    {
+      "title": "Hotwire で非同期更新を実装"
+    },
+    {
+      "title": "プライバシー設定と公開範囲の注意"
+    }
+  ],
+  "chapters": [
+    {
+      "timestamp": "0:00",
+      "title": "イントロ & Zero Steps 概要",
+      "startTime": 0
+    },
+    {
+      "timestamp": "0:24",
+      "title": "課題感と開発動機",
+      "startTime": 24
+    },
+    {
+      "timestamp": "0:53",
+      "title": "目標・タスク共有機能",
+      "startTime": 53
+    },
+    {
+      "timestamp": "1:19",
+      "title": "Discordログインとコミュニティ",
+      "startTime": 69
+    },
+    {
+      "timestamp": "1:36",
+      "title": "通知・リアクション機能",
+      "startTime": 96
+    },
+    {
+      "timestamp": "2:09",
+      "title": "プライバシー設定の注意点",
+      "startTime": 129
+    },
+    {
+      "timestamp": "2:24",
+      "title": "開発プロセス & メンター支援",
+      "startTime": 144
+    },
+    {
+      "timestamp": "4:43",
+      "title": "技術スタックまとめ",
+      "startTime": 283
+    },
+    {
+      "timestamp": "5:26",
+      "title": "学び",
+      "startTime": 326
+    },
+    {
+      "timestamp": "7:07",
+      "title": "聴取者への問い",
+      "startTime": 427
+    }
+  ],
+  "transcriptUrl": "/whisper_json/whisper_zero_steps.json",
+  "fileSize": 6223842
+}

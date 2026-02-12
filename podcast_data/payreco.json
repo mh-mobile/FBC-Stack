@@ -1,0 +1,162 @@
+{
+  "id": "payreco",
+  "title": "ペイレコ",
+  "date": "2022-10-13",
+  "author": "kazumi3858",
+  "audioUrl": "https://fbc-stack-storage.com/payreco.m4a",
+  "duration": 472,
+  "summary": "外貨での時給報酬をリアルタイム為替で日本円換算し、勤務スケジュールから給与を自動計算するサービス「ペイレコ」。開発者自身の痛みから生まれ、Next.js + Rails API と OpenAPI 駆動で実装された経緯を深掘りします。",
+  "showNotes": [
+    {
+      "title": "Payreco 公式サイト",
+      "url": "https://payreco.vercel.app/"
+    },
+    {
+      "title": "GitHub: payreco-frontend",
+      "url": "https://github.com/kazumi3858/payreco-frontend"
+    },
+    {
+      "title": "GitHub: payreco-backend",
+      "url": "https://github.com/kazumi3858/payreco-backend"
+    },
+    {
+      "title": "開発ブログ記事",
+      "url": "https://kazumi-learning.tumblr.com/post/698950071100850176/payreco"
+    },
+    {
+      "title": "React",
+      "url": "https://react.dev/"
+    },
+    {
+      "title": "Next.js",
+      "url": "https://nextjs.org/"
+    },
+    {
+      "title": "TypeScript",
+      "url": "https://www.typescriptlang.org/"
+    },
+    {
+      "title": "Tailwind CSS",
+      "url": "https://tailwindcss.com/"
+    },
+    {
+      "title": "Ruby on Rails (APIモード)",
+      "url": "https://rubyonrails.org/"
+    },
+    {
+      "title": "committee‑rails",
+      "url": "https://github.com/interagent/committee/tree/master/committee-rails"
+    },
+    {
+      "title": "OpenAPI Specification",
+      "url": "https://swagger.io/specification/"
+    },
+    {
+      "title": "Orval – REST API code generator",
+      "url": "https://orval.dev/"
+    },
+    {
+      "title": "ExchangeRate‑API",
+      "url": "https://www.exchangerate-api.com/"
+    },
+    {
+      "title": "Firebase Authentication",
+      "url": "https://firebase.google.com/docs/auth"
+    },
+    {
+      "title": "Vercel",
+      "url": "https://vercel.com/"
+    },
+    {
+      "title": "Fly.io",
+      "url": "https://fly.io/"
+    },
+    {
+      "title": "Docker",
+      "url": "https://www.docker.com/"
+    },
+    {
+      "title": "Jest",
+      "url": "https://jestjs.io/"
+    },
+    {
+      "title": "Cypress",
+      "url": "https://www.cypress.io/"
+    },
+    {
+      "title": "RSpec",
+      "url": "https://rspec.info/"
+    },
+    {
+      "title": "外貨対応：リアルタイム為替レートで日本円換算"
+    },
+    {
+      "title": "シフト入力と総労働時間入力の二方式"
+    },
+    {
+      "title": "スキーマ駆動開発 (OpenAPI + Orval)"
+    },
+    {
+      "title": "未経験技術に挑戦して得た学び"
+    }
+  ],
+  "chapters": [
+    {
+      "timestamp": "0:00",
+      "title": "イントロ & ペイレコ概要",
+      "startTime": 0
+    },
+    {
+      "timestamp": "0:55",
+      "title": "外貨対応給与計算のニーズ",
+      "startTime": 55
+    },
+    {
+      "timestamp": "1:22",
+      "title": "開発者の背景と動機",
+      "startTime": 82
+    },
+    {
+      "timestamp": "2:01",
+      "title": "ユーザーフロー & Googleログオン",
+      "startTime": 121
+    },
+    {
+      "timestamp": "2:16",
+      "title": "シフト入力方式の選択肢",
+      "startTime": 136
+    },
+    {
+      "timestamp": "2:38",
+      "title": "リアルタイム為替換算",
+      "startTime": 158
+    },
+    {
+      "timestamp": "2:48",
+      "title": "フロント&バック技術スタック",
+      "startTime": 168
+    },
+    {
+      "timestamp": "3:24",
+      "title": "OpenAPI & Orval による自動生成",
+      "startTime": 204
+    },
+    {
+      "timestamp": "4:17",
+      "title": "Firebase Auth と JWT 検証",
+      "startTime": 257
+    },
+    {
+      "timestamp": "5:34",
+      "title": "学びと技術的成長",
+      "startTime": 334
+    },
+    {
+      "timestamp": "6:36",
+      "title": "まとめ & リスナーへの問い",
+      "startTime": 397
+    }
+  ],
+  "transcriptUrl": "/whisper_json/whisper_payreco.json",
+  "fileSize": 6574263
+}

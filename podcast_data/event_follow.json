@@ -1,0 +1,97 @@
+{
+  "id": "event_follow",
+  "title": "EventFollow",
+  "date": "2021-06-07",
+  "author": "mh-mobile",
+  "audioUrl": "https://fbc-stack-storage.com/event_follow.m4a",
+  "duration": 467,
+  "summary": "Twitter でフォローする友達のシェアを活用し、検索せずに技術イベントを発見できるサービス「EventFollow」のアイデアと Nuxt.js + Rails API + Flutter の技術構成、運用コストまでを語る。",
+  "showNotes": [
+    {
+      "title": "GitHub: mh-mobile/event_follow (web backend)",
+      "url": "https://github.com/mh-mobile/event_follow"
+    },
+    {
+      "title": "GitHub: mh-mobile/event_follow_mobile (Flutter)",
+      "url": "https://github.com/mh-mobile/event_follow_mobile"
+    },
+    {
+      "title": "開発ブログ記事",
+      "url": "https://mh-mobile.hatenablog.com/entry/2021/07/06/085442"
+    },
+    {
+      "title": "Nuxt.js",
+      "url": "https://nuxtjs.org/"
+    },
+    {
+      "title": "Ruby on Rails (API mode)",
+      "url": "https://rubyonrails.org/"
+    },
+    {
+      "title": "Flutter",
+      "url": "https://flutter.dev/"
+    },
+    {
+      "title": "Firebase Authentication",
+      "url": "https://firebase.google.com/docs/auth"
+    },
+    {
+      "title": "Heroku",
+      "url": "https://www.heroku.com/"
+    },
+    {
+      "title": "友達のシェアで技術イベントを発見"
+    },
+    {
+      "title": "フレンド数・開催日で並べ替え & 閾値フィルタ"
+    },
+    {
+      "title": "Twitterログイン + Firebase Auth 連携"
+    },
+    {
+      "title": "Nuxt.js & Rails API を共有、Flutter モバイル版"
+    },
+    {
+      "title": "Clockwork でツイートを定期収集"
+    }
+  ],
+  "chapters": [
+    {
+      "timestamp": "0:00",
+      "title": "イントロ & EventFollow 概要",
+      "startTime": 0
+    },
+    {
+      "timestamp": "0:57",
+      "title": "友達シェア型イベント発見の仕組み",
+      "startTime": 57
+    },
+    {
+      "timestamp": "1:47",
+      "title": "ソート & フィルタ UI 機能",
+      "startTime": 107
+    },
+    {
+      "timestamp": "2:55",
+      "title": "Twitterログインと Firebase 認証",
+      "startTime": 175
+    },
+    {
+      "timestamp": "3:09",
+      "title": "Nuxt.js + Rails API + Flutter 技術構成",
+      "startTime": 189
+    },
+    {
+      "timestamp": "5:04",
+      "title": "個人開発の学びと運用コスト",
+      "startTime": 304
+    },
+    {
+      "timestamp": "6:23",
+      "title": "今後の展望 & リスナーへの問い",
+      "startTime": 383
+    }
+  ],
+  "transcriptUrl": "/whisper_json/whisper_event_follow.json",
+  "fileSize": 6416679
+}

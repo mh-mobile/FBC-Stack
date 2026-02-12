@@ -1,0 +1,126 @@
+{
+  "id": "fjord_minutes",
+  "title": "Fjord Minutes",
+  "date": "2025-05-01",
+  "author": "Kassy0220",
+  "audioUrl": "https://fbc-stack-storage.com/fjord_minutes.m4a",
+  "duration": 642,
+  "summary": "FBC のチーム開発ミーティングを支援するツール「Fjord Minutes」。議事録ひな形の自動生成、GitHub Wiki 連携、出席管理、リアルタイム更新など実践的な機能と学びを語る。",
+  "showNotes": [
+    {
+      "title": "Fjord Minutes 公式サイト",
+      "url": "https://fjord-minutes.com/"
+    },
+    {
+      "title": "GitHub: Kassy0220/fjord-minutes",
+      "url": "https://github.com/Kassy0220/fjord-minutes"
+    },
+    {
+      "title": "開発者ブログ記事",
+      "url": "https://cassy0220.hatenablog.com/entry/2025/05/01/071233"
+    },
+    {
+      "title": "Hotwire (Turbo/Stimulus)",
+      "url": "https://hotwire.dev/"
+    },
+    {
+      "title": "Ruby on Rails",
+      "url": "https://rubyonrails.org/"
+    },
+    {
+      "title": "Tailwind CSS",
+      "url": "https://tailwindcss.com/"
+    },
+    {
+      "title": "React",
+      "url": "https://react.dev/"
+    },
+    {
+      "title": "ActionCable (Rails)",
+      "url": "https://guides.rubyonrails.org/action_cable_overview.html"
+    },
+    {
+      "title": "RSpec",
+      "url": "https://rspec.info/"
+    },
+    {
+      "title": "議事録ひな形の自動生成"
+    },
+    {
+      "title": "GitHub Wiki 連携でワンクリック反映"
+    },
+    {
+      "title": "出席管理: 昼/夜/欠席のセルフ登録"
+    },
+    {
+      "title": "ActionCable + React によるリアルタイム更新"
+    },
+    {
+      "title": "RSpec テストで仕様変更に強く"
+    }
+  ],
+  "chapters": [
+    {
+      "timestamp": "0:00",
+      "title": "イントロ & Fjord Minutes 概要",
+      "startTime": 0
+    },
+    {
+      "timestamp": "0:59",
+      "title": "課題: 議事録と出席管理の手間",
+      "startTime": 59
+    },
+    {
+      "timestamp": "2:05",
+      "title": "自動ひな形生成機能",
+      "startTime": 125
+    },
+    {
+      "timestamp": "2:13",
+      "title": "GitHub Wiki 連携",
+      "startTime": 133
+    },
+    {
+      "timestamp": "2:25",
+      "title": "出席登録 & 管理画面",
+      "startTime": 145
+    },
+    {
+      "timestamp": "2:49",
+      "title": "深夜自動生成 & Discord通知ワークフロー",
+      "startTime": 169
+    },
+    {
+      "timestamp": "3:47",
+      "title": "技術スタック: Rails / Hotwire / React",
+      "startTime": 227
+    },
+    {
+      "timestamp": "4:15",
+      "title": "リアルタイム更新の落とし所",
+      "startTime": 255
+    },
+    {
+      "timestamp": "5:30",
+      "title": "アジャイル開発とフィードバックループ",
+      "startTime": 330
+    },
+    {
+      "timestamp": "6:16",
+      "title": "状態管理の試行錯誤",
+      "startTime": 376
+    },
+    {
+      "timestamp": "8:14",
+      "title": "RSpec テストの効用",
+      "startTime": 494
+    },
+    {
+      "timestamp": "9:04",
+      "title": "まとめ & 問いかけ",
+      "startTime": 544
+    }
+  ],
+  "transcriptUrl": "/whisper_json/whisper_fjord_minutes.json",
+  "fileSize": 2097152
+}

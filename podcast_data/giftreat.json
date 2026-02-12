@@ -1,0 +1,109 @@
+{
+  "id": "giftreat",
+  "title": "GifTreat",
+  "date": "2025-03-31",
+  "author": "SuzukiShuntarou",
+  "audioUrl": "https://fbc-stack-storage.com/giftreat.m4a",
+  "duration": 442,
+  "summary": "努力した自分への“ご褒美デー”を設定し、仲間と進捗を共有できるセルフコンパッション志向の目標管理サービス「GifTreat」の誕生背景と技術スタック、運用ノウハウを紹介します。",
+  "showNotes": [
+    {
+      "title": "Hotwire",
+      "url": "https://hotwired.dev/"
+    },
+    {
+      "title": "Bootstrap",
+      "url": "https://getbootstrap.com/"
+    },
+    {
+      "title": "JavaScript",
+      "url": "https://developer.mozilla.org/docs/Web/JavaScript"
+    },
+    {
+      "title": "Ruby on Rails",
+      "url": "https://rubyonrails.org/"
+    },
+    {
+      "title": "Ruby",
+      "url": "https://www.ruby-lang.org/"
+    },
+    {
+      "title": "PostgreSQL",
+      "url": "https://www.postgresql.org/"
+    },
+    {
+      "title": "RuboCop",
+      "url": "https://github.com/rubocop/rubocop"
+    },
+    {
+      "title": "ESLint",
+      "url": "https://eslint.org/"
+    },
+    {
+      "title": "Prettier",
+      "url": "https://prettier.io/"
+    },
+    {
+      "title": "Minitest",
+      "url": "https://docs.seattlerb.org/minitest/"
+    },
+    {
+      "title": "GitHub Actions",
+      "url": "https://github.com/features/actions"
+    },
+    {
+      "title": "Render",
+      "url": "https://render.com/"
+    },
+    {
+      "title": "Supabase",
+      "url": "https://supabase.com/"
+    },
+    {
+      "title": "セルフコンパッション"
+    },
+    {
+      "title": "ご褒美デー"
+    },
+    {
+      "title": "招待URL共有"
+    },
+    {
+      "title": "リアルタイムUI更新"
+    }
+  ],
+  "chapters": [
+    {
+      "timestamp": "0:00",
+      "title": "イントロダクション",
+      "startTime": 0
+    },
+    {
+      "timestamp": "0:39",
+      "title": "GifTreatのサービス概要",
+      "startTime": 39
+    },
+    {
+      "timestamp": "1:47",
+      "title": "自己肯定感とご褒美コンセプト",
+      "startTime": 107
+    },
+    {
+      "timestamp": "3:40",
+      "title": "主な機能（招待・ご褒美デー）",
+      "startTime": 185
+    },
+    {
+      "timestamp": "3:41",
+      "title": "技術スタックとUI/UX",
+      "startTime": 221
+    },
+    {
+      "timestamp": "6:10",
+      "title": "デプロイと無料運用の工夫",
+      "startTime": 370
+    }
+  ],
+  "transcriptUrl": "/whisper_json/whisper_giftreat.json",
+  "fileSize": 6158902
+}

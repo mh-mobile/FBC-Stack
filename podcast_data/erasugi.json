@@ -1,0 +1,121 @@
+{
+  "id": "erasugi",
+  "title": "えらすぎ",
+  "date": "2024-07-29",
+  "author": "monyatto",
+  "audioUrl": "https://fbc-stack-storage.com/erasugi.m4a",
+  "duration": 394,
+  "summary": "気軽に“偉い！”を送り合う Web サービス「えらすぎ」。シンプルなリアクション設計、Hotwire & Swiper.js による快適 UX、匿名性の配慮など開発の工夫を語る。",
+  "showNotes": [
+    {
+      "title": "えらすぎ (Webサイト)",
+      "url": "https://erasugi.onrender.com"
+    },
+    {
+      "title": "GitHub: monyatto/erasugi",
+      "url": "https://github.com/monyatto/erasugi"
+    },
+    {
+      "title": "開発者ブログ記事",
+      "url": "https://monyatto.hatenablog.com/entry/2024/07/29/091402"
+    },
+    {
+      "title": "Ruby on Rails",
+      "url": "https://rubyonrails.org/"
+    },
+    {
+      "title": "Hotwire",
+      "url": "https://hotwire.dev/"
+    },
+    {
+      "title": "Tailwind CSS",
+      "url": "https://tailwindcss.com/"
+    },
+    {
+      "title": "Konva.js",
+      "url": "https://konvajs.org/"
+    },
+    {
+      "title": "Supabase",
+      "url": "https://supabase.com/"
+    },
+    {
+      "title": "Render",
+      "url": "https://render.com/"
+    },
+    {
+      "title": "リアクションは「偉い」ボタン1つで気軽に褒め合う"
+    },
+    {
+      "title": "Swiper.js によるスマホ向けスワイプ閲覧"
+    },
+    {
+      "title": "Hotwire で投稿の編集・削除を画面遷移なしで実現"
+    },
+    {
+      "title": "匿名性 & リアクション数非表示で心理的ハードルを低減"
+    },
+    {
+      "title": "Konva.js で“えらいのシャワー”演出"
+    }
+  ],
+  "chapters": [
+    {
+      "timestamp": "0:00",
+      "title": "イントロダクション",
+      "startTime": 0
+    },
+    {
+      "timestamp": "0:26",
+      "title": "サービス概要と目的",
+      "startTime": 26
+    },
+    {
+      "timestamp": "0:41",
+      "title": "小さな行動を褒め合う文化",
+      "startTime": 41
+    },
+    {
+      "timestamp": "1:12",
+      "title": "「偉い」ボタン1つのリアクション設計",
+      "startTime": 72
+    },
+    {
+      "timestamp": "1:54",
+      "title": "Swiper.js での閲覧体験",
+      "startTime": 114
+    },
+    {
+      "timestamp": "2:12",
+      "title": "Hotwire による編集フロー",
+      "startTime": 132
+    },
+    {
+      "timestamp": "2:34",
+      "title": "匿名性と数非表示の設計",
+      "startTime": 154
+    },
+    {
+      "timestamp": "3:16",
+      "title": "“えらい”のシャワー演出",
+      "startTime": 196
+    },
+    {
+      "timestamp": "3:53",
+      "title": "技術スタックとインフラ",
+      "startTime": 233
+    },
+    {
+      "timestamp": "4:23",
+      "title": "学び: 公式ドキュメント & テストの重要性",
+      "startTime": 263
+    },
+    {
+      "timestamp": "5:25",
+      "title": "まとめとマイクロ達成への問い",
+      "startTime": 325
+    }
+  ],
+  "transcriptUrl": "/whisper_json/whisper_erasugi.json",
+  "fileSize": 5402559
+}
