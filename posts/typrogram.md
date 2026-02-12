@@ -1,6 +1,6 @@
 ---
 title: 'Typrogram'
-date: '2025-07-01'
+date: '2026-01-25'
 author: Shrimprin
 code:
   - repository: 'https://github.com/Shrimprin/typrogram'
