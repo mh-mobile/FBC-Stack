@@ -137,18 +137,23 @@ function groupByCategory(
 export default function ToolsPage() {
   const toolsWithStats = getToolsWithStats()
   const grouped = groupByCategory(toolsWithStats)
+  const allTools = getAllToolsData()
 
-  // For search: convert to ToolData format
+  // For search: include alias for search matching
   const allToolsForSearch: (ToolData & { usageCount: number })[] =
     toolsWithStats
       .sort((a, b) => b.usageCount - a.usageCount)
-      .map((t) => ({
-        toolID: t.toolID,
-        toolName: t.toolName,
-        usageCount: t.usageCount,
-        url: '',
-        markdownContent: '',
-      }))
+      .map((t) => {
+        const tool = allTools.find((d) => d.toolID === t.toolID)
+        return {
+          toolID: t.toolID,
+          toolName: t.toolName,
+          usageCount: t.usageCount,
+          alias: tool?.alias,
+          url: '',
+          markdownContent: '',
+        }
+      })
 
   return (
     <>

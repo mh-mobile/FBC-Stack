@@ -34,20 +34,21 @@ describe('Navigation', () => {
 
   it('should navigate to the tools page', () => {
     cy.visit('http://localhost:3000/tools')
-    cy.get('div').contains('Tools')
+    cy.contains('みんなのツール')
     cy.get('input').type('acm')
-    cy.get('div').contains('AWS Certificate Manager')
-    cy.get('div').contains('Twitter API').should('not.exist')
+    cy.contains('AWS Certificate Manager')
+    cy.contains('Twitter API').should('not.exist')
 
     cy.get('input').clear()
 
     cy.get('input').type('twitter')
-    cy.get('div').contains('Twitter API')
-    cy.get('div').contains('AWS Certificate Manager').should('not.exist')
+    cy.contains('Twitter API')
+    cy.contains('AWS Certificate Manager').should('not.exist')
   })
 
   it('should navigate to the fjord choice page from top', () => {
     cy.visit('http://localhost:3000/')
+    cy.get('input').type('Fjord Choice')
     cy.get('a[href*="posts/fjord_choice"]').click()
   })
 })
