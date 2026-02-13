@@ -11,13 +11,13 @@ published: true
 hasAudio: true
 stack:
   - name: フロントエンド
-    detail: 
+    detail:
       - name: TypeScript
         version: 4.9.3
-      - name: Chakra UI
-        version: 2.4.3
+      - name: Tailwind CSS
+        version: 4.1.18
       - name: Next.js
-        version: 13.0.7
+        version: 14.2.35
       - name: React
         version: 18.2.0
       - name: react-markdown
@@ -33,7 +33,7 @@ stack:
   - name: テスト
     detail:
       - name: Cypress
-        version: 12.2.0
+        version: 13.6.2
 
   - name: インフラ
     detail:
