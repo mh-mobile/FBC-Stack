@@ -6,11 +6,15 @@ export default function Home() {
 
   return (
     <>
-      <div className="flex items-center justify-center py-2">
-        <h1 className="text-4xl font-extrabold tracking-tight">FBC Stack</h1>
+      <div className="pb-1 pt-4">
+        <h1 className="text-xl font-bold">Services</h1>
+        <p className="mt-1 text-sm text-light-text">
+          FBC卒業生が作成したサービス一覧
+        </p>
       </div>
-      <h2 className="px-4 py-3 text-2xl font-bold">Services</h2>
-      <ServiceGrid posts={allPostsData} />
+      <div className="mt-3">
+        <ServiceGrid posts={allPostsData} />
+      </div>
     </>
   )
 }

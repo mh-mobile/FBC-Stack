@@ -9,33 +9,39 @@ const navLinks = [
 
 export default function Header() {
   return (
-    <header className="flex w-full items-center justify-between py-2">
-      <Link href="/" className="shrink-0">
-        <Image
-          priority
-          src="/images/fbcstack.png"
-          height={80}
-          width={80}
-          alt="FBC Stack"
-          className="h-auto max-w-full"
-        />
-      </Link>
+    <header className="border-b border-gray-100">
+      <div className="flex items-center justify-between py-3">
+        {/* Logo + site name */}
+        <Link href="/" className="flex items-center gap-2.5">
+          <Image
+            priority
+            src="/images/fbcstack.png"
+            height={40}
+            width={40}
+            alt="FBC Stack"
+            className="h-10 w-10"
+          />
+          <span className="text-lg font-bold tracking-tight text-gray-800">
+            FBC Stack
+          </span>
+        </Link>
 
-      {/* Desktop nav */}
-      <nav className="hidden items-center gap-6 md:flex">
-        {navLinks.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            className="text-external-link hover:opacity-80 transition-opacity"
-          >
-            {link.label}
-          </Link>
-        ))}
-      </nav>
+        {/* Desktop nav */}
+        <nav className="hidden items-center gap-1 md:flex">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="rounded-lg px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-100 hover:text-gray-900"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
 
-      {/* Mobile nav */}
-      <MobileNav links={navLinks} />
+        {/* Mobile nav */}
+        <MobileNav links={navLinks} />
+      </div>
     </header>
   )
 }

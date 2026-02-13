@@ -74,12 +74,10 @@ export default function RootLayout({
         <Suspense fallback={null}>
           <GaTracker />
         </Suspense>
-        <div className="mx-auto max-w-3xl px-4 py-2">
+        <div className="mx-auto max-w-3xl px-4">
           <Header />
-          <main>{children}</main>
-          <footer className="py-5">
-            <Footer />
-          </footer>
+          <main className="py-4">{children}</main>
+          <Footer />
         </div>
       </body>
     </html>
