@@ -27,8 +27,13 @@ export default function ToolsPage() {
 
   return (
     <>
-      <h1 className="py-4 text-3xl font-extrabold">Tools</h1>
-      <div className="p-1">
+      <div className="pb-1 pt-4">
+        <h1 className="text-xl font-bold">みんなのツール</h1>
+        <p className="mt-1 text-sm text-light-text">
+          サービスで使用されている技術一覧
+        </p>
+      </div>
+      <div className="mt-3 p-1">
         <ToolSearch allToolsData={allToolsData} />
       </div>
       <div className="mt-10">

@@ -12,8 +12,13 @@ export default function AboutPage() {
 
   return (
     <article>
-      <h1 className="my-4 text-3xl font-extrabold">{postData.title}について</h1>
-      <div className="pt-2">
+      <div className="pb-1 pt-4">
+        <h1 className="text-xl font-bold">{postData.title}について</h1>
+        <p className="mt-1 text-sm text-light-text">
+          FBC Stackの概要と使用技術
+        </p>
+      </div>
+      <div className="mt-3">
         <ServiceContent postData={postData} />
       </div>
       <div className="mt-10">
