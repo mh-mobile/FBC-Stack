@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import Breadcrumb from '../components/Breadcrumb'
 
 export const metadata: Metadata = {
   title: '利用規約',
@@ -8,7 +9,8 @@ export const metadata: Metadata = {
 export default function TermsPage() {
   return (
     <article>
-      <h1 className="pt-4 text-xl font-bold">利用規約</h1>
+      <Breadcrumb items={[{ label: '利用規約' }]} />
+      <h1 className="text-xl font-bold">利用規約</h1>
 
       <div className="pt-5">
         <p className="py-2">

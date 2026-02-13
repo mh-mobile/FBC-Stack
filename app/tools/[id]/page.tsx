@@ -4,6 +4,7 @@ import { getAllToolsData, getToolData } from '../../lib/tools'
 import { getFilteredPostsData } from '../../lib/posts'
 import ServiceCard from '../../components/ServiceCard'
 import ToolImage from './ToolImage'
+import Breadcrumb from '../../components/Breadcrumb'
 
 export function generateStaticParams() {
   const allToolsData = getAllToolsData()
@@ -47,6 +48,13 @@ export default function ToolDetailPage({
 
   return (
     <>
+      <Breadcrumb
+        items={[
+          { label: 'みんなのツール', href: '/tools' },
+          { label: toolData.toolName },
+        ]}
+      />
+
       <div className="flex justify-center py-5">
         <ToolImage toolID={toolData.toolID} />
       </div>

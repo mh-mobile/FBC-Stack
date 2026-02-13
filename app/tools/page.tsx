@@ -4,6 +4,7 @@ import { getSortedPostsData } from '../lib/posts'
 import { getAllToolsData } from '../lib/tools'
 import ToolSearch from '../components/ToolSearch'
 import type { ToolData } from '../../types/toolData'
+import Breadcrumb from '../components/Breadcrumb'
 
 export const metadata: Metadata = {
   title: 'Tools',
@@ -151,7 +152,8 @@ export default function ToolsPage() {
 
   return (
     <>
-      <div className="pb-1 pt-4">
+      <Breadcrumb items={[{ label: 'みんなのツール' }]} />
+      <div className="pb-1">
         <h1 className="text-xl font-bold">みんなのツール</h1>
         <p className="mt-1 text-sm text-light-text">
           サービスで使用されている技術一覧

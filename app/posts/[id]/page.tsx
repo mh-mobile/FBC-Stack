@@ -8,6 +8,7 @@ import DateDisplay from '../../components/DateDisplay'
 import ExternalLink from '../../components/ExternalLink'
 import ServiceContent from '../../components/ServiceContent'
 import AudioPlayer from '../../components/AudioPlayer'
+import Breadcrumb from '../../components/Breadcrumb'
 
 export function generateStaticParams() {
   return getAllPostIds()
@@ -51,6 +52,8 @@ export default function PostPage({ params }: { params: { id: string } }) {
 
   return (
     <article>
+      <Breadcrumb items={[{ label: postData.title }]} />
+
       {/* Hero section */}
       <div className="rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 p-6 md:p-8">
         <h1 className="text-2xl font-extrabold leading-tight md:text-3xl">

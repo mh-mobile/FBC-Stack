@@ -2,6 +2,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { getFBCStackData } from '../lib/posts'
 import ServiceContent from '../components/ServiceContent'
+import Breadcrumb from '../components/Breadcrumb'
 
 export const metadata: Metadata = {
   title: 'FBC Stackについて',
@@ -12,7 +13,8 @@ export default function AboutPage() {
 
   return (
     <article>
-      <div className="pb-1 pt-4">
+      <Breadcrumb items={[{ label: 'FBC Stackについて' }]} />
+      <div className="pb-1">
         <h1 className="text-xl font-bold">{postData.title}について</h1>
         <p className="mt-1 text-sm text-light-text">
           FBC Stackの概要と使用技術
