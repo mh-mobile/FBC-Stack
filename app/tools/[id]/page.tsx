@@ -55,40 +55,51 @@ export default function ToolDetailPage({
         ]}
       />
 
-      <div className="flex justify-center py-5">
-        <ToolImage toolID={toolData.toolID} />
+      {/* Hero section */}
+      <div className="rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 p-6 md:p-8">
+        <div className="flex items-center gap-4">
+          <div className="shrink-0">
+            <ToolImage toolID={toolData.toolID} />
+          </div>
+          <div className="min-w-0">
+            <h1 className="text-xl font-bold md:text-2xl">
+              {toolData.toolName}
+            </h1>
+            <div className="mt-2 flex flex-wrap items-center gap-2">
+              <span className="rounded-full bg-gray-200 px-2.5 py-0.5 text-xs font-medium text-gray-600">
+                {allPostsData.length} サービスで採用
+              </span>
+              <a
+                href={toolData.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 transition-colors hover:bg-gray-50"
+              >
+                <svg
+                  className="h-3.5 w-3.5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+                  />
+                </svg>
+                公式サイト
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <h1 className="text-center text-2xl font-extrabold">
-        &quot;{toolData.toolName}&quot;を採用しているサービス（
-        {allPostsData.length}）
-      </h1>
-
-      <div className="flex justify-center pb-5 pt-2">
-        <a
-          href={toolData.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 rounded-full border border-blue-300 px-3 py-1 text-sm text-external-link hover:bg-blue-50 transition-colors"
-        >
-          {toolData.url}
-          <svg
-            className="h-3.5 w-3.5"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
-            />
-          </svg>
-        </a>
-      </div>
-
-      <div className="p-1">
+      {/* Services using this tool */}
+      <div className="mt-5">
+        <h2 className="mb-3 text-sm font-semibold text-gray-500">
+          採用サービス
+        </h2>
         <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-5">
           {allPostsData.map((post) => (
             <ServiceCard key={post.id} post={post} />
