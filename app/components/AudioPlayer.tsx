@@ -28,11 +28,9 @@ export default function AudioPlayer({
   chapters,
   showNotes,
 }: Props) {
-  const [audioExists, setAudioExists] = useState(true)
+  const [audioError, setAudioError] = useState(false)
   const [isExpanded, setIsExpanded] = useState(false)
   const audioUrl = `https://fbc-stack-storage.com/${postId}.m4a`
-
-  if (!audioExists) return null
 
   return (
     <div className="my-4 rounded-lg border border-blue-100 bg-blue-50/50 p-4">
@@ -59,12 +57,18 @@ export default function AudioPlayer({
         <p className="mb-3 text-sm text-gray-600">{summary}</p>
       )}
 
-      <audio
-        controls
-        className="mb-3 w-full"
-        onError={() => setAudioExists(false)}
-        src={audioUrl}
-      />
+      {audioError ? (
+        <p className="mb-3 text-sm text-gray-500">
+          音声ファイルを読み込めませんでした。
+        </p>
+      ) : (
+        <audio
+          controls
+          className="mb-3 w-full"
+          onError={() => setAudioError(true)}
+          src={audioUrl}
+        />
+      )}
 
       {(chapters?.length || showNotes?.length) && (
         <button

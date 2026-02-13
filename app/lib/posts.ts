@@ -7,6 +7,9 @@ import { ToolData } from '../../types/toolData'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
+// Cache parsed posts to avoid repeated file I/O during build
+let cachedSortedPosts: PostData[] | null = null
+
 export function getAllPostIds() {
   const fileNames = fs.readdirSync(postsDirectory)
   return fileNames.map((fileName) => ({
@@ -89,6 +92,8 @@ export function getToolsNameInPostsData(): string[] {
 }
 
 export function getSortedPostsData(): PostData[] {
+  if (cachedSortedPosts) return cachedSortedPosts
+
   const fileNames = fs.readdirSync(postsDirectory)
   const allPostsData = fileNames.map((fileName) => {
     const id = fileName.replace(/\.md$/, '')
@@ -96,9 +101,10 @@ export function getSortedPostsData(): PostData[] {
   })
   const publishedPostsData = allPostsData.filter(({ published }) => published)
 
-  return publishedPostsData.sort(({ date: a }, { date: b }) => {
+  cachedSortedPosts = publishedPostsData.sort(({ date: a }, { date: b }) => {
     if (a < b) return 1
     if (a > b) return -1
     return 0
   })
+  return cachedSortedPosts
 }

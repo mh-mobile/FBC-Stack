@@ -16,8 +16,24 @@ export function generateMetadata({
   params: { id: string }
 }): Metadata {
   const toolData = getToolData(params.id)
+  const baseURL = process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000'
+  const description = `「${toolData.toolName}」を採用しているFBC卒業生のサービス一覧`
+
   return {
     title: toolData.toolName,
+    description,
+    openGraph: {
+      title: `${toolData.toolName} | FBC Stack`,
+      description,
+      url: `${baseURL}/tools/${params.id}`,
+      images: [`${baseURL}/images/fbcstack_ogp.png`],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${toolData.toolName} | FBC Stack`,
+      description,
+      images: [`${baseURL}/images/fbcstack_ogp.png`],
+    },
   }
 }
 

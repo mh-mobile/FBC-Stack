@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
+import { Suspense } from 'react'
 import Script from 'next/script'
 import './globals.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import GaTracker from './components/GaTracker'
 
 const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID
 
@@ -69,6 +71,9 @@ export default function RootLayout({
             />
           </>
         )}
+        <Suspense fallback={null}>
+          <GaTracker />
+        </Suspense>
         <div className="mx-auto max-w-3xl px-4 py-2">
           <Header />
           <main>{children}</main>

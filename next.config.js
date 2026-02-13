@@ -7,6 +7,11 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'github.com',
+        pathname: '/*.png',
+      },
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
       },
     ],
   },

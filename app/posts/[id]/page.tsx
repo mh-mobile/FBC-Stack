@@ -19,8 +19,24 @@ export function generateMetadata({
   params: { id: string }
 }): Metadata {
   const postData = getPostData(params.id)
+  const baseURL = process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000'
+  const description = `${postData.author}が作成した「${postData.title}」の技術スタック情報`
+
   return {
     title: postData.title,
+    description,
+    openGraph: {
+      title: postData.title,
+      description,
+      url: `${baseURL}/posts/${params.id}`,
+      images: [`${baseURL}/images/fbcstack_ogp.png`],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: postData.title,
+      description,
+      images: [`${baseURL}/images/fbcstack_ogp.png`],
+    },
   }
 }
 

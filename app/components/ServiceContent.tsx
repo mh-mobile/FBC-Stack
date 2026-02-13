@@ -23,14 +23,18 @@ export default function ServiceContent({ postData }: Props) {
               </div>
               <div className="pt-2">
                 <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-6">
-                  {detail.map(({ name, version }) => (
-                    <ToolBadge
-                      key={name}
-                      id={postData.toolPathInfo![name]}
-                      name={name}
-                      version={version}
-                    />
-                  ))}
+                  {detail.map(({ name, version }) => {
+                    const toolId = postData.toolPathInfo?.[name]
+                    if (!toolId) return null
+                    return (
+                      <ToolBadge
+                        key={name}
+                        id={toolId}
+                        name={name}
+                        version={version}
+                      />
+                    )
+                  })}
                 </div>
               </div>
             </div>

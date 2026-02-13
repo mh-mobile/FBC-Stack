@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import DateDisplay from './DateDisplay'
@@ -8,6 +9,25 @@ import type { PostData } from '../../types/postData'
 
 type Props = {
   post: PostData
+}
+
+function ToolIcon({ toolID, name }: { toolID: string; name: string }) {
+  const [show, setShow] = useState(true)
+  if (!show) return <span className="inline-flex items-center rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-600">{name}</span>
+
+  return (
+    <span className="inline-flex items-center gap-1 rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-600">
+      <Image
+        src={`/images/tool/${toolID}.png`}
+        width={14}
+        height={14}
+        alt=""
+        className="h-3.5 w-3.5 object-contain"
+        onError={() => setShow(false)}
+      />
+      {name}
+    </span>
+  )
 }
 
 export default function ServiceCard({ post }: Props) {
@@ -39,22 +59,7 @@ export default function ServiceCard({ post }: Props) {
         {toolBadges.length > 0 && (
           <div className="flex flex-wrap gap-1.5 mb-3">
             {toolBadges.map(({ name, toolID }) => (
-              <span
-                key={toolID}
-                className="inline-flex items-center gap-1 rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-600"
-              >
-                <Image
-                  src={`/images/tool/${toolID}.png`}
-                  width={14}
-                  height={14}
-                  alt=""
-                  className="h-3.5 w-3.5 object-contain"
-                  onError={(e) => {
-                    ;(e.target as HTMLImageElement).style.display = 'none'
-                  }}
-                />
-                {name}
-              </span>
+              <ToolIcon key={toolID} toolID={toolID} name={name} />
             ))}
           </div>
         )}
