@@ -1,0 +1,20 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-external-link: #3182ce;
+  --color-light-text: #666666;
+  --color-card-bg: #f7fafc;
+}
+
+/* Base styles */
+body {
+  @apply text-gray-800 antialiased;
+}
+
+a {
+  @apply no-underline;
+}
+
+a:hover {
+  @apply no-underline;
+}

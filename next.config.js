@@ -3,7 +3,17 @@
  */
 const nextConfig = {
   images: {
-    domains: ['github.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'github.com',
+        pathname: '/*.png',
+      },
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+      },
+    ],
   },
 }
 
