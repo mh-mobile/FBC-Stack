@@ -1,7 +1,7 @@
 {
   "private": true,
   "engines": {
-    "node": ">=22.0.0"
+    "node": ">=24.0.0"
   },
   "scripts": {
     "predev": "rm -rf public/posts && mkdir -p public/posts && cp -R posts/*.md public/posts",
