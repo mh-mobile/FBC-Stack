@@ -6,12 +6,10 @@ import type { PostData } from '../../types/postData'
 
 type Props = {
   posts: PostData[]
-  categories: string[]
 }
 
-export default function ServiceGrid({ posts, categories }: Props) {
+export default function ServiceGrid({ posts }: Props) {
   const [query, setQuery] = useState('')
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
   const [sortOrder, setSortOrder] = useState<'newest' | 'oldest'>('newest')
 
   const filteredPosts = useMemo(() => {
@@ -29,26 +27,19 @@ export default function ServiceGrid({ posts, categories }: Props) {
       })
     }
 
-    // Category filter
-    if (selectedCategory) {
-      result = result.filter((post) =>
-        post.stack.some(({ name }) => name === selectedCategory),
-      )
-    }
-
     // Sort
     if (sortOrder === 'oldest') {
       result = [...result].reverse()
     }
 
     return result
-  }, [posts, query, selectedCategory, sortOrder])
+  }, [posts, query, sortOrder])
 
   return (
     <div>
-      {/* Search bar */}
-      <div className="mb-4 px-1">
-        <div className="relative">
+      {/* Search bar + Sort */}
+      <div className="mb-4 flex items-center gap-2 px-1">
+        <div className="relative flex-1">
           <svg
             className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400"
             fill="none"
@@ -70,43 +61,10 @@ export default function ServiceGrid({ posts, categories }: Props) {
             className="w-full rounded-lg border border-gray-200 bg-white py-2.5 pl-10 pr-4 text-sm outline-none transition-colors focus:border-blue-400 focus:ring-1 focus:ring-blue-400"
           />
         </div>
-      </div>
-
-      {/* Filter bar */}
-      <div className="mb-4 flex flex-wrap items-center gap-2 px-1">
-        <div className="flex flex-wrap gap-1.5">
-          <button
-            onClick={() => setSelectedCategory(null)}
-            className={`rounded-full px-3 py-1 text-xs transition-colors ${
-              selectedCategory === null
-                ? 'bg-gray-800 text-white'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-            }`}
-          >
-            すべて
-          </button>
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() =>
-                setSelectedCategory(selectedCategory === cat ? null : cat)
-              }
-              className={`rounded-full px-3 py-1 text-xs transition-colors ${
-                selectedCategory === cat
-                  ? 'bg-gray-800 text-white'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
-        {/* Sort toggle */}
         <select
           value={sortOrder}
           onChange={(e) => setSortOrder(e.target.value as 'newest' | 'oldest')}
-          className="ml-auto rounded-md border border-gray-200 bg-white px-2 py-1 text-xs text-gray-600 outline-none"
+          className="shrink-0 rounded-md border border-gray-200 bg-white px-2 py-2 text-xs text-gray-600 outline-none"
         >
           <option value="newest">新しい順</option>
           <option value="oldest">古い順</option>
