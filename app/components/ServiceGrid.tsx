@@ -4,16 +4,34 @@ import { useState, useMemo } from 'react'
 import ServiceCard from './ServiceCard'
 import type { PostData } from '../../types/postData'
 
+const ITEMS_PER_PAGE = 20
+
 type Props = {
   posts: PostData[]
 }
 
 export default function ServiceGrid({ posts }: Props) {
   const [query, setQuery] = useState('')
+  const [selectedYear, setSelectedYear] = useState<string | null>(null)
   const [sortOrder, setSortOrder] = useState<'newest' | 'oldest'>('newest')
+  const [displayCount, setDisplayCount] = useState(ITEMS_PER_PAGE)
+
+  // Extract available years from posts (sorted descending)
+  const years = useMemo(() => {
+    const yearSet = new Set<string>()
+    for (const post of posts) {
+      yearSet.add(post.date.slice(0, 4))
+    }
+    return Array.from(yearSet).sort((a, b) => b.localeCompare(a))
+  }, [posts])
 
   const filteredPosts = useMemo(() => {
     let result = posts
+
+    // Year filter
+    if (selectedYear) {
+      result = result.filter((post) => post.date.startsWith(selectedYear))
+    }
 
     // Text search (title, author, tool names)
     if (query.trim()) {
@@ -33,12 +51,16 @@ export default function ServiceGrid({ posts }: Props) {
     }
 
     return result
-  }, [posts, query, sortOrder])
+  }, [posts, query, selectedYear, sortOrder])
+
+  // Reset display count when filters change
+  const visiblePosts = filteredPosts.slice(0, displayCount)
+  const hasMore = displayCount < filteredPosts.length
 
   return (
     <div>
       {/* Search bar + Sort */}
-      <div className="mb-4 flex items-center gap-2 px-1">
+      <div className="mb-3 flex items-center gap-2 px-1">
         <div className="relative flex-1">
           <svg
             className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400"
@@ -57,7 +79,10 @@ export default function ServiceGrid({ posts }: Props) {
             type="text"
             placeholder="サービス名、著者、技術名で検索..."
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(e) => {
+              setQuery(e.target.value)
+              setDisplayCount(ITEMS_PER_PAGE)
+            }}
             className="w-full rounded-lg border border-gray-200 bg-white py-2.5 pl-10 pr-4 text-sm outline-none transition-colors focus:border-blue-400 focus:ring-1 focus:ring-blue-400"
           />
         </div>
@@ -71,6 +96,39 @@ export default function ServiceGrid({ posts }: Props) {
         </select>
       </div>
 
+      {/* Year filter */}
+      <div className="mb-3 flex flex-wrap gap-1.5 px-1">
+        <button
+          onClick={() => {
+            setSelectedYear(null)
+            setDisplayCount(ITEMS_PER_PAGE)
+          }}
+          className={`rounded-full px-3 py-1 text-xs transition-colors ${
+            selectedYear === null
+              ? 'bg-gray-800 text-white'
+              : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+          }`}
+        >
+          すべて
+        </button>
+        {years.map((year) => (
+          <button
+            key={year}
+            onClick={() => {
+              setSelectedYear(selectedYear === year ? null : year)
+              setDisplayCount(ITEMS_PER_PAGE)
+            }}
+            className={`rounded-full px-3 py-1 text-xs transition-colors ${
+              selectedYear === year
+                ? 'bg-gray-800 text-white'
+                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+            }`}
+          >
+            {year}
+          </button>
+        ))}
+      </div>
+
       {/* Results count */}
       <div className="mb-3 px-1 text-sm text-light-text">
         {filteredPosts.length} 件のサービス
@@ -78,10 +136,22 @@ export default function ServiceGrid({ posts }: Props) {
 
       {/* Grid */}
       <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-5">
-        {filteredPosts.map((post) => (
+        {visiblePosts.map((post) => (
           <ServiceCard key={post.id} post={post} />
         ))}
       </div>
+
+      {/* Show more button */}
+      {hasMore && (
+        <div className="mt-6 flex justify-center">
+          <button
+            onClick={() => setDisplayCount((c) => c + ITEMS_PER_PAGE)}
+            className="rounded-lg border border-gray-200 bg-white px-8 py-2.5 text-sm text-gray-700 transition-colors hover:bg-gray-50"
+          >
+            もっと見る（残り {filteredPosts.length - displayCount} 件）
+          </button>
+        </div>
+      )}
 
       {filteredPosts.length === 0 && (
         <div className="py-12 text-center text-gray-400">
