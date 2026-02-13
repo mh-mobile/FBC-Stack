@@ -44,83 +44,111 @@ export default function PostPage({ params }: { params: { id: string } }) {
   const postData = getPostData(params.id)
   const podcastData = postData.hasAudio ? getPodcastData(params.id) : null
 
+  const totalTools = postData.stack.reduce(
+    (sum, cat) => sum + cat.detail.length,
+    0,
+  )
+
   return (
     <article>
-      <h1 className="my-4 text-3xl font-extrabold leading-tight">
-        {postData.title}
-      </h1>
+      {/* Hero section */}
+      <div className="rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 p-6 md:p-8">
+        <h1 className="text-2xl font-extrabold leading-tight md:text-3xl">
+          {postData.title}
+        </h1>
 
-      <div className="flex flex-col gap-2.5">
-        <div className="text-light-text">
-          <DateDisplay dateString={postData.date} />
-        </div>
-
-        <div className="flex flex-wrap items-center gap-2.5">
-          <div className="shrink-0 overflow-hidden rounded-full">
+        {/* Author & date */}
+        <div className="mt-4 flex items-center gap-3">
+          <div className="shrink-0 overflow-hidden rounded-full ring-2 ring-white">
             <Image
               src={`https://github.com/${postData.author}.png`}
-              width={25}
-              height={25}
+              width={36}
+              height={36}
               alt=""
               placeholder="blur"
               blurDataURL={getBlurDataURL()}
-              className="h-auto max-w-full"
+              className="h-9 w-9 object-cover"
             />
           </div>
-          <span>{postData.author}</span>
+          <div>
+            <div className="text-sm font-medium">{postData.author}</div>
+            <div className="text-xs text-light-text">
+              <DateDisplay dateString={postData.date} />
+            </div>
+          </div>
+          <span className="ml-2 rounded-full bg-gray-200 px-2.5 py-0.5 text-xs text-gray-600">
+            {totalTools} tools
+          </span>
+        </div>
 
+        {/* External links */}
+        <div className="mt-4 flex flex-wrap gap-2">
           {postData.code.map(({ repository }) => (
-            <span key={repository} className="flex items-center gap-2">
+            <span key={repository} className="contents">
               <ExternalLink href={repository}>
-                <Image
-                  src="/images/tool/github.png"
-                  width={30}
-                  height={30}
-                  alt="repository"
-                  className="h-auto max-w-full"
-                />
+                <span className="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 transition-colors hover:bg-gray-50">
+                  <Image
+                    src="/images/tool/github.png"
+                    width={16}
+                    height={16}
+                    alt=""
+                    className="h-4 w-4"
+                  />
+                  GitHub
+                </span>
               </ExternalLink>
               <ExternalLink
                 href={repository.replace('github.com', 'deepwiki.com')}
               >
-                <Image
-                  src="/images/deepwiki.png"
-                  width={30}
-                  height={30}
-                  alt="deepwiki"
-                  className="h-auto max-w-full"
-                />
+                <span className="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 transition-colors hover:bg-gray-50">
+                  <Image
+                    src="/images/deepwiki.png"
+                    width={16}
+                    height={16}
+                    alt=""
+                    className="h-4 w-4"
+                  />
+                  DeepWiki
+                </span>
               </ExternalLink>
             </span>
           ))}
 
           {postData.blog && postData.blog.length > 0 && (
             <ExternalLink href={postData.blog}>
-              <Image
-                src="/images/blog.png"
-                width={30}
-                height={30}
-                alt="blog"
-                className="h-auto max-w-full"
-              />
+              <span className="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 transition-colors hover:bg-gray-50">
+                <Image
+                  src="/images/blog.png"
+                  width={16}
+                  height={16}
+                  alt=""
+                  className="h-4 w-4"
+                />
+                Blog
+              </span>
             </ExternalLink>
           )}
 
           {postData.website && postData.website.length > 0 && (
             <ExternalLink href={postData.website}>
-              <Image
-                src="/images/website.png"
-                width={30}
-                height={30}
-                alt="website"
-                className="h-auto max-w-full"
-              />
+              <span className="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 transition-colors hover:bg-gray-50">
+                <Image
+                  src="/images/website.png"
+                  width={16}
+                  height={16}
+                  alt=""
+                  className="h-4 w-4"
+                />
+                Website
+              </span>
             </ExternalLink>
           )}
         </div>
+      </div>
 
-        {/* Audio Player - inline section instead of hidden modal */}
-        {postData.hasAudio && (
+      {/* Audio Player */}
+      {postData.hasAudio && (
+        <div className="mt-5">
           <AudioPlayer
             postId={postData.id}
             title={postData.title}
@@ -128,11 +156,12 @@ export default function PostPage({ params }: { params: { id: string } }) {
             chapters={podcastData?.chapters}
             showNotes={podcastData?.showNotes}
           />
-        )}
-
-        <div className="pt-2">
-          <ServiceContent postData={postData} />
         </div>
+      )}
+
+      {/* Content */}
+      <div className="mt-5">
+        <ServiceContent postData={postData} />
       </div>
 
       <div className="mt-10">

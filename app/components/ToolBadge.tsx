@@ -16,8 +16,8 @@ export default function ToolBadge({ id, name, version }: Props) {
 
   return (
     <Link href={`/tools/${id}`} className="block">
-      <div className="flex min-h-[120px] flex-col items-center justify-center rounded-lg bg-card-bg px-2.5 py-5 transition-shadow hover:shadow-sm">
-        <div className="relative mb-3 h-[45px] w-[45px]">
+      <div className="flex min-h-[100px] flex-col items-center justify-center rounded-xl bg-gray-50 px-2.5 py-4 transition-all hover:bg-gray-100 hover:shadow-sm">
+        <div className="relative mb-2 h-10 w-10">
           <Image
             src={imageSrc}
             alt={name}
@@ -28,11 +28,11 @@ export default function ToolBadge({ id, name, version }: Props) {
             className="object-contain"
           />
         </div>
-        <div className="break-words px-5 text-center text-sm leading-snug text-light-text">
+        <div className="break-words text-center text-xs font-medium leading-snug text-gray-700">
           {name}
         </div>
         {version && (
-          <div className="mt-2 flex w-4/5 justify-center rounded bg-gray-200 p-1 text-xs">
+          <div className="mt-1.5 rounded-full bg-gray-200 px-2 py-0.5 text-[10px] font-medium text-gray-500">
             {version}
           </div>
         )}
