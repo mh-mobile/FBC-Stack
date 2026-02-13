@@ -5,6 +5,7 @@ import MobileNav from './MobileNav'
 const navLinks = [
   { href: '/about', label: 'FBC Stackについて' },
   { href: '/tools', label: 'みんなのツール' },
+  { href: '/stats', label: '統計' },
 ]
 
 export default function Header() {
