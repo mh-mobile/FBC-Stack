@@ -1,5 +1,5 @@
 ---
-title: '展示グループトーク'
+title: '点字グループトーク'
 date: '2026-01-19'
 author: ayu-0505
 code:
