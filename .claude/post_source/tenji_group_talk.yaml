@@ -1,0 +1,16 @@
+date: '2026-01-19'
+service:
+  name: 展示グループトーク
+  description: >
+    点字グループトークというサービスは、点訳サークルなどで点字を学習している人々のための、一言点字クイズを送り合うことができる招待制掲示板サービスです。
+links:
+  repository:
+    url: https://github.com/ayu-0505/TenjiGroupTalk
+  site:
+    url: https://tenji-grouptalk.net/
+  blog:
+    url: https://ayu-0505.hatenablog.com/entry/2026/01/19/120508
+author:
+  name: ayu-0505
+
+
