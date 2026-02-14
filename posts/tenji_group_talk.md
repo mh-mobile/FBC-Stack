@@ -12,6 +12,7 @@ hasAudio: false
 stack:
   - name: フロントエンド
     detail:
+      - name: JavaScript
       - name: Hotwire
       - name: Turbo
       - name: Stimulus
@@ -40,6 +41,8 @@ stack:
         version: 1.3.1
       - name: Kaminari
         version: 1.2.2
+      - name: tenji
+        version: 0.1.2
 
   - name: データベース
     detail:
