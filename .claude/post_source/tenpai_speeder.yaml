@@ -1,0 +1,16 @@
+date: '2026-01-20'
+service:
+  name: Tenpai Speeder
+  description: >
+    Tenpai Speederは、聴牌に近づくための切り方を視覚的に学べる麻雀トレーニングサービスです。AI対局で実戦感覚を保ちつつ、有効牌や向聴数を確認しながらプレイできます。
+links:
+  repository:
+    url: https://github.com/Ryooo-k/tenpai-speeder
+  site:
+    url: https://tenpai-speeder.com/
+  blog:
+    url: https://ryo-ta090.hatenablog.com/entry/2026/01/20/061412
+author:
+  name: Ryooo-k
+
+
