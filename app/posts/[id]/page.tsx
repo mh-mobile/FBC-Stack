@@ -67,7 +67,7 @@ export default function PostPage({ params }: { params: { id: string } }) {
               src={`https://github.com/${postData.author}.png`}
               width={36}
               height={36}
-              alt=""
+              alt={`${postData.author}のアバター`}
               placeholder="blur"
               blurDataURL={getBlurDataURL()}
               className="h-9 w-9 object-cover"
@@ -95,6 +95,7 @@ export default function PostPage({ params }: { params: { id: string } }) {
                     width={16}
                     height={16}
                     alt=""
+                    aria-hidden="true"
                     className="h-4 w-4"
                   />
                   GitHub
@@ -109,6 +110,7 @@ export default function PostPage({ params }: { params: { id: string } }) {
                     width={16}
                     height={16}
                     alt=""
+                    aria-hidden="true"
                     className="h-4 w-4"
                   />
                   DeepWiki

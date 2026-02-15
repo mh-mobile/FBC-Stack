@@ -35,7 +35,7 @@ function ToolItem({
         <div className="relative h-8 w-8 shrink-0">
           <Image
             src={imgSrc}
-            alt=""
+            alt={toolName}
             placeholder="blur"
             blurDataURL={getBlurDataURL()}
             fill
