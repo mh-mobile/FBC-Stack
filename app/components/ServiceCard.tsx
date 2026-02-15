@@ -21,7 +21,7 @@ function ToolIcon({ toolID, name }: { toolID: string; name: string }) {
         src={`/images/tool/${toolID}.png`}
         width={14}
         height={14}
-        alt=""
+        alt={name}
         className="h-3.5 w-3.5 object-contain"
         onError={() => setShow(false)}
       />
@@ -73,7 +73,7 @@ export default function ServiceCard({ post }: Props) {
               height={24}
               placeholder="blur"
               blurDataURL={getBlurDataURL()}
-              alt=""
+              alt={`${author}のアバター`}
               className="h-6 w-6 object-cover"
             />
           </div>

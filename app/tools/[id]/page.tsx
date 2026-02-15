@@ -59,7 +59,7 @@ export default function ToolDetailPage({
       <div className="rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 p-6 md:p-8">
         <div className="flex items-center gap-4">
           <div className="shrink-0">
-            <ToolImage toolID={toolData.toolID} />
+            <ToolImage toolID={toolData.toolID} toolName={toolData.toolName} />
           </div>
           <div className="min-w-0">
             <h1 className="text-xl font-bold md:text-2xl">
