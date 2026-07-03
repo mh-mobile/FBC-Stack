@@ -16,12 +16,13 @@ export function generateStaticParams() {
   return getAllPostIds()
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { id: string }
-}): Metadata {
-  const postData = getPostData(params.id)
+  params: Promise<{ id: string }>
+}): Promise<Metadata> {
+  const { id } = await params
+  const postData = getPostData(id)
   const baseURL = process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000'
   const description = `${postData.author}が作成した「${postData.title}」の技術スタック情報`
 
@@ -31,7 +32,7 @@ export function generateMetadata({
     openGraph: {
       title: postData.title,
       description,
-      url: `${baseURL}/posts/${params.id}`,
+      url: `${baseURL}/posts/${id}`,
       images: [`${baseURL}/images/fbcstack_ogp.png`],
     },
     twitter: {
@@ -43,10 +44,15 @@ export function generateMetadata({
   }
 }
 
-export default function PostPage({ params }: { params: { id: string } }) {
-  const postData = getPostData(params.id)
-  const podcastData = postData.hasAudio ? getPodcastData(params.id) : null
-  const relatedPosts = getRelatedPosts(params.id)
+export default async function PostPage({
+  params,
+}: {
+  params: Promise<{ id: string }>
+}) {
+  const { id } = await params
+  const postData = getPostData(id)
+  const podcastData = postData.hasAudio ? getPodcastData(id) : null
+  const relatedPosts = getRelatedPosts(id)
 
   const totalTools = postData.stack.reduce(
     (sum, cat) => sum + cat.detail.length,
