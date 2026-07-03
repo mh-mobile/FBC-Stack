@@ -31,6 +31,7 @@ stack:
     detail:
       - name: さくらのVPS
       - name: Kamal
+      - name: Docker
 
   - name: 認証
     detail:
