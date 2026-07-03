@@ -16,6 +16,9 @@ export function generateStaticParams() {
   return getAllPostIds()
 }
 
+// 存在しないIDは404にする（未指定だとオンデマンド描画でENOENTの500になる）
+export const dynamicParams = false
+
 export async function generateMetadata({
   params,
 }: {
