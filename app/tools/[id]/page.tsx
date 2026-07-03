@@ -13,12 +13,13 @@ export function generateStaticParams() {
   return allToolsData.map(({ toolID }) => ({ id: toolID }))
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { id: string }
-}): Metadata {
-  const toolData = getToolData(params.id)
+  params: Promise<{ id: string }>
+}): Promise<Metadata> {
+  const { id } = await params
+  const toolData = getToolData(id)
   const baseURL = process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000'
   const description = `「${toolData.toolName}」を採用しているFBC卒業生のサービス一覧`
 
@@ -28,7 +29,7 @@ export function generateMetadata({
     openGraph: {
       title: `${toolData.toolName} | FBC Stack`,
       description,
-      url: `${baseURL}/tools/${params.id}`,
+      url: `${baseURL}/tools/${id}`,
       images: [`${baseURL}/images/fbcstack_ogp.png`],
     },
     twitter: {
@@ -40,12 +41,13 @@ export function generateMetadata({
   }
 }
 
-export default function ToolDetailPage({
+export default async function ToolDetailPage({
   params,
 }: {
-  params: { id: string }
+  params: Promise<{ id: string }>
 }) {
-  const toolData = getToolData(params.id)
+  const { id } = await params
+  const toolData = getToolData(id)
   const allPostsData = getFilteredPostsData(toolData)
   const coUsedTools = getCoUsedTools(toolData)
   const yearlyAdoption = getToolYearlyAdoption(toolData)
