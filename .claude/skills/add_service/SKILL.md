@@ -91,7 +91,11 @@ node .claude/skills/add_service/scripts/check_post.mjs <id>
   ---
   ```
 
-- `WARN: アイコン ... がありません` → そのままでも動く（noimage表示）が、PR本文に「アイコン未登録」として明記する
+- `WARN: アイコン ... がありません` → 以下の優先順でアイコンを用意する:
+  1. ツール公式のロゴがあれば `public/images/tool/<tool_id>.png` として配置
+  2. 個別ロゴを持たないgemの場合は、RubyGemsアイコンを流用する:
+     `cp public/images/tool/solid_queue.png public/images/tool/<tool_id>.png`
+  3. どちらも難しければそのままでも動く（noimage表示）が、PR本文に「アイコン未登録」として明記する
 - exit 0 になるまで修正する
 
 ### 5. ビルド確認
