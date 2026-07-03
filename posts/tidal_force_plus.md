@@ -10,6 +10,12 @@ website: 'https://tidal-force-plus.net/'
 published: true
 hasAudio: false
 stack:
+  - name: フロントエンド
+    detail:
+      - name: JavaScript
+      - name: Hotwire
+      - name: Tailwind CSS
+
   - name: バックエンド
     detail:
       - name: Ruby on Rails
@@ -17,21 +23,20 @@ stack:
       - name: Ruby
         version: 3.4.7
 
-  - name: フロントエンド
-    detail:
-      - name: JavaScript
-      - name: Hotwire
-      - name: Tailwind CSS
-
   - name: データベース
     detail:
       - name: SQLite
 
-  - name: インフラ
+  - name: テスト
     detail:
-      - name: さくらのVPS
-      - name: Kamal
-      - name: Docker
+      - name: Minitest
+
+  - name: Linter/Formatter
+    detail:
+      - name: RuboCop
+      - name: ERB Lint
+      - name: ESLint
+      - name: Prettier
 
   - name: 認証
     detail:
@@ -49,16 +54,11 @@ stack:
     detail:
       - name: GitHub Actions
 
-  - name: テスト
+  - name: インフラ
     detail:
-      - name: Minitest
-
-  - name: Linter/Formatter
-    detail:
-      - name: RuboCop
-      - name: ERB Lint
-      - name: ESLint
-      - name: Prettier
+      - name: さくらのVPS
+      - name: Kamal
+      - name: Docker
 ---
 
 Tidal Force Plus は、「月・太陽による起潮力（潮汐力）」や「木星」の影響を調べたい人向けの、データ提供サービスです
