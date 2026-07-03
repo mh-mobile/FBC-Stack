@@ -1,7 +1,7 @@
 ---
-toolName: rubocop
+toolName: RuboCop
 alias:
-  - RuboCop
+  - rubocop
   - Rubocop
 url: https://github.com/rubocop/rubocop
 ---
