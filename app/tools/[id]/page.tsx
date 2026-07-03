@@ -13,6 +13,9 @@ export function generateStaticParams() {
   return allToolsData.map(({ toolID }) => ({ id: toolID }))
 }
 
+// 存在しないIDは404にする（未指定だとオンデマンド描画でENOENTの500になる）
+export const dynamicParams = false
+
 export async function generateMetadata({
   params,
 }: {
