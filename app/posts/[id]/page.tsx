@@ -3,12 +3,14 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { getAllPostIds, getPostData } from '../../lib/posts'
 import { getPodcastData } from '../../lib/podcast'
+import { getRelatedPosts } from '../../lib/related'
 import { getBlurDataURL } from '../../lib/image'
 import DateDisplay from '../../components/DateDisplay'
 import ExternalLink from '../../components/ExternalLink'
 import ServiceContent from '../../components/ServiceContent'
 import AudioPlayer from '../../components/AudioPlayer'
 import Breadcrumb from '../../components/Breadcrumb'
+import ServiceCard from '../../components/ServiceCard'
 
 export function generateStaticParams() {
   return getAllPostIds()
@@ -44,6 +46,7 @@ export function generateMetadata({
 export default function PostPage({ params }: { params: { id: string } }) {
   const postData = getPostData(params.id)
   const podcastData = postData.hasAudio ? getPodcastData(params.id) : null
+  const relatedPosts = getRelatedPosts(params.id)
 
   const totalTools = postData.stack.reduce(
     (sum, cat) => sum + cat.detail.length,
@@ -168,6 +171,23 @@ export default function PostPage({ params }: { params: { id: string } }) {
       <div className="mt-5">
         <ServiceContent postData={postData} />
       </div>
+
+      {/* Related services */}
+      {relatedPosts.length > 0 && (
+        <section className="mt-10">
+          <h2 className="mb-1 text-lg font-bold">
+            似た技術スタックのサービス
+          </h2>
+          <p className="mb-3 text-sm text-light-text">
+            使用ツールの構成が近いサービスです。実装の参考にどうぞ
+          </p>
+          <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-5">
+            {relatedPosts.map((post) => (
+              <ServiceCard key={post.id} post={post} />
+            ))}
+          </div>
+        </section>
+      )}
 
       <div className="mt-10">
         <Link

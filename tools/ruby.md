@@ -1,6 +1,6 @@
 ---
-toolName: ruby
+toolName: Ruby
 alias:
-  - Ruby
+  - ruby
 url: https://www.ruby-lang.org/ja/
 ---

@@ -1,9 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { getBlurDataURL } from '../lib/image'
+import ToolListItem from './ToolListItem'
 import type { ToolData } from '../../types/toolData'
 
 type ToolWithStats = ToolData & { usageCount: number }
@@ -16,42 +14,6 @@ type GroupedTools = {
 type Props = {
   allToolsData: ToolWithStats[]
   grouped: GroupedTools[]
-}
-
-function ToolItem({
-  toolID,
-  toolName,
-  usageCount,
-}: {
-  toolID: string
-  toolName: string
-  usageCount: number
-}) {
-  const [imgSrc, setImgSrc] = useState(`/images/tool/${toolID}.png`)
-
-  return (
-    <Link href={`/tools/${toolID}`} className="block">
-      <div className="flex items-center gap-3 rounded-lg px-3 py-2.5 transition-colors hover:bg-gray-100">
-        <div className="relative h-8 w-8 shrink-0">
-          <Image
-            src={imgSrc}
-            alt={toolName}
-            placeholder="blur"
-            blurDataURL={getBlurDataURL()}
-            fill
-            onError={() => setImgSrc('/images/noimage.png')}
-            className="object-contain"
-          />
-        </div>
-        <span className="min-w-0 flex-1 truncate text-sm font-medium text-gray-700">
-          {toolName}
-        </span>
-        <span className="shrink-0 rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-500">
-          {usageCount}
-        </span>
-      </div>
-    </Link>
-  )
 }
 
 export default function ToolSearch({ allToolsData, grouped }: Props) {
@@ -97,11 +59,11 @@ export default function ToolSearch({ allToolsData, grouped }: Props) {
           </div>
           <div className="grid grid-cols-1 gap-0.5 sm:grid-cols-2">
             {filteredItems.map(({ toolID, toolName, usageCount }) => (
-              <ToolItem
+              <ToolListItem
                 key={toolID}
                 toolID={toolID}
                 toolName={toolName}
-                usageCount={usageCount}
+                badge={String(usageCount)}
               />
             ))}
           </div>
@@ -132,11 +94,11 @@ export default function ToolSearch({ allToolsData, grouped }: Props) {
                 </div>
                 <div className="grid grid-cols-1 gap-0.5 p-2 sm:grid-cols-2 md:grid-cols-3">
                   {tools.map(({ toolID, toolName, usageCount }) => (
-                    <ToolItem
+                    <ToolListItem
                       key={toolID}
                       toolID={toolID}
                       toolName={toolName}
-                      usageCount={usageCount}
+                      badge={String(usageCount)}
                     />
                   ))}
                 </div>

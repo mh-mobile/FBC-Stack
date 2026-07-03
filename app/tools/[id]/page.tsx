@@ -2,7 +2,9 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { getAllToolsData, getToolData } from '../../lib/tools'
 import { getFilteredPostsData } from '../../lib/posts'
+import { getCoUsedTools, getToolYearlyAdoption } from '../../lib/related'
 import ServiceCard from '../../components/ServiceCard'
+import ToolListItem from '../../components/ToolListItem'
 import ToolImage from './ToolImage'
 import Breadcrumb from '../../components/Breadcrumb'
 
@@ -45,6 +47,9 @@ export default function ToolDetailPage({
 }) {
   const toolData = getToolData(params.id)
   const allPostsData = getFilteredPostsData(toolData)
+  const coUsedTools = getCoUsedTools(toolData)
+  const yearlyAdoption = getToolYearlyAdoption(toolData)
+  const hasAdoption = yearlyAdoption.some(({ count }) => count > 0)
 
   return (
     <>
@@ -94,6 +99,76 @@ export default function ToolDetailPage({
           </div>
         </div>
       </div>
+
+      {/* Yearly adoption trend */}
+      {hasAdoption && (
+        <section className="mt-5">
+          <div className="overflow-hidden rounded-xl border border-gray-200 bg-white">
+            <div className="border-b border-gray-100 bg-gray-50 px-5 py-3">
+              <h2 className="text-sm font-semibold text-gray-700">
+                年別採用トレンド
+              </h2>
+              <p className="mt-0.5 text-xs text-gray-400">
+                各年に登録されたサービスのうち、このツールを採用した割合
+              </p>
+            </div>
+            <div className="p-5">
+              <div className="space-y-2">
+                {yearlyAdoption.map(({ year, count, total, rate }) => (
+                  <div key={year} className="flex items-center gap-3">
+                    <span className="w-12 shrink-0 text-right text-xs text-gray-500">
+                      {year}
+                    </span>
+                    <div className="flex flex-1 items-center gap-2">
+                      <div className="h-5 flex-1 rounded-full bg-gray-100">
+                        <div
+                          className="h-5 rounded-full bg-blue-500 transition-all"
+                          style={{
+                            width: `${rate}%`,
+                            minWidth: count > 0 ? '4px' : '0',
+                          }}
+                        />
+                      </div>
+                      <span className="w-24 shrink-0 text-right text-xs text-gray-600">
+                        <span className="font-semibold">{count}</span>
+                        <span className="text-gray-400"> / {total}件</span>
+                        <span className="ml-1 font-semibold">{rate}%</span>
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Frequently co-used tools */}
+      {coUsedTools.length > 0 && (
+        <section className="mt-5">
+          <div className="overflow-hidden rounded-xl border border-gray-200 bg-white">
+            <div className="border-b border-gray-100 bg-gray-50 px-5 py-3">
+              <h2 className="text-sm font-semibold text-gray-700">
+                一緒によく使われるツール
+              </h2>
+              <p className="mt-0.5 text-xs text-gray-400">
+                {toolData.toolName}
+                を採用しているサービスで併用されているツール（併用率）
+              </p>
+            </div>
+            <div className="grid grid-cols-1 gap-0.5 p-2 sm:grid-cols-2 md:grid-cols-3">
+              {coUsedTools.map(({ toolID, toolName, rate }) => (
+                <ToolListItem
+                  key={toolID}
+                  toolID={toolID}
+                  toolName={toolName}
+                  badge={`${rate}%`}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Services using this tool */}
       <div className="mt-5">

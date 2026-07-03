@@ -1,6 +1,6 @@
 ---
-toolName: rspec
+toolName: RSpec
 alias:
-  - RSpec
+  - rspec
 url: https://rspec.info/
 ---
