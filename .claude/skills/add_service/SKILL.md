@@ -127,5 +127,7 @@ node .claude/skills/add_service/scripts/check_post.mjs <id>
 
 ## 注意
 
-- スタックはリポジトリの実ファイルを根拠にする。READMEの記述と依存ファイルが食い違う場合は依存ファイルを優先し、PR本文でその旨に触れる
+- スタックはリポジトリの実ファイルを根拠にする。READMEの記述と実態（依存ファイル・本番環境）が
+  食い違う場合は、**実態を反映しつつ、作者が記載している技術も開発で使われたものとして削除せずに併記する**
+  （例: READMEはKamalだが本番はHeroku → Heroku / Kamal を両方載せる）。食い違いの内容はPR本文で説明する
 - 既存の posts/*.md や tools/*.md は変更しない（このSkillは追加専用）
