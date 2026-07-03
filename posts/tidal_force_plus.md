@@ -23,10 +23,6 @@ stack:
       - name: Ruby
         version: 3.4.7
 
-  - name: データベース
-    detail:
-      - name: SQLite
-
   - name: テスト
     detail:
       - name: Minitest
@@ -49,6 +45,10 @@ stack:
     detail:
       - name: Apache ECharts
       - name: Google OAuth
+
+  - name: データベース
+    detail:
+      - name: SQLite
 
   - name: CI/CD
     detail:
