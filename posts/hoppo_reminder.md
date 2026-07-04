@@ -25,7 +25,7 @@ stack:
   - name: Linter/Formatter
     detail:
       - name: RuboCop
-      - name: Slim Lint
+      - name: Slim-Lint
       - name: ESLint
       - name: Prettier
 

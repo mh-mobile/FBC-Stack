@@ -10,7 +10,7 @@ website: https://my-film-todo.com/
 published: false
 hasAudio: false
 stack:
-  - name: frontend
+  - name: フロントエンド
     detail: 
       - name: React
         version: 18.2.0
@@ -20,11 +20,11 @@ stack:
         version: 4.9.4
       - name: Chakra UI
         version: 
-  - name: infra
+  - name: インフラ
     detail:
       - name: Vercel
         version: 
-  - name: test
+  - name: テスト
     detail:
       - name: Jest
         version: 28.1.3

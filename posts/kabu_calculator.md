@@ -33,12 +33,12 @@ stack:
   - name: データベースサーバ
     detail:
       - name: MySQL
-        version: 5.7
+        version: '5.7'
 
   - name: バッチシステム
     detail:
      - name: Python
-       version: 3.9
+       version: '3.9'
 
   - name: ビルドツール
     detail:
@@ -47,9 +47,9 @@ stack:
 
   - name: Linter/Formatter
     detail:
-     - name: Rubocop
+     - name: RuboCop
        version: 1.25.1
-     - name: Slim_Lint
+     - name: Slim-Lint
        version: 1.22.1
      - name: ESLint
        version: 8.8.0

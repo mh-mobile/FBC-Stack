@@ -15,7 +15,7 @@ stack:
       - name: Vue.js
         version: 3.2.31
       - name: Node.js
-        version: 16.14
+        version: '16.14'
       - name: daisyUI
         version: 2.14.2
       - name: Tailwind CSS
@@ -44,7 +44,7 @@ stack:
  
   - name: Linter/Formatter
     detail:
-      - name: Rubocop
+      - name: RuboCop
         version: 1.31.2
       - name: ESLint
         version: 7.32.0

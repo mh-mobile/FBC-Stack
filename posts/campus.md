@@ -25,7 +25,7 @@ stack:
   - name: データベース
     detail:
       - name: PostgreSQL
-        version: 17.5
+        version: '17.5'
 
   - name: テスト
     detail:
@@ -41,7 +41,7 @@ stack:
   - name: 認証・機能
     detail:
       - name: Devise
-      - name: ActiveStorage
+      - name: Active Storage
       - name: Discard
       - name: Kaminari
 

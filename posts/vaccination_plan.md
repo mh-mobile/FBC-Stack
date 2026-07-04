@@ -40,9 +40,9 @@ stack:
 
   - name: Linter/Formatter
     detail:
-      - name: Rubocop
+      - name: RuboCop
         version: 1.16.0
-      - name: Slim_Lint
+      - name: Slim-Lint
         version: 0.22.1
       - name: ESLint
         version: 7.32.0

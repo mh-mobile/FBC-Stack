@@ -15,14 +15,14 @@ stack:
       - name: Ruby
         version: 3.1.3
       - name: TypeScript
-        version: 4.9
+        version: '4.9'
 
   - name: フレームワーク
     detail:
       - name: Ruby on Rails
         version: 7.0.8
       - name: React
-        version: 18.2
+        version: '18.2'
       - name: Tailwind CSS
         version: 
       - name: daisyUI
@@ -36,7 +36,7 @@ stack:
   - name: データベース
     detail:
       - name: PostgreSQL
-        version: 15.3
+        version: '15.3'
 
   - name: ホスティング
     detail:

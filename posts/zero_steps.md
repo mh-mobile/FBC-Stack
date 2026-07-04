@@ -28,16 +28,16 @@ stack:
 
   - name: Linter/Formatter
     detail:
-      - name: Rubocop
+      - name: RuboCop
         version: 1.62.1
-      - name: ERB-Lint
+      - name: ERB Lint
         version: 0.5.0
 
   - name: テスト
     detail:
       - name: RSpec
         version: 6.1.2
-      - name: Factory_bot
+      - name: factory_bot
         version: 6.4.6
 
   - name: データベース

@@ -40,18 +40,18 @@ stack:
 
   - name: ビルドツール
     detail:
-      - name: webpack
+      - name: Webpack
         version: 5.78.0
 
   - name: Linter/Formatter
     detail:
-      - name: ESlint
+      - name: ESLint
         version: 8.37.0
       - name: Prettier
         version: 2.8.7
-      - name: Rubocop
+      - name: RuboCop
         version: 1.49.0
-      - name: slim_lint
+      - name: Slim-Lint
         version: 0.24.0
 
   - name: テスト

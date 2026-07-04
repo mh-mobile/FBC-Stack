@@ -10,7 +10,7 @@ website:
 published: false
 hasAudio: false
 stack:
-  - name: frontend
+  - name: フロントエンド
     detail: 
       - name: Vue.js 
         version: 
@@ -20,7 +20,7 @@ stack:
         version:
       - name: JavaScript
         version:
-  - name: backend
+  - name: バックエンド
     detail: 
       - name: Ruby
         version:

@@ -17,9 +17,9 @@ stack:
       - name: React
         version: 19.0.0
       - name: TypeScript
-        version: 5
+        version: '5'
       - name: Tailwind CSS
-        version: 4
+        version: '4'
       - name: shadcn/ui
       - name: pnpm
 
@@ -33,12 +33,12 @@ stack:
   - name: データベース
     detail:
       - name: PostgreSQL
-        version: 17
+        version: '17'
 
   - name: 認証
     detail:
       - name: Auth.js
-        version: 5
+        version: '5'
       - name: JWT
 
   - name: テスト
@@ -53,7 +53,7 @@ stack:
       - name: RuboCop
         version: 1.81.7
       - name: ESLint
-        version: 9
+        version: '9'
       - name: Prettier
         version: 3.5.3
 

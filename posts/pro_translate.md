@@ -20,7 +20,7 @@ stack:
         version: 
   - name: バックエンド
     detail:
-      - name: WebExtension Polyfill
+      - name: webextension-polyfill
         version: 
   - name: Linter/Formatter
     detail:

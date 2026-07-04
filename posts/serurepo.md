@@ -46,7 +46,7 @@ stack:
     detail:
       - name: ESLint
         version: 7.32.0
-      - name: Rubocop
+      - name: RuboCop
         version: 1.30.1
       - name: Slim-Lint
         version: 0.22.1
@@ -83,7 +83,7 @@ stack:
         version: 
       - name: Amazon SES
         version: 
-      - name: Amazon Workmail
+      - name: Amazon WorkMail
         version: 
 
 ---

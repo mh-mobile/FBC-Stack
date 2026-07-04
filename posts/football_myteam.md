@@ -30,13 +30,13 @@ stack:
 
   - name: Linter/Formatter
     detail:
-      - name: Slim-Lnt
+      - name: Slim-Lint
         version: 0.22.1
       - name: ESLint
         version: 7.32.0
       - name: Prettier
         version: 2.5.1
-      - name: Rubocop
+      - name: RuboCop
         version: 1.26.0
 
   - name: 認証

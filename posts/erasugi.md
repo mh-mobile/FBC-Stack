@@ -16,7 +16,7 @@ stack:
         version:
       - name: Tailwind CSS
         version:
-      - name: Konva.js
+      - name: konva.js
         version:
 
   - name: バックエンド
@@ -27,7 +27,7 @@ stack:
         version: 7.1.3.4
   - name: Linter/Formatter
     detail:
-      - name: Rubocop
+      - name: RuboCop
         version:
       - name: Prettier
         version:
@@ -35,7 +35,7 @@ stack:
         version:
   - name: テスト
     detail:
-      - name: Minitest
+      - name: minitest
         version:
   - name: データベース
     detail:

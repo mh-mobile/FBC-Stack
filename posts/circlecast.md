@@ -22,9 +22,9 @@ stack:
   - name: バックエンド
     detail:
       - name: Ruby
-        version: 3.2
+        version: '3.2'
       - name: Ruby on Rails
-        version: 7.0
+        version: '7.0'
       - name: Devise
         version:
       - name: Active Storage
@@ -39,7 +39,7 @@ stack:
     detail:
       - name: ERB Lint
         version: 0.5.0
-      - name: Rubocop
+      - name: RuboCop
         version: 1.62.1
 
   - name: データベース

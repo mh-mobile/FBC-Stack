@@ -10,21 +10,21 @@ website:
 published: false
 hasAudio: false
 stack:
-  - name: frontend
+  - name: フロントエンド
     detail: 
       - name: Ruby
         version: 2.7.0
       - name: Vue.js
-        version: 3.1
+        version: '3.1'
       - name: JavaScript
         version:
  
-  - name: backend
+  - name: バックエンド
     detail: 
       - name: Ruby on Rails
         version: 6.1.4.6
  
-  - name: infra
+  - name: インフラ
     detail:
       - name: Heroku
         version: 

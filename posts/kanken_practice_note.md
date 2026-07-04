@@ -30,7 +30,7 @@ stack:
   - name: データベース
     detail:
       - name: SQLite
-        version: 3
+        version: '3'
       - name: Litestream
         version:
 
@@ -48,7 +48,7 @@ stack:
 
   - name: Linter/Formatter
     detail:
-      - name: Rubocop
+      - name: RuboCop
         version: 1.47.0
       - name: ESLint
         version: 8.28.0
@@ -67,9 +67,9 @@ stack:
   - name: 開発環境
     detail:
       - name: Debian
-        version: 11.5
+        version: '11.5'
       - name: WSL
-        version: 2
+        version: '2'
 ---
 
 漢検練習帳は漢検準 1 級/1 級合格を目指す人向けの学習アプリです。 4 択クイズ形式で学習できます。

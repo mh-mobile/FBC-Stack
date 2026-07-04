@@ -51,7 +51,7 @@ stack:
 
   - name: CI/CD
     detail:
-      - name: Github Actions
+      - name: GitHub Actions
         version: 
 
 ---

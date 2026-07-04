@@ -22,7 +22,7 @@ stack:
         version: 3.2.36
       - name: daisyUI
         version: 2.46.0
-      - name: tailwind CSS
+      - name: Tailwind CSS
         version: 3.2.4
 
   - name: バックエンド
@@ -38,9 +38,9 @@ stack:
         version: 8.26.0
       - name: Prettier
         version: 2.7.1
-      - name: Rubocop
+      - name: RuboCop
         version: 1.37.1
-      - name: slim-lint
+      - name: Slim-Lint
         version: 0.22.1
 
   - name: テスト

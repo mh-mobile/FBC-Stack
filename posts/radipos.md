@@ -10,7 +10,7 @@ website:
 published: false
 hasAudio: false
 stack:
-  - name: frontend
+  - name: フロントエンド
     detail:
       - name: Ruby
         version: 
@@ -20,7 +20,7 @@ stack:
         version: 
       - name: JavaScript
         version: 
-  - name: backend
+  - name: バックエンド
     detail:
       - name: Ruby
         version: 
@@ -28,7 +28,7 @@ stack:
         version: 
       - name: RSpec
         version: 
-  - name: infra
+  - name: インフラ
     detail:
       - name: CircleCI
         version:

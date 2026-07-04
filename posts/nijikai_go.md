@@ -22,7 +22,7 @@ stack:
       - name: Ruby
         version: 3.4.2
       - name: Ruby on Rails
-        version: 7.1
+        version: '7.1'
 
   - name: データベース
     detail:

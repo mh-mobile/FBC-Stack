@@ -34,7 +34,7 @@ stack:
     detail:
       - name: RuboCop
         version: 1.75.6
-      - name: erb_lint
+      - name: ERB Lint
         version: 0.9.0
       - name: ESLint
         version: 9.19.0

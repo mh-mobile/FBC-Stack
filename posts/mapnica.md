@@ -30,7 +30,7 @@ stack:
 
   - name: Linter/Formatter
     detail:
-      - name: Rubocop
+      - name: RuboCop
         version: 1.23.0
       - name: ESLint
         version: 8.3.0

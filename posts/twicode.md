@@ -32,7 +32,7 @@ stack:
         version: 7.32.0
       - name: Prettier
         version: 2.4.0
-      - name: Rubocop
+      - name: RuboCop
         version: 1.22.1
   
   - name: ビルドツール

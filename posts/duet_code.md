@@ -36,14 +36,14 @@ stack:
         version: 8.25.0
       - name: Prettier
         version: 2.7.1
-      - name: rubocop
+      - name: RuboCop
         version: 1.36.0
 
   - name: インフラ
     detail:
       - name: Vercel
         version:
-      - name: Flyio
+      - name: Fly.io
         version:
 
   - name: テスト

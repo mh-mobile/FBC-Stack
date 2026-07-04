@@ -16,9 +16,9 @@ stack:
         version: 3.1.5
       - name: JavaScript
         version:
-      - name: Konva.js
+      - name: konva.js
         version: 8.1.1
-      - name: bulma
+      - name: Bulma
         version:
       - name: ERB
         version:
@@ -40,7 +40,7 @@ stack:
         version: 2.5.1
       - name: Stylelint
         version: 14.6.1
-      - name: Rubocop
+      - name: RuboCop
         version: 1.18.3
       - name: ERB Lint
         version: 0.1.1

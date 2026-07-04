@@ -42,7 +42,7 @@ stack:
 
   - name: ストレージ
     detail:
-      - name: Github
+      - name: GitHub
         version: 
 
   - name: CI/CD

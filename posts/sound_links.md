@@ -17,14 +17,14 @@ stack:
       - name: TypeScript
         version: 4.2.3
       - name: Node.js
-        version: 14.3
+        version: '14.3'
 
   - name: バックエンド
     detail:
       - name: Ruby
         version: 3.0.3
       - name: Ruby on Rails (APIモード)
-        version: 6.1
+        version: '6.1'
 
   - name: Linter/Formatter
     detail:
@@ -32,7 +32,7 @@ stack:
         version: 6.8.0
       - name: Prettier
         version: 2.5.1
-      - name: Rubocop
+      - name: RuboCop
         version: 1.23.0
 
   - name: テスト
@@ -47,7 +47,7 @@ stack:
   - name: データベース
     detail:
       - name: PostgreSQL
-        version: 13.2
+        version: '13.2'
 
   - name: ミドルウェア
     detail:

@@ -38,7 +38,7 @@ stack:
 
   - name: Linter/Formatter
     detail:
-      - name: Rubocop
+      - name: RuboCop
         version: '1.70.0'
       - name: ESLint
         version: '9.16.0'
@@ -52,7 +52,7 @@ stack:
 
   - name: デプロイ
     detail:
-      - name: fly.io
+      - name: Fly.io
         version: ''
 
   - name: インフラ

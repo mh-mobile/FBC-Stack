@@ -18,7 +18,7 @@ stack:
         version: 5.2.2
       - name: Tailwind CSS
         version: 3.5.5
-      - name: vite
+      - name: Vite
         version: 4.5.0
 
   - name: バックエンド

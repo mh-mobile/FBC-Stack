@@ -47,7 +47,7 @@ stack:
         version: '8.38.0'
       - name: Prettier
         version: '2.8.7'
-      - name: Rubocop
+      - name: RuboCop
         version: ''
       - name: Stylelint
         version: '15.5.0'

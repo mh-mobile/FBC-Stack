@@ -12,7 +12,7 @@ hasAudio: true
 stack:
   - name: フロントエンド
     detail:
-      - name: HotWire
+      - name: Hotwire
         version:
       - name: turbo-rails
         version: 1.4.0
@@ -34,13 +34,13 @@ stack:
 
   - name: 認証
     detail:
-      - name: devise
-        version: 4.9
+      - name: Devise
+        version: '4.9'
       - name: omniauth-google-oauth2
 
-  - name: リンター/フォーマッター
+  - name: Linter/Formatter
     detail:
-      - name: Rubocop
+      - name: RuboCop
         version: 1.53.1
       - name: ESLint
         version: 8.33.0
@@ -69,7 +69,7 @@ stack:
 
   - name: 外部サービス
     detail:
-      - name: MapBox GL JS
+      - name: Mapbox GL JS
 ---
 
 MAAKS はサイクリング中の事故を減らすための道路上の自転車事故やトラブルを共有するサービスです。ユーザーは地図上で他のユーザーが投稿した事故の情報やレポートを確認することができ、サイクリングルート設定時・走行時の危険予測が可能です。属コミュニティ化していた「危ないスポットの情報」をコミュニティの枠を超えて確認できるようになることで、より安全で楽しいライドに役立ちます。

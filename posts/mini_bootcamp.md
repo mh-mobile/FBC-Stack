@@ -34,7 +34,7 @@ stack:
 
   - name: Linter/Formatter
     detail:
-      - name: Rubocop
+      - name: RuboCop
         version: 1.21.0
 
   - name: テスト

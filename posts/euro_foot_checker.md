@@ -28,7 +28,7 @@ stack:
 
   - name: Linter/Formatter
     detail:
-      - name: Rubocop
+      - name: RuboCop
         version: 1.23.0
 
   - name: テスト
@@ -58,7 +58,7 @@ stack:
 
   - name: API連携
     detail:
-      - name: API-football
+      - name: API-Football
         version: 
 
 

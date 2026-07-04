@@ -17,7 +17,7 @@ stack:
       - name: Vite
         version: 3.2.0
       - name: Bootstrap
-        version: 5
+        version: '5'
 
   - name: バックエンド
     detail: 
@@ -34,7 +34,7 @@ stack:
         version: "8.41.0"
       - name: Prettier
         version: "2.8.8"
-      - name: Rubocop
+      - name: RuboCop
         version: "1.39.0"
 
   - name: テスト
@@ -54,7 +54,7 @@ stack:
 
   - name: CI/CD
     detail:
-      - name: Github Actions
+      - name: GitHub Actions
         version: 
 
 ---
