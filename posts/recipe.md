@@ -10,19 +10,19 @@ website:
 published: false
 hasAudio: false
 stack:
-  - name: frontend
+  - name: フロントエンド
     detail: 
       - name: Ruby
         version: 3.0.2
       - name: JavaScript
         version: 
-  - name: backend
+  - name: バックエンド
     detail:
       - name: Ruby on Rails
         version: 7.0.2.3
       - name: Ruby
         version: 3.0.2
-  - name: infra
+  - name: インフラ
     detail:
       - name: Heroku
         version: 

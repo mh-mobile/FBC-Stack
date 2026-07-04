@@ -28,11 +28,11 @@ stack:
 
   - name: Linter/Formatter
     detail:
-      - name: slim_lint
+      - name: Slim-Lint
         version: 0.22.1
       - name: ESLint
         version: "8.20"
-      - name: Rubocop
+      - name: RuboCop
         version: 1.36.0
 
   - name: テスト
@@ -43,7 +43,7 @@ stack:
   - name: データベース
     detail:
       - name: PostgreSQL
-        version: 5.4
+        version: '5.4'
 
   - name: 認証
     detail:
@@ -57,7 +57,7 @@ stack:
 
   - name: CI/CD
     detail:
-      - name: Github Actions
+      - name: GitHub Actions
         version: 
 
 ---

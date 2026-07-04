@@ -32,7 +32,7 @@ stack:
 
   - name: Linter/Formatter
     detail:
-      - name: Rubocop
+      - name: RuboCop
         version:
       - name: ESLint
         version:
@@ -43,7 +43,7 @@ stack:
     detail:
       - name: RSpec
         version:
-      - name: FactoryBot
+      - name: factory_bot
         version:
       - name: SimpleCov
         version:

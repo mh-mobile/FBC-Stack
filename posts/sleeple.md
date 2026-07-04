@@ -31,7 +31,7 @@ stack:
 
   - name: Linter/Formatter
     detail:
-      - name: Rubocop
+      - name: RuboCop
         version: 1.24.1
 
   - name: テスト
@@ -42,7 +42,7 @@ stack:
   - name: データベース
     detail:
       - name: PostgreSQL
-        version: 14.3
+        version: '14.3'
 
   - name: 認証
     detail:
@@ -51,7 +51,7 @@ stack:
 
   - name: CI/CD
     detail:
-      - name: Github Actions
+      - name: GitHub Actions
         version:
 
   - name: インフラ

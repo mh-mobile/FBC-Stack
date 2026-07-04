@@ -32,7 +32,7 @@ stack:
 
   - name: Linter/Formatter
     detail:
-      - name: Rubocop
+      - name: RuboCop
         version: 1.26.0
       - name: Prettier
         version: 2.6.0
@@ -50,7 +50,7 @@ stack:
   - name: データベース
     detail:
       - name: PostgreSQL
-        version: 14.1
+        version: '14.1'
 
   - name: CI/CD
     detail:

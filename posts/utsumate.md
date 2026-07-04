@@ -32,7 +32,7 @@ stack:
         version: 8.23.0
       - name: Prettier
         version: 2.7.1
-      - name: Rubocop
+      - name: RuboCop
         version: 1.25.1
       - name: Slim-Lint
         version: 0.22.1
@@ -50,13 +50,13 @@ stack:
   - name: データベース
     detail:
       - name: PostgreSQL
-        version: 5.4
+        version: '5.4'
 
   - name: ミドルウェア
     detail:
       - name: nginx
         version:
-      - name: puma
+      - name: Puma
         version:
 
   - name: CI/CD

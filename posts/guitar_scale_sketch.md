@@ -34,12 +34,12 @@ stack:
       - name: Ruby on Rails
         version: 7.0.4.3
       - name: Puma
-        version: 5.0
+        version: '5.0'
       - name: slim-rails
       - name: sentry-rails
-        version: 5.11
+        version: '5.11'
       - name: sentry-ruby
-        version: 5.11
+        version: '5.11'
 
   - name: ソーシャルログイン
     detail: 
@@ -57,7 +57,7 @@ stack:
         version: 8.46.0
       - name: Prettier
         version: 3.0.1
-      - name: Rubocop
+      - name: RuboCop
       - name: Slim-Lint
 
   - name: データベース

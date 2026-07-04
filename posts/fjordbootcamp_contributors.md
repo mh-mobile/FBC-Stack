@@ -32,7 +32,7 @@ stack:
 
   - name: Linter/Formatter
     detail:
-      - name: Rubocop
+      - name: RuboCop
         version: 1.36.0
       - name: Slim-Lint
         version: 0.22.1
@@ -45,7 +45,7 @@ stack:
   - name: データベース
     detail:
       - name: PostgreSQL
-        version: 5.4
+        version: '5.4'
 
   - name: インフラ
     detail:

@@ -6,6 +6,5 @@ alias:
   - slim_lint
   - Slim-lint
   - Slim_Lint
-  - Slim-Lnt
 url: https://github.com/sds/slim-lint
 ---

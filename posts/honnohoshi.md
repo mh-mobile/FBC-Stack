@@ -10,7 +10,7 @@ website:
 published: false
 hasAudio: false
 stack:
-  - name: frontend
+  - name: フロントエンド
     detail:
       - name: Ruby
         version: 
@@ -19,25 +19,25 @@ stack:
       - name: JavaScript
         version:
 
-  - name: backend
+  - name: バックエンド
     detail:
       - name: Ruby
         version: 
       - name: Ruby on Rails
         version: 
 
-  - name: database
+  - name: データベース
     detail:
       - name: PostgreSQL
         version: 
-  - name: api連携
+  - name: API連携
     detail:
       - name: 楽天API
         version: 
 
-  - name: infra
+  - name: インフラ
     detail:
-      - name: heroku
+      - name: Heroku
         version: 
 
 ---

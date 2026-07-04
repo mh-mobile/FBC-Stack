@@ -17,7 +17,7 @@ stack:
   - name: バックエンド
     detail:
       - name: Ruby on Rails
-        version: 8
+        version: '8'
       - name: Solid Queue
       - name: Solid Cable
       - name: Solid Cache

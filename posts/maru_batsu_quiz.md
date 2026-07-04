@@ -18,7 +18,7 @@ stack:
         version: '^5.59.8'
       - name: Tailwind CSS
         version: '^3.3.2'
-      - name: DaisyUI
+      - name: daisyUI
         version: '^3.0.3'
 
   - name: バックエンド
@@ -53,7 +53,7 @@ stack:
       - name: Cypress
         version: '^12.13.0'
 
-  - name: リンター・フォーマッター
+  - name: Linter/Formatter
     detail:
       - name: ESLint
         version: '^8.42.0'
@@ -64,7 +64,7 @@ stack:
 
   - name: 外部サービス
     detail:
-      - name: SkyWay
+      - name: Skyway
         version: '^1.4.0'
       - name: Firebase Authentication
         version: '^9.22.1'

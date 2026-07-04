@@ -32,7 +32,7 @@ stack:
         version: 8.19.0
       - name: Prettier
         version: 2.7.1
-      - name: Rubocop
+      - name: RuboCop
         version: 1.14.0
       - name: Slim-Lint
         version: 0.22.1
@@ -45,7 +45,7 @@ stack:
   - name: データベース
     detail:
       - name: PostgreSQL
-        version: 5.4
+        version: '5.4'
 
   - name: 認証
     detail:
@@ -54,12 +54,12 @@ stack:
 
   - name: CI/CD
     detail:
-      - name: Github Actions
+      - name: GitHub Actions
         version:
 
   - name: インフラ
     detail:
-      - name: heroku
+      - name: Heroku
         version:
 ---
 

@@ -48,9 +48,9 @@ stack:
 
   - name: Linter/Formatter
     detail:
-      - name: Rubocop
+      - name: RuboCop
         version: 1.48.0
-      - name: ERB-Lint
+      - name: ERB Lint
         version: 0.3.1
       - name: Slim-Lint
         version: 0.24.0
@@ -62,7 +62,7 @@ stack:
     detail:
       - name: RSpec
         version: 6.0.1
-      - name: Factory_bot
+      - name: factory_bot
         version: 6.2.1
   - name: データベース
     detail:

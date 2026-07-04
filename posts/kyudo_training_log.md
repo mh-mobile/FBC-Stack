@@ -28,7 +28,7 @@ stack:
 
   - name: Linter/Formatter
     detail:
-      - name: rubocop
+      - name: RuboCop
         version: 1.36.0
 
   - name: ビルドツール
@@ -38,7 +38,7 @@ stack:
 
   - name: インフラ
     detail:
-      - name: Flyio
+      - name: Fly.io
         version:
 
   - name: テスト
@@ -54,7 +54,7 @@ stack:
   - name: データベース
     detail:
       - name: PostgreSQL
-        version: 14.5
+        version: '14.5'
 
 ---
 

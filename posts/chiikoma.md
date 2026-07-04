@@ -30,7 +30,7 @@ stack:
 
   - name: Linter/Formatter
     detail: 
-      - name: Rubocop
+      - name: RuboCop
         version: 1.25.1
       - name: ESLint
         version: 7.23.0
@@ -44,7 +44,7 @@ stack:
 
   - name: 認証
     detail: 
-      - name: devise
+      - name: Devise
         version: 4.8.1
 
   - name: データベース

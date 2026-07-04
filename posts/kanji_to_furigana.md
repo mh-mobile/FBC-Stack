@@ -10,13 +10,13 @@ website:
 published: false
 hasAudio: false
 stack:
-  - name: frontend
+  - name: フロントエンド
     detail: 
       - name: Chrome拡張
         version: 
       - name: JavaScript
         version: 
-  - name: backend
+  - name: バックエンド
     detail:
       - name: Ruby on Rails
         version: 7.0.3.1

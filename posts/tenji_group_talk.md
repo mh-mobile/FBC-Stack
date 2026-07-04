@@ -24,7 +24,7 @@ stack:
         version: 2.2.3
       - name: Propshaft
         version: 1.3.1
-      - name: Lucide Rails
+      - name: lucide-rails
         version: 0.7.3
 
   - name: バックエンド
@@ -52,13 +52,13 @@ stack:
     detail:
       - name: RSpec
       - name: Capybara
-      - name: FactoryBot
+      - name: factory_bot
       - name: SimpleCov
 
   - name: Linter/Formatter
     detail:
       - name: RuboCop
-      - name: Slim Lint
+      - name: Slim-Lint
       - name: Brakeman
       - name: ESLint
       - name: Prettier

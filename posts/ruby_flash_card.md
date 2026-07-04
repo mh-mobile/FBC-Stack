@@ -28,15 +28,15 @@ stack:
 
   - name: フロントエンドライブラリ
     detail:
-      - name: axios
+      - name: Axios
         version: 1.4.0
-      - name: react-toastify
+      - name: React-toastify
         version: 9.1.3
-      - name: 'react-textarea-code-editor'
+      - name: 'React Textarea Code Editor'
         version: 2.1.7
-      - name: react-hotkeys-hook
+      - name: React Hotkeys Hook
         version: 4.4.1
-      - name: prismjs
+      - name: Prism.js
         version: 1.29.0
 
   - name: バックエンド
@@ -50,21 +50,21 @@ stack:
     detail:
       - name: Devise
         version: 4.9.0
-      - name: omniauth
+      - name: OmniAuth
         version: 2.1.1
-      - name: omniauth-github
+      - name: OmniAuth GitHub
         version: 2.0.1
 
   - name: 検索
     detail:
-      - name: ransack
+      - name: Ransack
         version: 4.0.0
 
-  - name: リンター／フォーマッター
+  - name: Linter/Formatter
     detail:
       - name: RuboCop
         version: 1.54.2
-      - name: ERB-Lint
+      - name: ERB Lint
         version: 0.4.0
       - name: ESLint
         version: 8.45.0
@@ -75,7 +75,7 @@ stack:
     detail:
       - name: RSpec
         version: 6.0.3
-      - name: Factory_bot
+      - name: factory_bot
         version: 6.2.1
 
   - name: ランタイム

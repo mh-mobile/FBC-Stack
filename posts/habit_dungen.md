@@ -10,7 +10,7 @@ website:
 published: false
 hasAudio: false
 stack:
-  - name: frontend
+  - name: フロントエンド
     detail:
       - name: Ruby
         version: 2.6.5
@@ -20,17 +20,17 @@ stack:
         version: 
       - name: JavaScript
         version: 
-  - name: backend
+  - name: バックエンド
     detail:
       - name: Ruby
         version: 2.6.5
       - name: Ruby on Rails
         version: 6.0.2.2
-  - name: datbase
+  - name: データベース
     detail:
       - name: PostgreSQL
-        version: 11.5
-  - name: infra
+        version: '11.5'
+  - name: インフラ
     detail:
       - name: CircleCI
         version:
@@ -46,7 +46,7 @@ stack:
         version: 
       - name: Amazon S3
         version: 
-      - name: Amazon Cloudfront
+      - name: Amazon CloudFront
         version: 
       - name: Docker
         version: 

@@ -35,7 +35,7 @@ stack:
     detail:
       - name: Slim-Lint
         version: 0.22.1
-      - name: Rubocop
+      - name: RuboCop
         version: 1.30.1
 
   - name: テスト
@@ -50,7 +50,7 @@ stack:
 
   - name: ミドルウェア
     detail:
-      - name: puma
+      - name: Puma
         version: 5.6.4
 
   - name: データベース

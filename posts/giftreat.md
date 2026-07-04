@@ -35,7 +35,7 @@ stack:
 
   - name: テスト
     detail:
-      - name: Minitest
+      - name: minitest
 
   - name: CI/CD
     detail:

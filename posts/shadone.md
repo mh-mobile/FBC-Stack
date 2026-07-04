@@ -34,7 +34,7 @@ stack:
         version: 8.15.0
       - name: Prettier
         version: 2.6.2
-      - name: Rubocop
+      - name: RuboCop
         version: 1.28.2
       - name: Slim-Lint
         version: 0.22.1

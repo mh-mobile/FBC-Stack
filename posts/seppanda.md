@@ -28,7 +28,7 @@ stack:
 
   - name: Linter/Formatter
     detail:
-      - name: Rubocop
+      - name: RuboCop
         version: 1.24.1
       - name: ESLint
         version: 8.6.0

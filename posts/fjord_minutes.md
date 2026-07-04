@@ -41,29 +41,29 @@ stack:
     detail:
       - name: Devise
         version: ''
-      - name: omniauth
+      - name: OmniAuth
         version: ''
-      - name: omniauth-github
+      - name: OmniAuth GitHub
         version: ''
       - name: omniauth-rails_csrf_protection
         version: ''
 
   - name: Linter/Formatter
     detail:
-      - name: rubocop
+      - name: RuboCop
         version: ''
-      - name: erb_lint
+      - name: ERB Lint
         version: ''
-      - name: eslint
+      - name: ESLint
         version: ''
-      - name: prettier
+      - name: Prettier
         version: ''
 
   - name: テスト
     detail:
       - name: RSpec
         version: ''
-      - name: FactoryBot
+      - name: factory_bot
         version: ''
 
   - name: CI/CD
@@ -75,7 +75,7 @@ stack:
     detail:
       - name: Heroku
         version: ''
-      - name: redis
+      - name: Redis
         version: ''
 ---
 

@@ -10,14 +10,14 @@ website:
 published: false
 hasAudio: false
 stack:
-  - name: frontend
+  - name: フロントエンド
     detail:
       - name: Ruby
         version: 
       - name: Slim
         version: 
       - name: JavaScript
-  - name: backend
+  - name: バックエンド
     detail:
       - name: Ruby
         version: 
@@ -25,7 +25,7 @@ stack:
         version: 
       - name: Slack
         version:
-  - name: infra
+  - name: インフラ
     detail:
       - name: Heroku
         version: 

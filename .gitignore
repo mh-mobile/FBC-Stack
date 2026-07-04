@@ -19,6 +19,9 @@
 .DS_Store
 public/posts
 
+# local backup of untracked working data
+/backup
+
 # debug
 npm-debug.log*
 yarn-debug.log*

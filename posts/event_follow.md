@@ -39,7 +39,7 @@ stack:
         version: 7.28.0
       - name: Prettier
         version: 2.2.1
-      - name: Rubocop
+      - name: RuboCop
         version: 1.11.0
 
   - name: テスト
@@ -54,7 +54,7 @@ stack:
   - name: データベース
     detail:
       - name: PostgreSQL
-        version: 5.4
+        version: '5.4'
 
   - name: 認証
     detail:

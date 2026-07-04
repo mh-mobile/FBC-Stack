@@ -28,7 +28,7 @@ stack:
 
   - name: Linter/Formatter
     detail:
-      - name: Rubocop
+      - name: RuboCop
         version:
       - name: Prettier
         version:

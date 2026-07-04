@@ -14,7 +14,7 @@ stack:
     detail:
       - name: Hotwire
       - name: Tailwind CSS
-        version: 4.1
+        version: '4.1'
       - name: ViewComponent
 
   - name: バックエンド
@@ -32,7 +32,7 @@ stack:
   - name: テスト
     detail:
       - name: RSpec
-      - name: FactoryBot
+      - name: factory_bot
       - name: Capybara
       - name: SimpleCov
       - name: k6

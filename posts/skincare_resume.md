@@ -29,11 +29,11 @@ stack:
   - name: データベース
     detail:
       - name: PostgreSQL
-        version: 16.9
+        version: '16.9'
 
   - name: テスト
     detail:
-      - name: Minitest
+      - name: minitest
       - name: Capybara
 
   - name: Linter/Formatter

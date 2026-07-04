@@ -37,7 +37,7 @@ stack:
  
   - name: Linter/Formatter
     detail:
-      - name: Rubocop
+      - name: RuboCop
         version: 1.24.0
       - name: Slim-Lint
         version: 0.22.1

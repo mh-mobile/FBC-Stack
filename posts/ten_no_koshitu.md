@@ -34,9 +34,9 @@ stack:
     detail:
       - name: ESLint
         version: 7.12.1
-      - name: Slim-lint
+      - name: Slim-Lint
         version: 0.20.2
-      - name: Rubocop
+      - name: RuboCop
         version: 1.3.0
 
   - name: テスト

@@ -19,9 +19,9 @@ stack:
   - name: バックエンド
     detail:
       - name: Ruby
-        version: 3.3
+        version: '3.3'
       - name: Ruby on Rails
-        version: 8.0
+        version: '8.0'
       - name: Regexp::Parser
 
   - name: テスト
@@ -37,7 +37,7 @@ stack:
 
   - name: 開発
     detail:
-      - name: Foreman
+      - name: foreman
       - name: Lefthook
 
   - name: セキュリティ

@@ -33,7 +33,7 @@ stack:
       - name: NextAuth.js
         version: 4.22.1
 
-  - name: リンター／フォーマッター
+  - name: Linter/Formatter
     detail:
       - name: RuboCop
         version: 1.55.1
@@ -74,7 +74,7 @@ stack:
     detail:
       - name: Google Maps API
         version: ""
-      - name: Google GeoCoding API
+      - name: Google Geocoding API
         version: ""
       - name: Amazon S3
         version: ""

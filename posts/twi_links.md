@@ -10,7 +10,7 @@ website:
 published: false
 hasAudio: false
 stack:
-  - name: frontend
+  - name: フロントエンド
     detail:
       - name: Ruby
         version: 3.1.0
@@ -18,13 +18,13 @@ stack:
         version: 
       - name: JavaScript
         version:
-  - name: backend
+  - name: バックエンド
     detail:
       - name: Ruby
         version: 3.1.0
       - name: Ruby on Rails
         version: 7.0.3.1
-  - name: database
+  - name: データベース
     detail:
       - name: PostgreSQL
         version: 

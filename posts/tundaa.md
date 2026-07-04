@@ -10,7 +10,7 @@ website:
 published: false
 hasAudio: false
 stack:
-  - name: frontend
+  - name: フロントエンド
     detail: 
       - name: Vue.js 
         version: 
@@ -20,19 +20,19 @@ stack:
         version:
       - name: JavaScript
         version:
-  - name: backend
+  - name: バックエンド
     detail: 
       - name: Ruby
         version: 3.0.0
       - name: Ruby on Rails
         version: 6.1.3
-  - name: database
+  - name: データベース
     detail: 
       - name: PostgreSQL
-        version: 11.11
+        version: '11.11'
       - name: Ruby on Rails
         version: 6.1.3
-  - name: infra
+  - name: インフラ
     detail:
       - name: Docker
         version: 

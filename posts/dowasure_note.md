@@ -18,7 +18,7 @@ stack:
         version: 3.3.3
       - name: '@yaireo/tagify'
         version: '4.17.9'
-      - name: 'swiper'
+      - name: 'Swiper'
         version: '11.0.5'
 
   - name: バックエンド
@@ -43,7 +43,7 @@ stack:
         version: 8.53.0
       - name: Prettier
         version: 3.0.3
-      - name: Rubocop
+      - name: RuboCop
         version:
 
   - name: テスト

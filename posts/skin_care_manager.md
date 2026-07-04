@@ -22,7 +22,7 @@ stack:
         version: 4.1.0
       - name: Bootstrap
         version: 5.2.3
-      - name: Sassc
+      - name: SassC
         version: 2.4.0
 
   - name: バックエンド
@@ -34,13 +34,13 @@ stack:
 
   - name: Linter/Formatter
     detail:
-      - name: slim_lint
+      - name: Slim-Lint
         version: 0.24.0
       - name: ESLint
         version: "8.39.0"
       - name: Prettier
         version: "2.8.8"
-      - name: Rubocop
+      - name: RuboCop
         version: 1.50.2
 
   - name: テスト
@@ -60,7 +60,7 @@ stack:
 
   - name: CI/CD
     detail:
-      - name: Github Actions
+      - name: GitHub Actions
         version: 
 
 ---

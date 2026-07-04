@@ -36,7 +36,7 @@ stack:
     detail:
       - name: Vercel
         version: 
-      - name: Flyio
+      - name: Fly.io
         version:
       - name: Docker
         version:
@@ -53,7 +53,7 @@ stack:
 
   - name: Linter/Formatter
     detail:
-      - name: Rubocop
+      - name: RuboCop
         version: 1.35.0
       - name: ESLint
         version: 8.22.0
