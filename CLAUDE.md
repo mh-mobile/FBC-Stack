@@ -54,7 +54,8 @@ All content is file-based; there is no database.
 - `posts.ts` / `tools.ts` — parse markdown with `gray-matter`; results are module-level cached to avoid repeated file I/O during build
 - `podcast.ts` — reads `/podcast_data/*.json`, tolerant of missing files
 - `related.ts` — related services by Jaccard similarity of tool stacks
-- `stats.ts` — aggregates tool usage per year for the stats page; `getToolUsageCounts` gives per-tool service counts (one per service even if listed in several categories)
+- `stats.ts` — aggregates tool usage per year for the stats page; `getToolUsageCounts` gives per-tool service counts
+- Adoption counts everywhere go through `getPostToolIDs` in `posts.ts`: one count per service even if a tool is listed in several categories, and `IMPLIED_TOOLS` also credits the parent tool when only its parts are listed (Turbo / Stimulus → Hotwire)
 - `summary.ts` — slim per-service card data (`ServiceSummary`) sent to client lists instead of full `PostData`
 - `site.ts` — site URL/name and `pageMetadata()` for per-page title, canonical, and OGP
 - `gtag.ts` — Google Analytics

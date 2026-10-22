@@ -1,4 +1,5 @@
 import { hasToolIcon } from './tools'
+import { getPostToolIDs } from './posts'
 import type { PostData } from '../../types/postData'
 
 export type CardTool = { id: string; name: string; hasIcon: boolean }
@@ -12,6 +13,8 @@ export type ServiceSummary = {
   hasAudio: boolean
   summary: string
   tools: CardTool[]
+  // 絞り込み用の採用ツールID（構成要素からの親ツールを含む。例: Stimulus のみ → hotwire も含む）
+  toolIDs: string[]
   // 検索対象（タイトル・作者・技術名）を小文字で連結したもの
   search: string
 }
@@ -69,6 +72,7 @@ export function toServiceSummary(post: PostData): ServiceSummary {
     hasAudio: post.hasAudio,
     summary: excerpt(post.markdownContent ?? ''),
     tools,
+    toolIDs: Array.from(getPostToolIDs(post)),
     search: [post.title, post.author, ...toolNames].join('\n').toLowerCase(),
   }
 }

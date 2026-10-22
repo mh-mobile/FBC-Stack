@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { getAllToolsData, getToolData, hasToolIcon } from '../../lib/tools'
 import { pageMetadata } from '../../lib/site'
 import { toServiceSummary } from '../../lib/summary'
-import { getFilteredPostsData, getSortedPostsData } from '../../lib/posts'
+import { IMPLIED_TOOLS, getFilteredPostsData, getSortedPostsData } from '../../lib/posts'
 import { getCoUsedTools, getToolYearlyAdoption } from '../../lib/related'
 import ServiceList from '../../components/ServiceList'
 import ToolRow from '../../components/ToolRow'
@@ -49,6 +49,11 @@ export default async function ToolDetailPage({
   const hasAdoption = yearlyAdoption.some(({ count }) => count > 0)
   // 採用数が少ないと率がすべて100%になるなど意味のない数字になるため、グラフは一定数以上のときだけ出す
   const showCharts = allPostsData.length >= MIN_SAMPLE
+  // 構成要素（Hotwire に対する Turbo / Stimulus など）だけを記載したサービスも採用として数えている旨を示す
+  const partNames = Object.entries(IMPLIED_TOOLS)
+    .filter(([, parent]) => parent === toolData.toolID)
+    .map(([child]) => getAllToolsData().find((t) => t.toolID === child)?.toolName)
+    .filter(Boolean)
   const totalServices = getSortedPostsData().length
   const share = Math.round(
     (allPostsData.length / Math.max(totalServices, 1)) * 100,
@@ -124,7 +129,9 @@ export default async function ToolDetailPage({
           {hasAdoption && (
             <Panel
               title="年別採用率"
-              description="各年に登録されたサービスのうち、このツールを採用した割合（括弧内はその年のサービス数）"
+              description={`各年に登録されたサービスのうち、このツールを採用した割合（括弧内はその年のサービス数）${
+                partNames.length ? `。${partNames.join(' / ')} だけの記載も採用として数えています` : ''
+              }`}
             >
               <ColumnChart
                 caption={`${toolData.toolName}の年別採用率`}
@@ -168,6 +175,11 @@ export default async function ToolDetailPage({
             {allPostsData.length}
           </span>
         </h2>
+        {partNames.length > 0 && (
+          <p className="-mt-2 mb-4 text-xs text-muted">
+            {partNames.join(' / ')} だけを記載しているサービスも含みます
+          </p>
+        )}
         <ServiceList services={allPostsData.map(toServiceSummary)} />
       </section>
     </>

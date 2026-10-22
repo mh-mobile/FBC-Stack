@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { getSortedPostsData } from '../lib/posts'
 import { getAllToolsData, hasToolIcon } from '../lib/tools'
+import { getToolUsageCounts } from '../lib/stats'
 import ToolSearch from '../components/ToolSearch'
 import Breadcrumb from '../components/Breadcrumb'
 import PageHeader from '../components/PageHeader'
@@ -53,15 +54,12 @@ function getToolsWithStats(): ToolWithStats[] {
   const posts = getSortedPostsData()
   const allTools = getAllToolsData()
 
-  // Build a map: toolID -> { totalCount, categoryCounts }
-  const toolStats = new Map<
-    string,
-    { totalCount: number; categoryCounts: Map<string, number> }
-  >()
+  // 採用数は他ページと同じ集計（1サービス1回、構成要素からの親ツールも含む）を使う
+  const usage = getToolUsageCounts()
+  // toolID -> カテゴリごとの記載回数（どのカテゴリに表示するかを多数決で決める）
+  const toolStats = new Map<string, Map<string, number>>()
 
   for (const post of posts) {
-    // 同じツールを複数カテゴリに書いているサービスもあるので、採用数は1サービス1回だけ数える
-    const counted = new Set<string>()
     for (const stackCategory of post.stack) {
       const rawCat = stackCategory.name
       const normalizedCat = categoryMap[rawCat.toLowerCase()] || rawCat
@@ -75,25 +73,15 @@ function getToolsWithStats(): ToolWithStats[] {
         )
         if (!tool) continue
 
-        let existing = toolStats.get(tool.toolID)
-        if (!existing) {
-          existing = { totalCount: 0, categoryCounts: new Map() }
-          toolStats.set(tool.toolID, existing)
-        }
-        if (!counted.has(tool.toolID)) {
-          counted.add(tool.toolID)
-          existing.totalCount++
-        }
-        existing.categoryCounts.set(
-          normalizedCat,
-          (existing.categoryCounts.get(normalizedCat) || 0) + 1,
-        )
+        const categoryCounts = toolStats.get(tool.toolID) ?? new Map<string, number>()
+        toolStats.set(tool.toolID, categoryCounts)
+        categoryCounts.set(normalizedCat, (categoryCounts.get(normalizedCat) || 0) + 1)
       }
     }
   }
 
   return Array.from(toolStats.entries()).map(
-    ([toolID, { totalCount, categoryCounts }]) => {
+    ([toolID, categoryCounts]) => {
       const tool = allTools.find((t) => t.toolID === toolID)!
       // Pick the category where this tool is used most often
       let bestCategory = 'その他'
@@ -108,7 +96,7 @@ function getToolsWithStats(): ToolWithStats[] {
       return {
         toolID,
         toolName: tool.toolName,
-        usageCount: totalCount,
+        usageCount: usage[toolID] ?? 0,
         category: cat,
       }
     },
