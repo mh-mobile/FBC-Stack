@@ -5,37 +5,20 @@ import './globals.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import GaTracker from './components/GaTracker'
+import { OGP_IMAGE, SITE_DESCRIPTION, SITE_NAME, SITE_URL } from './lib/site'
 
 const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: 'FBC Stack',
-    template: '%s | FBC Stack',
+    default: SITE_NAME,
+    template: `%s | ${SITE_NAME}`,
   },
-  description:
-    'FBC(Fjord Boot Camp)の卒業生が作成したサービスの技術スタックデータベースです。',
-  openGraph: {
-    type: 'website',
-    url: process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000',
-    title: 'FBC Stack',
-    description:
-      'FBC(Fjord Boot Camp)の卒業生が作成したサービスの技術スタックデータベースです。',
-    images: [
-      {
-        url: `${process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000'}/images/fbcstack_ogp.png`,
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'FBC Stack',
-    description:
-      'FBC(Fjord Boot Camp)の卒業生が作成したサービスの技術スタックデータベースです。',
-    images: [
-      `${process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000'}/images/fbcstack_ogp.png`,
-    ],
-  },
+  description: SITE_DESCRIPTION,
+  // canonical と og:url はページごとに pageMetadata() で設定する（ここで設定すると全ページに継承されてしまう）
+  openGraph: { type: 'website', siteName: SITE_NAME, locale: 'ja_JP', images: [OGP_IMAGE] },
+  twitter: { card: 'summary_large_image', images: [OGP_IMAGE] },
   icons: {
     icon: '/favicon.ico',
   },
@@ -48,7 +31,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <body className="min-h-screen bg-white text-gray-800 antialiased">
+      <body className="flex min-h-screen flex-col">
         {GA_TRACKING_ID && (
           <>
             <Script
@@ -74,11 +57,17 @@ export default function RootLayout({
         <Suspense fallback={null}>
           <GaTracker />
         </Suspense>
-        <div className="mx-auto max-w-3xl px-4">
-          <Header />
-          <main className="py-4">{children}</main>
-          <Footer />
-        </div>
+        <a
+          href="#main"
+          className="sr-only z-50 rounded-md bg-fg px-3 py-2 text-sm text-bg focus:not-sr-only focus:fixed focus:left-4 focus:top-3"
+        >
+          本文へスキップ
+        </a>
+        <Header />
+        <main id="main" className="mx-auto w-full max-w-6xl flex-1 px-4 pt-6 sm:px-6 sm:pt-10">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   )

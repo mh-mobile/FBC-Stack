@@ -1,9 +1,9 @@
 describe('Navigation', () => {
   it('should navigate to the top page', () => {
     cy.visit('http://localhost:3000/')
-    cy.get('div').contains('Services')
-    cy.get('div').contains('FBC Stackについて')
-    cy.get('div').contains('みんなのツール')
+    cy.get('h2').contains('サービス')
+    cy.get('nav').contains('FBC Stackについて')
+    cy.get('nav').contains('ツール')
     cy.get('div').contains('利用規約')
     cy.get('div').contains('プライバシーポリシー')
   })
@@ -50,6 +50,32 @@ describe('Navigation', () => {
     cy.visit('http://localhost:3000/')
     cy.get('input').type('Fjord Choice')
     cy.get('a[href*="posts/fjord_choice"]').click()
+  })
+
+  it('should filter services by selected tools', () => {
+    cy.visit('http://localhost:3000/')
+    cy.contains('件のサービス')
+      .invoke('text')
+      .then((before) => {
+        cy.contains('button', 'Ruby on Rails').click()
+        cy.contains('button', 'Ruby on Rails').should(
+          'have.attr',
+          'aria-pressed',
+          'true',
+        )
+        cy.contains('件のサービス').invoke('text').should('not.eq', before)
+        cy.get('a[href*="posts/okusuring"]').should('exist')
+        cy.url().should('include', 'tools=ruby_on_rails')
+        cy.contains('条件をクリア').click()
+        cy.contains('件のサービス').invoke('text').should('eq', before)
+      })
+  })
+
+  it('should restore filters from the URL', () => {
+    cy.visit('http://localhost:3000/?tools=ruby_on_rails&year=2026')
+    cy.contains('button', 'Ruby on Rails').should('have.attr', 'aria-pressed', 'true')
+    cy.contains('button', '2026').should('have.attr', 'aria-pressed', 'true')
+    cy.get('a[href*="posts/okusuring"]').should('exist')
   })
 })
 

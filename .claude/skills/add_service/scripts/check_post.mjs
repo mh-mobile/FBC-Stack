@@ -80,7 +80,7 @@ for (const category of data.stack ?? []) {
       console.log(`OK: ${name} -> tools/${hit.toolID}.md`)
       // アイコンの有無も確認
       if (!fs.existsSync(path.join(root, 'public', 'images', 'tool', `${hit.toolID}.png`)))
-        warn(`アイコン public/images/tool/${hit.toolID}.png がありません（noimage表示になります）`)
+        warn(`アイコン public/images/tool/${hit.toolID}.png がありません（頭文字表示になります）`)
     } else {
       unmatched.push(name)
     }

@@ -10,11 +10,9 @@ const postsDirectory = path.join(process.cwd(), 'posts')
 // Cache parsed posts to avoid repeated file I/O during build
 let cachedSortedPosts: PostData[] | null = null
 
+// 公開中（published: true）のサービスだけをページとして生成する
 export function getAllPostIds() {
-  const fileNames = fs.readdirSync(postsDirectory)
-  return fileNames.map((fileName) => ({
-    id: fileName.replace(/\.md$/, ''),
-  }))
+  return getSortedPostsData().map(({ id }) => ({ id }))
 }
 
 export function getFBCStackData() {

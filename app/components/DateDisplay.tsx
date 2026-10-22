@@ -1,6 +1,8 @@
-import { parseISO, format } from 'date-fns'
-
+// frontmatter の日付（YYYY-MM-DD / YYYY-MM）を YYYY.MM.DD 表記で出す
 export default function DateDisplay({ dateString }: { dateString: string }) {
-  const date = parseISO(dateString)
-  return <time dateTime={dateString}>{format(date, 'LLLL d, yyyy')}</time>
+  return (
+    <time dateTime={dateString} className="font-mono tabular-nums">
+      {dateString.replaceAll('-', '.')}
+    </time>
+  )
 }

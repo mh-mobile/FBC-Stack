@@ -1,14 +1,16 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { getSortedPostsData } from '../lib/posts'
-import { getAllToolsData } from '../lib/tools'
+import { getAllToolsData, hasToolIcon } from '../lib/tools'
 import ToolSearch from '../components/ToolSearch'
-import type { ToolData } from '../../types/toolData'
 import Breadcrumb from '../components/Breadcrumb'
+import PageHeader from '../components/PageHeader'
+import { pageMetadata } from '../lib/site'
 
-export const metadata: Metadata = {
-  title: 'Tools',
-}
+export const metadata: Metadata = pageMetadata({
+  title: 'みんなのツール',
+  description: 'FBC卒業生のサービスで使われている技術の一覧。カテゴリごとに採用数の多い順で並べています。',
+  path: '/tools',
+})
 
 type ToolWithStats = {
   toolID: string
@@ -31,7 +33,7 @@ const categoryMap: Record<string, string> = {
   環境構築: 'インフラ',
   // 外部サービス・APIに統合
   外部サービス: '外部サービス・API',
-  'api連携': '外部サービス・API',
+  api連携: '外部サービス・API',
 }
 
 const categoryOrder = [
@@ -58,19 +60,18 @@ function getToolsWithStats(): ToolWithStats[] {
   >()
 
   for (const post of posts) {
+    // 同じツールを複数カテゴリに書いているサービスもあるので、採用数は1サービス1回だけ数える
+    const counted = new Set<string>()
     for (const stackCategory of post.stack) {
       const rawCat = stackCategory.name
-      const normalizedCat =
-        categoryMap[rawCat.toLowerCase()] || rawCat
+      const normalizedCat = categoryMap[rawCat.toLowerCase()] || rawCat
 
       for (const { name } of stackCategory.detail) {
         // Find matching tool
         const tool = allTools.find(
           (t) =>
             t.toolName.toLowerCase() === name.toLowerCase() ||
-            t.alias?.some(
-              (a) => a.toLowerCase() === name.toLowerCase(),
-            ),
+            t.alias?.some((a) => a.toLowerCase() === name.toLowerCase()),
         )
         if (!tool) continue
 
@@ -79,7 +80,10 @@ function getToolsWithStats(): ToolWithStats[] {
           existing = { totalCount: 0, categoryCounts: new Map() }
           toolStats.set(tool.toolID, existing)
         }
-        existing.totalCount++
+        if (!counted.has(tool.toolID)) {
+          counted.add(tool.toolID)
+          existing.totalCount++
+        }
         existing.categoryCounts.set(
           normalizedCat,
           (existing.categoryCounts.get(normalizedCat) || 0) + 1,
@@ -100,9 +104,7 @@ function getToolsWithStats(): ToolWithStats[] {
           bestCategory = cat
         }
       })
-      const cat = categoryOrder.includes(bestCategory)
-        ? bestCategory
-        : 'その他'
+      const cat = categoryOrder.includes(bestCategory) ? bestCategory : 'その他'
       return {
         toolID,
         toolName: tool.toolName,
@@ -137,60 +139,33 @@ function groupByCategory(
 export default function ToolsPage() {
   const toolsWithStats = getToolsWithStats()
   const grouped = groupByCategory(toolsWithStats)
-  const allTools = getAllToolsData()
+  const aliasByID = new Map(getAllToolsData().map((t) => [t.toolID, t.alias]))
 
-  // For search: include alias for search matching
-  const allToolsForSearch: (ToolData & { usageCount: number })[] =
-    toolsWithStats
-      .sort((a, b) => b.usageCount - a.usageCount)
-      .map((t) => {
-        const tool = allTools.find((d) => d.toolID === t.toolID)
-        return {
-          toolID: t.toolID,
-          toolName: t.toolName,
-          usageCount: t.usageCount,
-          alias: tool?.alias,
-          url: '',
-          markdownContent: '',
-        }
-      })
+  // 検索では別名でもヒットさせる
+  const allToolsForSearch = [...toolsWithStats]
+    .sort((a, b) => b.usageCount - a.usageCount)
+    .map(({ toolID, toolName, usageCount }) => ({
+      toolID,
+      toolName,
+      usageCount,
+      hasIcon: hasToolIcon(toolID),
+      alias: aliasByID.get(toolID),
+    }))
 
   return (
     <>
       <Breadcrumb items={[{ label: 'みんなのツール' }]} />
-      <div className="pb-1">
-        <h1 className="text-xl font-bold">みんなのツール</h1>
-        <p className="mt-1 text-sm text-light-text">
-          サービスで使用されている技術一覧
-        </p>
-      </div>
-      <div className="mt-3 p-1">
-        <ToolSearch
-          allToolsData={allToolsForSearch}
-          grouped={grouped}
-        />
-      </div>
-      <div className="mt-10">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 px-4 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-50 hover:text-gray-900"
-        >
-          <svg
-            className="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
-            />
-          </svg>
-          ホームに戻る
-        </Link>
-      </div>
+      <PageHeader
+        title="みんなのツール"
+        description={`サービスで使われている ${allToolsForSearch.length} の技術を、カテゴリごとに採用数の多い順で並べています。`}
+      />
+      <ToolSearch
+        allToolsData={allToolsForSearch}
+        grouped={grouped.map(({ category, tools }) => ({
+          category,
+          tools: tools.map((tool) => ({ ...tool, hasIcon: hasToolIcon(tool.toolID) })),
+        }))}
+      />
     </>
   )
 }

@@ -1,23 +1,28 @@
-import Link from 'next/link'
 import type { Metadata } from 'next'
 import Breadcrumb from '../components/Breadcrumb'
+import { pageMetadata } from '../lib/site'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: '利用規約',
-}
+  path: '/terms',
+})
 
 export default function TermsPage() {
   return (
-    <article>
+    <article className="max-w-3xl text-[15px] leading-relaxed text-fg-2">
       <Breadcrumb items={[{ label: '利用規約' }]} />
-      <h1 className="text-xl font-bold">利用規約</h1>
+      <h1 className="text-2xl font-bold tracking-tight text-fg sm:text-3xl">
+        利用規約
+      </h1>
 
       <div className="pt-5">
         <p className="py-2">
           この利用規約（以下、「本規約」といいます。）は、このウェブサイト上で提供するサービス（以下、「本サービス」といいます。）の利用条件を定めるものです。ユーザーの皆さま（以下、「ユーザー」といいます。）には、本規約に従って、本サービスをご利用いただきます。
         </p>
 
-        <h4 className="py-4 text-lg font-semibold">第1条（適用）</h4>
+        <h4 className="pb-2 pt-6 text-base font-semibold text-fg">
+          第1条（適用）
+        </h4>
         <ol className="list-decimal space-y-2 pl-6">
           <li>
             本規約は、ユーザーと本サービスの利用に関わる一切の関係に適用されるものとします。
@@ -30,7 +35,9 @@ export default function TermsPage() {
           </li>
         </ol>
 
-        <h4 className="py-4 text-lg font-semibold">第2条（禁止事項）</h4>
+        <h4 className="pb-2 pt-6 text-base font-semibold text-fg">
+          第2条（禁止事項）
+        </h4>
         <p className="py-2">
           ユーザーは、本サービスの利用にあたり、以下の行為をしてはなりません。
         </p>
@@ -43,9 +50,7 @@ export default function TermsPage() {
           <li>
             本サービス、ほかのユーザー、またはその他第三者のサーバーまたはネットワークの機能を破壊したり、妨害したりする行為
           </li>
-          <li>
-            本サービスによって得られた情報を商業的に利用する行為
-          </li>
+          <li>本サービスによって得られた情報を商業的に利用する行為</li>
           <li>本サービスの運営を妨害するおそれのある行為</li>
           <li>不正アクセスをし、またはこれを試みる行為</li>
           <li>不正な目的を持って本サービスを利用する行為</li>
@@ -58,7 +63,7 @@ export default function TermsPage() {
           <li>その他、本サービスが不適切と判断する行為</li>
         </ol>
 
-        <h4 className="py-4 text-lg font-semibold">
+        <h4 className="pb-2 pt-6 text-base font-semibold text-fg">
           第3条（本サービスの提供の停止等）
         </h4>
         <ol className="list-decimal space-y-2 pl-6">
@@ -72,19 +77,15 @@ export default function TermsPage() {
             <li>
               地震、落雷、火災、停電または天災などの不可抗力により、本サービスの提供が困難となった場合
             </li>
-            <li>
-              コンピュータまたは通信回線等が事故により停止した場合
-            </li>
-            <li>
-              その他、本サービスが本サービスの提供が困難と判断した場合
-            </li>
+            <li>コンピュータまたは通信回線等が事故により停止した場合</li>
+            <li>その他、本サービスが本サービスの提供が困難と判断した場合</li>
           </ol>
           <li>
             本サービスは、本サービスの提供の停止または中断により、ユーザーまたは第三者が被ったいかなる不利益または損害についても、一切の責任を負わないものとします。
           </li>
         </ol>
 
-        <h4 className="py-4 text-lg font-semibold">
+        <h4 className="pb-2 pt-6 text-base font-semibold text-fg">
           第4条（保証の否認および免責事項）
         </h4>
         <ol className="list-decimal space-y-2 pl-6">
@@ -99,14 +100,14 @@ export default function TermsPage() {
           </li>
         </ol>
 
-        <h4 className="py-4 text-lg font-semibold">
+        <h4 className="pb-2 pt-6 text-base font-semibold text-fg">
           第5条（サービス内容の変更等）
         </h4>
         <p>
           本サービスは、ユーザーへ事前に通知することなく、本サービスの内容を変更、追加または廃止することがあり、ユーザーはこれを承諾するものとします。
         </p>
 
-        <h4 className="py-4 text-lg font-semibold">
+        <h4 className="pb-2 pt-6 text-base font-semibold text-fg">
           第6条（利用規約の変更）
         </h4>
         <ol className="list-decimal space-y-2 pl-6">
@@ -118,29 +119,15 @@ export default function TermsPage() {
           </li>
         </ol>
 
-        <h4 className="py-4 text-lg font-semibold">
+        <h4 className="pb-2 pt-6 text-base font-semibold text-fg">
           第7条（準拠法・裁判管轄）
         </h4>
         <ol className="list-decimal space-y-2 pl-6">
-          <li>
-            本規約の解釈にあたっては、日本法を準拠法とします。
-          </li>
+          <li>本規約の解釈にあたっては、日本法を準拠法とします。</li>
           <li>
             本サービスに関して紛争が生じた場合には、本サービスの本店所在地を管轄する裁判所を専属的合意管轄とします。
           </li>
         </ol>
-      </div>
-
-      <div className="mt-10">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 px-4 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-50 hover:text-gray-900"
-        >
-          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
-          </svg>
-          ホームに戻る
-        </Link>
       </div>
     </article>
   )

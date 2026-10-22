@@ -1,50 +1,34 @@
 import Link from 'next/link'
+import { ChevronRightIcon } from './Icons'
 
 type BreadcrumbItem = {
   label: string
   href?: string
 }
 
-type Props = {
-  items: BreadcrumbItem[]
-}
-
-export default function Breadcrumb({ items }: Props) {
+export default function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
   return (
-    <nav aria-label="パンくずリスト" className="py-3">
-      <ol className="flex flex-wrap items-center gap-1 text-sm">
+    <nav aria-label="パンくずリスト" className="pb-4">
+      <ol className="flex flex-wrap items-center gap-1 text-xs text-muted">
         <li>
-          <Link
-            href="/"
-            className="text-gray-400 transition-colors hover:text-gray-600"
-          >
+          <Link href="/" className="transition-colors hover:text-fg">
             ホーム
           </Link>
         </li>
         {items.map((item, i) => (
-          <li key={i} className="flex items-center gap-1">
-            <svg
-              className="h-3.5 w-3.5 text-gray-300"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2}
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M8.25 4.5l7.5 7.5-7.5 7.5"
-              />
-            </svg>
+          <li key={i} className="flex min-w-0 items-center gap-1">
+            <ChevronRightIcon className="h-3 w-3 shrink-0" />
             {item.href ? (
               <Link
                 href={item.href}
-                className="text-gray-400 transition-colors hover:text-gray-600"
+                className="transition-colors hover:text-fg"
               >
                 {item.label}
               </Link>
             ) : (
-              <span className="text-gray-600">{item.label}</span>
+              <span aria-current="page" className="truncate text-fg-2">
+                {item.label}
+              </span>
             )}
           </li>
         ))}

@@ -1,20 +1,93 @@
 @import 'tailwindcss';
 
-@theme {
-  --color-external-link: #3182ce;
-  --color-light-text: #666666;
-  --color-card-bg: #f7fafc;
+/* Design tokens: ライト/ダークは :root の変数だけを切り替え、各ページは役割名（bg-surface, text-muted など）で参照する */
+:root {
+  color-scheme: light;
+  --bg: #fafaf9;
+  --surface: #ffffff;
+  --surface-2: #f4f4f2;
+  --fg: #0b0b0b;
+  --fg-2: #52514e;
+  --muted: #6b6963;
+  --line: #e5e4df;
+  --line-strong: #c3c2b7;
+  --accent: #1f66c1;
+  --accent-soft: #e8f1fc;
+  --tile: #ffffff;
+
+  /* 採用率ヒートマップ（青の単色シーケンシャル、低→高）。文字色は各段で 4.5:1 以上になるものを選んでいる */
+  --heat-1: #cde2fb;
+  --heat-2: #9ec5f4;
+  --heat-3: #5598e7;
+  --heat-4: #256abf;
+  --heat-5: #104281;
+  --heat-1-fg: #0d366b;
+  --heat-2-fg: #0d366b;
+  --heat-3-fg: #0b0b0b;
+  --heat-4-fg: #ffffff;
+  --heat-5-fg: #ffffff;
 }
 
-/* Base styles */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: #0d0d0d;
+    --surface: #161615;
+    --surface-2: #1f1f1d;
+    --fg: #f0efec;
+    --fg-2: #c3c2b7;
+    --muted: #8f8d86;
+    --line: #2c2c2a;
+    --line-strong: #44443f;
+    --accent: #5598e7;
+    --accent-soft: #15253a;
+    /* ツールのロゴは黒/透過PNGが多いので、ダークでも明るいタイルに載せる */
+    --tile: #f0efec;
+
+    --heat-1: #17304f;
+    --heat-2: #1c4a80;
+    --heat-3: #256abf;
+    --heat-4: #5598e7;
+    --heat-5: #9ec5f4;
+    --heat-1-fg: #c3c2b7;
+    --heat-2-fg: #f0efec;
+    --heat-3-fg: #ffffff;
+    --heat-4-fg: #0b0b0b;
+    --heat-5-fg: #0b0b0b;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-fg: var(--fg);
+  --color-fg-2: var(--fg-2);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-tile: var(--tile);
+
+  --font-sans: system-ui, -apple-system, 'Segoe UI', 'Hiragino Sans',
+    'Hiragino Kaku Gothic ProN', 'Noto Sans JP', Meiryo, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
 body {
-  @apply text-gray-800 antialiased;
+  @apply bg-bg font-sans text-fg antialiased;
 }
 
 a {
   @apply no-underline;
 }
 
-a:hover {
-  @apply no-underline;
+::selection {
+  background: var(--accent-soft);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }

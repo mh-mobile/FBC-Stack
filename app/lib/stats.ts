@@ -154,3 +154,14 @@ export function getStatsData() {
     trendTable,
   }
 }
+
+// toolID -> 採用サービス数（1サービス内の重複は1件として数える）
+export function getToolUsageCounts(): Record<string, number> {
+  const counts: Record<string, number> = {}
+  for (const post of getSortedPostsData()) {
+    new Set(Object.values(post.toolPathInfo ?? {})).forEach((toolID) => {
+      counts[toolID] = (counts[toolID] || 0) + 1
+    })
+  }
+  return counts
+}

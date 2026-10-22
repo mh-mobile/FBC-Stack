@@ -1,161 +1,228 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import ServiceCard from './ServiceCard'
-import type { PostData } from '../../types/postData'
+import ToolIcon from './ToolIcon'
+import { SearchIcon, XIcon } from './Icons'
+import type { CardTool, ServiceSummary } from '../lib/summary'
 
-const ITEMS_PER_PAGE = 20
+const ITEMS_PER_PAGE = 24
 
-type Props = {
-  posts: PostData[]
+type Sort = 'newest' | 'oldest'
+
+type Filters = {
+  query: string
+  year: string | null
+  tools: string[]
+  sort: Sort
 }
 
-export default function ServiceGrid({ posts }: Props) {
-  const [query, setQuery] = useState('')
-  const [selectedYear, setSelectedYear] = useState<string | null>(null)
-  const [sortOrder, setSortOrder] = useState<'newest' | 'oldest'>('newest')
+const EMPTY: Filters = { query: '', year: null, tools: [], sort: 'newest' }
+
+// 絞り込み条件は URL（?q=&year=&tools=a,b&sort=oldest）と同期し、共有や「戻る」で復元できるようにする。
+// 静的HTMLには条件なしの一覧を出し、読み込み後に URL の条件を反映する
+function readFilters(search: string): Filters {
+  const params = new URLSearchParams(search)
+  return {
+    query: params.get('q') ?? '',
+    year: params.get('year'),
+    tools: params.get('tools')?.split(',').filter(Boolean) ?? [],
+    sort: params.get('sort') === 'oldest' ? 'oldest' : 'newest',
+  }
+}
+
+function writeFilters({ query, year, tools, sort }: Filters) {
+  const params = new URLSearchParams()
+  if (query.trim()) params.set('q', query.trim())
+  if (year) params.set('year', year)
+  if (tools.length) params.set('tools', tools.join(','))
+  if (sort === 'oldest') params.set('sort', sort)
+  const search = params.toString()
+  window.history.replaceState(
+    window.history.state,
+    '',
+    `${window.location.pathname}${search ? `?${search}` : ''}`,
+  )
+}
+
+function chipClass(selected: boolean) {
+  return `inline-flex min-h-8 shrink-0 items-center gap-1.5 rounded-full border px-3 text-xs transition-colors ${
+    selected
+      ? 'border-fg bg-fg text-bg'
+      : 'border-line bg-surface text-fg-2 hover:border-line-strong hover:text-fg'
+  }`
+}
+
+// スマホでは1行の横スクロールにして、右端をフェードさせて続きがあることを示す
+const chipRowClass =
+  '-mx-4 flex items-center gap-1.5 overflow-x-auto px-4 pb-1 [mask-image:linear-gradient(to_right,black_85%,transparent)] [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0 sm:[mask-image:none]'
+
+type Props = {
+  services: ServiceSummary[]
+  popularTools: CardTool[]
+}
+
+export default function ServiceGrid({ services, popularTools }: Props) {
+  const [filters, setFilters] = useState<Filters>(EMPTY)
   const [displayCount, setDisplayCount] = useState(ITEMS_PER_PAGE)
 
-  // Extract available years from posts (sorted descending)
-  const years = useMemo(() => {
-    const yearSet = new Set<string>()
-    for (const post of posts) {
-      yearSet.add(post.date.slice(0, 4))
-    }
-    return Array.from(yearSet).sort((a, b) => b.localeCompare(a))
-  }, [posts])
+  useEffect(() => {
+    setFilters(readFilters(window.location.search))
+  }, [])
 
-  const filteredPosts = useMemo(() => {
-    let result = posts
+  const update = (patch: Partial<Filters>) => {
+    const next = { ...filters, ...patch }
+    setFilters(next)
+    setDisplayCount(ITEMS_PER_PAGE)
+    writeFilters(next)
+  }
 
-    // Year filter
-    if (selectedYear) {
-      result = result.filter((post) => post.date.startsWith(selectedYear))
-    }
+  const years = useMemo(
+    () =>
+      Array.from(new Set(services.map(({ date }) => date.slice(0, 4)))).sort((a, b) =>
+        b.localeCompare(a),
+      ),
+    [services],
+  )
 
-    // Text search (title, author, tool names)
-    if (query.trim()) {
-      const q = query.trim().toLowerCase()
-      result = result.filter((post) => {
-        if (post.title.toLowerCase().includes(q)) return true
-        if (post.author.toLowerCase().includes(q)) return true
-        return post.stack.some(({ detail }) =>
-          detail.some(({ name }) => name.toLowerCase().includes(q)),
-        )
-      })
-    }
+  const filtered = useMemo(() => {
+    const q = filters.query.trim().toLowerCase()
+    const result = services.filter((service) => {
+      if (filters.year && !service.date.startsWith(filters.year)) return false
+      // 選択したツールをすべて使っているサービスに絞る（AND）
+      if (filters.tools.length) {
+        const ids = new Set(service.tools.map(({ id }) => id))
+        if (!filters.tools.every((id) => ids.has(id))) return false
+      }
+      return !q || service.search.includes(q)
+    })
+    return filters.sort === 'oldest' ? result.reverse() : result
+  }, [services, filters])
 
-    // Sort
-    if (sortOrder === 'oldest') {
-      result = [...result].reverse()
-    }
+  const toggleTool = (id: string) =>
+    update({
+      tools: filters.tools.includes(id)
+        ? filters.tools.filter((t) => t !== id)
+        : [...filters.tools, id],
+    })
 
-    return result
-  }, [posts, query, selectedYear, sortOrder])
-
-  // Reset display count when filters change
-  const visiblePosts = filteredPosts.slice(0, displayCount)
-  const hasMore = displayCount < filteredPosts.length
+  const isFiltered = Boolean(filters.query.trim() || filters.year || filters.tools.length)
+  const clearAll = () => update({ query: '', year: null, tools: [] })
+  const visible = filtered.slice(0, displayCount)
+  const remaining = filtered.length - displayCount
 
   return (
     <div>
-      {/* Search bar + Sort */}
-      <div className="mb-3 flex items-center gap-2 px-1">
-        <div className="relative flex-1">
-          <svg
-            className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+      <div className="space-y-3">
+        <div className="flex gap-2">
+          <label className="relative flex-1">
+            <span className="sr-only">サービスを検索</span>
+            <SearchIcon className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted" />
+            <input
+              type="search"
+              placeholder="サービス名・作者・技術名で検索"
+              value={filters.query}
+              onChange={(e) => update({ query: e.target.value })}
+              className="w-full rounded-lg border border-line bg-surface py-2.5 pl-9 pr-3 text-sm outline-none transition-colors placeholder:text-muted focus:border-accent"
             />
-          </svg>
-          <input
-            type="text"
-            placeholder="サービス名、著者、技術名で検索..."
-            value={query}
-            onChange={(e) => {
-              setQuery(e.target.value)
-              setDisplayCount(ITEMS_PER_PAGE)
-            }}
-            className="w-full rounded-lg border border-gray-200 bg-white py-2.5 pl-10 pr-4 text-sm outline-none transition-colors focus:border-blue-400 focus:ring-1 focus:ring-blue-400"
-          />
+          </label>
+          <select
+            value={filters.sort}
+            onChange={(e) => update({ sort: e.target.value as Sort })}
+            aria-label="並び順"
+            className="shrink-0 rounded-lg border border-line bg-surface px-2.5 text-sm text-fg-2 outline-none focus:border-accent"
+          >
+            <option value="newest">新しい順</option>
+            <option value="oldest">古い順</option>
+          </select>
         </div>
-        <select
-          value={sortOrder}
-          onChange={(e) => setSortOrder(e.target.value as 'newest' | 'oldest')}
-          className="shrink-0 rounded-md border border-gray-200 bg-white px-2 py-2 text-xs text-gray-600 outline-none"
-        >
-          <option value="newest">新しい順</option>
-          <option value="oldest">古い順</option>
-        </select>
+
+        <div role="group" aria-label="技術で絞り込み" className={chipRowClass}>
+          <span className="mr-1 w-8 shrink-0 text-xs text-muted">技術</span>
+          {popularTools.map((tool) => {
+            const selected = filters.tools.includes(tool.id)
+            return (
+              <button
+                key={tool.id}
+                type="button"
+                aria-pressed={selected}
+                onClick={() => toggleTool(tool.id)}
+                className={chipClass(selected)}
+              >
+                <ToolIcon
+                  id={tool.id}
+                  name={tool.name}
+                  hasIcon={tool.hasIcon}
+                  size={18}
+                  className="rounded-sm"
+                />
+                {tool.name}
+              </button>
+            )
+          })}
+        </div>
+
+        <div role="group" aria-label="年で絞り込み" className={chipRowClass}>
+          <span className="mr-1 w-8 shrink-0 text-xs text-muted">年</span>
+          {years.map((year) => (
+            <button
+              key={year}
+              type="button"
+              aria-pressed={filters.year === year}
+              onClick={() => update({ year: filters.year === year ? null : year })}
+              className={`${chipClass(filters.year === year)} font-mono`}
+            >
+              {year}
+            </button>
+          ))}
+        </div>
       </div>
 
-      {/* Year filter */}
-      <div className="mb-3 flex flex-wrap gap-1.5 px-1">
-        <button
-          onClick={() => {
-            setSelectedYear(null)
-            setDisplayCount(ITEMS_PER_PAGE)
-          }}
-          className={`rounded-full px-3 py-1 text-xs transition-colors ${
-            selectedYear === null
-              ? 'bg-gray-800 text-white'
-              : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-          }`}
-        >
-          すべて
-        </button>
-        {years.map((year) => (
+      <div className="mb-4 mt-6 flex items-center justify-between gap-3 text-sm">
+        <p className="text-fg-2" aria-live="polite">
+          <span className="font-mono font-semibold text-fg">{filtered.length}</span>{' '}
+          件のサービス
+        </p>
+        {isFiltered && (
           <button
-            key={year}
-            onClick={() => {
-              setSelectedYear(selectedYear === year ? null : year)
-              setDisplayCount(ITEMS_PER_PAGE)
-            }}
-            className={`rounded-full px-3 py-1 text-xs transition-colors ${
-              selectedYear === year
-                ? 'bg-gray-800 text-white'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-            }`}
+            type="button"
+            onClick={clearAll}
+            className="inline-flex min-h-8 items-center gap-1 text-xs text-muted transition-colors hover:text-fg"
           >
-            {year}
+            <XIcon className="h-3.5 w-3.5" />
+            条件をクリア
           </button>
+        )}
+      </div>
+
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {visible.map((service) => (
+          <ServiceCard key={service.id} service={service} />
         ))}
       </div>
 
-      {/* Results count */}
-      <div className="mb-3 px-1 text-sm text-light-text">
-        {filteredPosts.length} 件のサービス
-      </div>
-
-      {/* Grid */}
-      <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-5">
-        {visiblePosts.map((post) => (
-          <ServiceCard key={post.id} post={post} />
-        ))}
-      </div>
-
-      {/* Show more button */}
-      {hasMore && (
-        <div className="mt-6 flex justify-center">
+      {remaining > 0 && (
+        <div className="mt-8 flex justify-center">
           <button
+            type="button"
             onClick={() => setDisplayCount((c) => c + ITEMS_PER_PAGE)}
-            className="rounded-lg border border-gray-200 bg-white px-8 py-2.5 text-sm text-gray-700 transition-colors hover:bg-gray-50"
+            className="rounded-lg border border-line bg-surface px-6 py-2.5 text-sm text-fg-2 transition-colors hover:border-line-strong hover:text-fg"
           >
-            もっと見る（残り {filteredPosts.length - displayCount} 件）
+            もっと見る（残り {remaining} 件）
           </button>
         </div>
       )}
 
-      {filteredPosts.length === 0 && (
-        <div className="py-12 text-center text-gray-400">
-          該当するサービスが見つかりません
+      {filtered.length === 0 && (
+        <div className="flex flex-col items-center gap-3 rounded-xl border border-dashed border-line py-16 text-center text-sm text-muted">
+          条件に合うサービスが見つかりません
+          <button
+            type="button"
+            onClick={clearAll}
+            className="rounded-lg border border-line bg-surface px-4 py-2 text-fg-2 transition-colors hover:text-fg"
+          >
+            条件をクリア
+          </button>
         </div>
       )}
     </div>
