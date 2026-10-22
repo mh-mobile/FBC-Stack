@@ -14,6 +14,7 @@ stack:
     detail:
       - name: Hotwire
       - name: Tailwind CSS
+      - name: Slim
 
   - name: バックエンド
     detail:

@@ -53,6 +53,7 @@ stack:
     detail:
       - name: Kamal
       - name: Docker
+      - name: GitHub Container Registry
       - name: Cloudflare R2
 ---
 

@@ -46,6 +46,7 @@ stack:
   - name: 外部サービス・API
     detail:
       - name: OpenAI API
+      - name: RubyLLM
 
   - name: データベース
     detail:

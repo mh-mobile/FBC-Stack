@@ -46,10 +46,11 @@ stack:
   - name: インフラ
     detail:
       - name: ConoHa VPS
-      - name: Cloudflare
       - name: Cloudflare R2
       - name: Kamal
       - name: Docker
+      - name: GitHub Container Registry
+      - name: Nginx
 ---
 
 こえだよりは、遠方に住む高齢の祖父母がいる家族向けの見守りアプリです。

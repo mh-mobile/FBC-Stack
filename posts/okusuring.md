@@ -24,7 +24,6 @@ stack:
   - name: テスト
     detail:
       - name: Minitest
-      - name: Capybara
 
   - name: Linter/Formatter
     detail:
