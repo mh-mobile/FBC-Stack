@@ -1,7 +1,7 @@
 ---
 title: 'こえだより'
 date: '2026-09-24'
-author: hitomi
+author: oyamairishitomi
 code:
   - repository: 'https://github.com/oyamairishitomi/koedayori'
     description: ''

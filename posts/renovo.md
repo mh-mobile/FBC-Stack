@@ -1,7 +1,7 @@
 ---
 title: 'ReNovo'
 date: '2026-09-18'
-author: eliri
+author: koguchi-e
 code:
   - repository: 'https://github.com/koguchi-e/ReNovo'
     description: ''

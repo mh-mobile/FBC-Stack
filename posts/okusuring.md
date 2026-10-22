@@ -1,7 +1,7 @@
 ---
 title: 'おくすリング'
 date: '2026-08-07'
-author: sharoa
+author: sharoa119
 code:
   - repository: 'https://github.com/sharoa119/okusuring'
     description: ''

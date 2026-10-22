@@ -1,7 +1,7 @@
 ---
 title: '文字入りアイコンメーカー'
 date: '2026-09-29'
-author: mousu
+author: mousu-a
 code:
   - repository: 'https://github.com/mousu-a/combine_icons_with_text'
     description: ''
