@@ -8,14 +8,14 @@
   --surface-2: #f4f4f2;
   --fg: #0b0b0b;
   --fg-2: #52514e;
-  --muted: #7d7b75;
+  --muted: #6b6963;
   --line: #e5e4df;
   --line-strong: #c3c2b7;
-  --accent: #2a78d6;
+  --accent: #1f66c1;
   --accent-soft: #e8f1fc;
   --tile: #ffffff;
 
-  /* 採用率ヒートマップ（青の単色シーケンシャル、低→高） */
+  /* 採用率ヒートマップ（青の単色シーケンシャル、低→高）。文字色は各段で 4.5:1 以上になるものを選んでいる */
   --heat-1: #cde2fb;
   --heat-2: #9ec5f4;
   --heat-3: #5598e7;
@@ -23,7 +23,7 @@
   --heat-5: #104281;
   --heat-1-fg: #0d366b;
   --heat-2-fg: #0d366b;
-  --heat-3-fg: #ffffff;
+  --heat-3-fg: #0b0b0b;
   --heat-4-fg: #ffffff;
   --heat-5-fg: #ffffff;
 }

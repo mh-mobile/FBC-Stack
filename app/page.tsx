@@ -1,9 +1,14 @@
+import type { Metadata } from 'next'
 import { getSortedPostsData } from './lib/posts'
 import { getToolUsageCounts } from './lib/stats'
-import { getAllToolsData } from './lib/tools'
+import { getAllToolsData, hasToolIcon } from './lib/tools'
+import { toServiceSummary } from './lib/summary'
 import ServiceGrid from './components/ServiceGrid'
+import { pageMetadata } from './lib/site'
 
 const POPULAR_TOOL_COUNT = 12
+
+export const metadata: Metadata = pageMetadata({ path: '/' })
 
 export default function Home() {
   const posts = getSortedPostsData()
@@ -14,7 +19,7 @@ export default function Home() {
   const popularTools = Object.entries(usage)
     .sort(([, a], [, b]) => b - a)
     .slice(0, POPULAR_TOOL_COUNT)
-    .map(([id, count]) => ({ id, name: toolNames.get(id) ?? id, count }))
+    .map(([id]) => ({ id, name: toolNames.get(id) ?? id, hasIcon: hasToolIcon(id) }))
 
   const years = posts.map(({ date }) => date.slice(0, 4)).sort()
   const facts = [
@@ -44,9 +49,9 @@ export default function Home() {
 
       <section aria-labelledby="services-heading">
         <h2 id="services-heading" className="mb-4 text-lg font-semibold">
-          Services
+          サービス
         </h2>
-        <ServiceGrid posts={posts} popularTools={popularTools} />
+        <ServiceGrid services={posts.map(toServiceSummary)} popularTools={popularTools} />
       </section>
     </>
   )

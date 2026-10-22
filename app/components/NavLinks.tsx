@@ -4,8 +4,8 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 const links = [
-  { href: '/', label: 'Services' },
-  { href: '/tools', label: 'みんなのツール' },
+  { href: '/', label: 'サービス' },
+  { href: '/tools', label: 'ツール' },
   { href: '/stats', label: '統計' },
   { href: '/about', label: 'FBC Stackについて' },
 ]
@@ -15,7 +15,7 @@ function isActive(pathname: string, href: string) {
   return pathname.startsWith(href)
 }
 
-// 狭い画面ではロゴの下に1行で並べ、収まらなければ横スクロールで全項目に届くようにする
+// 狭い画面ではロゴの下に1行で並べる（390px幅でも全項目が収まる長さのラベルにしている）
 export default function NavLinks() {
   const pathname = usePathname()
 

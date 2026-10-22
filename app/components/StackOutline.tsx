@@ -3,9 +3,15 @@ import type { PostData } from '../../types/postData'
 
 // 詳細ページのサイドバー: カテゴリへのジャンプと、バージョン付きの主要技術
 export default function StackOutline({ postData }: { postData: PostData }) {
-  const versioned = postData.stack
-    .flatMap(({ detail }) => detail)
-    .filter(({ version }) => version)
+  // 同じツール・バージョンが複数カテゴリに書かれていても1行にまとめる
+  const versioned = Array.from(
+    new Map(
+      postData.stack
+        .flatMap(({ detail }) => detail)
+        .filter(({ version }) => version)
+        .map(({ name, version }) => [`${name}@${version}`, { name, version }]),
+    ).values(),
+  )
 
   return (
     <div className="space-y-6 text-sm">
@@ -13,7 +19,7 @@ export default function StackOutline({ postData }: { postData: PostData }) {
         <h2 className="mb-2 text-xs font-medium text-muted">カテゴリ</h2>
         <ul className="space-y-0.5">
           {postData.stack.map(({ name, detail }, index) => (
-            <li key={name}>
+            <li key={`${name}-${index}`}>
               <a
                 href={`#${stackAnchor(index)}`}
                 className="flex items-center justify-between rounded-md px-2 py-1.5 text-fg-2 transition-colors hover:bg-surface-2 hover:text-fg"
@@ -33,7 +39,7 @@ export default function StackOutline({ postData }: { postData: PostData }) {
           <dl className="space-y-1.5 px-2">
             {versioned.map(({ name, version }) => (
               <div
-                key={name}
+                key={`${name}@${version}`}
                 className="flex items-baseline justify-between gap-3"
               >
                 <dt className="truncate text-fg-2">{name}</dt>

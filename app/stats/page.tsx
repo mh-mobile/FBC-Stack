@@ -1,16 +1,20 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getStatsData } from '../lib/stats'
+import { hasToolIcon } from '../lib/tools'
 import Breadcrumb from '../components/Breadcrumb'
 import PageHeader from '../components/PageHeader'
 import Panel from '../components/Panel'
 import ColumnChart from '../components/ColumnChart'
 import ToolRow from '../components/ToolRow'
 import YearlyRankingTabs from '../components/YearlyRankingTabs'
+import { pageMetadata } from '../lib/site'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: '統計',
-}
+  description: 'FBC卒業生のサービスと技術スタックを、年ごとの登録数・人気ツール・採用率の推移から分析します。',
+  path: '/stats',
+})
 
 // 採用率を5段階に分け、青の単色ランプ（低→高）に割り当てる
 const HEAT_LEVELS = [
@@ -61,7 +65,7 @@ export default function StatsPage() {
         ))}
       </dl>
 
-      <div className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-2">
+      <div className="mt-4 grid grid-cols-1 items-start gap-4 lg:grid-cols-2">
         <Panel title="年別サービス登録数">
           <ColumnChart
             caption="年別サービス登録数"
@@ -86,6 +90,7 @@ export default function StatsPage() {
               </span>
               <div className="min-w-0 flex-1">
                 <ToolRow
+                  hasIcon={hasToolIcon(tool.toolID)}
                   id={tool.toolID}
                   name={tool.name}
                   ratio={tool.count / maxTopTools}
@@ -104,7 +109,15 @@ export default function StatsPage() {
         description="各年のサービスにおける採用数と採用率"
         bodyClassName=""
       >
-        <YearlyRankingTabs rankings={stats.yearlyRankings} />
+        <YearlyRankingTabs
+          rankings={stats.yearlyRankings.map((ranking) => ({
+            ...ranking,
+            tools: ranking.tools.map((tool) => ({
+              ...tool,
+              hasIcon: hasToolIcon(tool.toolID),
+            })),
+          }))}
+        />
       </Panel>
 
       <Panel
@@ -131,12 +144,16 @@ export default function StatsPage() {
           <table className="w-full border-separate border-spacing-0.5 text-xs">
             <thead>
               <tr>
-                <th className="sticky left-0 z-10 bg-surface pb-2 pr-3 text-left font-medium text-muted">
+                <th
+                  scope="col"
+                  className="sticky left-0 z-10 bg-surface pb-2 pr-3 text-left font-medium text-muted"
+                >
                   ツール <span className="ml-1 font-normal">計</span>
                 </th>
                 {stats.sortedYears.map((year) => (
                   <th
                     key={year}
+                    scope="col"
                     className="pb-2 text-center font-mono font-medium text-muted"
                   >
                     {year.slice(2)}
@@ -147,7 +164,10 @@ export default function StatsPage() {
             <tbody>
               {stats.trendTable.map((row) => (
                 <tr key={row.name}>
-                  <td className="sticky left-0 z-10 max-w-40 bg-surface py-0.5 pr-3">
+                  <th
+                    scope="row"
+                    className="sticky left-0 z-10 max-w-40 bg-surface py-0.5 pr-3 text-left font-normal"
+                  >
                     <span className="flex items-baseline gap-2">
                       <Link
                         href={`/tools/${row.toolID}`}
@@ -159,7 +179,7 @@ export default function StatsPage() {
                         {row.totalCount}
                       </span>
                     </span>
-                  </td>
+                  </th>
                   {row.rates.map(({ year, rate, count }) => (
                     <td key={year} className="p-0 text-center">
                       {rate > 0 ? (
@@ -172,7 +192,8 @@ export default function StatsPage() {
                         </span>
                       ) : (
                         <span className="flex h-7 min-w-8 items-center justify-center text-line-strong">
-                          ·
+                          <span aria-hidden="true">·</span>
+                          <span className="sr-only">0</span>
                         </span>
                       )}
                     </td>

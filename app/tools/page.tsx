@@ -1,13 +1,16 @@
 import type { Metadata } from 'next'
 import { getSortedPostsData } from '../lib/posts'
-import { getAllToolsData } from '../lib/tools'
+import { getAllToolsData, hasToolIcon } from '../lib/tools'
 import ToolSearch from '../components/ToolSearch'
 import Breadcrumb from '../components/Breadcrumb'
 import PageHeader from '../components/PageHeader'
+import { pageMetadata } from '../lib/site'
 
-export const metadata: Metadata = {
-  title: 'Tools',
-}
+export const metadata: Metadata = pageMetadata({
+  title: 'みんなのツール',
+  description: 'FBC卒業生のサービスで使われている技術の一覧。カテゴリごとに採用数の多い順で並べています。',
+  path: '/tools',
+})
 
 type ToolWithStats = {
   toolID: string
@@ -57,6 +60,8 @@ function getToolsWithStats(): ToolWithStats[] {
   >()
 
   for (const post of posts) {
+    // 同じツールを複数カテゴリに書いているサービスもあるので、採用数は1サービス1回だけ数える
+    const counted = new Set<string>()
     for (const stackCategory of post.stack) {
       const rawCat = stackCategory.name
       const normalizedCat = categoryMap[rawCat.toLowerCase()] || rawCat
@@ -75,7 +80,10 @@ function getToolsWithStats(): ToolWithStats[] {
           existing = { totalCount: 0, categoryCounts: new Map() }
           toolStats.set(tool.toolID, existing)
         }
-        existing.totalCount++
+        if (!counted.has(tool.toolID)) {
+          counted.add(tool.toolID)
+          existing.totalCount++
+        }
         existing.categoryCounts.set(
           normalizedCat,
           (existing.categoryCounts.get(normalizedCat) || 0) + 1,
@@ -140,6 +148,7 @@ export default function ToolsPage() {
       toolID,
       toolName,
       usageCount,
+      hasIcon: hasToolIcon(toolID),
       alias: aliasByID.get(toolID),
     }))
 
@@ -150,7 +159,13 @@ export default function ToolsPage() {
         title="みんなのツール"
         description={`サービスで使われている ${allToolsForSearch.length} の技術を、カテゴリごとに採用数の多い順で並べています。`}
       />
-      <ToolSearch allToolsData={allToolsForSearch} grouped={grouped} />
+      <ToolSearch
+        allToolsData={allToolsForSearch}
+        grouped={grouped.map(({ category, tools }) => ({
+          category,
+          tools: tools.map((tool) => ({ ...tool, hasIcon: hasToolIcon(tool.toolID) })),
+        }))}
+      />
     </>
   )
 }

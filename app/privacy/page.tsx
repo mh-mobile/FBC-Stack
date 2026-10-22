@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
 import Breadcrumb from '../components/Breadcrumb'
+import { pageMetadata } from '../lib/site'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'プライバシーポリシー',
-}
+  path: '/privacy',
+})
 
 export default function PrivacyPage() {
   return (

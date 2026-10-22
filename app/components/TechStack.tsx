@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import ToolIcon from './ToolIcon'
+import { hasToolIcon } from '../lib/tools'
 import type { PostData } from '../../types/postData'
 
 type Props = {
@@ -15,7 +16,7 @@ export default function TechStack({ postData, usage }: Props) {
     <div className="space-y-6">
       {postData.stack.map(({ name, detail }, index) => (
         <section
-          key={name}
+          key={`${name}-${index}`}
           id={stackAnchor(index)}
           className="scroll-mt-28 sm:scroll-mt-20"
         >
@@ -24,11 +25,16 @@ export default function TechStack({ postData, usage }: Props) {
             <span className="font-mono">{detail.length}</span>
           </h3>
           <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-            {detail.map(({ name: toolName, version }) => {
+            {detail.map(({ name: toolName, version }, i) => {
               const toolId = postData.toolPathInfo?.[toolName]
               const body = (
                 <>
-                  <ToolIcon id={toolId ?? ''} name={toolName} size={36} />
+                  <ToolIcon
+                    id={toolId ?? ''}
+                    name={toolName}
+                    hasIcon={Boolean(toolId) && hasToolIcon(toolId!)}
+                    size={36}
+                  />
                   <span className="min-w-0 flex-1">
                     <span className="block truncate text-sm font-medium">
                       {toolName}
@@ -49,7 +55,7 @@ export default function TechStack({ postData, usage }: Props) {
               const rowClass =
                 'flex items-center gap-3 rounded-lg border border-line bg-surface px-3 py-2.5'
               return (
-                <li key={toolName}>
+                <li key={`${toolName}-${i}`}>
                   {toolId ? (
                     <Link
                       href={`/tools/${toolId}`}

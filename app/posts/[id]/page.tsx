@@ -3,7 +3,8 @@ import type { Metadata } from 'next'
 import { getAllPostIds, getPostData } from '../../lib/posts'
 import { getPodcastData } from '../../lib/podcast'
 import { getRelatedPosts } from '../../lib/related'
-import { getBlurDataURL } from '../../lib/image'
+import { pageMetadata } from '../../lib/site'
+import { toServiceSummary } from '../../lib/summary'
 import { getToolUsageCounts } from '../../lib/stats'
 import DateDisplay from '../../components/DateDisplay'
 import AudioPlayer from '../../components/AudioPlayer'
@@ -34,25 +35,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { id } = await params
   const postData = getPostData(id)
-  const baseURL = process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000'
-  const description = `${postData.author}が作成した「${postData.title}」の技術スタック情報`
-
-  return {
+  return pageMetadata({
     title: postData.title,
-    description,
-    openGraph: {
-      title: postData.title,
-      description,
-      url: `${baseURL}/posts/${id}`,
-      images: [`${baseURL}/images/fbcstack_ogp.png`],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: postData.title,
-      description,
-      images: [`${baseURL}/images/fbcstack_ogp.png`],
-    },
-  }
+    description: `${postData.author}が作成した「${postData.title}」の技術スタック情報`,
+    path: `/posts/${id}`,
+  })
 }
 
 function LinkButton({
@@ -79,7 +66,8 @@ function LinkButton({
     >
       {icon}
       {label}
-      {primary && <ExternalIcon className="h-3.5 w-3.5 opacity-70" />}
+      <ExternalIcon className="h-3.5 w-3.5 opacity-60" />
+      <span className="sr-only">（新しいタブで開く）</span>
     </a>
   )
 }
@@ -92,13 +80,17 @@ export default async function PostPage({
   const { id } = await params
   const postData = getPostData(id)
   const podcastData = postData.hasAudio ? getPodcastData(id) : null
-  const relatedPosts = getRelatedPosts(id)
+  const relatedPosts = getRelatedPosts(id, 3)
   const usage = getToolUsageCounts()
-
-  const totalTools = postData.stack.reduce(
-    (sum, cat) => sum + cat.detail.length,
-    0,
-  )
+  // 同じツールを複数カテゴリに書いている場合があるので、名前で重複を除いて数える
+  const totalTools = new Set(
+    postData.stack.flatMap(({ detail }) => detail.map(({ name }) => name.toLowerCase())),
+  ).size
+  // リポジトリが複数あるときはボタンにリポジトリ名を添えて区別する
+  const repoLabel = (repository: string, label: string) =>
+    postData.code.length > 1
+      ? `${label} (${repository.replace(/\/$/, '').split('/').pop()})`
+      : label
 
   return (
     <article>
@@ -120,9 +112,7 @@ export default async function PostPage({
               width={28}
               height={28}
               alt=""
-              placeholder="blur"
-              blurDataURL={getBlurDataURL()}
-              className="h-7 w-7 rounded-full object-cover"
+              className="h-7 w-7 rounded-full bg-surface-2 object-cover"
             />
             {postData.author}
           </a>
@@ -130,9 +120,8 @@ export default async function PostPage({
             <DateDisplay dateString={postData.date} />
           </span>
           <span className="text-muted">
-            <span className="font-mono">{totalTools}</span> tools ·{' '}
-            <span className="font-mono">{postData.stack.length}</span>{' '}
-            categories
+            <span className="font-mono">{totalTools}</span> ツール ·{' '}
+            <span className="font-mono">{postData.stack.length}</span> カテゴリ
           </span>
         </div>
         <div className="mt-6 flex flex-wrap gap-2">
@@ -149,12 +138,12 @@ export default async function PostPage({
               <LinkButton
                 href={repository}
                 icon={<GitHubIcon />}
-                label="GitHub"
+                label={repoLabel(repository, 'GitHub')}
               />
               <LinkButton
                 href={repository.replace('github.com', 'deepwiki.com')}
                 icon={<WikiIcon />}
-                label="DeepWiki"
+                label={repoLabel(repository, 'DeepWiki')}
               />
             </span>
           ))}
@@ -183,7 +172,7 @@ export default async function PostPage({
           )}
 
           <section id="stack" className="scroll-mt-28 sm:scroll-mt-20">
-            <h2 className="mb-4 text-lg font-semibold">Tech Stack</h2>
+            <h2 className="mb-4 text-lg font-semibold">技術スタック</h2>
             <TechStack postData={postData} usage={usage} />
           </section>
         </div>
@@ -201,9 +190,9 @@ export default async function PostPage({
           <p className="mb-4 mt-1 text-sm text-muted">
             使用ツールの構成が近いサービスです。実装の参考にどうぞ
           </p>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {relatedPosts.map((post) => (
-              <ServiceCard key={post.id} post={post} />
+              <ServiceCard key={post.id} service={toServiceSummary(post)} />
             ))}
           </div>
         </section>

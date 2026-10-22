@@ -3,62 +3,29 @@ import Image from 'next/image'
 import DateDisplay from './DateDisplay'
 import ToolIcon from './ToolIcon'
 import { SpeakerIcon } from './Icons'
-import { getBlurDataURL } from '../lib/image'
-import type { PostData } from '../../types/postData'
+import type { ServiceSummary } from '../lib/summary'
 
-const MAX_ICONS = 8
+const MAX_ICONS = 7
 
-// 本文の最初の段落をプレーンテキスト化して概要として使う
-function excerpt(markdown: string): string {
-  const paragraph =
-    markdown
-      .split(/\n\s*\n/)
-      .map((p) => p.trim())
-      .find((p) => p && !p.startsWith('#') && !p.startsWith('![')) ?? ''
-  return paragraph
-    .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
-    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
-    .replace(/^\s*(#+|>)\s*/gm, '')
-    .replace(/[*_`]/g, '')
-    .replace(/\s+/g, ' ')
-    .trim()
-}
-
-export function stackTools(post: PostData): { id: string; name: string }[] {
-  const tools: { id: string; name: string }[] = []
-  const seen = new Set<string>()
-  for (const category of post.stack) {
-    for (const { name } of category.detail) {
-      const id = post.toolPathInfo?.[name]
-      if (id && !seen.has(id)) {
-        seen.add(id)
-        tools.push({ id, name })
-      }
-    }
-  }
-  return tools
-}
-
-// カード全体はタイトルのリンクを広げてクリック可能にし、ツールアイコンは個別にツールページへ飛べるようにする
-export default function ServiceCard({ post }: { post: PostData }) {
-  const { id, title, author, date, hasAudio, markdownContent } = post
-  const tools = stackTools(post)
-  const summary = excerpt(markdownContent ?? '')
+// カード全体はタイトルのリンクを広げてクリック可能にする。
+// ツールアイコンはマウス/タッチ用の近道として個別にリンクし、キーボードではカード1件につき1回のTabで済むよう tabIndex=-1 にする
+export default function ServiceCard({ service }: { service: ServiceSummary }) {
+  const { id, title, author, date, hasAudio, summary, tools } = service
 
   return (
-    <article className="group relative flex h-full flex-col rounded-xl border border-line bg-surface p-4 transition-colors hover:border-line-strong sm:p-5">
+    <article className="group relative flex h-full flex-col rounded-xl border border-line bg-surface p-4 transition-colors hover:border-line-strong has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-accent sm:p-5">
       <div className="flex items-start justify-between gap-3">
         <h3 className="font-semibold leading-snug">
           <Link
             href={`/posts/${id}`}
-            className="after:absolute after:inset-0 after:rounded-xl group-hover:text-accent"
+            className="outline-none after:absolute after:inset-0 after:rounded-xl group-hover:text-accent"
           >
             {title}
           </Link>
         </h3>
         {hasAudio && (
           <span
-            className="shrink-0 rounded-full bg-accent-soft p-1 text-accent"
+            className="relative z-10 shrink-0 rounded-full bg-accent-soft p-1 text-accent"
             title="音声概要あり"
           >
             <SpeakerIcon className="h-3.5 w-3.5" />
@@ -68,14 +35,12 @@ export default function ServiceCard({ post }: { post: PostData }) {
       </div>
 
       {summary && (
-        <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-fg-2">
-          {summary}
-        </p>
+        <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-fg-2">{summary}</p>
       )}
 
       {tools.length > 0 && (
         <ul
-          className="relative z-10 mt-4 flex flex-wrap gap-1.5"
+          className="pointer-events-none relative z-10 mt-4 flex flex-wrap gap-1.5"
           aria-label="技術スタック"
         >
           {tools.slice(0, MAX_ICONS).map((tool) => (
@@ -83,15 +48,22 @@ export default function ServiceCard({ post }: { post: PostData }) {
               <Link
                 href={`/tools/${tool.id}`}
                 title={tool.name}
-                className="block rounded-md"
+                tabIndex={-1}
+                className="pointer-events-auto block rounded-md"
               >
-                <ToolIcon id={tool.id} name={tool.name} size={26} />
+                <ToolIcon id={tool.id} name={tool.name} hasIcon={tool.hasIcon} size={32} />
                 <span className="sr-only">{tool.name}</span>
               </Link>
             </li>
           ))}
           {tools.length > MAX_ICONS && (
-            <li className="flex h-[26px] items-center rounded-md bg-surface-2 px-1.5 font-mono text-[11px] text-muted">
+            <li
+              className="pointer-events-auto flex h-8 items-center rounded-md bg-surface-2 px-2 font-mono text-xs text-fg-2"
+              title={tools
+                .slice(MAX_ICONS)
+                .map(({ name }) => name)
+                .join(', ')}
+            >
               +{tools.length - MAX_ICONS}
             </li>
           )}
@@ -103,10 +75,8 @@ export default function ServiceCard({ post }: { post: PostData }) {
           src={`https://github.com/${author}.png`}
           width={20}
           height={20}
-          placeholder="blur"
-          blurDataURL={getBlurDataURL()}
           alt=""
-          className="h-5 w-5 rounded-full object-cover"
+          className="h-5 w-5 rounded-full bg-surface-2 object-cover"
         />
         <span className="truncate text-fg-2">{author}</span>
         <span className="ml-auto shrink-0">

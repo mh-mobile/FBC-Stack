@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
-import { getAllToolsData, getToolData } from '../../lib/tools'
+import { getAllToolsData, getToolData, hasToolIcon } from '../../lib/tools'
+import { pageMetadata } from '../../lib/site'
+import { toServiceSummary } from '../../lib/summary'
 import { getFilteredPostsData, getSortedPostsData } from '../../lib/posts'
 import { getCoUsedTools, getToolYearlyAdoption } from '../../lib/related'
-import ServiceCard from '../../components/ServiceCard'
+import ServiceList from '../../components/ServiceList'
 import ToolRow from '../../components/ToolRow'
 import ToolIcon from '../../components/ToolIcon'
 import Breadcrumb from '../../components/Breadcrumb'
@@ -18,6 +20,8 @@ export function generateStaticParams() {
 // 存在しないIDは404にする（未指定だとオンデマンド描画でENOENTの500になる）
 export const dynamicParams = false
 
+const MIN_SAMPLE = 3
+
 export async function generateMetadata({
   params,
 }: {
@@ -25,25 +29,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { id } = await params
   const toolData = getToolData(id)
-  const baseURL = process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000'
-  const description = `「${toolData.toolName}」を採用しているFBC卒業生のサービス一覧`
-
-  return {
+  return pageMetadata({
     title: toolData.toolName,
-    description,
-    openGraph: {
-      title: `${toolData.toolName} | FBC Stack`,
-      description,
-      url: `${baseURL}/tools/${id}`,
-      images: [`${baseURL}/images/fbcstack_ogp.png`],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: `${toolData.toolName} | FBC Stack`,
-      description,
-      images: [`${baseURL}/images/fbcstack_ogp.png`],
-    },
-  }
+    description: `「${toolData.toolName}」を採用しているFBC卒業生のサービス一覧`,
+    path: `/tools/${id}`,
+  })
 }
 
 export default async function ToolDetailPage({
@@ -57,6 +47,8 @@ export default async function ToolDetailPage({
   const coUsedTools = getCoUsedTools(toolData)
   const yearlyAdoption = getToolYearlyAdoption(toolData)
   const hasAdoption = yearlyAdoption.some(({ count }) => count > 0)
+  // 採用数が少ないと率がすべて100%になるなど意味のない数字になるため、グラフは一定数以上のときだけ出す
+  const showCharts = allPostsData.length >= MIN_SAMPLE
   const totalServices = getSortedPostsData().length
   const share = Math.round(
     (allPostsData.length / Math.max(totalServices, 1)) * 100,
@@ -81,6 +73,7 @@ export default async function ToolDetailPage({
       <header className="flex flex-col gap-6 border-b border-line pb-8 sm:flex-row sm:items-end sm:justify-between">
         <div className="flex items-center gap-4">
           <ToolIcon
+            hasIcon={hasToolIcon(toolData.toolID)}
             id={toolData.toolID}
             name={toolData.toolName}
             size={64}
@@ -120,18 +113,25 @@ export default async function ToolDetailPage({
         </dl>
       </header>
 
-      {(hasAdoption || coUsedTools.length > 0) && (
+      {!showCharts && allPostsData.length > 0 && (
+        <p className="mt-8 rounded-xl border border-dashed border-line px-4 py-6 text-center text-sm text-muted">
+          採用サービスが {allPostsData.length} 件と少ないため、年別採用率と併用率は表示していません。
+        </p>
+      )}
+
+      {showCharts && (hasAdoption || coUsedTools.length > 0) && (
         <div className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-2">
           {hasAdoption && (
             <Panel
               title="年別採用率"
-              description="各年に登録されたサービスのうち、このツールを採用した割合"
+              description="各年に登録されたサービスのうち、このツールを採用した割合（括弧内はその年のサービス数）"
             >
               <ColumnChart
                 caption={`${toolData.toolName}の年別採用率`}
                 max={Math.max(...yearlyAdoption.map(({ rate }) => rate))}
                 data={yearlyAdoption.map(({ year, count, total, rate }) => ({
                   label: year.slice(2),
+                  sub: `(${total})`,
                   value: rate,
                   display: `${rate}%`,
                   title: `${year}年: ${count} / ${total} サービス（${rate}%）`,
@@ -142,12 +142,13 @@ export default async function ToolDetailPage({
           {coUsedTools.length > 0 && (
             <Panel
               title="一緒によく使われるツール"
-              description={`${toolData.toolName}を採用しているサービスでの併用率`}
+              description={`${toolData.toolName}を採用している ${allPostsData.length} サービスでの併用率`}
               bodyClassName="grid grid-cols-1 gap-x-4 p-2 sm:grid-cols-2"
             >
               {coUsedTools.map(({ toolID, toolName, rate, count }) => (
                 <ToolRow
                   key={toolID}
+                  hasIcon={hasToolIcon(toolID)}
                   id={toolID}
                   name={toolName}
                   ratio={rate / 100}
@@ -167,11 +168,7 @@ export default async function ToolDetailPage({
             {allPostsData.length}
           </span>
         </h2>
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {allPostsData.map((post) => (
-            <ServiceCard key={post.id} post={post} />
-          ))}
-        </div>
+        <ServiceList services={allPostsData.map(toServiceSummary)} />
       </section>
     </>
   )

@@ -31,7 +31,7 @@ npx cypress run --spec "cypress/e2e/navigation.cy.ts"  # Run a single spec (serv
 
 All content is file-based; there is no database.
 
-- **Services**: `/posts/*.md` — frontmatter matches `PostData` (`types/postData.ts`): `date`, `title`, `author`, `website`, `blog`, `published`, `hasAudio`, `code` (GitHub repos with descriptions), and `stack` (categories with `name`/`version` tool entries). Markdown body is the service description.
+- **Services**: `/posts/*.md` — frontmatter matches `PostData` (`types/postData.ts`): `date`, `title`, `author`, `website`, `blog`, `published`, `hasAudio`, `code` (GitHub repos with descriptions), and `stack` (categories with `name`/`version` tool entries). Markdown body is the service description. Only `published: true` posts get pages (unpublished ones are not generated).
 - **Tools**: `/tools/*.md` — frontmatter matches `ToolData` (`types/toolData.ts`): `toolName`, `url`, optional `alias`. Tool names in a post's `stack` are matched to tool pages case-insensitively via `toolName` or `alias` (see `createToolPathInfo` in `app/lib/posts.ts`).
 - **Podcast metadata**: `/podcast_data/*.json` keyed by post ID (`PodcastData` in `app/lib/podcast.ts`: audio URL, chapters, show notes, transcript URL). This directory is optional — all readers return `null`/`[]` when it is absent, so the site builds without it.
 
@@ -46,6 +46,7 @@ All content is file-based; there is no database.
 - `app/tools/page.tsx`, `app/tools/[id]/page.tsx` — tool index and detail (services using the tool)
 - `app/stats/page.tsx` — tool usage statistics and yearly rankings
 - `app/about`, `app/privacy`, `app/terms`, `app/not-found.tsx`
+- `app/sitemap.ts`, `app/robots.ts` — sitemap and robots.txt
 - `app/api/check-audio/route.ts` — HEAD-checks audio existence at `https://fbc-stack-storage.com/<postId>.m4a`
 
 ### Data Loading (`app/lib/`)
@@ -53,8 +54,14 @@ All content is file-based; there is no database.
 - `posts.ts` / `tools.ts` — parse markdown with `gray-matter`; results are module-level cached to avoid repeated file I/O during build
 - `podcast.ts` — reads `/podcast_data/*.json`, tolerant of missing files
 - `related.ts` — related services by Jaccard similarity of tool stacks
-- `stats.ts` — aggregates tool usage per year for the stats page
-- `image.ts`, `gtag.ts` — image helpers and Google Analytics
+- `stats.ts` — aggregates tool usage per year for the stats page; `getToolUsageCounts` gives per-tool service counts (one per service even if listed in several categories)
+- `summary.ts` — slim per-service card data (`ServiceSummary`) sent to client lists instead of full `PostData`
+- `site.ts` — site URL/name and `pageMetadata()` for per-page title, canonical, and OGP
+- `gtag.ts` — Google Analytics
+
+### Styling
+
+Colors are design tokens in `app/globals.css` (light/dark via `prefers-color-scheme`), used as role classes such as `bg-surface`, `text-muted`, `border-line`. Don't hard-code palette colors in components.
 
 ### Podcast System
 

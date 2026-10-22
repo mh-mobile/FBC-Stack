@@ -4,6 +4,7 @@ import matter from 'gray-matter'
 import type { ToolData } from '../../types/toolData'
 
 const toolsDirectory = path.join(process.cwd(), 'tools')
+const toolIconDirectory = path.join(process.cwd(), 'public', 'images', 'tool')
 
 // Cache parsed tools to avoid repeated file I/O during build
 let cachedAllTools: ToolData[] | null = null
@@ -38,4 +39,16 @@ export function getToolData(id: string): ToolData {
     toolID: id,
     markdownContent: matterResult.content,
   }
+}
+
+let cachedIconIDs: Set<string> | null = null
+
+// ロゴ画像があるか（無いツールは画像を取りに行かず頭文字を表示する）
+export function hasToolIcon(id: string): boolean {
+  if (!cachedIconIDs) {
+    cachedIconIDs = new Set(
+      fs.readdirSync(toolIconDirectory).map((file) => file.replace(/\.png$/, '')),
+    )
+  }
+  return cachedIconIDs.has(id)
 }

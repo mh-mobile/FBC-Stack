@@ -5,10 +5,12 @@ import Breadcrumb from '../components/Breadcrumb'
 import PageHeader from '../components/PageHeader'
 import MarkdownRenderer from '../components/MarkdownRenderer'
 import TechStack from '../components/TechStack'
+import { pageMetadata } from '../lib/site'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'FBC Stackについて',
-}
+  path: '/about',
+})
 
 export default function AboutPage() {
   const postData = getFBCStackData()

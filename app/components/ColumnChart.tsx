@@ -1,5 +1,7 @@
 type Column = {
   label: string
+  // ラベルの下に小さく添える補足（例: その年の母数）
+  sub?: string
   value: number
   // 柱の上に出す値の表記（例: "42%"）
   display: string
@@ -42,12 +44,13 @@ export default function ColumnChart({ data, max, caption }: Props) {
         ))}
       </div>
       <div className="mt-1.5 flex gap-0.5">
-        {data.map(({ label }) => (
+        {data.map(({ label, sub }) => (
           <span
             key={label}
             className="min-w-0 flex-1 text-center font-mono text-[10px] text-muted sm:text-xs"
           >
             {label}
+            {sub && <span className="block text-[10px] opacity-80">{sub}</span>}
           </span>
         ))}
       </div>
