@@ -46,23 +46,17 @@ function LinkButton({
   href,
   icon,
   label,
-  primary = false,
 }: {
   href: string
   icon: React.ReactNode
   label: string
-  primary?: boolean
 }) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
-        primary
-          ? 'bg-fg text-bg hover:opacity-85'
-          : 'border border-line bg-surface text-fg-2 hover:border-line-strong hover:text-fg'
-      }`}
+      className="inline-flex items-center gap-1.5 rounded-lg border border-line bg-surface px-3 py-2 text-sm font-medium text-fg-2 transition-colors hover:border-line-strong hover:text-fg"
     >
       {icon}
       {label}
@@ -130,7 +124,6 @@ export default async function PostPage({
               href={postData.website}
               icon={<GlobeIcon />}
               label="Website"
-              primary
             />
           )}
           {postData.code.map(({ repository }) => (
