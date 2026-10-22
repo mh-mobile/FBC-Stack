@@ -1,16 +1,24 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import type { Metadata } from 'next'
 import { getAllPostIds, getPostData } from '../../lib/posts'
 import { getPodcastData } from '../../lib/podcast'
 import { getRelatedPosts } from '../../lib/related'
 import { getBlurDataURL } from '../../lib/image'
+import { getToolUsageCounts } from '../../lib/stats'
 import DateDisplay from '../../components/DateDisplay'
-import ExternalLink from '../../components/ExternalLink'
-import ServiceContent from '../../components/ServiceContent'
 import AudioPlayer from '../../components/AudioPlayer'
 import Breadcrumb from '../../components/Breadcrumb'
 import ServiceCard from '../../components/ServiceCard'
+import MarkdownRenderer from '../../components/MarkdownRenderer'
+import TechStack from '../../components/TechStack'
+import StackOutline from '../../components/StackOutline'
+import {
+  BookIcon,
+  ExternalIcon,
+  GitHubIcon,
+  GlobeIcon,
+  WikiIcon,
+} from '../../components/Icons'
 
 export function generateStaticParams() {
   return getAllPostIds()
@@ -47,6 +55,35 @@ export async function generateMetadata({
   }
 }
 
+function LinkButton({
+  href,
+  icon,
+  label,
+  primary = false,
+}: {
+  href: string
+  icon: React.ReactNode
+  label: string
+  primary?: boolean
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+        primary
+          ? 'bg-fg text-bg hover:opacity-85'
+          : 'border border-line bg-surface text-fg-2 hover:border-line-strong hover:text-fg'
+      }`}
+    >
+      {icon}
+      {label}
+      {primary && <ExternalIcon className="h-3.5 w-3.5 opacity-70" />}
+    </a>
+  )
+}
+
 export default async function PostPage({
   params,
 }: {
@@ -56,6 +93,7 @@ export default async function PostPage({
   const postData = getPostData(id)
   const podcastData = postData.hasAudio ? getPodcastData(id) : null
   const relatedPosts = getRelatedPosts(id)
+  const usage = getToolUsageCounts()
 
   const totalTools = postData.stack.reduce(
     (sum, cat) => sum + cat.detail.length,
@@ -66,149 +104,110 @@ export default async function PostPage({
     <article>
       <Breadcrumb items={[{ label: postData.title }]} />
 
-      {/* Hero section */}
-      <div className="rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 p-6 md:p-8">
-        <h1 className="text-2xl font-extrabold leading-tight md:text-3xl">
+      <header className="border-b border-line pb-8">
+        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
           {postData.title}
         </h1>
-
-        {/* Author & date */}
-        <div className="mt-4 flex items-center gap-3">
-          <div className="shrink-0 overflow-hidden rounded-full ring-2 ring-white">
+        <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-fg-2">
+          <a
+            href={`https://github.com/${postData.author}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 transition-colors hover:text-fg"
+          >
             <Image
               src={`https://github.com/${postData.author}.png`}
-              width={36}
-              height={36}
-              alt={`${postData.author}のアバター`}
+              width={28}
+              height={28}
+              alt=""
               placeholder="blur"
               blurDataURL={getBlurDataURL()}
-              className="h-9 w-9 object-cover"
+              className="h-7 w-7 rounded-full object-cover"
             />
-          </div>
-          <div>
-            <div className="text-sm font-medium">{postData.author}</div>
-            <div className="text-xs text-light-text">
-              <DateDisplay dateString={postData.date} />
-            </div>
-          </div>
-          <span className="ml-2 rounded-full bg-gray-200 px-2.5 py-0.5 text-xs text-gray-600">
-            {totalTools} tools
+            {postData.author}
+          </a>
+          <span className="text-muted">
+            <DateDisplay dateString={postData.date} />
+          </span>
+          <span className="text-muted">
+            <span className="font-mono">{totalTools}</span> tools ·{' '}
+            <span className="font-mono">{postData.stack.length}</span>{' '}
+            categories
           </span>
         </div>
-
-        {/* External links */}
-        <div className="mt-4 flex flex-wrap gap-2">
+        <div className="mt-6 flex flex-wrap gap-2">
+          {postData.website && (
+            <LinkButton
+              href={postData.website}
+              icon={<GlobeIcon />}
+              label="Website"
+              primary
+            />
+          )}
           {postData.code.map(({ repository }) => (
             <span key={repository} className="contents">
-              <ExternalLink href={repository}>
-                <span className="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 transition-colors hover:bg-gray-50">
-                  <Image
-                    src="/images/tool/github.png"
-                    width={16}
-                    height={16}
-                    alt=""
-                    aria-hidden="true"
-                    className="h-4 w-4"
-                  />
-                  GitHub
-                </span>
-              </ExternalLink>
-              <ExternalLink
+              <LinkButton
+                href={repository}
+                icon={<GitHubIcon />}
+                label="GitHub"
+              />
+              <LinkButton
                 href={repository.replace('github.com', 'deepwiki.com')}
-              >
-                <span className="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 transition-colors hover:bg-gray-50">
-                  <Image
-                    src="/images/deepwiki.png"
-                    width={16}
-                    height={16}
-                    alt=""
-                    aria-hidden="true"
-                    className="h-4 w-4"
-                  />
-                  DeepWiki
-                </span>
-              </ExternalLink>
+                icon={<WikiIcon />}
+                label="DeepWiki"
+              />
             </span>
           ))}
-
-          {postData.blog && postData.blog.length > 0 && (
-            <ExternalLink href={postData.blog}>
-              <span className="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 transition-colors hover:bg-gray-50">
-                <Image
-                  src="/images/blog.png"
-                  width={16}
-                  height={16}
-                  alt=""
-                  className="h-4 w-4"
-                />
-                Blog
-              </span>
-            </ExternalLink>
-          )}
-
-          {postData.website && postData.website.length > 0 && (
-            <ExternalLink href={postData.website}>
-              <span className="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 transition-colors hover:bg-gray-50">
-                <Image
-                  src="/images/website.png"
-                  width={16}
-                  height={16}
-                  alt=""
-                  className="h-4 w-4"
-                />
-                Website
-              </span>
-            </ExternalLink>
+          {postData.blog && (
+            <LinkButton href={postData.blog} icon={<BookIcon />} label="Blog" />
           )}
         </div>
-      </div>
+      </header>
 
-      {/* Audio Player */}
-      {postData.hasAudio && (
-        <div className="mt-5">
-          <AudioPlayer
-            postId={postData.id}
-            title={postData.title}
-            summary={podcastData?.summary}
-            chapters={podcastData?.chapters}
-            showNotes={podcastData?.showNotes}
-          />
+      <div className="mt-8 grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_240px]">
+        <div className="min-w-0 space-y-10">
+          {postData.hasAudio && (
+            <AudioPlayer
+              postId={postData.id}
+              summary={podcastData?.summary}
+              chapters={podcastData?.chapters}
+              showNotes={podcastData?.showNotes}
+            />
+          )}
+
+          {postData.markdownContent.trim() && (
+            <section>
+              <h2 className="mb-3 text-lg font-semibold">概要</h2>
+              <MarkdownRenderer content={postData.markdownContent} />
+            </section>
+          )}
+
+          <section id="stack" className="scroll-mt-28 sm:scroll-mt-20">
+            <h2 className="mb-4 text-lg font-semibold">Tech Stack</h2>
+            <TechStack postData={postData} usage={usage} />
+          </section>
         </div>
-      )}
 
-      {/* Content */}
-      <div className="mt-5">
-        <ServiceContent postData={postData} />
+        <aside className="hidden lg:block">
+          <div className="sticky top-20">
+            <StackOutline postData={postData} />
+          </div>
+        </aside>
       </div>
 
-      {/* Related services */}
       {relatedPosts.length > 0 && (
-        <section className="mt-10">
-          <h2 className="mb-1 text-lg font-bold">
-            似た技術スタックのサービス
-          </h2>
-          <p className="mb-3 text-sm text-light-text">
+        <section className="mt-16">
+          <h2 className="text-lg font-semibold">似た技術スタックのサービス</h2>
+          <p className="mb-4 mt-1 text-sm text-muted">
             使用ツールの構成が近いサービスです。実装の参考にどうぞ
           </p>
-          <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-5">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {relatedPosts.map((post) => (
               <ServiceCard key={post.id} post={post} />
             ))}
           </div>
         </section>
       )}
-
-      <div className="mt-10">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 px-4 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-50 hover:text-gray-900"
-        >
-          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
-          </svg>
-          ホームに戻る
-        </Link>
-      </div>
     </article>
   )
 }

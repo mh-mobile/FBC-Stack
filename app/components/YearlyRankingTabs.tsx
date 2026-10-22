@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
+import ToolRow from './ToolRow'
 
 type YearlyRanking = {
   year: string
@@ -20,16 +20,22 @@ export default function YearlyRankingTabs({
 
   return (
     <div>
-      {/* Year tabs */}
-      <div className="flex gap-1 overflow-x-auto border-b border-gray-100 px-5 pt-3">
+      <div
+        role="tablist"
+        aria-label="年"
+        className="flex gap-1 overflow-x-auto border-b border-line px-3 pt-2"
+      >
         {reversed.map((yr) => (
           <button
             key={yr.year}
+            type="button"
+            role="tab"
+            aria-selected={selected === yr.year}
             onClick={() => setSelected(yr.year)}
-            className={`shrink-0 rounded-t-lg px-3 py-2 text-xs font-medium transition-colors ${
+            className={`-mb-px shrink-0 border-b-2 px-3 py-2 font-mono text-xs transition-colors ${
               selected === yr.year
-                ? 'border-b-2 border-blue-500 bg-white text-blue-600'
-                : 'text-gray-500 hover:bg-gray-50 hover:text-gray-700'
+                ? 'border-accent text-fg'
+                : 'border-transparent text-muted hover:text-fg'
             }`}
           >
             {yr.year}
@@ -37,42 +43,29 @@ export default function YearlyRankingTabs({
         ))}
       </div>
 
-      {/* Content */}
       {current && (
-        <div className="p-5">
-          <p className="mb-3 text-xs text-gray-400">
-            {current.serviceCount}サービス中の採用数・採用率
+        <div role="tabpanel" className="p-2 sm:p-3">
+          <p className="px-2 pb-2 text-xs text-muted">
+            {current.serviceCount} サービス中の採用数と採用率
           </p>
-          <div className="space-y-1">
+          <ol className="grid grid-cols-1 gap-x-4 sm:grid-cols-2 lg:grid-cols-3">
             {current.tools.map((tool, i) => (
-              <div key={tool.name} className="flex items-center gap-2">
-                <span className="w-5 shrink-0 text-right text-xs text-gray-400">
+              <li key={tool.name} className="flex items-center">
+                <span className="w-6 shrink-0 text-right font-mono text-xs text-muted">
                   {i + 1}
                 </span>
-                <Link
-                  href={`/tools/${tool.toolID}`}
-                  className="w-28 shrink-0 truncate text-xs text-gray-700 hover:text-blue-600 md:w-36"
-                >
-                  {tool.name}
-                </Link>
-                <div className="flex flex-1 items-center gap-1.5">
-                  <div className="h-4 flex-1 rounded-full bg-gray-100">
-                    <div
-                      className="h-4 rounded-full bg-emerald-400"
-                      style={{
-                        width: `${tool.rate}%`,
-                        minWidth: tool.count > 0 ? '3px' : '0',
-                      }}
-                    />
-                  </div>
-                  <span className="w-16 shrink-0 text-right text-xs text-gray-500">
-                    {tool.count}件{' '}
-                    <span className="text-gray-400">({tool.rate}%)</span>
-                  </span>
+                <div className="min-w-0 flex-1">
+                  <ToolRow
+                    id={tool.toolID}
+                    name={tool.name}
+                    ratio={tool.rate / 100}
+                    label={`${tool.rate}%`}
+                    title={`${tool.name}: ${tool.count} / ${current.serviceCount} サービス（${tool.rate}%）`}
+                  />
                 </div>
-              </div>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       )}
     </div>

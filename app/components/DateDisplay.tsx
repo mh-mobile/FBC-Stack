@@ -1,6 +1,9 @@
 import { parseISO, format } from 'date-fns'
 
 export default function DateDisplay({ dateString }: { dateString: string }) {
-  const date = parseISO(dateString)
-  return <time dateTime={dateString}>{format(date, 'LLLL d, yyyy')}</time>
+  return (
+    <time dateTime={dateString} className="font-mono tabular-nums">
+      {format(parseISO(dateString), 'yyyy.MM.dd')}
+    </time>
+  )
 }

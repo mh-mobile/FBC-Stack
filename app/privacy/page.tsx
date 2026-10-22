@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import type { Metadata } from 'next'
 import Breadcrumb from '../components/Breadcrumb'
 
@@ -8,9 +7,11 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <article>
+    <article className="max-w-3xl text-[15px] leading-relaxed text-fg-2">
       <Breadcrumb items={[{ label: 'プライバシーポリシー' }]} />
-      <h1 className="text-xl font-bold">プライバシーポリシー</h1>
+      <h1 className="text-2xl font-bold tracking-tight text-fg sm:text-3xl">
+        プライバシーポリシー
+      </h1>
 
       <div className="space-y-4 pt-5">
         <p>
@@ -25,7 +26,7 @@ export default function PrivacyPage() {
             href="https://marketingplatform.google.com/about/analytics/terms/jp/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-external-link hover:underline"
+            className="text-accent hover:underline"
           >
             Googleアナリティクス利用規約
           </a>
@@ -34,7 +35,7 @@ export default function PrivacyPage() {
             href="https://policies.google.com/technologies/ads"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-external-link hover:underline"
+            className="text-accent hover:underline"
           >
             Googleプライバシーポリシー
           </a>
@@ -47,7 +48,7 @@ export default function PrivacyPage() {
             href="https://tools.google.com/dlpage/gaoptout"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-external-link hover:underline"
+            className="text-accent hover:underline"
           >
             Google アナリティクス オプトアウト アドオン
           </a>
@@ -57,18 +58,6 @@ export default function PrivacyPage() {
         <p>
           ※Cookieとは、利用者がウェブサイトに訪問した際、ブラウザーを通して利用者のコンピューターに一時的にデータを記録する仕組みのことです。Cookieには、利用者の端末に関する情報やサイトへの訪問回数といった情報が記録され、サイトへの訪問者としての利用者の識別として利用されます。
         </p>
-      </div>
-
-      <div className="mt-10">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 px-4 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-50 hover:text-gray-900"
-        >
-          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
-          </svg>
-          ホームに戻る
-        </Link>
       </div>
     </article>
   )

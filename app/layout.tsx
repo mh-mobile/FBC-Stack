@@ -23,7 +23,9 @@ export const metadata: Metadata = {
       'FBC(Fjord Boot Camp)の卒業生が作成したサービスの技術スタックデータベースです。',
     images: [
       {
-        url: `${process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000'}/images/fbcstack_ogp.png`,
+        url: `${
+          process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000'
+        }/images/fbcstack_ogp.png`,
       },
     ],
   },
@@ -33,7 +35,9 @@ export const metadata: Metadata = {
     description:
       'FBC(Fjord Boot Camp)の卒業生が作成したサービスの技術スタックデータベースです。',
     images: [
-      `${process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000'}/images/fbcstack_ogp.png`,
+      `${
+        process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000'
+      }/images/fbcstack_ogp.png`,
     ],
   },
   icons: {
@@ -48,7 +52,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <body className="min-h-screen bg-white text-gray-800 antialiased">
+      <body className="flex min-h-screen flex-col">
         {GA_TRACKING_ID && (
           <>
             <Script
@@ -74,11 +78,11 @@ export default function RootLayout({
         <Suspense fallback={null}>
           <GaTracker />
         </Suspense>
-        <div className="mx-auto max-w-3xl px-4">
-          <Header />
-          <main className="py-4">{children}</main>
-          <Footer />
-        </div>
+        <Header />
+        <main className="mx-auto w-full max-w-6xl flex-1 px-4 pt-6 sm:px-6 sm:pt-10">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   )

@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import { ChevronRightIcon, SpeakerIcon } from './Icons'
 
 type Chapter = {
   timestamp: string
@@ -15,7 +16,6 @@ type ShowNote = {
 
 type Props = {
   postId: string
-  title: string
   summary?: string
   chapters?: Chapter[]
   showNotes?: ShowNote[]
@@ -23,114 +23,114 @@ type Props = {
 
 export default function AudioPlayer({
   postId,
-  title,
   summary,
   chapters,
   showNotes,
 }: Props) {
+  const audioRef = useRef<HTMLAudioElement>(null)
   const [audioError, setAudioError] = useState(false)
   const [isExpanded, setIsExpanded] = useState(false)
   const audioUrl = `https://fbc-stack-storage.com/${postId}.m4a`
+  const hasDetails = Boolean(chapters?.length || showNotes?.length)
+
+  // チャプターをクリックしたらその位置から再生する
+  const seek = (seconds: number) => {
+    const audio = audioRef.current
+    if (!audio) return
+    audio.currentTime = seconds
+    void audio.play()
+  }
 
   return (
-    <div className="my-4 rounded-lg border border-blue-100 bg-blue-50/50 p-4">
+    <section className="rounded-xl border border-line bg-surface p-4 sm:p-5">
       <div className="mb-3 flex items-center gap-2">
-        <svg
-          className="h-5 w-5 text-blue-600"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={2}
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z"
-          />
-        </svg>
-        <h3 className="text-sm font-semibold text-blue-800">
-          音声概要 - NotebookLM
-        </h3>
+        <span className="rounded-md bg-accent-soft p-1.5 text-accent">
+          <SpeakerIcon className="h-4 w-4" />
+        </span>
+        <h2 className="text-sm font-semibold">音声概要</h2>
+        <span className="text-xs text-muted">NotebookLM</span>
       </div>
 
       {summary && (
-        <p className="mb-3 text-sm text-gray-600">{summary}</p>
+        <p className="mb-3 text-sm leading-relaxed text-fg-2">{summary}</p>
       )}
 
       {audioError ? (
-        <p className="mb-3 text-sm text-gray-500">
+        <p className="text-sm text-muted">
           音声ファイルを読み込めませんでした。
         </p>
       ) : (
         <audio
+          ref={audioRef}
           controls
-          className="mb-3 w-full"
+          preload="none"
+          className="w-full"
           onError={() => setAudioError(true)}
           src={audioUrl}
         />
       )}
 
-      {(chapters?.length || showNotes?.length) && (
+      {hasDetails && (
         <button
+          type="button"
           onClick={() => setIsExpanded(!isExpanded)}
-          className="flex items-center gap-1 text-xs text-blue-600 hover:text-blue-800"
+          aria-expanded={isExpanded}
+          className="mt-3 flex items-center gap-1 text-xs text-muted transition-colors hover:text-fg"
         >
-          <svg
-            className={`h-3 w-3 transition-transform ${isExpanded ? 'rotate-90' : ''}`}
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M8.25 4.5l7.5 7.5-7.5 7.5"
-            />
-          </svg>
-          {isExpanded ? '詳細を閉じる' : 'チャプター・ショーノートを表示'}
+          <ChevronRightIcon
+            className={`h-3 w-3 transition-transform ${
+              isExpanded ? 'rotate-90' : ''
+            }`}
+          />
+          チャプター・ショーノート
         </button>
       )}
 
       {isExpanded && (
-        <div className="mt-3 space-y-4">
+        <div className="mt-3 grid gap-6 border-t border-line pt-4 sm:grid-cols-2">
           {chapters && chapters.length > 0 && (
             <div>
-              <h4 className="mb-2 text-xs font-semibold text-gray-500 uppercase">
+              <h3 className="mb-2 text-xs font-medium text-muted">
                 チャプター
-              </h4>
+              </h3>
               <ul className="space-y-1">
                 {chapters.map((chapter, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm">
-                    <span className="shrink-0 rounded bg-gray-200 px-1.5 py-0.5 font-mono text-xs text-gray-600">
-                      {chapter.timestamp}
-                    </span>
-                    <span className="text-gray-700">{chapter.title}</span>
+                  <li key={i}>
+                    <button
+                      type="button"
+                      onClick={() => seek(chapter.startTime)}
+                      disabled={audioError}
+                      className="flex w-full items-start gap-2 rounded-md px-1 py-1 text-left text-sm transition-colors hover:bg-surface-2 disabled:pointer-events-none"
+                    >
+                      <span className="shrink-0 font-mono text-xs leading-5 text-accent">
+                        {chapter.timestamp}
+                      </span>
+                      <span className="text-fg-2">{chapter.title}</span>
+                    </button>
                   </li>
                 ))}
               </ul>
             </div>
           )}
-
           {showNotes && showNotes.length > 0 && (
             <div>
-              <h4 className="mb-2 text-xs font-semibold text-gray-500 uppercase">
+              <h3 className="mb-2 text-xs font-medium text-muted">
                 ショーノート
-              </h4>
-              <ul className="space-y-1">
+              </h3>
+              <ul className="space-y-1.5 text-sm">
                 {showNotes.map((note, i) => (
-                  <li key={i} className="text-sm">
+                  <li key={i}>
                     {note.url ? (
                       <a
                         href={note.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-external-link hover:underline"
+                        className="text-accent hover:underline"
                       >
                         {note.title}
                       </a>
                     ) : (
-                      <span className="text-gray-700">{note.title}</span>
+                      <span className="text-fg-2">{note.title}</span>
                     )}
                   </li>
                 ))}
@@ -139,6 +139,6 @@ export default function AudioPlayer({
           )}
         </div>
       )}
-    </div>
+    </section>
   )
 }

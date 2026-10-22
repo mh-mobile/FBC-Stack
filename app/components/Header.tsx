@@ -1,47 +1,26 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import MobileNav from './MobileNav'
-
-const navLinks = [
-  { href: '/about', label: 'FBC Stackについて' },
-  { href: '/tools', label: 'みんなのツール' },
-  { href: '/stats', label: '統計' },
-]
+import NavLinks from './NavLinks'
 
 export default function Header() {
   return (
-    <header className="border-b border-gray-100">
-      <div className="flex items-center justify-between py-3">
-        {/* Logo + site name */}
-        <Link href="/" className="flex items-center gap-2.5">
+    <header className="sticky top-0 z-40 border-b border-line bg-bg/85 backdrop-blur supports-[backdrop-filter]:bg-bg/70">
+      <div className="mx-auto flex max-w-6xl flex-col px-4 sm:h-14 sm:flex-row sm:items-center sm:gap-4 sm:px-6">
+        <Link
+          href="/"
+          className="flex h-12 shrink-0 items-center gap-2 sm:h-auto"
+        >
           <Image
             priority
             src="/images/fbcstack.png"
-            height={40}
-            width={40}
-            alt="FBC Stack"
-            className="h-10 w-10"
+            height={28}
+            width={28}
+            alt=""
+            className="h-7 w-7 rounded-md"
           />
-          <span className="text-lg font-bold tracking-tight text-gray-800">
-            FBC Stack
-          </span>
+          <span className="font-semibold tracking-tight">FBC Stack</span>
         </Link>
-
-        {/* Desktop nav */}
-        <nav className="hidden items-center gap-1 md:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="rounded-lg px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-100 hover:text-gray-900"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-
-        {/* Mobile nav */}
-        <MobileNav links={navLinks} />
+        <NavLinks />
       </div>
     </header>
   )

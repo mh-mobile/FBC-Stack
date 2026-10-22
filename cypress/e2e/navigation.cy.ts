@@ -51,6 +51,24 @@ describe('Navigation', () => {
     cy.get('input').type('Fjord Choice')
     cy.get('a[href*="posts/fjord_choice"]').click()
   })
+
+  it('should filter services by selected tools', () => {
+    cy.visit('http://localhost:3000/')
+    cy.contains('件のサービス')
+      .invoke('text')
+      .then((before) => {
+        cy.contains('button', 'Ruby on Rails').click()
+        cy.contains('button', 'Ruby on Rails').should(
+          'have.attr',
+          'aria-pressed',
+          'true',
+        )
+        cy.contains('件のサービス').invoke('text').should('not.eq', before)
+        cy.get('a[href*="posts/okusuring"]').should('exist')
+        cy.contains('条件をクリア').click()
+        cy.contains('件のサービス').invoke('text').should('eq', before)
+      })
+  })
 })
 
 export {}
