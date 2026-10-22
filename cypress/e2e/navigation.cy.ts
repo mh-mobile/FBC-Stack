@@ -77,6 +77,13 @@ describe('Navigation', () => {
     cy.contains('button', '2026').should('have.attr', 'aria-pressed', 'true')
     cy.get('a[href*="posts/okusuring"]').should('exist')
   })
+
+  it('should count services listing only Stimulus/Turbo as Hotwire', () => {
+    cy.visit('http://localhost:3000/?tools=hotwire')
+    cy.contains('button', 'Hotwire').should('have.attr', 'aria-pressed', 'true')
+    // こえだよりは Stimulus のみを記載している
+    cy.get('a[href*="posts/koedayori"]').should('exist')
+  })
 })
 
 export {}

@@ -1,11 +1,9 @@
-import { getSortedPostsData, getFilteredPostsData } from './posts'
+import { getSortedPostsData, getFilteredPostsData, getPostToolIDs } from './posts'
 import { getAllToolsData } from './tools'
 import type { PostData } from '../../types/postData'
 import type { ToolData } from '../../types/toolData'
 
-function getToolIDSet(post: PostData): Set<string> {
-  return new Set(Object.values(post.toolPathInfo ?? {}))
-}
+const getToolIDSet = getPostToolIDs
 
 // 技術スタックのJaccard類似度が高い順に他のサービスを返す
 export function getRelatedPosts(currentId: string, limit = 4): PostData[] {

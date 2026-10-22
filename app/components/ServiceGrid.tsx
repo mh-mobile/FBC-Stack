@@ -91,7 +91,7 @@ export default function ServiceGrid({ services, popularTools }: Props) {
       if (filters.year && !service.date.startsWith(filters.year)) return false
       // 選択したツールをすべて使っているサービスに絞る（AND）
       if (filters.tools.length) {
-        const ids = new Set(service.tools.map(({ id }) => id))
+        const ids = new Set(service.toolIDs)
         if (!filters.tools.every((id) => ids.has(id))) return false
       }
       return !q || service.search.includes(q)

@@ -1,4 +1,4 @@
-import { getSortedPostsData } from './posts'
+import { getPostToolIDs, getSortedPostsData } from './posts'
 import { getAllToolsData } from './tools'
 
 export type ServicesByYear = { year: string; count: number }[]
@@ -29,33 +29,11 @@ export function getStatsData() {
     .sort(([a], [b]) => a.localeCompare(b))
     .map(([year, count]) => ({ year, count }))
 
-  // --- 人気ツールランキング ---
-  const toolCountMap = new Map<string, { count: number; toolID: string }>()
-  for (const post of posts) {
-    const seen = new Set<string>()
-    for (const cat of post.stack) {
-      for (const { name } of cat.detail) {
-        const tool = allTools.find(
-          (t) =>
-            t.toolName.toLowerCase() === name.toLowerCase() ||
-            t.alias?.some((a) => a.toLowerCase() === name.toLowerCase()),
-        )
-        if (!tool || seen.has(tool.toolID)) continue
-        seen.add(tool.toolID)
-        const existing = toolCountMap.get(tool.toolName)
-        if (existing) {
-          existing.count++
-        } else {
-          toolCountMap.set(tool.toolName, { count: 1, toolID: tool.toolID })
-        }
-      }
-    }
-  }
-  const topTools: ToolRanking = Array.from(toolCountMap.entries())
-    .map(([name, { count, toolID }]) => ({ name, count, toolID }))
-    .sort((a, b) => b.count - a.count)
+  const toolNameByID = new Map(allTools.map((t) => [t.toolID, t.toolName]))
 
-  // --- 年別・ツール別の採用数を集計 ---
+  // --- 人気ツールランキング（1サービス1回、構成要素からの親ツールも含む） ---
+  const toolCountMap = new Map<string, { count: number; toolID: string }>()
+  // --- 年別・ツール別の採用数 ---
   const yearToolMap = new Map<string, Map<string, number>>()
   let totalToolsInServices = 0
 
@@ -63,24 +41,23 @@ export function getStatsData() {
     const year = post.date.slice(0, 4)
     if (!yearToolMap.has(year)) yearToolMap.set(year, new Map())
     const yearMap = yearToolMap.get(year)!
-    const seen = new Set<string>()
 
-    let toolCount = 0
-    for (const cat of post.stack) {
-      for (const { name } of cat.detail) {
-        toolCount++
-        const tool = allTools.find(
-          (t) =>
-            t.toolName.toLowerCase() === name.toLowerCase() ||
-            t.alias?.some((a) => a.toLowerCase() === name.toLowerCase()),
-        )
-        if (!tool || seen.has(tool.toolName)) continue
-        seen.add(tool.toolName)
-        yearMap.set(tool.toolName, (yearMap.get(tool.toolName) || 0) + 1)
+    getPostToolIDs(post).forEach((toolID) => {
+      const name = toolNameByID.get(toolID)
+      if (!name) return
+      const existing = toolCountMap.get(name)
+      if (existing) {
+        existing.count++
+      } else {
+        toolCountMap.set(name, { count: 1, toolID })
       }
-    }
-    totalToolsInServices += toolCount
+      yearMap.set(name, (yearMap.get(name) || 0) + 1)
+    })
+    totalToolsInServices += post.stack.reduce((sum, { detail }) => sum + detail.length, 0)
   }
+  const topTools: ToolRanking = Array.from(toolCountMap.entries())
+    .map(([name, { count, toolID }]) => ({ name, count, toolID }))
+    .sort((a, b) => b.count - a.count)
 
   const sortedYears = Array.from(yearCountMap.keys()).sort()
 
@@ -155,11 +132,11 @@ export function getStatsData() {
   }
 }
 
-// toolID -> 採用サービス数（1サービス内の重複は1件として数える）
+// toolID -> 採用サービス数（1サービス1回。構成要素だけを書いたサービスも親ツールに数える）
 export function getToolUsageCounts(): Record<string, number> {
   const counts: Record<string, number> = {}
   for (const post of getSortedPostsData()) {
-    new Set(Object.values(post.toolPathInfo ?? {})).forEach((toolID) => {
+    getPostToolIDs(post).forEach((toolID) => {
       counts[toolID] = (counts[toolID] || 0) + 1
     })
   }

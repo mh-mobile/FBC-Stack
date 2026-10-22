@@ -61,17 +61,26 @@ export function getPostData(id: string): PostData {
   }
 }
 
-export function getFilteredPostsData({ toolName, alias }: ToolData): PostData[] {
-  const postsData = getSortedPostsData()
-  return postsData.filter(({ stack }) =>
-    stack.some(({ detail }) =>
-      detail.some(
-        ({ name }) =>
-          name.toLowerCase() === toolName.toLowerCase() ||
-          alias?.some((a) => a.toLowerCase() === name.toLowerCase()),
-      ),
-    ),
-  )
+// 構成要素だけを書いたサービスも、親ツールを採用しているものとして集計する
+// （例: Stimulus / Turbo だけを記載 → Hotwire の採用にも数える）
+export const IMPLIED_TOOLS: Record<string, string> = {
+  turbo: 'hotwire',
+  turbo_rails: 'hotwire',
+  stimulus: 'hotwire',
+  stimulus_rails: 'hotwire',
+}
+
+// サービスが採用しているツールIDの集合（重複なし、IMPLIED_TOOLS による親ツールを含む）。採用数の集計はすべてこれを使う
+export function getPostToolIDs(post: PostData): Set<string> {
+  const ids = new Set(Object.values(post.toolPathInfo ?? {}))
+  ids.forEach((id) => {
+    if (IMPLIED_TOOLS[id]) ids.add(IMPLIED_TOOLS[id])
+  })
+  return ids
+}
+
+export function getFilteredPostsData({ toolID }: ToolData): PostData[] {
+  return getSortedPostsData().filter((post) => getPostToolIDs(post).has(toolID))
 }
 
 export function getToolsNameInPostsData(): string[] {
